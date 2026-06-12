@@ -1,0 +1,6 @@
+name: lambek-trivial
+include: .
+flags:
+  --no-prop  
+  --type-in-type 
+  --no-import-sorts

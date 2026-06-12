@@ -1,0 +1,89 @@
+open import 0-Dim
+open import 1-Dim.Graph.Def-Types.Ob
+open import 1-Dim.Graph.Def-Types.Fun
+open import 1-Dim.Graph.Def-Types-pub.Ob
+open import 1-Dim.Graph.Def-Types-pub.Fun
+open import 1-Dim.Graph.Gens.Objs
+
+module 1-Dim.Graph.Gens.Fun where
+
+module _ (A : [Ob]) where
+  module Void where
+    Init : [Fun] (Void > A)
+    Init .f-ob ()
+    Init .f-to (() ~ ())
+
+  module Unit where
+    Term : [Fun] (A > Unit)
+    Term .f-ob _ = !
+    Term .f-to _ _ = !
+--
+
+module Prod2 where
+  module _ (AB @(A × B) : [Ob] [×] [Ob]) where
+    Prj1 : [Fun] (Prod2 AB > A)
+    Prj1 .f-ob   = Any.Prod2.Prj1 (A .Ob   × B .Ob  )
+    Prj1 .f-to _ = Any.Prod2.Prj1 (A .To _ × B .To _)
+    Prj2 : [Fun] (Prod2 AB > B)
+    Prj2 .f-ob   = Any.Prod2.Prj2 (A .Ob   × B .Ob  )
+    Prj2 .f-to _ = Any.Prod2.Prj2 (A .To _ × B .To _)
+  module _ (X : [Ob]) where
+    Diag : [Fun] (X > Prod2 (X × X))
+    Diag .f-ob   = Any.Prod2.Diag (X .Ob  )
+    Diag .f-to _ = Any.Prod2.Diag (X .To _)
+
+module Pow where
+  module _ (IA @(I > A) : [Any] [~] [Ob]) where
+    Prj : (i : I) → [Fun] (Pow IA > A)
+    Prj i .f-ob   = Any.Pow.Prj _ i
+    Prj i .f-to _ = Any.ProdI.Prj _ i
+
+    Diag : [Fun] (A > Pow IA)
+    Diag .f-ob   = Any.Pow.Diag _
+    Diag .f-to _ = Any.ProdI.Diag _
+
+module CoPow where
+  module _ (IA @(I × A) : [Any] [×] [Ob]) where
+    Inj : (i : I) → [Fun] (A > CoPow IA)
+    Inj i .f-ob   = Any.CoPow.Inj _ i
+    Inj i .f-to _ to = (≡ _) , to
+
+    Glue : [Fun] (CoPow IA > A)
+    Glue .f-ob   = Any.CoPow.Glue _
+    Glue .f-to _ (_ , to) = to
+
+module Summ2 where
+  module _ (AB @(A + B) : [Ob] [×] [Ob]) where
+    Inj1 : [Fun] (A > Summ2 AB)
+    Inj1 .f-ob   = Any.Summ2.Inj1 (A .Ob + B .Ob)
+    Inj1 .f-to _ = ⑴
+    Inj2 : [Fun] (B > Summ2 AB)
+    Inj2 .f-ob   = Any.Summ2.Inj2 (A .Ob + B .Ob)
+    Inj2 .f-to _ = ⑴
+  module _ (X : [Ob]) where
+    Glue : [Fun] (Summ2 (X + X) > X)
+    Glue .f-ob = Any.Summ2.Glue (X .Ob)
+    Glue .f-to (↑₁ a1 ~ ↑₁ a2) = ⑴
+    Glue .f-to (↑₁ a1 ~ ↑₂ b2) ()
+    Glue .f-to (↑₂ b1 ~ ↑₁ a2) ()
+    Glue .f-to (↑₂ b1 ~ ↑₂ b2) = ⑴
+
+module ProdI where
+  module _ (IA @(I ∷ A) : [Any] [∷] λ I → I → [Ob]) where
+    Prj : (i : I) → [Fun] (ProdI IA > A i)
+    Prj i .f-ob   = Any.ProdI.Prj _ i
+    Prj i .f-to _ = Any.ProdI.Prj _ i
+  module _ (IA @(I > A) : [Any] [~] [Ob]) where
+    Diag : [Fun] (A > ProdI (I ∷ λ _ → A))
+    Diag .f-ob   = Any.ProdI.Diag _
+    Diag .f-to _ = Any.ProdI.Diag _
+
+module SummI where
+  module _ (IA @(I ∷ A) : [Any] [∷] λ I → I → [Ob]) where
+    Inj : (i : I) → [Fun] (A i > SummI IA)
+    Inj i .f-ob   = Any.SummI.Inj _ i
+    Inj i .f-to _ = (≡ i) ∷_
+  module _ (IA @(I > A) : [Any] [~] [Ob]) where
+    Glue : [Fun] (SummI (I ∷ λ _ → A) > A)
+    Glue .f-ob   = Any.SummI.Glue _
+    Glue .f-to _ ((≡ i) ∷ to) = to

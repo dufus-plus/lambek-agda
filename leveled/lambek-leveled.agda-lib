@@ -1,0 +1,9 @@
+name: lambek-leveled
+include: .
+flags:
+  --safe
+  --no-prop
+  --no-type-in-type
+  --no-omega-in-omega
+  --no-level-universe
+  --no-import-sorts
