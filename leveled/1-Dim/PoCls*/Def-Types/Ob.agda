@@ -1,37 +1,31 @@
 open import 0-Dim
 
-module 1-Dim.PoClu*.Def-Types.Ob where
-
-module _ (I : [#Typ]) (J : [#Typ]) where
-  record _[/]_  : [Typ] where
-    constructor _/_
-    field i : I .[%]
-    field j : J .[%]
-  open _[/]_ public
-
-module _ {I : [#Typ]} {J : [#Typ]} where
-  /⊔ : I [/] J → [%Typ]
-  /⊔ (i / j) = I .%: i ⊔ J .%: j
-
-module _ {I J}
-       (I: : [Typ*] I) (J: : [Typ*] J)
-       (ij : I [/] J) where
-  record _*[/]*_ : [Typ:] (/⊔ ij) where
-    constructor _/_
-    field i : I: (ij .i)
-    field j : J: (ij .j)
-  open _*[/]*_ public
+module 1-Dim.PoCls*.Def-Types.Ob where
 
 record [#Ob] : [Typ]₁ where
   constructor ‼
-  field I : [#Typ]
-  field J : [#Typ]
-  field El% : I [/] J → [%Typ]
+  field %Ob : [2/] [Typ]
+  field %To : [2/] [Typ]
+  field Ob% : [Slash] %Ob → [%Typ]
+  field To% : [Slash] %To → [2~] [Slash] %Ob → [%Typ]
+  field tran% : [2×] [Slash] %To → [Slash] %To
+
+module :Ob* (# : [#Ob])where
+  open [#Ob] #
+  :Ob: = Typ*.[Ob*] (_ ^ Ob%)
+  module _ (Ob: : :Ob:) where
+    :To: = Typ*.[Rel*] (_ ^ To%) (Ob: ~ Ob:)
+    module _ (To: : :To:) where
+      [is-tran] =
+        (3% : [3~] _) (2%r @(%r12 × %r23) : [2×] _) →
+        (3ob @(ob1 ~ ob2 ~ ob3) : ([3~]: Ob:) 3%) →
+        (2to : To: %r12 _ (ob1 ~ ob2) [×] To: %r23 _ (ob2 ~ ob3))
+        → To: (tran% 2%r) _ (ob1 ~ ob3)
 
 module _ (# : [#Ob]) where
-  record [Ob*/*] : [Typ:ω] where
+  record [Ob*] : [Typ:ω] where
     constructor ‼
-    open [#Ob] #
-    field I: : [Typ*] I
-    field J: : [Typ*] J
-    field El: : ∀ (%ij) → (ij : (I: *[/]* J:) %ij) → [Typ:] (El% %ij)
+    open :Ob*
+    field Ob: : :Ob: #
+    field To: : :To: # Ob:
+    field tran: : [is-tran] # Ob: To:

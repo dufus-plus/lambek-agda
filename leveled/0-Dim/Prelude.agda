@@ -308,3 +308,28 @@ module _ {%i %j}
     field i : I
     field j : J
   open _[/]_ public
+
+module _ {%} where
+  [2/]_ : [Typ:] % → [Typ:] %
+  [2/] A = A [/] A
+
+/⊔ : [2/] [%Typ] → [%Typ]
+/⊔ (i / j) = i ⊔ j
+
+_#[/]#_ : [#Typ] → [#Typ] → [#Typ]
+(%A ^ A:) #[/]# (%B ^ B:) = (%A [/] %B) ^ λ (a / b) → A: a ⊔ B: b
+
+[2/]#_ : [#Typ] → [#Typ]
+[2/]# #A = #A #[/]# #A
+
+module _ {#A #B} where
+  _:[/]:_ : [Typ*] #A → [Typ*] #B → [Typ*] (#A #[/]# #B)
+  (A: :[/]: B:) (i / j) = A: i [/] B: j
+
+module _ {#A} where
+  [2/]:_ : [Typ*] #A → [Typ*] ([2/]# #A)
+  [2/]: A: = A: :[/]: A:
+
+module _ {2% : [2/] [%Typ]} where
+  [Slash] : ([2/]: [Typ:]) 2% → [Typ:] (/⊔ 2%)
+  [Slash] (A / B) = A [/] B
