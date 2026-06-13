@@ -12,4 +12,4 @@ module _ (2# @(#A ~ #B) : [2~] [#Ob]) where
 module _ {2# @(#A ~ #B) : [2~] [#Ob]}
          (#R @(_ ^ %:): [#Rel] (#A ~ #B))
          (2O @(A: ~ B:) : ([2~]* [Ob*]) 2#) where
-  [Rel] = ∀ %ab %r → (A: :[~]: B:) %ab → [Typ:] (%: %r %ab)
+  [Rel] = ∀ %r %ab → (A: :[~]: B:) %ab → [Typ:] (%: %r %ab)

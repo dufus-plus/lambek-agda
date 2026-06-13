@@ -2,16 +2,8 @@ open import 0-Dim.Prelude
 import 0-Dim.Typ*.Def-Types as Typ*
 
 -- formal colimits of formal limits
--- influenced by ind-pro-objects
-module 0-Dim.IndPro*.Def-Types where
-
-module _ {%i %j}
-    (I : [Typ:] %i) (J : [Typ:] %j) where
-  record _[/]_ : [Typ:] (%i ⊔ %j) where
-    constructor _/_
-    field i : I
-    field j : J
-  open _[/]_ public
+-- inspired by ind-pro-object completion
+module 0-Dim.IndProTyp*.Def-Types where
 
 record [#Ob] : [Typ]₁ where
   constructor ‼
@@ -114,8 +106,8 @@ module _ {2# @(#A ~ #B) : [2~] [#Ob]}
     open [#Rel]
     field IRel: : Typ*.[Rel] (_ ^ #R .IRel%) (A .IOb: ~ B .IOb:)
     field JRel: : Typ*.[Rel] (_ ^ #R .JRel%) (A .JOb: ~ B .JOb:)
-    field ElmR: :
-            ∀ %ab %r
-            ∀ abiob abjob →
-            IRel: %ab %r (abiob %ab) [/] JRel: %ab %r (abjob %ab) →
-            A .Elm: [~] B .Elm:
+    -- field ElmR: :
+    --         ∀ %ab %r
+    --         ∀ abiob abjob →
+    --         IRel: %ab %r (abiob %ab) [/] JRel: %ab %r (abjob %ab) →
+    --         A .Elm: [~] B .Elm:

@@ -300,3 +300,11 @@ module _ {%o %r} {O : [Typ:] %o}
     field $L : R (a ~ b)
     field $R : R (b ~ a)
   open [⊣] public
+
+module _ {%i %j}
+    (I : [Typ:] %i) (J : [Typ:] %j) where
+  record _[/]_ : [Typ:] (%i ⊔ %j) where
+    constructor _/_
+    field i : I
+    field j : J
+  open _[/]_ public
