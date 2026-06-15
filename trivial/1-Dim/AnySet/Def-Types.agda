@@ -9,15 +9,15 @@ module 1-Dim.AnySet.Def-Types where
 
 module _ (2A : [2~] [Ob]) where
   [Rel] : [Any]
-  [Rel] = (2a : [Dup2] 2A) → PoSet.[Ob]
+  [Rel] = (2a : [Dup2] 2A) → Set.[Ob]
 
 module _ (2A : [2~] [Ob]) (2R @(R1 > R2) : [2~] [Rel] 2A) where
   Rel-[Fun] : [Any]
-  Rel-[Fun] = (2a : [Dup2] 2A) → PoSet.[Fun] (R1 2a > R2 2a)
+  Rel-[Fun] = (2a : [Dup2] 2A) → Set.[Fun] (R1 2a > R2 2a)
 
 module _ (A : [Ob]) ((! > R) : [!] [~] [Rel] (2~ A)) where
   Rel-[0Fun] : [Any]
-  Rel-[0Fun] = (a : A) → R (2~ a) .Ob
+  Rel-[0Fun] = (a : A) → Set.[0Fun] (! ~ R (2~ a))
 
 module _ (3A @(A ~ B ~ C) : [3~] [Ob])
     (3R @((R₁₂ × R₂₃) ~ R₁₃) : ([Rel] (A ~ B) [×] [Rel] (B ~ C)) [~] [Rel] (A ~ C)) where

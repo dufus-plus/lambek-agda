@@ -1,44 +1,42 @@
-open import 0-Dim
-open import 1-Dim.Graph
-open import 1-Dim.Set.Defs
-open import 1-Dim.Set.Gens.Ob
-open import 1-Dim.Set.Gens.Exp
+open import 0-Dim-qua
+import 1-Dim.Graph.Def-Gens as Graph
+open import 1-Dim.Graph.Def-Types-pub
+open import 1-Dim.Set.Def-Types
+open import 1-Dim.Set.Def-Types-pub
+open import 1-Dim.Set.Def-Opers.Fun
+open import 1-Dim.Set.Def-Gens.Objs
 
-module 1-Dim.Set.Gens.Fun where
-
-open [Ob]
-open [Fun]
-open Fun-[To]
-open Graph.[Fun]
+module 1-Dim.Set.Def-Gens.Fun where
 
 module _ (A : [Ob]) where
   module Void where
-    Init-nOb : [Fun] (Void > A)
-    Init-nOb .↓ = Graph.Void.Init-nOb (A .↓)
+    Init : [Fun] (Void > A)
+    Init .↓ = Graph.Void.Init _
 
   module Unit where
-    Term-nOb : [Fun] (A > Unit)
-    Term-nOb .↓ = Graph.Unit.Term-nOb (A .↓)
+    Term : [Fun] (A > Unit)
+    Term .↓ = Graph.Unit.Term _
 --
 
-module Prod where
-  module _ ((A × B) : [Ob] [×] [Ob]) where
-    Prj1-nOb : [Fun] (Prod (A × B) > A)
-    Prj1-nOb .↓ = Graph.Prod.Prj1-nOb (A .↓ × B .↓)
-    Prj2-nOb : [Fun] (Prod (A × B) > B)
-    Prj2-nOb .↓ = Graph.Prod.Prj2-nOb (A .↓ × B .↓)
+module Prod2 where
+  module _ (AB @(A × B) : [Ob] [×] [Ob]) where
+    Prj1 : [Fun] (Prod2 (A × B) > A)
+    Prj1 .↓ = Graph.Prod2.Prj1 _
+    Prj2 : [Fun] (Prod2 (A × B) > B)
+    Prj2 .↓ = Graph.Prod2.Prj2 _
   module _ (X : [Ob]) where
-    Diag-nOb : [Fun] (X > Prod (X × X))
-    Diag-nOb .↓ = Graph.Prod.Diag-nOb (X .↓)
-module Summ where
-  module _ ((A + B) : [Ob] [×] [Ob]) where
-    Inj1-nOb : [Fun] (A > Summ (A + B))
-    Inj1-nOb .↓ = Graph.Summ.Inj1-nOb (A .↓ + B .↓)
-    Inj2-nOb : [Fun] (B > Summ (A + B))
-    Inj2-nOb .↓ = Graph.Summ.Inj2-nOb (A .↓ + B .↓)
+    Diag : [Fun] (X > Prod2 (X × X))
+    Diag .↓ = Graph.Prod2.Diag _
+
+module Summ2 where
+  module _ (AB @(A + B) : [Ob] [×] [Ob]) where
+    Inj1 : [Fun] (A > Summ2 (A + B))
+    Inj1 .↓ = Graph.Summ2.Inj1 _
+    Inj2 : [Fun] (B > Summ2 (A + B))
+    Inj2 .↓ = Graph.Summ2.Inj2 _
   module _ (X : [Ob]) where
-    Glue-nOb : [Fun] (Summ (X + X) > X)
-    Glue-nOb .↓ = Graph.Summ.Glue-nOb (X .↓)
+    Glue : [Fun] (Summ2 (X + X) > X)
+    Glue .↓ = Graph.Summ2.Glue _
 
 module _ (AB @(A ~ B) : [2~] [Ob]) where
   ConstF : [Fun] (B > Fun (A > B))

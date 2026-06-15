@@ -1,7 +1,7 @@
 open import 0-Dim-qua
 open import 1-Dim.Graph.Def-Types
 open import 1-Dim.Graph.Def-Types-pub
-import 1-Dim.AnyGraph.Defs as AnyGraph
+import 1-Dim.AnyGraph.Def-Types as AnyGraph
 
 module 1-Dim.Graph.Def-Gens.Exp where
 

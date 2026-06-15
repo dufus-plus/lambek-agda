@@ -38,19 +38,19 @@ module _ (AB @(A × B) : [Ob] [×] [Ob]) where
     A .tran _ (ato12 × ato23) × B .tran _ (bto12 × bto23)
 
 module _ (AB @(A + B) : [Ob] [×] [Ob]) where
-  Summ : [Ob]
-  Summ .It = Graph.Summ2 (A .It + B .It)
-  Summ .is .refl (↑₁ _) = A .refl _
-  Summ .is .refl (↑₂ _) = B .refl _
-  Summ .is .symm (↑₁ _ ~ ↑₁ _) (- ato21) = A .symm _ (- ato21)
-  Summ .is .symm (↑₁ _ ~ ↑₂ _) ()
-  Summ .is .symm (↑₂ _ ~ ↑₁ _) ()
-  Summ .is .symm (↑₂ _ ~ ↑₂ _) (- bto21) = B .symm _ (- bto21)
-  Summ .is .tran (↑₁ _ ~ ↑₁ _ ~ ↑₁ _) 2to = A .tran _ 2to
-  Summ .is .tran (↑₁ _ ~ ↑₁ _ ~ ↑₂ _) ()
-  Summ .is .tran (↑₁ _ ~ ↑₂ _ ~ ↑₁ _) ()
-  Summ .is .tran (↑₁ _ ~ ↑₂ _ ~ ↑₂ _) ()
-  Summ .is .tran (↑₂ _ ~ ↑₁ _ ~ ↑₁ _) ()
-  Summ .is .tran (↑₂ _ ~ ↑₁ _ ~ ↑₂ _) ()
-  Summ .is .tran (↑₂ _ ~ ↑₂ _ ~ ↑₁ _) ()
-  Summ .is .tran (↑₂ _ ~ ↑₂ _ ~ ↑₂ _) 2to = B .tran _ 2to
+  Summ2 : [Ob]
+  Summ2 .It = Graph.Summ2 (A .It + B .It)
+  Summ2 .is .refl (↑₁ _) = A .refl _
+  Summ2 .is .refl (↑₂ _) = B .refl _
+  Summ2 .is .symm (↑₁ _ ~ ↑₁ _) (- ato21) = A .symm _ (- ato21)
+  Summ2 .is .symm (↑₁ _ ~ ↑₂ _) ()
+  Summ2 .is .symm (↑₂ _ ~ ↑₁ _) ()
+  Summ2 .is .symm (↑₂ _ ~ ↑₂ _) (- bto21) = B .symm _ (- bto21)
+  Summ2 .is .tran (↑₁ _ ~ ↑₁ _ ~ ↑₁ _) 2to = A .tran _ 2to
+  Summ2 .is .tran (↑₁ _ ~ ↑₁ _ ~ ↑₂ _) ()
+  Summ2 .is .tran (↑₁ _ ~ ↑₂ _ ~ ↑₁ _) ()
+  Summ2 .is .tran (↑₁ _ ~ ↑₂ _ ~ ↑₂ _) ()
+  Summ2 .is .tran (↑₂ _ ~ ↑₁ _ ~ ↑₁ _) ()
+  Summ2 .is .tran (↑₂ _ ~ ↑₁ _ ~ ↑₂ _) ()
+  Summ2 .is .tran (↑₂ _ ~ ↑₂ _ ~ ↑₁ _) ()
+  Summ2 .is .tran (↑₂ _ ~ ↑₂ _ ~ ↑₂ _) 2to = B .tran _ 2to
