@@ -1,16 +1,16 @@
-open import 0-Dim
-import 1-Dim.AnyPoSet.Defs as AnyPoSet
+open import 0-Dim-qua
+import 1-Dim.AnyPoSet.Def-Types as AnyPoSet
 import 1-Dim.PoSet.Def-Types as PoSet
 open import 1-Dim.PoSet.Def-Types-pub
-import 2-Dim.PoQuiver.Defs.Ob as PoQuiver
-import 2-Dim.DblQuiver.Defs.Ob as DblQuiver
+import 2-Dim.PoQuiver.Def-Types.Ob as PoQuiver
+import 2-Dim.DblQuiver.Def-Types.Ob as DblQuiver
+open import 2-Dim.DblQuiver.Def-Types-pub.Ob
 import 2-Dim.PoCat.Def-Types.is-Ob as PoCat
 
-module 2-Dim.DblCat.Defs.is-Ob where
+module 2-Dim.DblCat.Def-Types.is-Ob where
 
-open PoSet-DblGraph.[Ob]
-open PoSet-DblGraph using (‼)
 open PoCat using (‼)
+open DblQuiver using (‼)
 
 module :[is-Ob]
        (DblQuiver @(‼ $Ob V-Mor H-Mor H|V-Mor) : DblQuiver.[Ob])
@@ -105,7 +105,7 @@ module :[is-Ob]
            H-Mor _ .To (H2 ~ H3)) →
            H|V-Mor _ (V1 ~ V2) (H1 ~ H3)
 
-module _ (DblGraph : PoSet-DblGraph.[Ob])
+module _ (DblGraph : DblQuiver.[Ob])
          (V-oper : PoCat.[oper] (V-Graph DblGraph))
          (H-oper : PoCat.[oper] (H-Graph DblGraph))
       where

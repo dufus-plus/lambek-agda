@@ -1,45 +1,38 @@
-open import 0-Dim
-open import 1-Dim.Set.Defs
-open import 1-Dim.Set.Gens.Exp
-open import 1-Dim.Set.Oper.Fun
-open import 1-Dim.Set.Oper.Fun-To
-open import 1-Dim.Set.Oper.Mod
-open import 1-Dim.Set.Oper.Mod-Fun
-import 2-Dim.PoSet-Graph.Defs.Ob as PoSet-Graph
-import 2-Dim.PoSet-DblGraph.Defs.Ob as PoSet-DblGraph
-import 2-Dim.PoCat.Defs.is as PoCat
-import 2-Dim.DblCat.Defs.is as DblCat
+open import 0-Dim-qua
+open import 1-Dim.Set.Def-Types
+open import 1-Dim.Set.Def-Types-pub
+open import 1-Dim.Set.Def-Opers.Fun
+open import 1-Dim.Set.Def-Opers.Fun-To
+open import 1-Dim.Set.Def-Opers.Mod
+open import 1-Dim.Set.Def-Opers.Mod-Fun
+import 2-Dim.PoQuiver.Def-Types.Ob as PoQuiver
+import 2-Dim.DblQuiver.Def-Types.Ob as DblQuiver
+import 2-Dim.PoCat.Def-Types.is-Ob as PoCat
+import 2-Dim.DblCat.Def-Types.is-Ob as DblCat
+open import 2-Dim.DblQuiver.Def-Types-pub.Ob
+open import 2-Dim.DblCat.Def-Types-pub.is-Ob
 
 -- operations in Po(Set)oid on square 2-(Mor)phisms
-module 1-Dim.Set.Oper.Mod|Fun where
-
-open PoSet-DblGraph.[Ob]
-open DblCat.[is]
-open [Mod|Fun]
-open Mod-[Fun]
-open Fun-[To]
-open [Fun]
-open [Mod]
-open [Ob]
+module 1-Dim.Set.Def-Opers.Mod|Fun where
 
 module Mod|Fun where
-  DblGraph : PoSet-DblGraph.[Ob]
-  DblGraph .HV-Ob = [Ob] -- PoSet
-  DblGraph .V-Mor = Fun
+  DblGraph : DblQuiver.[Ob]
+  DblGraph .Ob = [Ob]
+  DblGraph .V-Mor = Fun:PS
   DblGraph .H-Mor = Mod
   DblGraph .H|V-2Mor = [Mod|Fun]
 
   V-oper : PoCat.[oper] (V-Graph DblGraph)
   H-oper : PoCat.[oper] (H-Graph DblGraph)
-  V-oper = Fun.oper
+  V-oper = Fun:PS.oper
   H-oper = Mod.oper
 
   V-prop : PoCat.[prop] (V-Graph DblGraph) V-oper
   H-prop : PoCat.[prop] (H-Graph DblGraph) H-oper
-  V-prop = Fun.prop
+  V-prop = Fun:PS.prop
   H-prop = Mod.prop
 
-  open DblCat.:is DblGraph V-oper H-oper
+  open DblCat.:[is-Ob] DblGraph V-oper H-oper
 
   Mod-Id|Fun : :H-Id|V
   Mod|Fun-Id : :H|V-Id
@@ -73,7 +66,7 @@ module Mod|Fun where
   Mod|IFun-Mu 22A 2f 3M (mf12 × m|f23) .↓ _ = mf12 .↓ _ ∘ m|f23 .↓ _
   Mod|FunI-Mu 22A 2f 3M (m|f12 × mf23) .↓ _ = m|f12 .↓ _ ∘ mf23 .↓ _
 
-  is-DblCat : DblCat.[is] DblGraph V-oper H-oper
+  is-DblCat : DblCat.[is-Ob] DblGraph V-oper H-oper
   is-DblCat .H-Id|V = Mod-Id|Fun
   is-DblCat .H|V-Id = Mod|Fun-Id
   is-DblCat .H-Mu|V = Mod-Mu|Fun
