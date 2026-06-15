@@ -2,20 +2,20 @@ open import 0-Dim
 import 1-Dim.AnyPoSet.Defs as AnyPoSet
 import 1-Dim.PoSet.Def-Types as PoSet
 open import 1-Dim.PoSet.Def-Types-pub
-import 2-Dim.PoSet-Graph.Defs.Ob as PoSet-Graph
-import 2-Dim.PoSet-DblGraph.Defs.Ob as PoSet-DblGraph
-import 2-Dim.PoCat.Defs.is as PoCat
+import 2-Dim.PoQuiver.Defs.Ob as PoQuiver
+import 2-Dim.DblQuiver.Defs.Ob as DblQuiver
+import 2-Dim.PoCat.Def-Types.is-Ob as PoCat
 
-module 2-Dim.DblCat.Defs.is where
+module 2-Dim.DblCat.Defs.is-Ob where
 
 open PoSet-DblGraph.[Ob]
 open PoSet-DblGraph using (‼)
 open PoCat using (‼)
 
-module :is
-       (DblGraph @(‼ $Ob V-Mor H-Mor H|V-Mor) : PoSet-DblGraph.[Ob])
-       (V-oper @(‼ VId VMu): PoCat.[oper] (V-Graph DblGraph))
-       (H-oper @(‼ HId HMu): PoCat.[oper] (H-Graph DblGraph))
+module :[is-Ob]
+       (DblQuiver @(‼ $Ob V-Mor H-Mor H|V-Mor) : DblQuiver.[Ob])
+       (V-oper @(‼ VId VMu): PoCat.[oper] (V-Graph DblQuiver))
+       (H-oper @(‼ HId HMu): PoCat.[oper] (H-Graph DblQuiver))
     where
 
   :H-Id|V : [Any]
@@ -109,9 +109,9 @@ module _ (DblGraph : PoSet-DblGraph.[Ob])
          (V-oper : PoCat.[oper] (V-Graph DblGraph))
          (H-oper : PoCat.[oper] (H-Graph DblGraph))
       where
-  record [is] : [Any] where
+  record [is-Ob] : [Any] where
     constructor ‼
-    open :is DblGraph V-oper H-oper
+    open :[is-Ob] DblGraph V-oper H-oper
 
     -- cube composites
     field H-Id|V : :H-Id|V

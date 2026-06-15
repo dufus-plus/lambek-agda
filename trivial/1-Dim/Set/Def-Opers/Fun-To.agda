@@ -1,20 +1,20 @@
 open import 0-Dim-qua
-open import 1-Dim.PoSet.Def-Types
-open import 1-Dim.PoSet.Def-Types-pub
-open import 1-Dim.PoSet.Def-Opers.Fun
+open import 1-Dim.Set.Def-Types
+open import 1-Dim.Set.Def-Types-pub
+open import 1-Dim.Set.Def-Opers.Fun
 import 2-Dim.Quiver.Def-Types.Ob as Quiver
 open import 2-Dim.Quiver.Def-Types-pub.Ob
 import 2-Dim.Cat.Def-Types.is-Ob as Cat
 open import 2-Dim.Cat.Def-Types-pub.is-Ob
 
 --
--- Fun-[To] satisfies axioms of [PoCat]
+-- Fun-[To] satisfies axioms of [Cat]
 --
 module 1-Dim.Set.Def-Opers.Fun-To where
 
 module Fun where
   Quiver : Quiver.[Ob]
-  Quiver .Ob = [Ob] -- PoSet
+  Quiver .Ob = [Ob]
   Quiver .Hom = Fun
 
   oper : Cat.[oper] Quiver
