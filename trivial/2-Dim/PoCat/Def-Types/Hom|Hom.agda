@@ -1,13 +1,11 @@
-open import 0-Dim
-import 1-Dim.PoSet.Defs as PoSet
-open import 2-Dim.PoCat.Defs.Ob
-open import 2-Dim.PoCat.Defs.Hom
+open import 0-Dim-qua
+import 1-Dim.PoSet.Def-Types as PoSet
+open import 1-Dim.PoSet.Def-Types-pub
+open import 2-Dim.PoCat.Def-Types.Ob
+open import 2-Dim.PoCat.Def-Types-pub.Ob
+open import 2-Dim.PoCat.Def-Types.Hom
 
-module 2-Dim.PoCat.Defs.Hom|Hom where
-
-open [Ob]
-open PoSet.[Ob]
-open PoSet.[Fun]
+module 2-Dim.PoCat.Def-Types.Hom|Hom where
 
 module _ (C : [Ob])
          (22ob : [22~] C. Ob)

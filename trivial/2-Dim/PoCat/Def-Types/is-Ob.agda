@@ -1,28 +1,27 @@
-open import 0-Dim
-import 1-Dim.AnyPoSet.Defs as AnyPoSet
+open import 0-Dim-qua
+import 1-Dim.AnyPoSet.Def-Types as AnyPoSet
 import 1-Dim.PoSet.Def-Types as PoSet
-open import 1-Dim.PoSet.Def-Types-pub.Ob
-open import 1-Dim.PoSet.Def-Types-pub.Fun
-import 2-Dim.PoSet-Graph.Defs.Ob as PoSet-Graph
+open import 1-Dim.PoSet.Def-Types-pub
+import 2-Dim.PoQuiver.Def-Types.Ob as PoQuiver
 
-module 2-Dim.PoCat.Defs.is where
+module 2-Dim.PoCat.Def-Types.is-Ob where
 
-open PoSet-Graph using (‼)
+open PoQuiver using (‼)
 
-module _ (Graph @(‼ $Ob Hom) : PoSet-Graph.[Ob]) where
-  module :oper  where
+module _ (Quiver @(‼ $Ob Hom) : PoQuiver.[Ob]) where
+  module :[oper]  where
     -- operations on Hom: (id)entity, (mu)ltiplication
     :Id = AnyPoSet.Rel-[0Fun] _ (! > Hom)
     :Mu = AnyPoSet.Rel-[2Fun] _ ((Hom × Hom) > Hom)
 
   record [oper] : [Any] where
     constructor ‼
-    open :oper
+    open :[oper]
     field Id : :Id
     field Mu : :Mu
   open [oper]
 
-  module :prop (oper @(‼ Id Mu): [oper]) where
+  module :[prop] (oper @(‼ Id Mu): [oper]) where
     -- associativity of multiplication
     :Assoc-fw =
       (4ob @(ob1 ~ ob2 ~ ob3 ~ ob4) : [4~] $Ob)
@@ -56,10 +55,10 @@ module _ (Graph @(‼ $Ob Hom) : PoSet-Graph.[Ob]) where
       (ob : $Ob) →
       Hom _ .To (Mu _ .f-ob (Id ob × Id ob) ~ Id ob)
 
-module _ (Graph : PoSet-Graph.[Ob]) (oper : [oper] Graph) where
+module _ (Quiver : PoQuiver.[Ob]) (oper : [oper] Quiver) where
   record [prop] : [Any] where
     constructor ‼
-    open :prop Graph oper
+    open :[prop] Quiver oper
     field Assoc-fw : :Assoc-fw
     field Assoc-bw : :Assoc-bw
     field LUnit-fw : :LUnit-fw

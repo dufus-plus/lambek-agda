@@ -1,15 +1,13 @@
 open import 0-Dim
 open import 1-Dim.PoSet.Def-Types
 open import 1-Dim.PoSet.Def-Types-pub
-open import 1-Dim.PoSet.Gens.Fun
-open import 1-Dim.PoSet.Gens.Mod
 open import 1-Dim.PoSet.Def-Opers.Fun
 open import 1-Dim.PoSet.Def-Opers.Fun-To
 open import 1-Dim.PoSet.Def-Opers.Mod
 open import 1-Dim.PoSet.Def-Opers.Mod-Fun
-import 2-Dim.PoSet-Graph.Defs.Ob as PoSet-Graph
+import 2-Dim.PoQuiver.Def-Types.Ob as PoSet-Graph
+import 2-Dim.PoCat.Def-Types.is-Ob as PoCat
 import 2-Dim.PoSet-DblGraph.Defs.Ob as PoSet-DblGraph
-import 2-Dim.PoCat.Defs.is as PoCat
 import 2-Dim.DblCat.Defs.is as DblCat
 
 -- operations in Po(Set)oid on square 2-(Mor)phisms

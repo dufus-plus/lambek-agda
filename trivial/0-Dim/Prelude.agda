@@ -41,12 +41,7 @@ pattern _,_ a b = _×_ a b
 -- yet another pair with named constructor
 -- 1st argument is considered as contravariant
 record _[~]_ ([-] [+] : [Any]) : [Any] where
--- yet another pair with named constructor
--- 1st argument is considered as contravariant
-record _[~]_ ([-] [+] : [Any]) : [Any] where
   constructor _~_
-  field ₋ : [-]
-  field ₊ : [+]
   field ₋ : [-]
   field ₊ : [+]
 open _[~]_ public
@@ -109,29 +104,13 @@ infixr 4 _[×d]_ _×d_
 -- dependent [~]
 record _[~d]_ (A : [Any]) (B : A → [Any]) : [Any] where
   constructor _~d_
--- dependent [×]
-record _[×d]_ (A : [Any]) (B : A → [Any]) : [Any] where
-  constructor _×d_
   field ₁ : A
   field ₂ : B ₁
-open _[×d]_ public
-
-infixr 4 _[×d]_ _×d_
-
--- dependent [~]
-record _[~d]_ (A : [Any]) (B : A → [Any]) : [Any] where
-  constructor _~d_
-  field ₁ : A
-  field ₂ : B ₁
-open _[~d]_ public
-
-infixr 4 _[~d]_ _~d_
 open _[~d]_ public
 
 infixr 4 _[~d]_ _~d_
 
 data [≡] (Arg : [Any]) : (2arg : [2~] Arg) → [Any] where
-  ≡ : (arg : Arg) → [≡] Arg (arg ~ arg)
   ≡ : (arg : Arg) → [≡] Arg (arg ~ arg)
 
 module ≡ where

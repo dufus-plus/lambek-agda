@@ -1,30 +1,27 @@
-open import 0-Dim
+open import 0-Dim-qua
 open import 1-Dim.PoSet.Def-Types
 open import 1-Dim.PoSet.Def-Types-pub
 open import 1-Dim.PoSet.Def-Opers.Mod
-open import 1-Dim.PoSet.Gens.Mod
-import 2-Dim.PoCat.Defs.is as PoCat
-import 2-Dim.PoSet-Graph.Defs.Ob as PoSet-Graph
+import 2-Dim.PoCat.Def-Types.is-Ob as PoCat
+open import 2-Dim.PoCat.Def-Types-pub.is-Ob
+import 2-Dim.PoQuiver.Def-Types.Ob as PoQuiver
+open import 2-Dim.PoQuiver.Def-Types-pub.Ob
 
 --
 -- Mod-[Fun] satisfies axioms of [PoCat]
 --
 module 1-Dim.PoSet.Def-Opers.Mod-Fun where
 
-open PoSet-Graph.[Ob]
-open PoCat.[oper]
-open PoCat.[prop]
-
 module Mod where
-  Graph : PoSet-Graph.[Ob]
-  Graph .Ob = [Ob] -- PoSet
-  Graph .Hom = Mod
+  Quiver : PoQuiver.[Ob]
+  Quiver .Ob = [Ob]
+  Quiver .Hom = Mod
 
-  oper : PoCat.[oper] Graph
+  oper : PoCat.[oper] Quiver
   oper .Id = Mod-Id
   oper .Mu = Mod-Mu
 
-  prop : PoCat.[prop] Graph oper
+  prop : PoCat.[prop] Quiver oper
   prop .Assoc-fw (ob1 ~ ob2 ~ ob3 ~ ob4) (R12 × R23 × R34) .↓ _ ((r12 ∙ r23) ∙ r34) = (r12 ∙ (r23 ∙ r34))
   prop .Assoc-bw (ob1 ~ ob2 ~ ob3 ~ ob4) (R12 × R23 × R34) .↓ _ (r12 ∙ (r23 ∙ r34)) = ((r12 ∙ r23) ∙ r34)
   prop .LUnit-fw (ob1 ~ ob2) R12 .↓ _ r12 = (ob1 .refl _ ∙ r12)
