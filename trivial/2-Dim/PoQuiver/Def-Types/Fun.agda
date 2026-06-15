@@ -1,15 +1,15 @@
-open import 0-Dim
-import 1-Dim.AnyPoSet.Defs as AnyPoSet
-open import 2-Dim.PoSet-Graph.Defs.Ob
+open import 0-Dim-qua
+import 1-Dim.AnyPoSet.Def-Types as AnyPoSet
+open import 2-Dim.PoQuiver.Def-Types.Ob
+open import 2-Dim.PoQuiver.Def-Types-pub.Ob
 
 --
 -- define (Fun)ctions on (Gra)phs
 --
-module 2-Dim.PoSet-Graph.Defs.Fun where
+module 2-Dim.PoQuiver.Def-Types.Fun where
 
 module _ (AB @(A > B) : [2~] [Ob]) where
   module :[Fun] where
-    open [Ob]
     -- function on elements
     :F-Ob = AnyPoSet.[Fun] (A .Ob > B .Ob)
     module _ (F-Ob : :F-Ob) where

@@ -41,7 +41,12 @@ pattern _,_ a b = _×_ a b
 -- yet another pair with named constructor
 -- 1st argument is considered as contravariant
 record _[~]_ ([-] [+] : [Any]) : [Any] where
+-- yet another pair with named constructor
+-- 1st argument is considered as contravariant
+record _[~]_ ([-] [+] : [Any]) : [Any] where
   constructor _~_
+  field ₋ : [-]
+  field ₊ : [+]
   field ₋ : [-]
   field ₊ : [+]
 open _[~]_ public
@@ -88,9 +93,22 @@ pattern _>_ a b = _~_ a b
 [swap] : [2~] [Any] → [2~] [Any]
 [swap] (A ~ B) = B ~ A
 
+
 swap : {2A : [2~] [Any]} → [Dup2] 2A → [Dup2] ([swap] 2A)
 swap (a ~ b) = b ~ a
 
+-- dependent [×]
+record _[×d]_ (A : [Any]) (B : A → [Any]) : [Any] where
+  constructor _×d_
+  field ₁ : A
+  field ₂ : B ₁
+open _[×d]_ public
+
+infixr 4 _[×d]_ _×d_
+
+-- dependent [~]
+record _[~d]_ (A : [Any]) (B : A → [Any]) : [Any] where
+  constructor _~d_
 -- dependent [×]
 record _[×d]_ (A : [Any]) (B : A → [Any]) : [Any] where
   constructor _×d_
@@ -108,13 +126,24 @@ record _[~d]_ (A : [Any]) (B : A → [Any]) : [Any] where
 open _[~d]_ public
 
 infixr 4 _[~d]_ _~d_
+open _[~d]_ public
+
+infixr 4 _[~d]_ _~d_
 
 data [≡] (Arg : [Any]) : (2arg : [2~] Arg) → [Any] where
   ≡ : (arg : Arg) → [≡] Arg (arg ~ arg)
+  ≡ : (arg : Arg) → [≡] Arg (arg ~ arg)
 
-module ≡ (Arg : [Any]) (3arg @(a1 ~ a2 ~ a3) : [3~] Arg) where
-  tran : [≡] Arg (a1 ~ a2) [×] [≡] Arg (a2 ~ a3) → [≡] Arg (a1 ~ a3)
-  tran (≡ _ × ≡ _) = (≡ _)
+module ≡ where
+  module _ {Arg : [Any]}
+           {3arg @(a1 ~ a2 ~ a3) : [3~] Arg} where
+    tran : [≡] Arg (a1 ~ a2) [×] [≡] Arg (a2 ~ a3) → [≡] Arg (a1 ~ a3)
+    tran (≡ _ × ≡ _) = (≡ _)
+  module _ {AB @(A > B) : [2~] [Any]}
+           (f : A → B)
+           {2a @(a1 ~ a2) : [2~] A} where
+    cong : [≡] A (a1 ~ a2) → [≡] B (f a1 ~ f a2)
+    cong (≡ _) = (≡ _)
 
 module _ {[X] : [Any]} where
   ⑴ : [X] → [X]
@@ -151,6 +180,7 @@ data _[+]_ ([1] [2] : [Any]) : [Any] where
   ↑₁ : [1] → [1] [+] [2]
   ↑₂ : [2] → [1] [+] [2]
 
+-- adjoint pair of morphisms
 -- adjoint pair of morphisms
 module _ {O : [Any]} (R : O [~] O → [Any]) (2o @(a ~ b) : [2~] O) where
   record [⊣] : [Any] where

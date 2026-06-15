@@ -1,10 +1,10 @@
-open import 0-Dim
-import 1-Dim.AnyPoSet.Defs as AnyPoSet
+open import 0-Dim-qua
+import 1-Dim.AnyPoSet.Def-Types as AnyPoSet
 
-module 2-Dim.PoSet-Graph.Defs.Ob where
+module 2-Dim.PoQuiver.Def-Types.Ob where
 
--- PoSet-enriched Graph aka Globular 2-Graph
-module :Ob where
+-- globular PoSet-enriched Quiver
+module :[Ob] where
   module _ (Ob : AnyPoSet.[Ob]) where
     -- type of 1-morphisms
     :Hom = AnyPoSet.[Rel] (2~ Ob)
@@ -12,6 +12,6 @@ module :Ob where
 
 record [Ob] : [Any] where
   constructor ‼
-  open :Ob
+  open :[Ob]
   field Ob  : AnyPoSet.[Ob]
   field Hom : :Hom Ob

@@ -2,7 +2,7 @@ open import 0-Dim-qua
 import 1-Dim.PoSet.Def-Types as PoSet
 open import 1-Dim.PoSet.Def-Types-pub
 
-module 1-Dim.AnyPoSet.Defs where
+module 1-Dim.AnyPoSet.Def-Types where
 
 [Ob] = Any.[Ob]
 [Fun] = Any.[Fun]

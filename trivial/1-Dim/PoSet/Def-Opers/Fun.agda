@@ -1,5 +1,5 @@
-open import 0-Dim
-open import 1-Dim.Graph
+open import 0-Dim-qua
+open import 1-Dim.Graph-pub
 open import 1-Dim.PoSet.Def-Types.Ob
 open import 1-Dim.PoSet.Def-Types.Fun
 open import 1-Dim.PoSet.Def-Types.Fun-To
@@ -11,7 +11,13 @@ import 1-Dim.AnyPoSet.Defs as AnyPoSet
 
 module 1-Dim.PoSet.Def-Opers.Fun where
 
-open Graph.[Fun]
+module _ (AB @ (A > B) : [2~] [Ob]) where
+  Fun : [Ob] -- Poset
+  Fun .↓ .Ob = [Fun] (A > B)
+  Fun .↓ .To (f ~ g) = Fun-[To] _ (f ~ g)
+  Fun .is .refl f .↓ a = B .refl (f .f-ob a)
+  Fun .is .tran (f1 ~ f2 ~ f3) (fto12 × fto23) .↓ a =
+    B .tran _ (fto12 .↓ a × fto23 .↓ a)
 
 Fun-Id : AnyPoSet.Rel-[0Fun] _ (! > Fun)
 Fun-Id _ .↓ .f-ob = ⑴

@@ -56,7 +56,7 @@ module _ (IA @(I × A) : [Any] [×] [Ob]) where
   CoPow .It = Graph.CoPow (I × A .It)
   CoPow .is .refl _ = (≡ _) × A .refl _
   CoPow .is .tran _ ((ito12 × ato12) × (ito23 × ato23)) =
-    ≡.tran _ _ (ito12 × ito23) × A .tran _ (ato12 × ato23)
+    ≡.tran (ito12 × ito23) × A .tran _ (ato12 × ato23)
 
 module _ (IA @(I ~d A) : [Any] [~d] λ I → I → [Ob]) where
   ProdI : [Ob]

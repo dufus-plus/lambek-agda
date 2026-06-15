@@ -1,9 +1,9 @@
-open import 0-Dim
-import 1-Dim.AnySet.Defs as AnySet
+open import 0-Dim-qua
+import 1-Dim.AnySet.Def-Types as AnySet
 
-module 2-Dim.Set-Graph.Defs.Ob where
+module 2-Dim.Quiver.Def-Types.Ob where
 
--- Setoid-enriched Graph aka Globular 2-Graph
+-- Setoid-enriched Quiver aka Globular 2-Graph
 module :Ob where
   module _ (Ob : AnySet.[Ob]) where
     -- type of 1-morphisms

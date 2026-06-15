@@ -1,21 +1,18 @@
-open import 0-Dim
-open import 1-Dim.Graph
-open import 1-Dim.PoSet.Def-Types.Ob
-open import 1-Dim.PoSet.Def-Types.Fun
-open import 1-Dim.PoSet.Def-Types.Mod
-open import 1-Dim.PoSet.Def-Types.Mod-Fun
-open import 1-Dim.PoSet.Def-Types-pub.Ob
-open import 1-Dim.PoSet.Def-Types-pub.Fun
-open import 1-Dim.PoSet.Def-Types-pub.Mod
-open import 1-Dim.PoSet.Def-Types-pub.Mod-Fun
+open import 0-Dim-qua
+open import 1-Dim.Graph-pub
+open import 1-Dim.PoSet.Def-Types
+open import 1-Dim.PoSet.Def-Types-pub
 open import 1-Dim.PoSet.Gens.Mod
 import 1-Dim.AnyPoSet.Defs as AnyPoSet
 
 module 1-Dim.PoSet.Def-Opers.Mod where
 
-open Graph.[Ob]
-open Graph.[Mod]
-open Graph.[Fun]
+module _ (AB : [2~] [Ob]) where
+  Mod : [Ob] -- PoSet
+  Mod .↓ .Ob = [Mod] AB
+  Mod .↓ .To = Mod-[Fun] _
+  Mod .is .refl M .↓ _ = ⑴
+  Mod .is .tran _ (rto12 × rto23) .↓ _ = rto12 .↓ _ ∘ rto23 .↓ _
 
 Mod-Id : AnyPoSet.Rel-[0Fun] _ (! > Mod)
 Mod-Id A .↓ .M-ob = A .To
