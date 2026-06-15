@@ -1,13 +1,15 @@
-open import 0-Dim-qua
-open import 1-Dim.Graph-pub
-open import 1-Dim.PoSet.Def-Types.Ob
+open import 0-Dim.Prelude
+open import 0-Dim.Any.Def-Types
+open import 0-Dim.Any.Def-Opers
+open import 1-Dim.Graph.Def-Types-pub
+import 1-Dim.PoSet.Def-Types.Ob as PoSet
 open import 1-Dim.PoSet.Def-Types-pub.Ob
 
 module 0-Dim.Any.Extra where
 
 -- poset of propositions
-Any : [Ob]
-Any .↓ .Ob = Any.[Ob]
-Any .↓ .To = Any.[Fun]
-Any .is .refl = Any.Fun-Id
-Any .is .tran = Any.Fun-Mu
+Any:PS : PoSet.[Ob]
+Any:PS .It .Ob = [Ob]
+Any:PS .It .To = [Fun]
+Any:PS .is .refl = Fun-Id
+Any:PS .is .tran = Fun-Mu
