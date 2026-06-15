@@ -1,10 +1,10 @@
-open import 0-Dim
+open import 0-Dim-qua
 open import 1-Dim.PoSet.Defs
 open import 1-Dim.PoSet.Oper
 import 2-Dim.PoCat.Defs.Ob as PoCat
 import 2-Dim.DblCat.Defs.Ob as DblCat
 
-module 1-Dim.PoSet.Extr.Cat where
+module 1-Dim.PoSet.Extra.Cat where
 
 open PoCat.[Ob]
 open DblCat.[Ob]

@@ -1,5 +1,3 @@
-open import 0-Dim
-
 module 1-Dim.Graph.Def-Types where
 
 open import 1-Dim.Graph.Def-Types.Ob public

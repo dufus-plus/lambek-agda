@@ -1,4 +1,4 @@
-open import 0-Dim
+open import 0-Dim-qua
 open import 1-Dim.Graph.Def-Types.Ob
 
 --

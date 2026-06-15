@@ -1,9 +1,9 @@
 open import 0-Dim.Prelude
-open import 0-Dim.Any.Defs
+open import 0-Dim.Any.Def-Types
 
--- instances and operations for [Any]
+-- instances generators on [Any]
 
-module 0-Dim.Any.Gens where
+module 0-Dim.Any.Def-Gens where
 
 Void : [Any]
 Void = [⊥]
@@ -26,12 +26,13 @@ module _ (IA @(I , A) : [Any] [×] [Any]) where
   CoPow : [Any]
   CoPow = I [×] A
 
-module _ (IA @(I ∷ A) : [Any] [∷] (λ I → I → [Any])) where
+module _ (IA @(I ~d A) : [Any] [~d] (λ I → I → [Any])) where
   ProdI : [Any]
   ProdI = (i : I) → A i
 
+module _ (IA @(I ×d A) : [Any] [×d] (λ I → I → [Any])) where
   SummI : [Any]
-  SummI = I [∷] A
+  SummI = I [×d] A
 
 module _ (A : [Any]) where
   module Void where
@@ -75,20 +76,20 @@ module CoPow (IA @(I , A) : [Any] [×] [Any]) where
   Glue (i , a) = a
 
 module ProdI where
-  module _ (IA @(I ∷ A) : [Any] [∷] (λ I → I → [Any])) where
+  module _ (IA @(I ~d A) : [Any] [~d] (λ I → I → [Any])) where
     Prj : (i : I) → [Fun] (ProdI IA > A i)
     Prj i p = p i
   module _ (IA @(I > A) : [Any] [~] [Any]) where
-    Diag : [Fun] (A > ProdI (I ∷ λ _ → A))
+    Diag : [Fun] (A > ProdI (I ~d λ _ → A))
     Diag a i = a
 
 module SummI where
-  module _ (IA @(I ∷ A) : [Any] [∷] (λ I → I → [Any])) where
+  module _ (IA @(I ×d A) : [Any] [×d] (λ I → I → [Any])) where
     Inj : (i : I) → [Fun] (A i > SummI IA)
-    Inj i a = i ∷ a
-  module _ (IA @(I > A) : [Any] [~] [Any]) where
-    Glue : [Fun] (SummI (I ∷ λ _ → A) > A)
-    Glue (i ∷ a) = a
+    Inj i a = i ×d a
+  module _ (IA @(I × A) : [Any] [×] [Any]) where
+    Glue : [Fun] (SummI (I ×d λ _ → A) > A)
+    Glue (i ×d a) = a
 
 Const : (AB @(A ~ B) : [2~] [Any]) → B → (A → B)
 Const _ b a = b

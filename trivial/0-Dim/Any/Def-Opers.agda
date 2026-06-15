@@ -1,9 +1,9 @@
 open import 0-Dim.Prelude
-open import 0-Dim.Any.Defs
+open import 0-Dim.Any.Def-Types
 
 -- instances and operations for [Any]
 
-module 0-Dim.Any.Oper where
+module 0-Dim.Any.Def-Opers where
 
 Fun-Id : Rel-[0Fun] _ (!               > [Fun])
 Fun-Mu : Rel-[2Fun] _ (([Fun] × [Fun]) > [Fun])

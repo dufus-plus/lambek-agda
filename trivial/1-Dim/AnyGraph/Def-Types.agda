@@ -1,13 +1,14 @@
-open import 0-Dim
+open import 0-Dim-qua
 
--- define (Gra)ph-enriched (Rel)ations
-module 1-Dim.AnyGraph.Defs where
+--
+-- define Graph-enriched (Rel)ations between [Any]
+--
+module 1-Dim.AnyGraph.Def-Types where
 
 private module Graph where
-  open import 1-Dim.Graph.Def-Types.Ob public
-  open import 1-Dim.Graph.Def-Types.Fun public
-  open import 1-Dim.Graph.Gens.Objs public
-open import 1-Dim.Graph.Def-Types-pub.Ob
+  open import 1-Dim.Graph.Def-Types public
+  open import 1-Dim.Graph.Def-Gens.Objs public
+open import 1-Dim.Graph.Def-Types-pub
 
 [Ob] = Any.[Ob]
 

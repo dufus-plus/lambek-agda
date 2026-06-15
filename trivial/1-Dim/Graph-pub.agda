@@ -1,5 +1,3 @@
-open import 0-Dim
-
 module 1-Dim.Graph-pub where
 
 -- re-export qualified

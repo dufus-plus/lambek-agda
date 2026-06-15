@@ -1,5 +1,3 @@
-open import 0-Dim
-
 module 1-Dim.PoSet.Def-Types where
 
 open import 1-Dim.PoSet.Def-Types.Ob public

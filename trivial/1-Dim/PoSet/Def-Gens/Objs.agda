@@ -1,39 +1,39 @@
-open import 0-Dim
-import 1-Dim.Graph.Gens.Objs as Graph
+open import 0-Dim-qua
+import 1-Dim.Graph.Def-Gens.Objs as Graph
 open import 1-Dim.PoSet.Def-Types.Ob
 open import 1-Dim.PoSet.Def-Types-pub.Ob
 
-module 1-Dim.PoSet.Gens.Objs where
+module 1-Dim.PoSet.Def-Gens.Objs where
 
 -- the initial PoSetoid
 Void : [Ob] -- PoSet
-Void .↓ = Graph.Void
+Void .It = Graph.Void
 Void .is .refl ()
 Void .is .tran (() ~ () ~ ())
 
 -- the terminal PoSetoid
 Unit : [Ob]
-Unit .↓ = Graph.Unit
+Unit .It = Graph.Unit
 Unit .is .refl _ = !
 Unit .is .tran _ _ = !
 
 -- the (Opp)osite PoSetoid
 module _ (A : [Ob]) where
   Opp : [Ob]
-  Opp .↓ = Graph.Opp (A .↓)
+  Opp .It = Graph.Opp (A .It)
   Opp .is .refl _ = - A .refl _
   Opp .is .tran _ ((- ato21) × (- ato32)) = - A .tran _ (ato32 × ato21)
 
 module _ (AB @(A × B) : [2×] [Ob]) where
   Prod2 : [Ob]
-  Prod2 .↓ = Graph.Prod2 (A .↓ × B .↓)
+  Prod2 .It = Graph.Prod2 (A .It × B .It)
   Prod2 .is .refl _ = A .refl _ × B .refl _
   Prod2 .is .tran _ ((ato12 × bto12) × (ato23 × bto23)) =
     A .tran _ (ato12 × ato23) × B .tran _ (bto12 × bto23)
 
 module _ (AB @(A + B) : [2×] [Ob]) where
   Summ2 : [Ob]
-  Summ2 .↓ = Graph.Summ2 (A .↓ + B .↓)
+  Summ2 .It = Graph.Summ2 (A .It + B .It)
   Summ2 .is .refl (↑₁ _) = A .refl _
   Summ2 .is .refl (↑₂ _) = B .refl _
   Summ2 .is .tran (↑₁ _ ~ ↑₁ _ ~ ↑₁ _) = A .tran _
@@ -47,25 +47,26 @@ module _ (AB @(A + B) : [2×] [Ob]) where
 
 module _ (IA @(I > A) : [Any] [~] [Ob]) where
   Pow : [Ob]
-  Pow .↓ = Graph.Pow (I > A .↓)
+  Pow .It = Graph.Pow (I > A .It)
   Pow .is .refl _ _ = A .refl _
   Pow .is .tran _ (fto12 × fto23) i = A .tran _ (fto12 i × fto23 i)
 
 module _ (IA @(I × A) : [Any] [×] [Ob]) where
   CoPow : [Ob]
-  CoPow .↓ = Graph.CoPow (I × A .↓)
+  CoPow .It = Graph.CoPow (I × A .It)
   CoPow .is .refl _ = (≡ _) × A .refl _
   CoPow .is .tran _ ((ito12 × ato12) × (ito23 × ato23)) =
     ≡.tran _ _ (ito12 × ito23) × A .tran _ (ato12 × ato23)
 
-module _ (IA @(I ∷ A) : [Any] [∷] λ I → I → [Ob]) where
+module _ (IA @(I ~d A) : [Any] [~d] λ I → I → [Ob]) where
   ProdI : [Ob]
-  ProdI .↓ = Graph.ProdI (I ∷ λ i → A i .↓)
+  ProdI .It = Graph.ProdI (I ~d λ i → A i .It)
   ProdI .is .refl _ i = A i .refl _
   ProdI .is .tran _ (to12 × to23) i = A i .tran _ (to12 i × to23 i)
 
-module _ (IA @(I ∷ A) : [Any] [∷] λ I → I → [Ob]) where
+module _ (IA @(I ×d A) : [Any] [×d] λ I → I → [Ob]) where
   SummI : [Ob]
-  SummI .↓ = Graph.SummI (I ∷ λ i → A i .↓)
-  SummI .is .refl (i ∷ _) = (≡ i) ∷ A i .refl _
-  SummI .is .tran _ (((≡ i) ∷ to12) × ((≡ i) ∷ to23)) = (≡ i) ∷ A i .tran _ (to12 × to23)
+  SummI .It = Graph.SummI (I ×d λ i → A i .It)
+  SummI .is .refl (i ×d _) = (≡ i) ×d A i .refl _
+  SummI .is .tran _ (((≡ i) ×d to12) × ((≡ i) ×d to23)) =
+    (≡ i) ×d A i .tran _ (to12 × to23)

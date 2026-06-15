@@ -1,4 +1,4 @@
-open import 0-Dim
+open import 0-Dim-qua
 import 1-Dim.Graph.Def-Types.Fun as Graph
 open import 1-Dim.PoSet.Def-Types.Ob
 
@@ -9,7 +9,7 @@ module 1-Dim.PoSet.Def-Types.Fun where
 
 module _ (AB @(A > B) : [2~] [Ob]) where
   open [Ob]
-  :Fun = Graph.[Fun] (A .↓ > B .↓)
+  :Fun = Graph.[Fun] (A .It > B .It)
 
 record [Fun] (AB : [2~] [Ob]) : [Any] where
   constructor ‼

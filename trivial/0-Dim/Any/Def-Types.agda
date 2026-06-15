@@ -3,7 +3,7 @@ open import 0-Dim.Prelude
 --
 -- type definitions for 0-equipment [Any]
 --
-module 0-Dim.Any.Defs where
+module 0-Dim.Any.Def-Types where
 
 -- use Agda universe type `Set` renamed to `[Any]`
 -- in Prelude because of `type-in-type` option
@@ -21,6 +21,11 @@ module 0-Dim.Any.Defs where
 
 [Rel] : [2~] [Ob] → [Any]
 [Rel] (A ~ B) = A [~] B → [Any]
+
+module _ (AB @(A > B): [2~] [Ob])
+         (2f @(f1 > f2) : [2~] [Fun] AB) where
+  Fun-[To] : [Any]
+  Fun-[To] = (a : A) → [≡] B (f1 a ~ f2 a)
 
 module _ (AB : [2~] [Ob])
          (2R @(R1 > R2) : [2~] [Rel] AB) where

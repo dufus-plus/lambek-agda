@@ -1,4 +1,4 @@
-open import 0-Dim
+open import 0-Dim-qua
 
 --
 -- define (Gra)ph type

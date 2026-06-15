@@ -1,9 +1,8 @@
-open import 0-Dim
+open import 0-Dim-qua
 open import 1-Dim.Graph.Def-Types.Ob
+open import 1-Dim.Graph.Def-Types-pub.Ob
 
-module 1-Dim.Graph.Gens.Objs where
-
-open [Ob]
+module 1-Dim.Graph.Def-Gens.Objs where
 
 -- the initial Graph
 Void : [Ob]
@@ -43,22 +42,22 @@ module _ (AB @(A + B) : [Ob] [×] [Ob]) where
 module _ (IA @(I > A) : [Any] [~] [Ob]) where
   Pow : [Ob]
   Pow .Ob = Any.Pow (I > A .Ob)
-  Pow .To (f1 ~ f2) = Any.ProdI (I ∷ λ i → A .To (f1 i ~ f2 i))
+  Pow .To (f1 ~ f2) = Any.ProdI (I ~d λ i → A .To (f1 i ~ f2 i))
 
 module _ (IA @(I × A) : [Any] [×] [Ob]) where
   CoPow : [Ob]
   CoPow .Ob = Any.CoPow (I , A .Ob)
   CoPow .To ((i1 , a1) ~ (i2 , a2)) = [≡] _ (i1 ~ i2) [×] A .To (a1 ~ a2)
 
-module _ (IA @(I ∷ A) : [Any] [∷] λ I → I → [Ob]) where
+module _ (IA @(I ~d A) : [Any] [~d] λ I → I → [Ob]) where
   ProdI : [Ob]
-  ProdI .Ob = Any.ProdI (I ∷ λ i → A i .Ob)
-  ProdI .To (p1 ~ p2) = Any.ProdI (I ∷ λ i → A i .To (p1 i ~ p2 i))
+  ProdI .Ob = Any.ProdI (I ~d λ i → A i .Ob)
+  ProdI .To (p1 ~ p2) = Any.ProdI (I ~d λ i → A i .To (p1 i ~ p2 i))
 
-module _ (IA @(I ∷ A) : [Any] [∷] λ I → I → [Ob]) where
+module _ (IA @(I ×d A) : [Any] [×d] λ I → I → [Ob]) where
   SummI : [Ob]
-  SummI .Ob = Any.SummI (I ∷ λ i → A i .Ob)
-  SummI .To ((i1 ∷ a1) ~ (i2 ∷ a2)) = [≡] _ (i1 ~ i2) [∷] λ eq → SummI-To eq (a1 ~ a2)
-    where
+  SummI .Ob = Any.SummI (I ×d λ i → A i .Ob)
+  SummI .To ((i1 ×d a1) ~ (i2 ×d a2)) =
+    [≡] _ (i1 ~ i2) [×d] λ eq → SummI-To eq (a1 ~ a2) where
       SummI-To : [≡] _ (i1 ~ i2) → (A i1 .Ob [~] A i2 .Ob) → [Any]
       SummI-To (≡ i) (a1 ~ a2) = A i .To (a1 ~ a2)
