@@ -24,8 +24,8 @@ module 0-Dim.Any.Def-Types where
 
 module _ (AB @(A > B): [2~] [Ob])
          (2f @(f1 > f2) : [2~] [Fun] AB) where
-  Fun-[To] : [Any]
-  Fun-[To] = (a : A) → [≡] B (f1 a ~ f2 a)
+  Fun-[Id] : [Any]
+  Fun-[Id] = (a : A) → [≡] B (f1 a ~ f2 a)
 
 module _ (AB : [2~] [Ob])
          (2R @(R1 > R2) : [2~] [Rel] AB) where

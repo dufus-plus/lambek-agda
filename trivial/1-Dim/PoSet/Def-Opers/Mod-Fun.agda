@@ -13,15 +13,15 @@ open import 2-Dim.PoQuiver.Def-Types-pub.Ob
 module 1-Dim.PoSet.Def-Opers.Mod-Fun where
 
 module Mod where
-  Quiver : PoQuiver.[Ob]
-  Quiver .Ob = [Ob]
-  Quiver .Hom = Mod
+  Qu : PoQuiver.[Ob]
+  Qu .Ob = [Ob]
+  Qu .Hom = Mod
 
-  oper : PoCat.[oper] Quiver
+  oper : PoCat.[oper] Qu
   oper .Id = Mod-Id
   oper .Mu = Mod-Mu
 
-  prop : PoCat.[prop] Quiver oper
+  prop : PoCat.[prop] Qu oper
   prop .Assoc-fw (ob1 ~ ob2 ~ ob3 ~ ob4) (R12 × R23 × R34) .↓ _ ((r12 ∙ r23) ∙ r34) = (r12 ∙ (r23 ∙ r34))
   prop .Assoc-bw (ob1 ~ ob2 ~ ob3 ~ ob4) (R12 × R23 × R34) .↓ _ (r12 ∙ (r23 ∙ r34)) = ((r12 ∙ r23) ∙ r34)
   prop .LUnit-fw (ob1 ~ ob2) R12 .↓ _ r12 = (ob1 .refl _ ∙ r12)

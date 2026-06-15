@@ -114,10 +114,22 @@ data [≡] (Arg : [Any]) : (2arg : [2~] Arg) → [Any] where
   ≡ : (arg : Arg) → [≡] Arg (arg ~ arg)
 
 module ≡ where
+
+  module _ {Arg : [Any]}
+           {arg : [1~] Arg} where
+    refl : [≡] Arg (arg ~ arg)
+    refl = (≡ _)
+
+  module _ {Arg : [Any]}
+           {2arg @(a1 ~ a2) : [2~] Arg} where
+    symm : [≡] Arg (a2 ~ a1) → [≡] Arg (a1 ~ a2)
+    symm (≡ _) = (≡ _)
+
   module _ {Arg : [Any]}
            {3arg @(a1 ~ a2 ~ a3) : [3~] Arg} where
     tran : [≡] Arg (a1 ~ a2) [×] [≡] Arg (a2 ~ a3) → [≡] Arg (a1 ~ a3)
     tran (≡ _ × ≡ _) = (≡ _)
+
   module _ {AB @(A > B) : [2~] [Any]}
            (f : A → B)
            {2a @(a1 ~ a2) : [2~] A} where

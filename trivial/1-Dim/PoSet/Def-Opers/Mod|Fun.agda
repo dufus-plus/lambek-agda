@@ -1,4 +1,4 @@
-open import 0-Dim
+open import 0-Dim-qua
 open import 1-Dim.PoSet.Def-Types
 open import 1-Dim.PoSet.Def-Types-pub
 open import 1-Dim.PoSet.Def-Opers.Fun
@@ -7,33 +7,32 @@ open import 1-Dim.PoSet.Def-Opers.Mod
 open import 1-Dim.PoSet.Def-Opers.Mod-Fun
 import 2-Dim.PoQuiver.Def-Types.Ob as PoSet-Graph
 import 2-Dim.PoCat.Def-Types.is-Ob as PoCat
-import 2-Dim.PoSet-DblGraph.Defs.Ob as PoSet-DblGraph
-import 2-Dim.DblCat.Defs.is as DblCat
+import 2-Dim.DblQuiver.Def-Types.Ob as DblQuiver
+import 2-Dim.DblCat.Def-Types.is-Ob as DblCat
+open import 2-Dim.DblQuiver.Def-Types-pub.Ob
+open import 2-Dim.DblCat.Def-Types-pub.is-Ob
 
 -- operations in Po(Set)oid on square 2-(Mor)phisms
 module 1-Dim.PoSet.Def-Opers.Mod|Fun where
 
-open PoSet-DblGraph.[Ob]
-open DblCat.[is]
-
 module Mod|Fun where
-  DblGraph : PoSet-DblGraph.[Ob]
-  DblGraph .HV-Ob = [Ob] -- PoSet
-  DblGraph .V-Mor = Fun
-  DblGraph .H-Mor = Mod
-  DblGraph .H|V-2Mor = [Mod|Fun]
+  Dbl : DblQuiver.[Ob]
+  Dbl .Ob = [Ob] -- PoSet
+  Dbl .V-Mor = Fun
+  Dbl .H-Mor = Mod
+  Dbl .H|V-2Mor = [Mod|Fun]
 
-  V-oper : PoCat.[oper] (V-Graph DblGraph)
-  H-oper : PoCat.[oper] (H-Graph DblGraph)
+  V-oper : PoCat.[oper] (V-Graph Dbl)
+  H-oper : PoCat.[oper] (H-Graph Dbl)
   V-oper = Fun.oper
   H-oper = Mod.oper
 
-  V-prop : PoCat.[prop] (V-Graph DblGraph) V-oper
-  H-prop : PoCat.[prop] (H-Graph DblGraph) H-oper
+  V-prop : PoCat.[prop] (V-Graph Dbl) V-oper
+  H-prop : PoCat.[prop] (H-Graph Dbl) H-oper
   V-prop = Fun.prop
   H-prop = Mod.prop
 
-  open DblCat.:is DblGraph V-oper H-oper
+  open DblCat.:[is-Ob] Dbl V-oper H-oper
 
   Mod-Id|Fun : :H-Id|V
   Mod|Fun-Id : :H|V-Id
@@ -67,7 +66,7 @@ module Mod|Fun where
   Mod|IFun-Mu 22A 2f 3M (mf12 × m|f23) .↓ _ = mf12 .↓ _ ∘ m|f23 .↓ _
   Mod|FunI-Mu 22A 2f 3M (m|f12 × mf23) .↓ _ = m|f12 .↓ _ ∘ mf23 .↓ _
 
-  is-DblCat : DblCat.[is] DblGraph V-oper H-oper
+  is-DblCat : DblCat.[is-Ob] Dbl V-oper H-oper
   is-DblCat .H-Id|V = Mod-Id|Fun
   is-DblCat .H|V-Id = Mod|Fun-Id
   is-DblCat .H-Mu|V = Mod-Mu|Fun
