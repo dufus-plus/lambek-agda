@@ -49,8 +49,6 @@ module _ (A : [Any]) (R : [2~] A → [Any]) where
   [Path] (Succ! n) = R [∙] [Path] n
 
 -- inverse relation
-module _ {BA @(B ~ A) : [2~] [Any]} (Rba : (B [~] A) → [Any]) (ab @(a ~ b) : A [~] B) where
-  record [-] : [Any] where
-    constructor -_
-    field ₒₚ : Rba (b ~ a)
-  open [-] public
+module _ {AB @(A ~ B) : [2~] [Any]} (Rba : (B [~] A) → [Any]) where
+  [-] : (ab : A [~] B) → [Any]
+  [-] (a ~ b) = Rba (b ~ a)

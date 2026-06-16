@@ -13,11 +13,11 @@ module 0-Dim.Any.Def-Types where
 [Fun] : [2~] [Ob] → [Any]
 [Fun] (A > B) = A → B
 
-[0Fun] : [!] [~] [Ob] → [Any]
-[0Fun] (_ > B) = B
+[0-Fun] : [!] [~] [Ob] → [Any]
+[0-Fun] (_ > B) = B
 
-[2Fun] : ([2×] [Ob]) [~] [Ob] → [Any]
-[2Fun] ((A1 × A2) > B) = (2a : A1 [×] A2) → B
+[2-Fun] : ([2×] [Ob]) [~] [Ob] → [Any]
+[2-Fun] ((A1 × A2) > B) = (2a : A1 [×] A2) → B
 
 [Rel] : [2~] [Ob] → [Any]
 [Rel] (A ~ B) = A [~] B → [Any]
@@ -34,18 +34,18 @@ module _ (AB : [2~] [Ob])
 
 module _ (A : [Ob])
          (2R @(U1 > R2) : [!] [~] [Rel] (2~ A)) where
-  Rel-[0Fun] : [Any]
-  Rel-[0Fun] = (a : A) → R2 (2~ a)
+  Rel-[0-Fun] : [Any]
+  Rel-[0-Fun] = (a : A) → R2 (2~ a)
 
 module _ (2A @(A ~ B) : [2~] [Ob])
-         (2R @((- R1) > R2) : [-] [Rel] 2A [~] [Rel] 2A) where
-  Rel-[-Fun] : [Any]
-  Rel-[-Fun] = (2a : [Dup2] 2A) → [Fun] ([-] R1 2a > R2 2a)
+         (2R @(R1 > R2) : [-] [Rel] 2A [~] [Rel] 2A) where
+  Rel-[S-Fun] : [Any]
+  Rel-[S-Fun] = (2a : [Dup2] 2A) → [Fun] ([-] R1 2a > R2 2a)
 
 module _ (3A @(A ~ B ~ C) : [3~] [Ob])
          (2R @((R11 × R12) > R2) : ([Rel] (A ~ B) [×] [Rel] (B ~ C)) [~] [Rel] (A ~ C)) where
-  Rel-[2Fun] : [Any]
-  Rel-[2Fun] = (3a @(a ~ b ~ c) : [Dup3] 3A) → [2Fun] ((R11 (a ~ b) × R12 (b ~ c)) > R2 (a ~ c))
+  Rel-[2-Fun] : [Any]
+  Rel-[2-Fun] = (3a @(a ~ b ~ c) : [Dup3] 3A) → [2-Fun] ((R11 (a ~ b) × R12 (b ~ c)) > R2 (a ~ c))
 
 module _ (AB : [2~] [Ob])
          (2R @(R1 ~ R2) : [2~] [Rel] AB) where
@@ -54,13 +54,13 @@ module _ (AB : [2~] [Ob])
 
 module _ (A : [Ob])
          (2R @(U1 ~ R2) : [!] [~] [Rel] (2~ A)) where
-  Rel-[0Rel] : [Any]
-  Rel-[0Rel] = (a : A) → [Rel] ([!] ~ R2 (2~ a))
+  Rel-[0-Rel] : [Any]
+  Rel-[0-Rel] = (a : A) → [Rel] ([!] ~ R2 (2~ a))
 
 module _ (3A @(A ~ B ~ C) : [3~] [Ob])
          (2R @((R11 × R12) > R2) : ([Rel] (A ~ B) [×] [Rel] (B ~ C)) [~] [Rel] (A ~ C)) where
-  Rel-[2Rel] : [Any]
-  Rel-[2Rel] = (3a @(a ~ b ~ c): [Dup3] 3A) → [Rel] ((R11 (a ~ b) [×] R12 (b ~ c)) > R2 (a ~ c))
+  Rel-[2-Rel] : [Any]
+  Rel-[2-Rel] = (3a @(a ~ b ~ c): [Dup3] 3A) → [Rel] ((R11 (a ~ b) [×] R12 (b ~ c)) > R2 (a ~ c))
 
 [Dup|Dup] : [22~] [Ob] → [Any]
 [Dup|Dup] (2X1 ~ 2X2) = [Dup2] 2X1 [~] [Dup2] 2X2

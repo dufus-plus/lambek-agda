@@ -45,9 +45,9 @@ module _ (A : [Any]) where
 module Prod2 where
   module _ (AB @(A × B) : [Any] [×] [Any]) where
     Prj1 : [Fun] (Prod2 (A × B) > A)
-    Prj1 = ₁
+    Prj1 = ↓₁
     Prj2 : [Fun] (Prod2 (A × B) > B)
-    Prj2 = ₂
+    Prj2 = ↓₂
   module _ (X : [Any]) where
     Diag : [Fun] (X > Prod2 (X × X))
     Diag x = x × x

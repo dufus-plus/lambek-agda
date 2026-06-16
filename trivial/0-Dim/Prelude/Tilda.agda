@@ -6,8 +6,8 @@ module 0-Dim.Prelude.Tilda where
 -- 1st argument is considered as contravariant
 record _[~]_ ([-] [+] : [Any]) : [Any] where
   constructor _~_
-  field ₋ : [-]
-  field ₊ : [+]
+  field ↓₋ : [-]
+  field ↓₊ : [+]
 open _[~]_ public
 
 infixr 5 _[~]_ _~_
@@ -52,15 +52,14 @@ pattern _>_ a b = _~_ a b
 [swap] : [2~] [Any] → [2~] [Any]
 [swap] (A ~ B) = B ~ A
 
-
 swap : {2A : [2~] [Any]} → [Dup2] 2A → [Dup2] ([swap] 2A)
 swap (a ~ b) = b ~ a
 
 -- dependent [~]
 record _[~d]_ (A : [Any]) (B : A → [Any]) : [Any] where
   constructor _~d_
-  field ₁ : A
-  field ₂ : B ₁
+  field ↓₋ : A
+  field ↓₊ : B ↓₋
 open _[~d]_ public
 
 infixr 4 _[~d]_ _~d_
