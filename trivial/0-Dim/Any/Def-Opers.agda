@@ -5,30 +5,30 @@ open import 0-Dim.Any.Def-Types
 
 module 0-Dim.Any.Def-Opers where
 
-Fun-Id : Rel-[0Fun] _ (!               > [Fun])
-Fun-Mu : Rel-[2Fun] _ (([Fun] × [Fun]) > [Fun])
+Fun-Id : Rel-[0-Fun] _ (!               > [Fun])
+Fun-Mu : Rel-[2-Fun] _ (([Fun] × [Fun]) > [Fun])
 
 Fun-Id _ = ⑴
 Fun-Mu _ (f₁₂ × f₂₃) = f₁₂ ∘ f₂₃
 
-Rel-Id : Rel-[0Fun] _ (!               > [Rel])
-Rel-Op : Rel-[-Fun] _ ((- [Rel])       > [Rel])
-Rel-Mu : Rel-[2Fun] _ (([Rel] × [Rel]) > [Rel])
+Rel-Id : Rel-[0-Fun] _ (!               > [Rel])
+Rel-Op : Rel-[S-Fun] _ ([Rel]           > [Rel])
+Rel-Mu : Rel-[2-Fun] _ (([Rel] × [Rel]) > [Rel])
 Rel-Comp : (N : [Nat]) →
          Rel-[Fun] _ ([Path] _ [Rel] N > [Rel])
 
 Rel-Id A = [≡] A
-Rel-Op _ (- R) = [-] R
+Rel-Op _ R = [-] R
 Rel-Mu _ (R₁₂ × R₂₃) = R₁₂ [∙] R₂₃
 Rel-Comp Zero! _ (≡ A) = [≡] A
 Rel-Comp (Succ! N) _ (R ∙ Path) = R [∙] Rel-Comp N _ Path
 
 module _ (2A : [2~] [Ob]) (let RF = Rel-[Fun] 2A) where
-  Rel-Fun-Id : Rel-[0Fun] _ (!         > RF)
-  Rel-Fun-Mu : Rel-[2Fun] _ ((RF × RF) > RF)
+  Rel-Fun-Id : Rel-[0-Fun] _ (!         > RF)
+  Rel-Fun-Mu : Rel-[2-Fun] _ ((RF × RF) > RF)
 
   Rel-Fun-Id _ _ = ⑴
-  Rel-Fun-Mu _ (rF₁₂ × rF₂₃) _ = (rF₁₂ _) ∘ (rF₂₃ _)
+  Rel-Fun-Mu _ (rf₁₂ × rf₂₃) _ = (rf₁₂ _) ∘ (rf₂₃ _)
 
 -- test for inference
 private module Test-Rel-Fun (2A : [2~] [Ob]) (R : [Rel] 2A) where
@@ -39,12 +39,12 @@ private module Test-Rel-Fun (2A : [2~] [Ob]) (R : [Rel] 2A) where
   test-Mu = Rel-Fun-Mu _ _ (test-Id × test-Id)
 
 module _ (2A : [2~] [Ob]) (let RR = Rel-[Rel] 2A) where
-  Rel-Rel-Id : Rel-[0Fun] _ (!         > RR)
-  Rel-Rel-Op : Rel-[-Fun] _ ((- RR)    > RR)
-  Rel-Rel-Mu : Rel-[2Fun] _ ((RR × RR) > RR)
+  Rel-Rel-Id : Rel-[0-Fun] _ (!         > RR)
+  Rel-Rel-Op : Rel-[S-Fun] _ ((RR)      > RR)
+  Rel-Rel-Mu : Rel-[2-Fun] _ ((RR × RR) > RR)
 
   Rel-Rel-Id R 2a = [≡] (R 2a)
-  Rel-Rel-Op _ (- rR) _ = [-] (rR _)
+  Rel-Rel-Op _ (rR) _ = [-] (rR _)
   Rel-Rel-Mu _ (rR₁₂ × rR₂₃) _ = (rR₁₂ _) [∙] (rR₂₃ _)
 
 -- test for inference
@@ -53,7 +53,7 @@ private module Test-Rel-Rel (2A : [2~] [Ob]) (R : [Rel] 2A) where
   test-Id = Rel-Rel-Id _ R
 
   test-Op : Rel-[Rel] _ (R > R)
-  test-Op = Rel-Rel-Op _ _ (- test-Id)
+  test-Op = Rel-Rel-Op _ _ (test-Id)
 
   test-Mu : Rel-[Rel] _ (R > R)
   test-Mu = Rel-Rel-Mu _ _ (test-Id × test-Id)

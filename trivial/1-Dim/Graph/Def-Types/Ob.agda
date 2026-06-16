@@ -7,13 +7,13 @@ module 1-Dim.Graph.Def-Types.Ob where
 
 module :[Ob] where
   -- objects
-  :Ob = Any.[Ob]
-  module _ (Ob : :Ob) where
+  :El = Any.[Ob]
+  module _ (El : :El) where
     -- the relation
-    :To = Any.[Rel] (2~ Ob)
+    :To = Any.[Rel] (2~ El)
 
 record [Ob] : [Any] where
   constructor ‼
   open :[Ob]
-  field Ob : :Ob
-  field To : :To Ob
+  field El : :El
+  field To : :To El

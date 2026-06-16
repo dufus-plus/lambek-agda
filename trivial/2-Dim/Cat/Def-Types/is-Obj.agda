@@ -4,7 +4,7 @@ import 1-Dim.Set.Def-Types as Set
 open import 1-Dim.Set.Def-Types-pub
 import 2-Dim.Quiver.Def-Types.Ob as Quiver
 
-module 2-Dim.Cat.Def-Types.is-Ob where
+module 2-Dim.Cat.Def-Types.is-Obj where
 
 open Quiver using (‼)
 
@@ -55,7 +55,7 @@ module _ (Quiver @(‼ $Ob Hom) : Quiver.[Ob]) where
       (ob : $Ob) →
       Hom _ .To (Mu _ .f-ob (Id ob × Id ob) ~ Id ob)
 
-module _ (Quiver : Quiver.[Ob]) (oper : [oper] Quiver) where
+module _ (Quiver : Quiver.[Obj]) (oper : [oper] Quiver) where
   record [prop] : [Any] where
     constructor ‼
     open :[prop] Quiver oper

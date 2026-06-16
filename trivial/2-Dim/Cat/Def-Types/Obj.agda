@@ -6,14 +6,14 @@ import 2-Dim.Quiver.Def-Types.Ob as Quiver
 --
 module 2-Dim.Cat.Def-Types.Ob where
 
-open import 2-Dim.Cat.Def-Types.is-Ob public
+open import 2-Dim.Cat.Def-Types.is-Obj public
 
-record [Ob] : [Any] where
+record [Obj] : [Any] where
   constructor ‼
 
   -- underlying graph
-  field It : Quiver.[Ob]
-  open Quiver.[Ob] It public
+  field It : Quiver.[Obj]
+  open Quiver.[Obj] It public
 
   -- operations
   field oper : [oper] It
