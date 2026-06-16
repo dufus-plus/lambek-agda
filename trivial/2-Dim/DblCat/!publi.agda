@@ -1,7 +1,7 @@
-module 2-Dim.DblCat-pub where
+module 2-Dim.DblCat.!publi where
 
 -- base
-open import 2-Dim.DblCat-qua public
+open import 2-Dim.DblCat.!quali public
 
 -- re-export
 -- open DblCat using (↑; ‼) public

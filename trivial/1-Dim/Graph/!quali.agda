@@ -1,5 +1,5 @@
 -- packaging the modules
-module 1-Dim.Graph-qua where
+module 1-Dim.Graph.!quali where
 
 -- re-export qualified
 module Graph where

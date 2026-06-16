@@ -3,10 +3,10 @@
 --
 
 -- packaging the modules
-module 1-Dim.Set-pub where
+module 1-Dim.Set.!publi where
 
 -- base package:
-open import 1-Dim.Set-qua
+open import 1-Dim.Set.!quali
 
 -- re-export un-qualified:
 -- constructors and fields of records

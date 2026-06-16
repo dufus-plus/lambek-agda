@@ -1,7 +1,7 @@
-module 2-Dim.PoCat-pub where
+module 2-Dim.PoCat.!publi where
 
 -- base
-open import 2-Dim.PoCat-qua public
+open import 2-Dim.PoCat.!quali public
 
 -- re-export un-qualified
 -- constructors & fields of records

@@ -3,7 +3,7 @@
 --
 
 -- packaging the modules
-module 1-Dim.Set-qua where
+module 1-Dim.Set.!quali where
 
 -- re-export qualified
 module Set where

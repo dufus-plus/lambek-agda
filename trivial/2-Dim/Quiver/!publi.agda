@@ -1,7 +1,7 @@
-module 2-Dim.Quiver-pub where
+module 2-Dim.Quiver.!publi where
 
 -- base package
-open import 2-Dim.Quiver-qua
+open import 2-Dim.Quiver.!quali
 
 -- re-export un-qualified
 -- constructors & fields of records

@@ -1,4 +1,4 @@
-module 2-Dim.PoCat-qua where
+module 2-Dim.PoCat.!quali where
 
 -- re-export qualified
 module PoCat where

@@ -1,5 +1,5 @@
 -- packaging the modules
-module 1-Dim.AnyPoSet-qua where
+module 1-Dim.AnyPoSet.!quali where
 
 -- re-export qualified
 module AnyPoSet where

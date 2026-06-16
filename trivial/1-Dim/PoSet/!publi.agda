@@ -3,10 +3,10 @@
 --
 
 -- packaging the modules
-module 1-Dim.PoSet-pub where
+module 1-Dim.PoSet.!publi where
 
 -- base package
-open import 1-Dim.PoSet-qua public
+open import 1-Dim.PoSet.!quali public
 
 -- re-export the constructors & fields of records
 open PoSet using (↑; ‼) public

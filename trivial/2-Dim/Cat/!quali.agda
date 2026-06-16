@@ -1,4 +1,4 @@
-module 2-Dim.Cat-qua where
+module 2-Dim.Cat.!quali where
 
 -- re-export qualified
 module Cat where

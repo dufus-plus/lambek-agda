@@ -1,4 +1,4 @@
-module 2-Dim.DblCat-qua where
+module 2-Dim.DblCat.!quali where
 
 -- re-export qualified
 module DblCat where

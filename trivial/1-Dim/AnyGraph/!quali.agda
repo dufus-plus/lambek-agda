@@ -1,5 +1,5 @@
 -- packaging the modules
-module 1-Dim.AnyGraph-qua where
+module 1-Dim.AnyGraph.!quali where
 
 -- re-export qualified
 module AnyGraph where

@@ -3,7 +3,7 @@
 --
 
 -- packaging the modules
-module 1-Dim.PoSet-qua where
+module 1-Dim.PoSet.!quali where
 
 -- re-export qualified
 module PoSet where
