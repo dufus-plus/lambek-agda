@@ -1,4 +1,4 @@
-open import 0-Dim.Prelude
+open import 0-Dim.Prelude.!all
 
 --
 -- type definitions for 0-equipment [Any]

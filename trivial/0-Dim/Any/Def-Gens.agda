@@ -1,4 +1,4 @@
-open import 0-Dim.Prelude
+open import 0-Dim.Prelude.!all
 open import 0-Dim.Any.Def-Types
 
 -- instances generators on [Any]

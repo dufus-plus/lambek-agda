@@ -1,24 +1,28 @@
-open import 0-Dim.Prelude
-open import 0-Dim.Any-qua
+open import 0-Dim.Prelude.!all
+open import 0-Dim.Any.!quali
+
 import 1-Dim.AnySet.Def-Types as AnySet
 import 1-Dim.AnyPoSet.Def-Types as AnyPoSet
-open import 1-Dim.Graph.Def-Types-pub
 import 1-Dim.PoSet.Def-Types as PoSet
-open import 1-Dim.PoSet.Def-Types-pub
 import 1-Dim.Set.Def-Types as Set
-open import 1-Dim.Set.Def-Types-pub
 import 2-Dim.Quiver.Def-Types as Quiver
-open import 2-Dim.Quiver.Def-Types-pub
 import 2-Dim.PoQuiver.Def-Types as PoQuiver
-open import 2-Dim.PoQuiver.Def-Types-pub
 import 2-Dim.Cat.Def-Types as Cat
-open import 2-Dim.Cat.Def-Types-pub
 import 2-Dim.PoCat.Def-Types as PoCat
+open import 1-Dim.Graph.Def-Types-pub
+open import 1-Dim.PoSet.Def-Types-pub
+open import 1-Dim.Set.Def-Types-pub
+open import 2-Dim.Quiver.Def-Types-pub
+open import 2-Dim.PoQuiver.Def-Types-pub
+open import 2-Dim.Cat.Def-Types-pub
 open import 2-Dim.PoCat.Def-Types-pub
 
-module 0-Dim.Any.Extra where
+--
+-- categories comprised of types
+--
+module 0-Dim.Any.Extra-Defs where
 
--- poset of propositions
+-- poset of (relevant) propositions
 Any:PS : PoSet.[Ob]
 Any:PS .It .Ob   = Any.[Ob]
 Any:PS .It .To   = Any.[Fun]
