@@ -1,9 +1,9 @@
 module 2-Dim.PoCat-pub where
 
--- re-export qualified
-module PoCat where
-  open import 2-Dim.PoCat.Def-Types public
-  -- open import 2-Dim.PoCat.Def-Opers public
-  -- open import 2-Dim.PoCat.Def-Gens public
+-- base
+open import 2-Dim.PoCat-qua public
 
+-- re-export un-qualified
+-- constructors & fields of records
+open PoCat using (↑; ‼) public
 open import 2-Dim.PoCat.Def-Types-pub public

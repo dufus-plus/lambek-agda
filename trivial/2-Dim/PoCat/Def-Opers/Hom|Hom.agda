@@ -1,39 +1,31 @@
-open import 0-Dim
-import 1-Dim.PoSet.Defs as PoSet
-import 2-Dim.PoSet-DblGraph.Defs.Ob as PoSet-DblGraph
-open import 2-Dim.PoCat.Defs.Ob
-open import 2-Dim.PoCat.Defs.Fun
-open import 2-Dim.PoCat.Defs.Hom
-open import 2-Dim.PoCat.Defs.Hom|Hom
-import 2-Dim.DblCat.Defs.is as DblCat
+open import 0-Dim-qua
+open import 1-Dim.PoSet-pub
+import 2-Dim.DblQuiver.Def-Types.Ob as DblQuiver
+open import 2-Dim.DblQuiver.Def-Types-pub.Ob
+open import 2-Dim.PoCat.Def-Types
+open import 2-Dim.PoCat.Def-Types-pub
+import 2-Dim.DblCat.Def-Types.is-Ob as DblCat
 
-module 2-Dim.PoCat.Oper.Hom|Hom where
-
-open PoSet-DblGraph.[Ob]
-open [Ob]
-open [Fun]
-open PoSet.[Ob]
-open PoSet.[Fun]
-open [Hom|Hom]
+module 2-Dim.PoCat.Def-Opers.Hom|Hom where
 
 module Hom|Hom (C : [Ob]) where
-  DblGraph : PoSet-DblGraph.[Ob]
-  DblGraph .HV-Ob = C .Ob -- PoSet
-  DblGraph .V-Mor = C .Hom
-  DblGraph .H-Mor = C .Hom
-  DblGraph .H|V-2Mor = [Hom|Hom] C
+  DQu : DblQuiver.[Ob]
+  DQu .Ob = C .Ob
+  DQu .V-Mor = C .Hom
+  DQu .H-Mor = C .Hom
+  DQu .H|V-2Mor = [Hom|Hom] C
 
-  V-oper : [oper] (V-Graph DblGraph)
-  H-oper : [oper] (H-Graph DblGraph)
+  V-oper : [oper] (V-Graph DQu)
+  H-oper : [oper] (H-Graph DQu)
   V-oper = C .oper
   H-oper = C .oper
 
-  V-prop : [prop] (V-Graph DblGraph) V-oper
-  H-prop : [prop] (H-Graph DblGraph) H-oper
+  V-prop : [prop] (V-Graph DQu) V-oper
+  H-prop : [prop] (H-Graph DQu) H-oper
   V-prop = C .prop
   H-prop = C .prop
 
-  open DblCat.:is DblGraph V-oper H-oper
+  open DblCat.:[is-Ob] DQu V-oper H-oper
 -- Hom-[To] C _ (Hom-Mu C _ (VF1 × HF2) ~ Hom-Mu C _ (HF1 × VF2))
 
   Hom-Id|Hom : :H-Id|V

@@ -1,9 +1,9 @@
 module 2-Dim.Cat-pub where
 
--- re-export qualified
-module Cat where
-  open import 2-Dim.Cat.Def-Types public
-  -- open import 2-Dim.Cat.Def-Opers public
-  -- open import 2-Dim.Cat.Def-Gens public
+-- base
+open import 2-Dim.Cat-qua
 
+-- re-export un-qualified
+-- constructors and fields of records
+open Cat using (↑; ‼) public
 open import 2-Dim.Cat.Def-Types-pub public

@@ -1,7 +1,9 @@
 module 2-Dim.Quiver-pub where
 
-module Quiver where
-  open import 2-Dim.Quiver.Def-Types public
-  open import 2-Dim.Quiver.Def-Gens public
+-- base package
+open import 2-Dim.Quiver-qua
 
+-- re-export un-qualified
+-- constructors & fields of records
+-- open Quiver using (↑; ‼) public
 open import 2-Dim.Quiver.Def-Types-pub public

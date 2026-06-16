@@ -1,40 +1,26 @@
-open import 0-Dim
-import 1-Dim.Graph.Defs as Graph
-import 1-Dim.PoSet.Defs as PoSet
-import 2-Dim.PoSet-Graph.Defs.Ob as PoSet-Graph
-open import 2-Dim.PoCat.Defs.Ob
-open import 2-Dim.PoCat.Defs.Fun
-open import 2-Dim.PoCat.Defs.Fun-Hom
-open import 2-Dim.PoCat.Defs.Fun-Hom-To
-open import 2-Dim.PoCat.Oper.Hom|Hom
+open import 0-Dim-qua
+open import 1-Dim.Graph-pub
+open import 1-Dim.PoSet-pub
+import 2-Dim.PoQuiver.Def-Types.Ob as PoQuiver
+open import 2-Dim.PoQuiver.Def-Types-pub.Ob
+open import 2-Dim.PoCat.Def-Types
+open import 2-Dim.PoCat.Def-Types-pub
+open import 2-Dim.PoCat.Def-Opers.Hom|Hom
 
-module 2-Dim.PoCat.Gens.Fun where
-
-open [Ob]
-open [oper]
-open [prop]
-open [Fun]
-open Fun-[Hom]
-open Fun-Hom-[To]
-open PoSet.[Ob]
-open PoSet.[is]
-open PoSet.[Fun]
-open Graph.[Ob]
-open Graph.[Fun]
-open PoSet-Graph.[Ob]
+module 2-Dim.PoCat.Def-Gens.Fun where
 
 module _ (2C @(A ~ B) : [2~] [Ob]) where
   module _ (2F @(F ~ G) : [2~] [Fun] 2C) where
     Fun-Hom : PoSet.[Ob]
-    Fun-Hom .↓ .Ob = Fun-[Hom] _ (F ~ G)
-    Fun-Hom .↓ .To = Fun-Hom-[To] _ _
+    Fun-Hom .It .Ob = Fun-[Hom] _ (F ~ G)
+    Fun-Hom .It .To = Fun-Hom-[To] _ _
     Fun-Hom .is .refl tr .↓ a = B .Hom _ .refl (tr .n-ob a)
     Fun-Hom .is .tran (tr1 ~ tr2 ~ tr3) (to12 × to23) .↓ a =
       B .Hom _ .tran _ (to12 .↓ a × to23 .↓ a)
 
   Fun : [Ob]
-  Fun .↓ .Ob = [Fun] (A ~ B)
-  Fun .↓ .Hom = Fun-Hom
+  Fun .It .Ob = [Fun] (A ~ B)
+  Fun .It .Hom = Fun-Hom
   Fun .oper .Id F .n-ob a = B .Id (F .F-Ob a)
   Fun .oper .Id F .n-hom-fw _ hom = Hom|Hom-Id B _ (F .F-Hom _ .f-ob hom)
   Fun .oper .Id F .n-hom-bw _ hom = Hom-Id|Hom B _ (F .F-Hom _ .f-ob hom)
