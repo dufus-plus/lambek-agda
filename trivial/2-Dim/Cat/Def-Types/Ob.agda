@@ -1,4 +1,4 @@
-open import 0-Dim-qua
+open import 0-Dim.!quali
 import 2-Dim.Quiver.Def-Types.Ob as Quiver
 
 --

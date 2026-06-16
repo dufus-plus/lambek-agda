@@ -1,4 +1,4 @@
-open import 0-Dim-qua
+open import 0-Dim.!quali
 import 1-Dim.Set.Def-Types as Set
 open import 1-Dim.Set.Def-Types-pub
 open import 2-Dim.Cat.Def-Types.Ob

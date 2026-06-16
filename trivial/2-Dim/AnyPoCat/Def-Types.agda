@@ -1,4 +1,4 @@
-open import 0-Dim-qua
+open import 0-Dim.!quali
 
 module 2-Dim.AnyPoCat.Def-Types where
 

@@ -1,6 +1,6 @@
-open import 0-Dim-qua
-open import 1-Dim.Graph-pub
-open import 1-Dim.PoSet-pub
+open import 0-Dim.!quali
+open import 1-Dim.Graph.!publi
+open import 1-Dim.PoSet.!publi
 open import 2-Dim.PoCat.Def-Types.Ob
 open import 2-Dim.PoCat.Def-Types-pub.Ob
 import 2-Dim.PoQuiver.Def-Gens.Objs as PoQuiver

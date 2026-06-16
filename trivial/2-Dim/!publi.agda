@@ -10,4 +10,4 @@ open import 2-Dim.PoCat.!publi public
 open import 2-Dim.Cat.!publi public
 open import 2-Dim.DblCat.!publi public
 
-open import 2-Dim.AnyPoCat.!publi public
+open import 2-Dim.AnyPoCat.!quali public

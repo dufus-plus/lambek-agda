@@ -1,4 +1,4 @@
-open import 0-Dim-qua
+open import 0-Dim.!quali
 import 1-Dim.Graph.Def-Types.Fun-To as Graph
 open import 1-Dim.Set.Def-Types.Fun
 open import 1-Dim.Set.Def-Types-pub.Fun

@@ -1,5 +1,3 @@
-open import 0-Dim.Prelude
-
 --
 -- package 1-equipment operations for [Any]
 --

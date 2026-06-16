@@ -1,4 +1,4 @@
-open import 0-Dim-qua
+open import 0-Dim.!quali
 open import 1-Dim.Graph.Def-Types
 open import 1-Dim.Graph.Def-Types-pub
 import 1-Dim.AnyPoSet.Def-Types as AnyPoSet

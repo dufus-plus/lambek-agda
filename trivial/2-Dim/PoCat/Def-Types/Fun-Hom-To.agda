@@ -1,4 +1,4 @@
-open import 0-Dim-qua
+open import 0-Dim.!quali
 open import 2-Dim.PoCat.Def-Types.Ob
 open import 2-Dim.PoCat.Def-Types.Fun
 open import 2-Dim.PoCat.Def-Types.Fun-Hom

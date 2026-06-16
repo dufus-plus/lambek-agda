@@ -1,4 +1,4 @@
-open import 0-Dim-qua
+open import 0-Dim.!quali
 import 1-Dim.AnyPoSet.Def-Types as AnyPoSet
 import 1-Dim.PoSet.Def-Types as PoSet
 import 2-Dim.PoCat.Def-Types.Ob as PoCat

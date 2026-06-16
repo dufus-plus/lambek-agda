@@ -1,4 +1,4 @@
-open import 0-Dim-qua
+open import 0-Dim.!quali
 import 1-Dim.AnySet.Def-Types as AnySet
 open import 2-Dim.Quiver.Def-Types.Ob
 open import 2-Dim.Quiver.Def-Types-pub.Ob

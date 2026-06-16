@@ -1,4 +1,4 @@
-open import 0-Dim-qua
+open import 0-Dim.!quali
 open import 1-Dim.Graph.Def-Types.Ob
 open import 1-Dim.Graph.Def-Types.Fun
 open import 1-Dim.Graph.Def-Types.Mod

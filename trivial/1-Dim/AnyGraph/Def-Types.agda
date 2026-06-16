@@ -1,4 +1,4 @@
-open import 0-Dim-qua
+open import 0-Dim.!quali
 
 --
 -- define Graph-enriched (Rel)ations between [Any]

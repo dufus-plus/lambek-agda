@@ -1,4 +1,4 @@
-open import 0-Dim-qua
+open import 0-Dim.!quali
 open import 1-Dim.Set.Def-Types
 open import 1-Dim.Set.Def-Types-pub
 open import 1-Dim.Set.Def-Opers.Mod

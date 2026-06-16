@@ -1,4 +1,4 @@
-open import 0-Dim-qua
+open import 0-Dim.!quali
 import 1-Dim.PoSet.Def-Types as PoSet
 open import 1-Dim.PoSet.Def-Types-pub
 

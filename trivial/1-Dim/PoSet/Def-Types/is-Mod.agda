@@ -1,4 +1,4 @@
-open import 0-Dim-qua
+open import 0-Dim.!quali
 import 1-Dim.Graph.Def-Types.Mod as Graph
 open import 1-Dim.Graph.Def-Types-pub.Mod
 open import 1-Dim.PoSet.Def-Types.Ob
