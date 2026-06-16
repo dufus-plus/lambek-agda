@@ -12,13 +12,6 @@ module _ (AB @(A > B) : [2~] [Ob]) (2f @(f1 ~ f2) : [2~] [Fun] (A > B)) where
   :Fun-To : [Any]
   :Fun-To = Any.[Rel|0Fun] _ (f1 .f-ob ~ f2 .f-ob) (! > B .To)
 
-  :Fun-Id : [Any]
-  :Fun-Id = Any.[Rel|0Fun] _ (f1 .f-ob ~ f2 .f-ob) (! > [≡] _)
-
   record Fun-[To] : [Any] where
     constructor ↑
     field ↓ : :Fun-To
-
-  record Fun-[Id] : [Any] where
-    constructor ↑
-    field ↓ : :Fun-Id

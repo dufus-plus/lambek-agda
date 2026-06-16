@@ -20,88 +20,95 @@ module 0-Dim.Any.Extra where
 
 -- poset of propositions
 Any:PS : PoSet.[Ob]
-Any:PS .It .Ob = Any.[Ob]
-Any:PS .It .To = Any.[Fun]
+Any:PS .It .Ob   = Any.[Ob]
+Any:PS .It .To   = Any.[Fun]
 Any:PS .is .refl = Any.Fun-Id
 Any:PS .is .tran = Any.Fun-Mu
 
 module _ (AB @ (A > B) : [2~] Any.[Ob]) where
-  Fun:S : Set.[Ob]
-  Fun:S .It .Ob = Any.[Fun] AB
-  Fun:S .It .To = Any.Fun-[Id] AB
-  Fun:S .is .refl _ a = ≡.refl
-  Fun:S .is .symm _ (- fto) a = ≡.symm (fto a)
-  Fun:S .is .tran _ (fto12 × fto23) a = ≡.tran (fto12 a × fto23 a)
+  Rel:PS : PoSet.[Ob]
+  Rel:PS .It .Ob   = Any.[Rel] AB
+  Rel:PS .It .To   = Any.Rel-[Fun] AB
+  Rel:PS .is .refl = Any.Rel-Fun-Id AB
+  Rel:PS .is .tran = Any.Rel-Fun-Mu AB
 
 module _ (AB @ (A > B) : [2~] Any.[Ob]) where
-  Fun:PS : PoSet.[Ob]
-  Fun:PS .It .Ob = Any.[Fun] AB
-  Fun:PS .It .To = Any.Fun-[Id] AB
-  Fun:PS .is .refl _ a = ≡.refl
-  Fun:PS .is .tran _ (fto12 × fto23) a = ≡.tran (fto12 a × fto23 a)
+  Fun:Q : Set.[Ob]
+  Fun:Q .It .Ob = Any.[Fun] AB
+  Fun:Q .It .To = Any.Fun-[Id] AB
+  Fun:Q .is .refl _ a = ≡.refl
+  Fun:Q .is .symm _ (- fto) a = ≡.symm (fto a)
+  Fun:Q .is .tran _ (fto12 × fto23) a = ≡.tran (fto12 a × fto23 a)
 
-Fun:S-Id : AnySet.Rel-[0Fun] _ (! > Fun:S)
-Fun:S-Id _ = ⑴
+module _ (AB @ (A > B) : [2~] Any.[Ob]) where
+  Fun:PQ : PoSet.[Ob]
+  Fun:PQ .It .Ob = Any.[Fun] AB
+  Fun:PQ .It .To = Any.Fun-[Id] AB
+  Fun:PQ .is .refl _ a = ≡.refl
+  Fun:PQ .is .tran _ (fto12 × fto23) a = ≡.tran (fto12 a × fto23 a)
 
-Fun:S-Mu : AnySet.Rel-[2Fun] _ ((Fun:S × Fun:S) > Fun:S)
-Fun:S-Mu _ .↓ .f-ob (fab × fbc) = fab ∘ fbc
-Fun:S-Mu _ .↓ .f-to ((fab × fbc) ~ (gab × gbc)) (fidab × fidbc) a =
+Fun:Q-Id : AnySet.Rel-[0Fun] _ (! > Fun:Q)
+Fun:Q-Id _ = ⑴
+
+Fun:Q-Mu : AnySet.Rel-[2Fun] _ ((Fun:Q × Fun:Q) > Fun:Q)
+Fun:Q-Mu _ .↓ .f-ob (fab × fbc) = fab ∘ fbc
+Fun:Q-Mu _ .↓ .f-to ((fab × fbc) ~ (gab × gbc)) (fidab × fidbc) a =
   ≡.tran (≡.cong fbc (fidab a) × fidbc (gab a))
 
-Fun:PS-Id : AnyPoSet.Rel-[0Fun] _ (! > Fun:PS)
-Fun:PS-Id _ = ⑴
+Fun:PQ-Id : AnyPoSet.Rel-[0Fun] _ (! > Fun:PQ)
+Fun:PQ-Id _ = ⑴
 
-Fun:PS-Mu : AnyPoSet.Rel-[2Fun] _ ((Fun:PS × Fun:PS) > Fun:PS)
-Fun:PS-Mu _ .↓ .f-ob (fab × fbc) = fab ∘ fbc
-Fun:PS-Mu _ .↓ .f-to ((fab × fbc) ~ (gab × gbc)) (fidab × fidbc) a =
+Fun:PQ-Mu : AnyPoSet.Rel-[2Fun] _ ((Fun:PQ × Fun:PQ) > Fun:PQ)
+Fun:PQ-Mu _ .↓ .f-ob (fab × fbc) = fab ∘ fbc
+Fun:PQ-Mu _ .↓ .f-to ((fab × fbc) ~ (gab × gbc)) (fidab × fidbc) a =
   ≡.tran (≡.cong fbc (fidab a) × fidbc (gab a))
 
-module Fun:S where
+module Fun:Q where
   Qu : Quiver.[Ob]
   Qu .Ob = Any.[Ob]
-  Qu .Hom = Fun:S
+  Qu .Hom = Fun:Q
 
-  Qu-oper : Cat.[oper] Qu
-  Qu-oper .Id = Fun:S-Id
-  Qu-oper .Mu = Fun:S-Mu
+  is-oper : Cat.[oper] Qu
+  is-oper .Id = Fun:Q-Id
+  is-oper .Mu = Fun:Q-Mu
 
-  Qu-prop : Cat.[prop] Qu Qu-oper
-  Qu-prop .Assoc-fw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) _ = ≡ _
-  Qu-prop .Assoc-bw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) _ = ≡ _
-  Qu-prop .LUnit-fw (ob1 ~ ob2) f12 _ = ≡ _
-  Qu-prop .LUnit-bw (ob1 ~ ob2) f12 _ = ≡ _
-  Qu-prop .RUnit-fw (ob1 ~ ob2) f12 _ = ≡ _
-  Qu-prop .RUnit-bw (ob1 ~ ob2) f12 _ = ≡ _
-  Qu-prop .BUnit-fw ob _ = ≡ _
-  Qu-prop .BUnit-bw ob _ = ≡ _
+  is-prop : Cat.[prop] Qu is-oper
+  is-prop .Assoc-fw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) _ = ≡ _
+  is-prop .Assoc-bw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) _ = ≡ _
+  is-prop .LUnit-fw (ob1 ~ ob2) f12 _ = ≡ _
+  is-prop .LUnit-bw (ob1 ~ ob2) f12 _ = ≡ _
+  is-prop .RUnit-fw (ob1 ~ ob2) f12 _ = ≡ _
+  is-prop .RUnit-bw (ob1 ~ ob2) f12 _ = ≡ _
+  is-prop .BUnit-fw ob _ = ≡ _
+  is-prop .BUnit-bw ob _ = ≡ _
 
-module Fun:PS where
-  Qu : PoQuiver.[Ob]
-  Qu .Ob = Any.[Ob]
-  Qu .Hom = Fun:PS
+module Fun:PQ where
+  PQu : PoQuiver.[Ob]
+  PQu .Ob = Any.[Ob]
+  PQu .Hom = Fun:PQ
 
-  Qu-oper : PoCat.[oper] Qu
-  Qu-oper .Id = Fun:PS-Id
-  Qu-oper .Mu = Fun:PS-Mu
+  is-oper : PoCat.[oper] PQu
+  is-oper .Id = Fun:PQ-Id
+  is-oper .Mu = Fun:PQ-Mu
 
-  Qu-prop : PoCat.[prop] Qu Qu-oper
-  Qu-prop .Assoc-fw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) _ = ≡ _
-  Qu-prop .Assoc-bw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) _ = ≡ _
-  Qu-prop .LUnit-fw (ob1 ~ ob2) f12 _ = ≡ _
-  Qu-prop .LUnit-bw (ob1 ~ ob2) f12 _ = ≡ _
-  Qu-prop .RUnit-fw (ob1 ~ ob2) f12 _ = ≡ _
-  Qu-prop .RUnit-bw (ob1 ~ ob2) f12 _ = ≡ _
-  Qu-prop .BUnit-fw ob _ = ≡ _
-  Qu-prop .BUnit-bw ob _ = ≡ _
+  is-prop : PoCat.[prop] PQu is-oper
+  is-prop .Assoc-fw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) _ = ≡ _
+  is-prop .Assoc-bw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) _ = ≡ _
+  is-prop .LUnit-fw (ob1 ~ ob2) f12 _ = ≡ _
+  is-prop .LUnit-bw (ob1 ~ ob2) f12 _ = ≡ _
+  is-prop .RUnit-fw (ob1 ~ ob2) f12 _ = ≡ _
+  is-prop .RUnit-bw (ob1 ~ ob2) f12 _ = ≡ _
+  is-prop .BUnit-fw ob _ = ≡ _
+  is-prop .BUnit-bw ob _ = ≡ _
 
 Fun:C : Cat.[Ob]
-Fun:C .It   = Fun:S.Qu
-Fun:C .oper = Fun:S.Qu-oper
-Fun:C .prop = Fun:S.Qu-prop
+Fun:C .It   = Fun:Q.Qu
+Fun:C .oper = Fun:Q.is-oper
+Fun:C .prop = Fun:Q.is-prop
 
 Fun:PC : PoCat.[Ob]
-Fun:PC .It   = Fun:PS.Qu
-Fun:PC .oper = Fun:PS.Qu-oper
-Fun:PC .prop = Fun:PS.Qu-prop
+Fun:PC .It   = Fun:PQ.PQu
+Fun:PC .oper = Fun:PQ.is-oper
+Fun:PC .prop = Fun:PQ.is-prop
 
--- TODO DblCat
+-- TODO: 3 DblCat: Fun|Fun Rel|Fun Rel|Rel
