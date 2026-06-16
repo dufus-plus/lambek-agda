@@ -1,12 +1,12 @@
-open import 0-Dim
+open import 0-Dim-qua
 open import 1-Dim.Graph-pub
 open import 1-Dim.PoSet.Def-Types
 open import 1-Dim.PoSet.Def-Types-pub
-open import 1-Dim.PoSet.Gens.Objs
-open import 1-Dim.PoSet.Gens.Fun
-open import 1-Dim.PoSet.Gens.Mod
+open import 1-Dim.PoSet.Def-Gens.Objs
+open import 1-Dim.PoSet.Def-Opers.Fun
+open import 1-Dim.PoSet.Def-Opers.Mod
 
-module 1-Dim.PoSet.Gens.Pow where
+module 1-Dim.PoSet.Def-Gens.Pow where
 
 module Pow where
   module _ (IA @(I > A) : [Any] [~] [Ob]) where

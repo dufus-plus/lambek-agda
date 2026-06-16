@@ -1,11 +1,11 @@
-open import 0-Dim
+open import 0-Dim-qua
 
-module 2-Dim.AnyPoCat.Defs where
+module 2-Dim.AnyPoCat.Def-Types where
 
 private module PoCat where
-  open import 2-Dim.PoCat.Defs.Ob public
-  open import 2-Dim.PoCat.Defs.Fun public
-  open import 2-Dim.PoCat.Gens.Ob public
+  open import 2-Dim.PoCat.Def-Types.Ob public
+  open import 2-Dim.PoCat.Def-Types.Fun public
+  open import 2-Dim.PoCat.Def-Gens.Objs public
 open PoCat.[Ob]
 
 [Ob] = Any.[Ob]

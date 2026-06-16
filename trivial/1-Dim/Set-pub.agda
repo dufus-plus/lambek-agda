@@ -1,0 +1,14 @@
+--
+-- define (Set)oids
+--
+
+-- packaging the modules
+module 1-Dim.Set-pub where
+
+-- base package:
+open import 1-Dim.Set-qua
+
+-- re-export un-qualified:
+-- constructors and fields of records
+open Set using (↑; ‼) public
+open import 1-Dim.Set.Def-Types-pub public
