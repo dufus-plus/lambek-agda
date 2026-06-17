@@ -1,1 +1,0 @@
--- TODO double quiver and DblCat

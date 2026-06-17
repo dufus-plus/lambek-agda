@@ -16,35 +16,16 @@ open import 2-Dim.PoCat.Def-Types-pub.is-Obj
 --
 module 1-Dim.Set.Def-Opers.Fun-To where
 
-module Fun where
-  Quiver : Quiver.[Obj]
-  Quiver .Ob = [Ob]
-  Quiver .Hom = Fun
+Fun:Q : Quiver.[Obj]
+Fun:Q .Ob = [Ob]
+Fun:Q .Hom = Fun
 
-  oper : Cat.[oper] Quiver
+module Fun where
+  oper : Cat.[oper] Fun:Q
   oper .Id = Fun-Id
   oper .Mu = Fun-Mu
 
-  prop : Cat.[prop] Quiver oper
-  prop .Assoc-fw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) .↓ _ = ob4 .refl _
-  prop .Assoc-bw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) .↓ _ = ob4 .refl _
-  prop .LUnit-fw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
-  prop .LUnit-bw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
-  prop .RUnit-fw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
-  prop .RUnit-bw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
-  prop .BUnit-fw ob .↓ _ = ob .refl _
-  prop .BUnit-bw ob .↓ _ = ob .refl _
-
-module Fun:PS where
-  Quiver : PoQuiver.[Obj]
-  Quiver .Ob = [Ob]
-  Quiver .Hom = Fun:PS
-
-  oper : PoCat.[oper] Quiver
-  oper .Id = Fun:PS-Id
-  oper .Mu = Fun:PS-Mu
-
-  prop : PoCat.[prop] Quiver oper
+  prop : Cat.[prop] Fun:Q oper
   prop .Assoc-fw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) .↓ _ = ob4 .refl _
   prop .Assoc-bw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) .↓ _ = ob4 .refl _
   prop .LUnit-fw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _

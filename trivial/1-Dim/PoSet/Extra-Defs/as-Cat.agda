@@ -2,11 +2,11 @@ open import 0-Dim.!quali
 open import 1-Dim.PoSet.Def-Types
 open import 1-Dim.PoSet.Def-Opers
 import 2-Dim.PoCat.Def-Types.Obj as PoCat
-import 2-Dim.PoCat|PoCat.Def-Types.Obj as DblCat
+import 2-Dim.PoCat|PoCat.Def-Types.Obj as PoCat|PoCat
 open import 2-Dim.PoCat.Def-Types-pub.Obj
 open import 2-Dim.PoCat|PoCat.Def-Types-pub.Obj
 
-module 1-Dim.PoSet.Extra.Cat where
+module 1-Dim.PoSet.Extra-Defs.as-Cat where
 
 Fun:PC : PoCat.[Obj]
 Fun:PC .It = Fun.Qu
@@ -18,10 +18,10 @@ Mod:PC .It = Mod.Qu
 Mod:PC .oper = Mod.oper
 Mod:PC .prop = Mod.prop
 
-Mod|Fun:DC : DblCat.[Ob]
-Mod|Fun:DC .It = Mod|Fun.Dbl
-Mod|Fun:DC .V-oper = Mod|Fun.V-oper
-Mod|Fun:DC .H-oper = Mod|Fun.H-oper
-Mod|Fun:DC .V-prop = Mod|Fun.V-prop
-Mod|Fun:DC .H-prop = Mod|Fun.H-prop
-Mod|Fun:DC .is = Mod|Fun.is-DblCat
+Mod|Fun:PC|PC : PoCat|PoCat.[Obj]
+Mod|Fun:PC|PC .It = Mod|Fun:PQ|PQ
+Mod|Fun:PC|PC .V-oper = Fun.oper
+Mod|Fun:PC|PC .H-oper = Mod.oper
+Mod|Fun:PC|PC .V-prop = Fun.prop
+Mod|Fun:PC|PC .H-prop = Mod.prop
+Mod|Fun:PC|PC .is = Mod|Fun.is-PC|PC

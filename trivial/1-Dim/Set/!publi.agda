@@ -6,7 +6,7 @@
 module 1-Dim.Set.!publi where
 
 -- base package:
-open import 1-Dim.Set.!quali
+open import 1-Dim.Set.!quali public
 
 -- re-export un-qualified:
 -- constructors and fields of records
