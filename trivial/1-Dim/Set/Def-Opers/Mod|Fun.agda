@@ -6,17 +6,17 @@ open import 1-Dim.Set.Def-Opers.Fun-To
 open import 1-Dim.Set.Def-Opers.Mod
 open import 1-Dim.Set.Def-Opers.Mod-Fun
 import 2-Dim.PoQuiver.Def-Types.Obj as PoQuiver
-import 2-Dim.DblQuiver.Def-Types.Ob as DblQuiver
-import 2-Dim.PoCat.Def-Types.is-Ob as PoCat
-import 2-Dim.DblCat.Def-Types.is-Ob as DblCat
-open import 2-Dim.DblQuiver.Def-Types-pub.Ob
-open import 2-Dim.DblCat.Def-Types-pub.is-Ob
+import 2-Dim.PoQuiver|PoQuiver.Def-Types.Obj as PoQuiver|PoQuiver
+import 2-Dim.PoCat.Def-Types.is-Obj as PoCat
+import 2-Dim.PoCat|PoCat.Def-Types.is-Obj as PoCat|PoCat
+open import 2-Dim.PoQuiver|PoQuiver.Def-Types-pub.Obj
+open import 2-Dim.PoCat|PoCat.Def-Types-pub.is-Obj
 
 -- operations in Po(Set)oid on square 2-(Mor)phisms
 module 1-Dim.Set.Def-Opers.Mod|Fun where
 
 module Mod|Fun where
-  DblGraph : DblQuiver.[Ob]
+  DblGraph : PoQuiver|PoQuiver.[Obj]
   DblGraph .Ob = [Ob]
   DblGraph .V-Mor = Fun:PS
   DblGraph .H-Mor = Mod
@@ -32,7 +32,7 @@ module Mod|Fun where
   V-prop = Fun:PS.prop
   H-prop = Mod.prop
 
-  open DblCat.:[is-Ob] DblGraph V-oper H-oper
+  open PoCat|PoCat.:[is-Obj] DblGraph V-oper H-oper
 
   Mod-Id|Fun : :H-Id|V
   Mod|Fun-Id : :H|V-Id
@@ -66,7 +66,7 @@ module Mod|Fun where
   Mod|IFun-Mu 22A 2f 3M (mf12 × m|f23) .↓ _ = mf12 .↓ _ ∘ m|f23 .↓ _
   Mod|FunI-Mu 22A 2f 3M (m|f12 × mf23) .↓ _ = m|f12 .↓ _ ∘ mf23 .↓ _
 
-  is-DblCat : DblCat.[is-Ob] DblGraph V-oper H-oper
+  is-DblCat : PoCat|PoCat.[is-Obj] DblGraph V-oper H-oper
   is-DblCat .H-Id|V = Mod-Id|Fun
   is-DblCat .H|V-Id = Mod|Fun-Id
   is-DblCat .H-Mu|V = Mod-Mu|Fun

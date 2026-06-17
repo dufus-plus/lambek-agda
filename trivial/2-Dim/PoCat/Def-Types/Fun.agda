@@ -1,12 +1,12 @@
 open import 0-Dim.!quali
 import 1-Dim.PoSet.Def-Types as PoSet
 import 2-Dim.PoQuiver.Def-Types.Fun as PoQuiver
-open import 2-Dim.PoCat.Def-Types.Ob
+open import 2-Dim.PoCat.Def-Types.Obj
 
 module 2-Dim.PoCat.Def-Types.Fun where
 
-module _ (AB @(A > B) : [2~] [Ob]) where
-  open [Ob]
+module _ (AB @(A > B) : [2~] [Obj]) where
+  open [Obj]
   open PoSet.[Ob]
   open PoSet.[Fun]
   open PoQuiver using (‼)
@@ -17,11 +17,11 @@ module _ (AB @(A > B) : [2~] [Ob]) where
     :F-Id-bw = (a : A .Ob) →
       B .Hom _ .To (B .Id (F-Ob a) ~ F-Hom _ .f-ob (A .Id a))
     :F-Mu-fw = (3a @(a1 ~ a2 ~ a3) : [3~] A .Ob) →
-               (2hom @(a12 × a23) : A .Hom (a1 ~ a2) .Ob [×] A .Hom (a2 ~ a3) .Ob) →
+               (2hom @(a12 × a23) : A .Hom (a1 ~ a2) .El [×] A .Hom (a2 ~ a3) .El) →
       B .Hom _ .To (F-Hom _ .f-ob (A .Mu _ .f-ob 2hom) ~
                     B .Mu _ .f-ob (F-Hom _ .f-ob a12 × F-Hom _ .f-ob a23))
     :F-Mu-bw = (3a @(a1 ~ a2 ~ a3) : [3~] A .Ob) →
-               (2hom @(a12 × a23) : A .Hom (a1 ~ a2) .Ob [×] A .Hom (a2 ~ a3) .Ob) →
+               (2hom @(a12 × a23) : A .Hom (a1 ~ a2) .El [×] A .Hom (a2 ~ a3) .El) →
       B .Hom _ .To (B .Mu _ .f-ob (F-Hom _ .f-ob a12 × F-Hom _ .f-ob a23) ~
                     F-Hom _ .f-ob (A .Mu _ .f-ob 2hom))
 
@@ -33,9 +33,9 @@ module _ (AB @(A > B) : [2~] [Ob]) where
     field F-Mu-fw : :F-Mu-fw
     field F-Mu-bw : :F-Mu-bw
 
-module _ (AB @(A > B) : [2~] [Ob]) where
+module _ (AB @(A > B) : [2~] [Obj]) where
   module :[Fun] where
-    open [Ob]
+    open [Obj]
     :It = PoQuiver.[Fun] (A .It > B .It)
     module _ (It : :It) where
       :is = [is-Fun] AB It

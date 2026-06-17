@@ -22,12 +22,12 @@ module Prod2 where
   oper-ob = Prod2
 
   module _ (22ob @ ((A × B) ~ (A' × B')) : [2~] [2×] [Ob]) where
-    Prod2-Fun : [2Fun] ((Fun (A > A') × Fun (B > B')) > Fun (Prod2 (A × B) > Prod2 (A' × B')))
+    Prod2-Fun : [2-Fun] ((Fun (A > A') × Fun (B > B')) > Fun (Prod2 (A × B) > Prod2 (A' × B')))
     Prod2-Fun .↓ .f-ob (fa × fb) .↓ .f-ob (a × b) = fa .f-ob a × fb .f-ob b
     Prod2-Fun .↓ .f-ob (fa × fb) .↓ .f-to _ (ato × bto) = fa .f-to _ ato × fb .f-to _ bto
     Prod2-Fun .↓ .f-to _ (fato × fbto) .↓ (a × b) = fato .↓ a × fbto .↓ b
 
-    Prod2-Mod : [2Fun] ((Mod (A ~ A') × Mod (B ~ B')) > Mod (Prod2 (A × B) ~ Prod2 (A' × B')))
+    Prod2-Mod : [2-Fun] ((Mod (A ~ A') × Mod (B ~ B')) > Mod (Prod2 (A × B) ~ Prod2 (A' × B')))
     Prod2-Mod .↓ .f-ob (Ma × Mb) .It .M-ob ((a × b) ~ (a' × b')) =
       Any.Prod2 (Ma .M-ob (a ~ a') × Mb .M-ob (b ~ b'))
     Prod2-Mod .↓ .f-ob (Ma × Mb) .is .lact _ ((ato × bto) × (ma × mb)) =

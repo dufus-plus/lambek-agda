@@ -4,15 +4,15 @@ import 1-Dim.PoSet.Def-Types as PoSet
 open import 1-Dim.PoSet.Def-Types-pub
 import 2-Dim.PoQuiver.Def-Types.Obj as PoQuiver
 
-module 2-Dim.PoCat.Def-Types.is-Ob where
+module 2-Dim.PoCat.Def-Types.is-Obj where
 
 open PoQuiver using (‼)
 
-module _ (Quiver @(‼ $Ob Hom) : PoQuiver.[Ob]) where
+module _ (Quiver @(‼ $Ob Hom) : PoQuiver.[Obj]) where
   module :[oper]  where
     -- operations on Hom: (id)entity, (mu)ltiplication
-    :Id = AnyPoSet.Rel-[0Fun] _ (! > Hom)
-    :Mu = AnyPoSet.Rel-[2Fun] _ ((Hom × Hom) > Hom)
+    :Id = AnyPoSet.Rel-[0-Fun] _ (! > Hom)
+    :Mu = AnyPoSet.Rel-[2-Fun] _ ((Hom × Hom) > Hom)
 
   record [oper] : [Any] where
     constructor ‼
@@ -26,27 +26,27 @@ module _ (Quiver @(‼ $Ob Hom) : PoQuiver.[Ob]) where
     :Assoc-fw =
       (4ob @(ob1 ~ ob2 ~ ob3 ~ ob4) : [4~] $Ob)
       (3hom @(hom12 × hom23 × hom34):
-        Hom (ob1 > ob2) .Ob [×] Hom (ob2 > ob3) .Ob [×] Hom (ob3 > ob4) .Ob) →
+        Hom (ob1 > ob2) .El [×] Hom (ob2 > ob3) .El [×] Hom (ob3 > ob4) .El) →
       Hom _ .To ((Mu _ .f-ob (Mu _ .f-ob (hom12 × hom23) × hom34)) ~
                   (Mu _ .f-ob (hom12 × Mu _ .f-ob (hom23 × hom34))))
     :Assoc-bw =
       (4ob @(ob1 ~ ob2 ~ ob3 ~ ob4) : [4~] $Ob)
       (3hom @(hom12 × hom23 × hom34):
-        Hom (ob1 > ob2) .Ob [×] Hom (ob2 > ob3) .Ob [×] Hom (ob3 > ob4) .Ob) →
+        Hom (ob1 > ob2) .El [×] Hom (ob2 > ob3) .El [×] Hom (ob3 > ob4) .El) →
       Hom _ .To ((Mu _ .f-ob (hom12 × Mu _ .f-ob (hom23 × hom34))) ~
                   (Mu _ .f-ob (Mu _ .f-ob (hom12 × hom23) × hom34)))
     -- identity is (left,right) unit
     :LUnit-fw =
-      (2ob @(ob1 ~ ob2) : [2~] $Ob) (hom12 : Hom (ob1 > ob2) .Ob) →
+      (2ob @(ob1 ~ ob2) : [2~] $Ob) (hom12 : Hom (ob1 > ob2) .El) →
       Hom _ .To (hom12 ~ Mu _ .f-ob (Id ob1 × hom12))
     :LUnit-bw =
-      (2ob @(ob1 ~ ob2) : [2~] $Ob) (hom12 : Hom (ob1 > ob2) .Ob) →
+      (2ob @(ob1 ~ ob2) : [2~] $Ob) (hom12 : Hom (ob1 > ob2) .El) →
       Hom _ .To (Mu _ .f-ob (Id ob1 × hom12) ~ hom12)
     :RUnit-fw =
-      (2ob @(ob1 ~ ob2) : [2~] $Ob) (hom12 : Hom (ob1 > ob2) .Ob) →
+      (2ob @(ob1 ~ ob2) : [2~] $Ob) (hom12 : Hom (ob1 > ob2) .El) →
       Hom _ .To (hom12 ~ Mu _ .f-ob (hom12 × Id ob2))
     :RUnit-bw =
-      (2ob @(ob1 ~ ob2) : [2~] $Ob) (hom12 : Hom (ob1 > ob2) .Ob) →
+      (2ob @(ob1 ~ ob2) : [2~] $Ob) (hom12 : Hom (ob1 > ob2) .El) →
       Hom _ .To (Mu _ .f-ob (hom12 × Id ob2) ~ hom12)
     :BUnit-fw =
       (ob : $Ob) →
@@ -55,7 +55,7 @@ module _ (Quiver @(‼ $Ob Hom) : PoQuiver.[Ob]) where
       (ob : $Ob) →
       Hom _ .To (Mu _ .f-ob (Id ob × Id ob) ~ Id ob)
 
-module _ (Quiver : PoQuiver.[Ob]) (oper : [oper] Quiver) where
+module _ (Quiver : PoQuiver.[Obj]) (oper : [oper] Quiver) where
   record [prop] : [Any] where
     constructor ‼
     open :[prop] Quiver oper

@@ -4,16 +4,16 @@ import 2-Dim.PoQuiver.Def-Types.Obj as PoQuiver
 --
 -- (Ob)jects of 2-equipment of 1-(Cat)egories
 --
-module 2-Dim.PoCat.Def-Types.Ob where
+module 2-Dim.PoCat.Def-Types.Obj where
 
-open import 2-Dim.PoCat.Def-Types.is-Ob public
+open import 2-Dim.PoCat.Def-Types.is-Obj public
 
-record [Ob] : [Any] where
+record [Obj] : [Any] where
   constructor ‼
 
   -- underlying graph
-  field It : PoQuiver.[Ob]
-  open PoQuiver.[Ob] It public
+  field It : PoQuiver.[Obj]
+  open PoQuiver.[Obj] It public
 
   -- operations
   field oper : [oper] It

@@ -1,3 +1,3 @@
-module 2-Dim.DblQuiver.Def-Types where
+module 2-Dim.PoQuiver|PoQuiver.Def-Types where
 
-open import 2-Dim.DblQuiver.Def-Types.Ob public
+open import 2-Dim.PoQuiver|PoQuiver.Def-Types.Obj public

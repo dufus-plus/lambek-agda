@@ -7,7 +7,7 @@ open import 1-Dim.PoSet.Def-Opers.Fun
 module 1-Dim.PoSet.Def-Gens.Const where
 
 module _ (2O @(A ~ B) : [2~] [Ob]) where
-  Const : B .Ob → [Fun] (A > B)
+  Const : B .El → [Fun] (A > B)
   Const b .↓ .f-ob = Any.Const _ b
   Const b .↓ .f-to _ _ = B .refl b
 

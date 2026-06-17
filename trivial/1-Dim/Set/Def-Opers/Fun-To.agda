@@ -6,10 +6,10 @@ import 2-Dim.Quiver.Def-Types.Obj as Quiver
 open import 2-Dim.Quiver.Def-Types-pub.Obj
 import 2-Dim.PoQuiver.Def-Types.Obj as PoQuiver
 open import 2-Dim.PoQuiver.Def-Types-pub.Obj
-import 2-Dim.Cat.Def-Types.is-Ob as Cat
-open import 2-Dim.Cat.Def-Types-pub.is-Ob
-import 2-Dim.PoCat.Def-Types.is-Ob as PoCat
-open import 2-Dim.PoCat.Def-Types-pub.is-Ob
+import 2-Dim.Cat.Def-Types.is-Obj as Cat
+open import 2-Dim.Cat.Def-Types-pub.is-Obj
+import 2-Dim.PoCat.Def-Types.is-Obj as PoCat
+open import 2-Dim.PoCat.Def-Types-pub.is-Obj
 
 --
 -- Fun-[To] satisfies axioms of [Cat]
@@ -17,7 +17,7 @@ open import 2-Dim.PoCat.Def-Types-pub.is-Ob
 module 1-Dim.Set.Def-Opers.Fun-To where
 
 module Fun where
-  Quiver : Quiver.[Ob]
+  Quiver : Quiver.[Obj]
   Quiver .Ob = [Ob]
   Quiver .Hom = Fun
 
@@ -36,7 +36,7 @@ module Fun where
   prop .BUnit-bw ob .↓ _ = ob .refl _
 
 module Fun:PS where
-  Quiver : PoQuiver.[Ob]
+  Quiver : PoQuiver.[Obj]
   Quiver .Ob = [Ob]
   Quiver .Hom = Fun:PS
 

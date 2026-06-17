@@ -9,16 +9,16 @@ open import 2-Dim.PoCat.Def-Opers.Hom|Hom
 
 module 2-Dim.PoCat.Def-Gens.Fun where
 
-module _ (2C @(A ~ B) : [2~] [Ob]) where
+module _ (2C @(A ~ B) : [2~] [Obj]) where
   module _ (2F @(F ~ G) : [2~] [Fun] 2C) where
     Fun-Hom : PoSet.[Ob]
-    Fun-Hom .It .Ob = Fun-[Hom] _ (F ~ G)
+    Fun-Hom .It .El = Fun-[Hom] _ (F ~ G)
     Fun-Hom .It .To = Fun-Hom-[To] _ _
     Fun-Hom .is .refl tr .↓ a = B .Hom _ .refl (tr .n-ob a)
     Fun-Hom .is .tran (tr1 ~ tr2 ~ tr3) (to12 × to23) .↓ a =
       B .Hom _ .tran _ (to12 .↓ a × to23 .↓ a)
 
-  Fun : [Ob]
+  Fun : [Obj]
   Fun .It .Ob = [Fun] (A ~ B)
   Fun .It .Hom = Fun-Hom
   Fun .oper .Id F .n-ob a = B .Id (F .F-Ob a)

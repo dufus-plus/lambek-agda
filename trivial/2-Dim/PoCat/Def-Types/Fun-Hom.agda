@@ -1,8 +1,8 @@
 open import 0-Dim.!quali
 import 1-Dim.PoSet.Def-Types as PoSet
 open import 1-Dim.PoSet.Def-Types-pub
-open import 2-Dim.PoCat.Def-Types.Ob
-open import 2-Dim.PoCat.Def-Types-pub.Ob
+open import 2-Dim.PoCat.Def-Types.Obj
+open import 2-Dim.PoCat.Def-Types-pub.Obj
 open import 2-Dim.PoCat.Def-Types.Fun
 open import 2-Dim.PoCat.Def-Types-pub.Fun
 open import 2-Dim.PoCat.Def-Types.Hom
@@ -10,7 +10,7 @@ open import 2-Dim.PoCat.Def-Types.Hom|Hom
 
 module 2-Dim.PoCat.Def-Types.Fun-Hom where
 
-module _ (2C @(A ~ B) : [2~] [Ob])
+module _ (2C @(A ~ B) : [2~] [Obj])
          (2F @(F ~ G) : [2~] [Fun] 2C) where
   module :Fun-Hom where
 

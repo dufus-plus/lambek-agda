@@ -22,7 +22,7 @@ module _ (2A : [2~] [Ob]) (2R @(R1 > R2) : [2~] [Rel] 2A) where
 
 module _ (A : [Ob]) ((! > R) : [!] [~] [Rel] (2~ A)) where
   Rel-[0Fun] : [Any]
-  Rel-[0Fun] = (a : A) → R (2~ a) .Ob
+  Rel-[0Fun] = (a : A) → R (2~ a) .El
 
 module _ (3A @(A ~ B ~ C) : [3~] [Ob])
     (((R₁₂ × R₂₃) ~ R₁₃) : ([Rel] (A ~ B) [×] [Rel] (B ~ C)) [~] [Rel] (A ~ C)) where

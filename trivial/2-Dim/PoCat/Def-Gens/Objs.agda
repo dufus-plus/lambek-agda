@@ -1,13 +1,13 @@
 open import 0-Dim.!quali
 open import 1-Dim.Graph.!publi
 open import 1-Dim.PoSet.!publi
-open import 2-Dim.PoCat.Def-Types.Ob
-open import 2-Dim.PoCat.Def-Types-pub.Ob
+open import 2-Dim.PoCat.Def-Types.Obj
+open import 2-Dim.PoCat.Def-Types-pub.Obj
 import 2-Dim.PoQuiver.Def-Gens.Objs as PoQuiver
 
 module 2-Dim.PoCat.Def-Gens.Objs where
 
-Unit : [Ob]
+Unit : [Obj]
 Unit .It = PoQuiver.Unit
 Unit .oper .Id _ = !
 Unit .oper .Mu _ = PoSet.Unit.Term _
@@ -20,7 +20,7 @@ Unit .prop .RUnit-bw _ _ = !
 Unit .prop .BUnit-fw _ = !
 Unit .prop .BUnit-bw _ = !
 
-Void : [Ob]
+Void : [Obj]
 Void .It  = PoQuiver.Void
 Void .oper .Id ()
 Void .oper .Mu ()
@@ -33,8 +33,8 @@ Void .prop .RUnit-bw ()
 Void .prop .BUnit-fw ()
 Void .prop .BUnit-bw ()
 
-module _ (AB @(A × B) : [2×] [Ob]) where
-  Prod2 : [Ob]
+module _ (AB @(A × B) : [2×] [Obj]) where
+  Prod2 : [Obj]
   Prod2 .It = PoQuiver.Prod2 (A .It × B .It)
   Prod2 .oper .Id _ = A .Id _ × B .Id _
   Prod2 .oper .Mu _ .↓ .f-ob ((ahom12 × bhom12) × (ahom23 × bhom23)) =
@@ -56,8 +56,8 @@ module _ (AB @(A × B) : [2×] [Ob]) where
   Prod2 .prop .BUnit-fw _ = A .BUnit-fw _ × B .BUnit-fw _
   Prod2 .prop .BUnit-bw _ = A .BUnit-bw _ × B .BUnit-bw _
 
-module _ (AB @(A + B) : [Ob] [×] [Ob]) where
-  Summ2 : [Ob]
+module _ (AB @(A + B) : [2×] [Obj]) where
+  Summ2 : [Obj]
   Summ2 .It = PoQuiver.Summ2 (A .It + B .It)
   Summ2 .oper .Id (↑₁ _) = A .Id _
   Summ2 .oper .Id (↑₂ _) = B .Id _

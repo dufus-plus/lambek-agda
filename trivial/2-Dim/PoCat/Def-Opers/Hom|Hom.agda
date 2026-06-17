@@ -1,15 +1,15 @@
 open import 0-Dim.!quali
 open import 1-Dim.PoSet.!publi
-import 2-Dim.DblQuiver.Def-Types.Ob as DblQuiver
-open import 2-Dim.DblQuiver.Def-Types-pub.Ob
+import 2-Dim.PoQuiver|PoQuiver.Def-Types.Obj as PoQuiver|PoQuiver
+open import 2-Dim.PoQuiver|PoQuiver.Def-Types-pub.Obj
 open import 2-Dim.PoCat.Def-Types
 open import 2-Dim.PoCat.Def-Types-pub
-import 2-Dim.DblCat.Def-Types.is-Ob as DblCat
+import 2-Dim.PoCat|PoCat.Def-Types.is-Obj as PoCat|PoCat
 
 module 2-Dim.PoCat.Def-Opers.Hom|Hom where
 
-module Hom|Hom (C : [Ob]) where
-  DQu : DblQuiver.[Ob]
+module Hom|Hom (C : [Obj]) where
+  DQu : PoQuiver|PoQuiver.[Obj]
   DQu .Ob = C .Ob
   DQu .V-Mor = C .Hom
   DQu .H-Mor = C .Hom
@@ -25,7 +25,7 @@ module Hom|Hom (C : [Ob]) where
   V-prop = C .prop
   H-prop = C .prop
 
-  open DblCat.:[is-Ob] DQu V-oper H-oper
+  open PoCat|PoCat.:[is-Obj] DQu V-oper H-oper
 -- Hom-[To] C _ (Hom-Mu C _ (VF1 × HF2) ~ Hom-Mu C _ (HF1 × VF2))
 
   Hom-Id|Hom : :H-Id|V
@@ -68,7 +68,7 @@ open Hom|Hom public
   )
 
 F-Hom|Hom :
-  (2C@(A ~ B) : [2~] [Ob])
+  (2C@(A ~ B) : [2~] [Obj])
   (F : [Fun] 2C) →
   (22ob : [22~] A. Ob)
   (2VF @(VF1 > VF2) : [Dup|Hom] A 22ob)

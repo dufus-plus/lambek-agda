@@ -4,8 +4,8 @@ open import 1-Dim.PoSet.Def-Types-pub
 open import 1-Dim.PoSet.Def-Opers.Fun
 import 2-Dim.PoQuiver.Def-Types.Obj as PoQuiver
 open import 2-Dim.PoQuiver.Def-Types-pub.Obj
-import 2-Dim.PoCat.Def-Types.is-Ob as PoCat
-open import 2-Dim.PoCat.Def-Types-pub.is-Ob
+import 2-Dim.PoCat.Def-Types.is-Obj as PoCat
+open import 2-Dim.PoCat.Def-Types-pub.is-Obj
 
 --
 -- Fun-[To] satisfies axioms of [PoCat]
@@ -13,7 +13,7 @@ open import 2-Dim.PoCat.Def-Types-pub.is-Ob
 module 1-Dim.PoSet.Def-Opers.Fun-To where
 
 module Fun where
-  Qu : PoQuiver.[Ob]
+  Qu : PoQuiver.[Obj]
   Qu .Ob = [Ob] -- PoSet
   Qu .Hom = Fun
 

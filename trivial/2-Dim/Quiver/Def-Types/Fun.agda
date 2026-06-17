@@ -8,7 +8,7 @@ open import 2-Dim.Quiver.Def-Types-pub.Obj
 --
 module 2-Dim.Quiver.Def-Types.Fun where
 
-module _ (AB @(A > B) : [2~] [Ob]) where
+module _ (AB @(A > B) : [2~] [Obj]) where
   module :[Fun] where
     -- function on elements
     :F-Ob = AnySet.[Fun] (A .Ob > B .Ob)

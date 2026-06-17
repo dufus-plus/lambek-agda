@@ -32,7 +32,7 @@ record [Obj] : [Any] where
   field H|V-2Mor : :H|V-2Mor Ob V-Mor H-Mor
 
   -- vertical is tight, horizontal is loose
-  V-Graph : PoQuiver.[Ob]
+  V-Graph : PoQuiver.[Obj]
   V-Graph = ‼ Ob V-Mor
-  H-Graph : PoQuiver.[Ob]
+  H-Graph : PoQuiver.[Obj]
   H-Graph = ‼ Ob H-Mor

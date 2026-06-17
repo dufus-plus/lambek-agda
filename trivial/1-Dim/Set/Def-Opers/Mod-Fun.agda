@@ -2,8 +2,8 @@ open import 0-Dim.!quali
 open import 1-Dim.Set.Def-Types
 open import 1-Dim.Set.Def-Types-pub
 open import 1-Dim.Set.Def-Opers.Mod
-import 2-Dim.PoCat.Def-Types.is-Ob as PoCat
-open import 2-Dim.PoCat.Def-Types-pub.is-Ob
+import 2-Dim.PoCat.Def-Types.is-Obj as PoCat
+open import 2-Dim.PoCat.Def-Types-pub.is-Obj
 import 2-Dim.PoQuiver.Def-Types as PoQuiver
 open import 2-Dim.PoQuiver.Def-Types-pub
 
@@ -13,7 +13,7 @@ open import 2-Dim.PoQuiver.Def-Types-pub
 module 1-Dim.Set.Def-Opers.Mod-Fun where
 
 module Mod where
-  Quiver : PoQuiver.[Ob]
+  Quiver : PoQuiver.[Obj]
   Quiver .Ob = [Ob] -- Set
   Quiver .Hom = Mod
 

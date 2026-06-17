@@ -4,7 +4,7 @@ open import 1-Dim.Set.Def-Opers.Fun
 open import 1-Dim.Set.Def-Opers.Fun-To
 open import 2-Dim.Quiver.Def-Types-pub
 import 2-Dim.Cat.Def-Types.Obj as Cat
-open import 2-Dim.Cat.Def-Types-pub.Ob
+open import 2-Dim.Cat.Def-Types-pub.Obj
 
 module 1-Dim.Set.Extra.SetC where
 

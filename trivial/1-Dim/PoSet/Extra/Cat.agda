@@ -1,19 +1,19 @@
 open import 0-Dim.!quali
 open import 1-Dim.PoSet.Def-Types
 open import 1-Dim.PoSet.Def-Opers
-import 2-Dim.PoCat.Def-Types.Ob as PoCat
-import 2-Dim.DblCat.Def-Types.Ob as DblCat
-open import 2-Dim.PoCat.Def-Types-pub.Ob
-open import 2-Dim.DblCat.Def-Types-pub.Ob
+import 2-Dim.PoCat.Def-Types.Obj as PoCat
+import 2-Dim.PoCat|PoCat.Def-Types.Obj as DblCat
+open import 2-Dim.PoCat.Def-Types-pub.Obj
+open import 2-Dim.PoCat|PoCat.Def-Types-pub.Obj
 
 module 1-Dim.PoSet.Extra.Cat where
 
-Fun:PC : PoCat.[Ob]
+Fun:PC : PoCat.[Obj]
 Fun:PC .It = Fun.Qu
 Fun:PC .oper = Fun.oper
 Fun:PC .prop = Fun.prop
 
-Mod:PC : PoCat.[Ob]
+Mod:PC : PoCat.[Obj]
 Mod:PC .It = Mod.Qu
 Mod:PC .oper = Mod.oper
 Mod:PC .prop = Mod.prop

@@ -22,14 +22,14 @@ module _ (A : [Ob]) where
 module Prod2 where
   module _ (AB @(A × B) : [Ob] [×] [Ob]) where
     Prj1 : [Fun] (Prod2 AB > A)
-    Prj1 .f-ob   = Any.Prod2.Prj1 (A .Ob   × B .Ob  )
+    Prj1 .f-ob   = Any.Prod2.Prj1 (A .El   × B .El  )
     Prj1 .f-to _ = Any.Prod2.Prj1 (A .To _ × B .To _)
     Prj2 : [Fun] (Prod2 AB > B)
-    Prj2 .f-ob   = Any.Prod2.Prj2 (A .Ob   × B .Ob  )
+    Prj2 .f-ob   = Any.Prod2.Prj2 (A .El   × B .El  )
     Prj2 .f-to _ = Any.Prod2.Prj2 (A .To _ × B .To _)
   module _ (X : [Ob]) where
     Diag : [Fun] (X > Prod2 (X × X))
-    Diag .f-ob   = Any.Prod2.Diag (X .Ob  )
+    Diag .f-ob   = Any.Prod2.Diag (X .El  )
     Diag .f-to _ = Any.Prod2.Diag (X .To _)
 
 module Pow where
@@ -55,14 +55,14 @@ module CoPow where
 module Summ2 where
   module _ (AB @(A + B) : [Ob] [×] [Ob]) where
     Inj1 : [Fun] (A > Summ2 AB)
-    Inj1 .f-ob   = Any.Summ2.Inj1 (A .Ob + B .Ob)
+    Inj1 .f-ob   = Any.Summ2.Inj1 (A .El + B .El)
     Inj1 .f-to _ = ⑴
     Inj2 : [Fun] (B > Summ2 AB)
-    Inj2 .f-ob   = Any.Summ2.Inj2 (A .Ob + B .Ob)
+    Inj2 .f-ob   = Any.Summ2.Inj2 (A .El + B .El)
     Inj2 .f-to _ = ⑴
   module _ (X : [Ob]) where
     Glue : [Fun] (Summ2 (X + X) > X)
-    Glue .f-ob = Any.Summ2.Glue (X .Ob)
+    Glue .f-ob = Any.Summ2.Glue (X .El)
     Glue .f-to (↑₁ _ ~ ↑₁ _) = ⑴
     Glue .f-to (↑₁ _ ~ ↑₂ _) ()
     Glue .f-to (↑₂ _ ~ ↑₁ _) ()
