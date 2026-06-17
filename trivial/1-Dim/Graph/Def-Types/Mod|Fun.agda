@@ -12,7 +12,7 @@ module _ (22A : [22~] [Ob])
   open [Mod]
 
   :Mod|Fun : [Any]
-  :Mod|Fun = Any.[Rel|Fun] _ (VF1 .f-ob ~ VF2 .f-ob) (HM1 .M-ob ~ HM2 .M-ob)
+  :Mod|Fun = Any.[Rel|Fun] _ (VF1 .f-el ~ VF2 .f-el) (HM1 .M-ob ~ HM2 .M-ob)
 
   record [Mod|Fun] : [Any] where
     constructor ↑

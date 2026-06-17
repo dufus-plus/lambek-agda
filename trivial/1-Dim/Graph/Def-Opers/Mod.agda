@@ -18,6 +18,6 @@ Mod-Id : AnyPoSet.Rel-[0-Fun] _ (! > Mod)
 Mod-Id A .M-ob = A .To
 
 Mod-Mu : AnyPoSet.Rel-[2-Fun] _ ((Mod × Mod) > Mod)
-Mod-Mu _ .↓ .f-ob (Rab × Rbc) .M-ob = (Rab .M-ob) [∙] (Rbc .M-ob)
+Mod-Mu _ .↓ .f-el (Rab × Rbc) .M-ob = (Rab .M-ob) [∙] (Rbc .M-ob)
 Mod-Mu _ .↓ .f-to _ (toab × tobc) .↓ _ (mab ∙ mbc) =
   toab .↓ _ mab ∙ tobc .↓ _ mbc

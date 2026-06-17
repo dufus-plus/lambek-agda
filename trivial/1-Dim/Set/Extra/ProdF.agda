@@ -9,10 +9,10 @@ module 1-Dim.Set.Extra.Prod where
 module Prod where
 
   Δ : Cat.[Fun] (Cat.Set > Cat.Prod (Cat.Set × Cat.Set))
-  Δ = Cat.Diag Cat.Set 
+  Δ = Cat.Diag Cat.Set
 
   F : Cat.[Fun] (Cat.Prod-FOb (Cat.Set × Cat.Set) > Cat.Set)
-  F .$F-Ob = Prod
+  F .$f-el = Prod
 
   Adj : Cat.Adj (Δ ~ ProdF)
   Adj = _

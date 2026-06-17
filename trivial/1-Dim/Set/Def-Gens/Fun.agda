@@ -40,6 +40,6 @@ module Summ2 where
 
 module _ (AB @(A ~ B) : [2~] [Ob]) where
   ConstF : [Fun] (B > Fun (A > B))
-  ConstF .↓ .f-ob b .↓ .f-ob = Any.Const _ b
-  ConstF .↓ .f-ob b .↓ .f-to _ _ = B .refl b
+  ConstF .↓ .f-el b .↓ .f-el = Any.Const _ b
+  ConstF .↓ .f-el b .↓ .f-to _ _ = B .refl b
   ConstF .↓ .f-to _ bto12 .↓ a = bto12

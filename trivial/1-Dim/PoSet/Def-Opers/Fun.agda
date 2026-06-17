@@ -15,16 +15,16 @@ module _ (AB @ (A > B) : [2~] [Ob]) where
   Fun : [Ob] -- Poset
   Fun .It .El = [Fun] (A > B)
   Fun .It .To (f ~ g) = Fun-[To] _ (f ~ g)
-  Fun .is .refl f .↓ a = B .refl (f .f-ob a)
+  Fun .is .refl f .↓ a = B .refl (f .f-el a)
   Fun .is .tran (f1 ~ f2 ~ f3) (fto12 × fto23) .↓ a =
     B .tran _ (fto12 .↓ a × fto23 .↓ a)
 
 Fun-Id : AnyPoSet.Rel-[0-Fun] _ (! > Fun)
-Fun-Id _ .↓ .f-ob = ⑴
+Fun-Id _ .↓ .f-el = ⑴
 Fun-Id _ .↓ .f-to _ = ⑴
 
 Fun-Mu : AnyPoSet.Rel-[2-Fun] _ ((Fun × Fun) > Fun)
-Fun-Mu _ .↓ .f-ob (fab × fbc) .↓ .f-ob   = fab .f-ob   ∘ fbc .f-ob
-Fun-Mu _ .↓ .f-ob (fab × fbc) .↓ .f-to _ = fab .f-to _ ∘ fbc .f-to _
+Fun-Mu _ .↓ .f-el (fab × fbc) .↓ .f-el   = fab .f-el   ∘ fbc .f-el
+Fun-Mu _ .↓ .f-el (fab × fbc) .↓ .f-to _ = fab .f-to _ ∘ fbc .f-to _
 Fun-Mu (A ~ B ~ C) .↓ .f-to ((fab × fbc) ~ (gab × gbc)) (toab × tobc) .↓ a =
-  C .tran _ ((fbc .f-to _ (toab .↓ a)) × (tobc .↓ (gab .f-ob a)))
+  C .tran _ ((fbc .f-to _ (toab .↓ a)) × (tobc .↓ (gab .f-el a)))

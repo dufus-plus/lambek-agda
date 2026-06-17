@@ -27,33 +27,33 @@ module _ (Quiver @(‼ $Ob Hom) : Quiver.[Obj]) where
       (4ob @(ob1 ~ ob2 ~ ob3 ~ ob4) : [4~] $Ob)
       (3hom @(hom12 × hom23 × hom34):
         Hom (ob1 > ob2) .El [×] Hom (ob2 > ob3) .El [×] Hom (ob3 > ob4) .El) →
-      Hom _ .To ((Mu _ .f-ob (Mu _ .f-ob (hom12 × hom23) × hom34)) ~
-                  (Mu _ .f-ob (hom12 × Mu _ .f-ob (hom23 × hom34))))
+      Hom _ .To ((Mu _ .f-el (Mu _ .f-el (hom12 × hom23) × hom34)) ~
+                  (Mu _ .f-el (hom12 × Mu _ .f-el (hom23 × hom34))))
     :Assoc-bw =
       (4ob @(ob1 ~ ob2 ~ ob3 ~ ob4) : [4~] $Ob)
       (3hom @(hom12 × hom23 × hom34):
         Hom (ob1 > ob2) .El [×] Hom (ob2 > ob3) .El [×] Hom (ob3 > ob4) .El) →
-      Hom _ .To ((Mu _ .f-ob (hom12 × Mu _ .f-ob (hom23 × hom34))) ~
-                  (Mu _ .f-ob (Mu _ .f-ob (hom12 × hom23) × hom34)))
+      Hom _ .To ((Mu _ .f-el (hom12 × Mu _ .f-el (hom23 × hom34))) ~
+                  (Mu _ .f-el (Mu _ .f-el (hom12 × hom23) × hom34)))
     -- identity is (left,right) unit
     :LUnit-fw =
       (2ob @(ob1 ~ ob2) : [2~] $Ob) (hom12 : Hom (ob1 > ob2) .El) →
-      Hom _ .To (hom12 ~ Mu _ .f-ob (Id ob1 × hom12))
+      Hom _ .To (hom12 ~ Mu _ .f-el (Id ob1 × hom12))
     :LUnit-bw =
       (2ob @(ob1 ~ ob2) : [2~] $Ob) (hom12 : Hom (ob1 > ob2) .El) →
-      Hom _ .To (Mu _ .f-ob (Id ob1 × hom12) ~ hom12)
+      Hom _ .To (Mu _ .f-el (Id ob1 × hom12) ~ hom12)
     :RUnit-fw =
       (2ob @(ob1 ~ ob2) : [2~] $Ob) (hom12 : Hom (ob1 > ob2) .El) →
-      Hom _ .To (hom12 ~ Mu _ .f-ob (hom12 × Id ob2))
+      Hom _ .To (hom12 ~ Mu _ .f-el (hom12 × Id ob2))
     :RUnit-bw =
       (2ob @(ob1 ~ ob2) : [2~] $Ob) (hom12 : Hom (ob1 > ob2) .El) →
-      Hom _ .To (Mu _ .f-ob (hom12 × Id ob2) ~ hom12)
+      Hom _ .To (Mu _ .f-el (hom12 × Id ob2) ~ hom12)
     :BUnit-fw =
       (ob : $Ob) →
-      Hom _ .To (Id ob ~ Mu _ .f-ob (Id ob × Id ob))
+      Hom _ .To (Id ob ~ Mu _ .f-el (Id ob × Id ob))
     :BUnit-bw =
       (ob : $Ob) →
-      Hom _ .To (Mu _ .f-ob (Id ob × Id ob) ~ Id ob)
+      Hom _ .To (Mu _ .f-el (Id ob × Id ob) ~ Id ob)
 
 module _ (Quiver : Quiver.[Obj]) (oper : [oper] Quiver) where
   record [prop] : [Any] where

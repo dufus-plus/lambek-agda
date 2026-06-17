@@ -11,13 +11,13 @@ module 2-Dim.Quiver.Def-Types.Fun where
 module _ (AB @(A > B) : [2~] [Obj]) where
   module :[Fun] where
     -- function on elements
-    :F-Ob = AnySet.[Fun] (A .Ob > B .Ob)
-    module _ (F-Ob : :F-Ob) where
+    :f-el = AnySet.[Fun] (A .Ob > B .Ob)
+    module _ (f-el : :f-el) where
       -- function on relations
-      :F-Hom = AnySet.[Rel|Fun] _ (F-Ob ~ F-Ob) (A .Hom ~ B .Hom)
+      :F-Hom = AnySet.[Rel|Fun] _ (f-el ~ f-el) (A .Hom ~ B .Hom)
 
   record [Fun] : [Any] where
     constructor ‼
     open :[Fun]
-    field F-Ob : :F-Ob
-    field F-Hom : :F-Hom F-Ob
+    field f-el : :f-el
+    field F-Hom : :F-Hom f-el

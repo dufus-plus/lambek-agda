@@ -22,8 +22,8 @@ Mod-Id A .is .lact = A .tran
 Mod-Id A .is .ract = A .tran
 
 Mod-Mu : AnyPoSet.Rel-[2-Fun] _ ((Mod × Mod) > Mod)
-Mod-Mu _ .↓ .f-ob (Rab × Rbc) .It .M-ob = (Rab .M-ob) [∙] (Rbc .M-ob)
-Mod-Mu _ .↓ .f-ob (Rab × Rbc) .is .lact _ (aeq12 × (rab ∙ rbc)) = (Rab .lact _ (aeq12 × rab)) ∙ rbc
-Mod-Mu _ .↓ .f-ob (Rab × Rbc) .is .ract _ ((rab ∙ rbc) × ceq12) = rab ∙ (Rbc .ract _ (rbc × ceq12))
+Mod-Mu _ .↓ .f-el (Rab × Rbc) .It .M-ob = (Rab .M-ob) [∙] (Rbc .M-ob)
+Mod-Mu _ .↓ .f-el (Rab × Rbc) .is .lact _ (aeq12 × (rab ∙ rbc)) = (Rab .lact _ (aeq12 × rab)) ∙ rbc
+Mod-Mu _ .↓ .f-el (Rab × Rbc) .is .ract _ ((rab ∙ rbc) × ceq12) = rab ∙ (Rbc .ract _ (rbc × ceq12))
 Mod-Mu _ .↓ .f-to _ (toab × tobc) .↓ ac (mab ∙ mbc) =
   toab .↓ _ mab ∙ tobc .↓ _ mbc

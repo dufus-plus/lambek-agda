@@ -32,26 +32,26 @@ module ωSetoid where
   record [Value] (O : [Ob]) : ωType where
     constructor Mk!
     field vEl : O .[El]
-    field vOk : O .[Ok] vEl vEl 
-  open [Value] public   
-  
+    field vOk : O .[Ok] vEl vEl
+  open [Value] public
+
   -- function morphisms
   module _ (A B : [Ob]) where
 
     module :Fun where
       :El>El = A .[El] → B .[El]
       module _ (El>El₁ El>El₂ : :El>El) where
-        :Ok>Ok = 
-              ∀ {el₁ el₂} → 
-              A .[Ok] el₁ el₂ → 
+        :Ok>Ok =
+              ∀ {el₁ el₂} →
+              A .[Ok] el₁ el₂ →
               B .[Ok] (El>El₁ el₁) (El>El₂ el₂)
-        :To>To = 
-              ∀ {el₁ el₂} → 
-              A .[To] el₁ el₂ → 
+        :To>To =
+              ∀ {el₁ el₂} →
+              A .[To] el₁ el₂ →
               B .[To] (El>El₁ el₁) (El>El₂ el₂)
-        :Ok>To = 
-              ∀ {el₁ el₂} → 
-              A .[Ok] el₁ el₂ → 
+        :Ok>To =
+              ∀ {el₁ el₂} →
+              A .[Ok] el₁ el₂ →
               B .[To] (El>El₁ el₁) (El>El₂ el₂)
 
     record Fun-[El] : ωType where
@@ -77,7 +77,7 @@ module ωSetoid where
     Fun .[El] = Fun-[El]
     Fun .[Ok] = Fun-[Ok]
     Fun .[To] = Fun-[To]
-    Fun .OkTo-Refl f .Ok>To a₁ a₂ ok₁₂ = 
+    Fun .OkTo-Refl f .Ok>To a₁ a₂ ok₁₂ =
       let b₁ = f .El>El a₁ in
       let b₂ = f .El>El a₂ in
       B .biRefl ()
@@ -86,7 +86,7 @@ module ωSetoid where
 
 --   -- relation morphisms
 --   record [Rel] (A B : [Ob]): ωType₁ where
---     constructor ! 
+--     constructor !
 --     field [rEl] : A .[El] → B .[El] → ωType
 --     field LTran : ∀ {ael ael' bel} → A .[To] ael ael' → [rEl] ael' bel → [rEl] ael bel
 --     field RTran : ∀ {ael bel bel'} → [rEl] ael bel → B .[To] bel bel' → [rEl] ael bel'
@@ -103,10 +103,10 @@ module ωSetoid where
     Opp .[To] a b = A .[To] b a
     Opp .To-Refl = A .To-Refl
     Opp .To-Symm ato21 = A .To-Symm ato21
-    Opp .To-Tran ato12 ato23 = A .To-Tran ato23 ato12 
+    Opp .To-Tran ato12 ato23 = A .To-Tran ato23 ato12
 
 --     -- Relᵒ : [Ob]
---     -- Relᵒ .[El] = [Rel] A B 
+--     -- Relᵒ .[El] = [Rel] A B
 --     -- Relᵒ .[To] R R' = [RelTo] R R'
 --     -- Relᵒ .Refl R a b = ⑴
 --     -- Relᵒ .Tran R1 R2 R3 rto12 rto23 a b = rto12 a b ∘ rto23 a b
@@ -114,13 +114,13 @@ module ωSetoid where
 --   module _ (A : [Ob]) where
 --     Fun-Id : [Fun] A A
 --     Fun-Id = record where
---       fEl = ω⑴  
---       fTo = ω⑴ 
---     Rel-Id : [Rel] A A 
+--       fEl = ω⑴
+--       fTo = ω⑴
+--     Rel-Id : [Rel] A A
 --     Rel-Id = record where
 --       [rEl] = A .[To]
---       LTran = A .Tran 
---       RTran = A .Tran 
+--       LTran = A .Tran
+--       RTran = A .Tran
 
 --   module _ {A B C : [Ob]} where
 --     Fun-Mu : [Fun] A B → [Fun] B C → [Fun] A C
@@ -130,14 +130,14 @@ module ωSetoid where
 --     Rel-Mu Rab Rbc .[rEl] = (Rab .[rEl]) ω[∙] (Rbc .[rEl])
 --     Rel-Mu Rab Rbc .LTran aeq12 (rab ∙ rbc) = (Rab .LTran aeq12 rab) ∙ rbc
 --     Rel-Mu Rab Rbc .RTran (rab ∙ rbc) ceq12 = rab ∙ (Rbc .RTran rbc ceq12)
-  
+
 --   -- representable and corepresentable relation
 --   module _ {A B : [Ob]} where
 --     Rep+ : [Fun] A B → [Rel] A B
 --     Rep+ f .[rEl] a b = B .[To] (f .fEl a) b
 --     Rep+ f .LTran ato12 rab = B .Tran (f .fTo ato12) rab
 --     Rep+ f .RTran rab bto12 = B .Tran rab bto12
-    
+
 --     Rep- : [Fun] A B → [Rel] B A
 --     Rep- f .[rEl] b a = B .[To] b (f .fEl a)
 --     Rep- f .LTran bto12 rab = B .Tran bto12 rab
@@ -146,7 +146,7 @@ module ωSetoid where
 --   module _ (A B : [Ob]) where
 --     Const : B .[El] → [Fun] A B
 --     Const b .fEl = Type.ωConst (A .[El]) (B .[El]) b
---     Const b .fTo _ = B .Refl b 
+--     Const b .fTo _ = B .Refl b
 
 --   module _ {A11 A12 A21 A22 : [Ob]} where
 --     Rel-Up : [Fun] A11 A21 → [Fun] A12 A22 → [Rel] A21 A22 → [Rel] A11 A12
@@ -155,14 +155,14 @@ module ωSetoid where
 --     Rel-Up v1 v2 h .RTran r a12to = h .RTran r (v2 .fTo a12to)
 --     module _ (v1 : [Fun] A11 A21)(v2 : [Fun] A12 A22)
 --              (h1 : [Fun] A11 A12)(h2 : [Fun] A21 A22) where
---       record [Fun|Fun] : ωType where 
+--       record [Fun|Fun] : ωType where
 --         constructor ↑
 --         field ↓ : [FunTo] (Fun-Mu v1 h2) (Fun-Mu h1 v2)
 --       open [Fun|Fun] public
 --     module _ (v1 : [Fun] A11 A21)(v2 : [Fun] A12 A22)
 --              (h1 : [Rel] A11 A12)(h2 : [Rel] A21 A22) where
 --       record [Rel|Fun] : ωType where
---         constructor ↑ 
+--         constructor ↑
 --         field ↓ : [RelTo] h1 (Rel-Up v1 v2 h2)
 --       open [Rel|Fun] public
 
@@ -173,19 +173,19 @@ module ωSetoid where
 --   -- just (E)ndo-(F)unctors on (O)rders
 --   record [EFO] : ωType₁ where
 --     constructor !
---     field f-Ob : [Ob] → [Ob]
---     field f-Fun : ∀ {A B} → [Fun] A B → [Fun] (f-Ob A) (f-Ob B)
---     field f-Rel : ∀ {A B} → [Rel] A B → [Rel] (f-Ob A) (f-Ob B)
---     field 
---      f-Rel|Fun : 
+--     field f-el : [Ob] → [Ob]
+--     field f-Fun : ∀ {A B} → [Fun] A B → [Fun] (f-el A) (f-el B)
+--     field f-Rel : ∀ {A B} → [Rel] A B → [Rel] (f-el A) (f-el B)
+--     field
+--      f-Rel|Fun :
 --       ∀ {A11 A12 A21 A22} →
 --         {v1 : [Fun] A11 A21} {v2 : [Fun] A12 A22} {h1 : [Rel] A11 A12} {h2 : [Rel] A21 A22} →
---         [Rel|Fun] v1 v2 h1 h2 → 
---         [Rel|Fun] (f-Fun v1) (f-Fun v2) (f-Rel h1) (f-Rel h2) 
+--         [Rel|Fun] v1 v2 h1 h2 →
+--         [Rel|Fun] (f-Fun v1) (f-Fun v2) (f-Rel h1) (f-Rel h2)
 --     -- field fun-id
 --     -- field fun-mu
---     field rel-id-to : ∀ {A} → [RelTo] (Rel-Id (f-Ob A)) (f-Rel (Rel-Id A))
---     field rel-id-fr : ∀ {A} → [RelTo] (f-Rel (Rel-Id A)) (Rel-Id (f-Ob A))
+--     field rel-id-to : ∀ {A} → [RelTo] (Rel-Id (f-el A)) (f-Rel (Rel-Id A))
+--     field rel-id-fr : ∀ {A} → [RelTo] (f-Rel (Rel-Id A)) (Rel-Id (f-el A))
 --   open [EFO] public
 -- --
 

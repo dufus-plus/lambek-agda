@@ -37,8 +37,8 @@ module _ (AB @(A × B) : [2×] [Obj]) where
   Prod2 : [Obj]
   Prod2 .It = PoQuiver.Prod2 (A .It × B .It)
   Prod2 .oper .Id _ = A .Id _ × B .Id _
-  Prod2 .oper .Mu _ .↓ .f-ob ((ahom12 × bhom12) × (ahom23 × bhom23)) =
-    A .Mu _ .f-ob (ahom12 × ahom23) × B .Mu _ .f-ob (bhom12 × bhom23)
+  Prod2 .oper .Mu _ .↓ .f-el ((ahom12 × bhom12) × (ahom23 × bhom23)) =
+    A .Mu _ .f-el (ahom12 × ahom23) × B .Mu _ .f-el (bhom12 × bhom23)
   Prod2 .oper .Mu _ .↓ .f-to _ ((ato12 × bto12) × (ato23 × bto23)) =
     A .Mu _ .f-to _ (ato12 × ato23) × B .Mu _ .f-to _ (bto12 × bto23)
   Prod2 .prop .Assoc-fw _ ((ahom12 × bhom12) × (ahom23 × bhom23) × (ahom34 × bhom34)) =
@@ -62,14 +62,14 @@ module _ (AB @(A + B) : [2×] [Obj]) where
   Summ2 .oper .Id (↑₁ _) = A .Id _
   Summ2 .oper .Id (↑₂ _) = B .Id _
 
-  Summ2 .oper .Mu (↑₁ _ ~ ↑₁ _ ~ ↑₁ _) .↓ .f-ob ahom123 = A .Mu _ .f-ob ahom123
-  Summ2 .oper .Mu (↑₁ _ ~ ↑₁ _ ~ ↑₂ _) .↓ .f-ob ()
-  Summ2 .oper .Mu (↑₁ _ ~ ↑₂ _ ~ ↑₁ _) .↓ .f-ob ()
-  Summ2 .oper .Mu (↑₁ _ ~ ↑₂ _ ~ ↑₂ _) .↓ .f-ob ()
-  Summ2 .oper .Mu (↑₂ _ ~ ↑₁ _ ~ ↑₁ _) .↓ .f-ob ()
-  Summ2 .oper .Mu (↑₂ _ ~ ↑₁ _ ~ ↑₂ _) .↓ .f-ob ()
-  Summ2 .oper .Mu (↑₂ _ ~ ↑₂ _ ~ ↑₁ _) .↓ .f-ob ()
-  Summ2 .oper .Mu (↑₂ _ ~ ↑₂ _ ~ ↑₂ _) .↓ .f-ob bhom123 = B .Mu _ .f-ob bhom123
+  Summ2 .oper .Mu (↑₁ _ ~ ↑₁ _ ~ ↑₁ _) .↓ .f-el ahom123 = A .Mu _ .f-el ahom123
+  Summ2 .oper .Mu (↑₁ _ ~ ↑₁ _ ~ ↑₂ _) .↓ .f-el ()
+  Summ2 .oper .Mu (↑₁ _ ~ ↑₂ _ ~ ↑₁ _) .↓ .f-el ()
+  Summ2 .oper .Mu (↑₁ _ ~ ↑₂ _ ~ ↑₂ _) .↓ .f-el ()
+  Summ2 .oper .Mu (↑₂ _ ~ ↑₁ _ ~ ↑₁ _) .↓ .f-el ()
+  Summ2 .oper .Mu (↑₂ _ ~ ↑₁ _ ~ ↑₂ _) .↓ .f-el ()
+  Summ2 .oper .Mu (↑₂ _ ~ ↑₂ _ ~ ↑₁ _) .↓ .f-el ()
+  Summ2 .oper .Mu (↑₂ _ ~ ↑₂ _ ~ ↑₂ _) .↓ .f-el bhom123 = B .Mu _ .f-el bhom123
 
   Summ2 .oper .Mu (↑₁ _ ~ ↑₁ _ ~ ↑₁ _) .↓ .f-to _ ato123 = A .Mu _ .f-to _ ato123
   Summ2 .oper .Mu (↑₁ _ ~ ↑₁ _ ~ ↑₂ _) .↓ .f-to ()

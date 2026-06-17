@@ -21,15 +21,15 @@ module Pow where
 
   -- module _ (22ob @ ((A × B) ~ (A' × B')) : [2~] [2×] [Ob]) where
   --   Prod-Fun : [2Fun] ((Fun (A > A') × Fun (B > B')) > Fun (Prod (A × B) > Prod (A' × B')))
-  --   Prod-Fun .↓ .f-ob (fa × fb) .↓ .f-ob (a × b) = fa .f-ob a × fb .f-ob b
-  --   Prod-Fun .↓ .f-ob (fa × fb) .↓ .f-to _ (ato × bto) = fa .f-to _ ato × fb .f-to _ bto
+  --   Prod-Fun .↓ .f-el (fa × fb) .↓ .f-el (a × b) = fa .f-el a × fb .f-el b
+  --   Prod-Fun .↓ .f-el (fa × fb) .↓ .f-to _ (ato × bto) = fa .f-to _ ato × fb .f-to _ bto
   --   Prod-Fun .↓ .f-to _ (fato × fbto) .↓ (a × b) = fato .↓ a × fbto .↓ b
 
   --   Prod-Mod : [2Fun] ((Mod (A ~ A') × Mod (B ~ B')) > Mod (Prod (A × B) ~ Prod (A' × B')))
-  --   Prod-Mod .↓ .f-ob (Ma × Mb) .↓ .M-ob ((a × b) ~ (a' × b')) =
+  --   Prod-Mod .↓ .f-el (Ma × Mb) .↓ .M-ob ((a × b) ~ (a' × b')) =
   --     Any.Prod (Ma .M-ob (a ~ a') × Mb .M-ob (b ~ b'))
-  --   Prod-Mod .↓ .f-ob (Ma × Mb) .is .lact _ ((ato × bto) × (ma × mb)) =
+  --   Prod-Mod .↓ .f-el (Ma × Mb) .is .lact _ ((ato × bto) × (ma × mb)) =
   --     Ma .lact _ (ato × ma) × Mb .lact _ (bto × mb)
-  --   Prod-Mod .↓ .f-ob (Ma × Mb) .is .ract _ ((ma × mb) × (ato × bto)) =
+  --   Prod-Mod .↓ .f-el (Ma × Mb) .is .ract _ ((ma × mb) × (ato × bto)) =
   --     Ma .ract _ (ma × ato) × Mb .ract _ (mb × bto)
   --   Prod-Mod .↓ .f-to _ (maf × mbf) .↓ _ (ma × mb) = maf .↓ _ ma × mbf .↓ _ mb

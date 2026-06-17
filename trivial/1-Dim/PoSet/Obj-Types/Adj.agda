@@ -11,8 +11,8 @@ module _ (2C @(A ~ B) : [2~] [Ob]) where
 
     record [is-Adj]-Hard : [Any] where
       constructor ‼
-      field unit+ : Fun-[To] _ (Fun-Id _ > Fun-Mu _ .f-ob (L × R))
-      field unit- : Fun-[To] _ (Fun-Mu _ .f-ob (R × L) > Fun-Id _)
+      field unit+ : Fun-[To] _ (Fun-Id _ > Fun-Mu _ .f-el (L × R))
+      field unit- : Fun-[To] _ (Fun-Mu _ .f-el (R × L) > Fun-Id _)
 
     record [is-Adj]-Soft : [Any] where
       constructor ‼

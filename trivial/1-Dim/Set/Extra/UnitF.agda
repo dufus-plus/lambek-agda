@@ -9,10 +9,10 @@ module 1-Dim.Set.Extr.Unit where
 module Unit where
 
   Δ : Cat.[Fun] (Cat.Set > Cat.Unit)
-  Δ = Cat.Term Cat.Set 
+  Δ = Cat.Term Cat.Set
 
   F : Cat.[Fun] (Cat.Unit > Cat.Set)
-  F .$F-Ob _ = Unit
+  F .$f-el _ = Unit
 
   HardAdj : Cat.[HardAdj] (Δ ~ UnitF)
   HardAdj = _

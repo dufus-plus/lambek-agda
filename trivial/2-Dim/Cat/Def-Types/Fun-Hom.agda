@@ -14,16 +14,16 @@ module _ (2C @(A ~ B) : [2~] [Obj])
          (2F @(F ~ G) : [2~] [Fun] 2C) where
   module :Fun-Hom where
 
-    :n-ob = (a : A .Ob) → [Hom] B (F .F-Ob a > G .F-Ob a)
+    :n-ob = (a : A .Ob) → [Hom] B (F .f-el a > G .f-el a)
     module _ (n-ob : :n-ob) where
 
       :n-hom-fw = (2a @(a1 ~ a2) : [2~] A .Ob) → (hom : [Hom] A 2a) →
         [Hom|Hom] B _
           (n-ob a1 ~ n-ob a2)
-          (F .F-Hom _ .f-ob hom ~ G .F-Hom _ .f-ob hom)
+          (F .F-Hom _ .f-el hom ~ G .F-Hom _ .f-el hom)
       :n-hom-bw = (2a @(a1 ~ a2) : [2~] A .Ob) → (hom : [Hom] A 2a) →
         [Hom|Hom] B _
-          (F .F-Hom _ .f-ob hom ~ G .F-Hom _ .f-ob hom)
+          (F .F-Hom _ .f-el hom ~ G .F-Hom _ .f-el hom)
           (n-ob a1 ~ n-ob a2)
 
   record Fun-[Hom] : [Any] where

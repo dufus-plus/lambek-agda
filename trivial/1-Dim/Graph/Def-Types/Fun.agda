@@ -10,13 +10,13 @@ module _ (AB @(A > B) : [2~] [Ob]) where
   module :[Fun] where
     open [Ob]
     -- function on elements
-    :f-ob = Any.[Fun] (A .El > B .El)
-    module _ (f-ob : :f-ob) where
+    :f-el = Any.[Fun] (A .El > B .El)
+    module _ (f-el : :f-el) where
       -- function on relations
-      :f-to = Any.[Rel|Fun] _ (f-ob ~ f-ob) (A .To ~ B .To)
+      :f-to = Any.[Rel|Fun] _ (f-el ~ f-el) (A .To ~ B .To)
 
   record [Fun] : [Any] where
     constructor ‼
     open :[Fun]
-    field f-ob : :f-ob
-    field f-to : :f-to f-ob
+    field f-el : :f-el
+    field f-to : :f-to f-el

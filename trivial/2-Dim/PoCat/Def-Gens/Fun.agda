@@ -21,14 +21,14 @@ module _ (2C @(A ~ B) : [2~] [Obj]) where
   Fun : [Obj]
   Fun .It .Ob = [Fun] (A ~ B)
   Fun .It .Hom = Fun-Hom
-  Fun .oper .Id F .n-ob a = B .Id (F .F-Ob a)
-  Fun .oper .Id F .n-hom-fw _ hom = Hom|Hom-Id B _ (F .F-Hom _ .f-ob hom)
-  Fun .oper .Id F .n-hom-bw _ hom = Hom-Id|Hom B _ (F .F-Hom _ .f-ob hom)
-  Fun .oper .Mu _ .↓ .f-ob (tr12 × tr23) .n-ob a =
-    B .Mu _ .f-ob (tr12 .n-ob a × tr23 .n-ob a)
-  Fun .oper .Mu _ .↓ .f-ob (tr12 × tr23) .n-hom-fw _ hom =
+  Fun .oper .Id F .n-ob a = B .Id (F .f-el a)
+  Fun .oper .Id F .n-hom-fw _ hom = Hom|Hom-Id B _ (F .F-Hom _ .f-el hom)
+  Fun .oper .Id F .n-hom-bw _ hom = Hom-Id|Hom B _ (F .F-Hom _ .f-el hom)
+  Fun .oper .Mu _ .↓ .f-el (tr12 × tr23) .n-ob a =
+    B .Mu _ .f-el (tr12 .n-ob a × tr23 .n-ob a)
+  Fun .oper .Mu _ .↓ .f-el (tr12 × tr23) .n-hom-fw _ hom =
     Hom|Hom-Mu B _ _ _ (tr12 .n-hom-fw _ hom × tr23 .n-hom-fw _ hom )
-  Fun .oper .Mu _ .↓ .f-ob (tr12 × tr23) .n-hom-bw _ hom =
+  Fun .oper .Mu _ .↓ .f-el (tr12 × tr23) .n-hom-bw _ hom =
     Hom-Mu|Hom B _ _ _ (tr12 .n-hom-bw _ hom × tr23 .n-hom-bw _ hom )
   Fun .oper .Mu _ .↓ .f-to _ (to12 × to23) .↓ a =
     B .Mu _ .f-to _ (to12 .↓ a × to23 .↓ a)

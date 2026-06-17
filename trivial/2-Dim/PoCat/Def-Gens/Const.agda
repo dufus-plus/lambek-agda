@@ -24,7 +24,7 @@ open PoSet-Graph.[Fun]
 
 module _ (2C @(A > B) : [2~] [Ob]) where
   Const : B .Ob → [Fun] (A > B)
-  Const b .↓ .F-Ob = Any.Const _ b
+  Const b .↓ .f-el = Any.Const _ b
   Const b .↓ .F-Hom _ = PoSet.Const _ (B .Id b)
   Const b .is .F-Id-fw _ = B .Hom _ .refl _
   Const b .is .F-Id-bw _ = B .Hom _ .refl _
@@ -32,10 +32,10 @@ module _ (2C @(A > B) : [2~] [Ob]) where
   Const x .is .F-Mu-bw _ (h12 × h23) = B .BUnit-bw _
 
   Const:F : [Fun] (B > Fun (A > B))
-  Const:F .↓ .F-Ob = Const
-  Const:F .↓ .F-Hom 2b .↓ .f-ob bhom .n-ob _ = bhom
-  Const:F .↓ .F-Hom 2b .↓ .f-ob bhom .n-hom-fw _ _ = Hom-Id|Hom B _ bhom
-  Const:F .↓ .F-Hom 2b .↓ .f-ob bhom .n-hom-bw _ _ = Hom|Hom-Id B _ bhom
+  Const:F .↓ .f-el = Const
+  Const:F .↓ .F-Hom 2b .↓ .f-el bhom .n-ob _ = bhom
+  Const:F .↓ .F-Hom 2b .↓ .f-el bhom .n-hom-fw _ _ = Hom-Id|Hom B _ bhom
+  Const:F .↓ .F-Hom 2b .↓ .f-el bhom .n-hom-bw _ _ = Hom|Hom-Id B _ bhom
   Const:F .↓ .F-Hom 2b .↓ .f-to _ bto .↓ _ = bto
   Const:F .is .F-Id-fw _ .↓ _ = B .Hom _ .refl _
   Const:F .is .F-Id-bw _ .↓ _ = B .Hom _ .refl _

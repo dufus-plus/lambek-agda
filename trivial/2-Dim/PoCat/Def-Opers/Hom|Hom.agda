@@ -75,8 +75,8 @@ F-Hom|Hom :
   (2HF @(HF1 ~ HF2) : [Hom|Dup] A 22ob)
   (HH : [Hom|Hom] A _ 2VF 2HF) →
   [Hom|Hom] B _
-    (F .F-Hom _ .f-ob VF1 ~ F .F-Hom _ .f-ob VF2)
-    (F .F-Hom _ .f-ob HF1 ~ F .F-Hom _ .f-ob HF2)
+    (F .F-Hom _ .f-el VF1 ~ F .F-Hom _ .f-el VF2)
+    (F .F-Hom _ .f-el HF1 ~ F .F-Hom _ .f-el HF2)
 F-Hom|Hom (A ~ B) F _ (VF1 ~ VF2) (HF1 ~ HF2) HH .↓ =
   B .Hom _ .tran _
   ( (F .F-Mu-bw _ (VF1 × HF2)) ×

@@ -15,9 +15,9 @@ module 1-Dim.Graph.Def-Opers.Fun where
 --   Fun .is .tran _ (to12 × to23) .↓ _ = ≡.tran (to12 .↓ _ × to23 .↓ _)
 
 Fun-Id : Any.Rel-[0-Fun] _ (! > [Fun])
-Fun-Id _ .f-ob = ⑴
+Fun-Id _ .f-el = ⑴
 Fun-Id _ .f-to _ = ⑴
 
 Fun-Mu : Any.Rel-[2-Fun] _ (([Fun] × [Fun]) > [Fun])
-Fun-Mu _ (fab × fbc) .f-ob   = fab .f-ob   ∘ fbc .f-ob
+Fun-Mu _ (fab × fbc) .f-el   = fab .f-el   ∘ fbc .f-el
 Fun-Mu _ (fab × fbc) .f-to _ = fab .f-to _ ∘ fbc .f-to _

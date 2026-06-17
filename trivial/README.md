@@ -95,7 +95,7 @@
     - symm
     - tran
 - `[Fun]` record
-  - f-Ob
+  - f-el
   - f-To
 - `[Mod]` record
   - r-Ob

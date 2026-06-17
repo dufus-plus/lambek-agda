@@ -48,7 +48,7 @@ Fun:S-Id : AnySet.Rel-[0-Fun] _ (! > Fun:S)
 Fun:S-Id _ = ⑴
 
 Fun:S-Mu : AnySet.Rel-[2-Fun] _ ((Fun:S × Fun:S) > Fun:S)
-Fun:S-Mu _ .↓ .f-ob (fab × fbc) = fab ∘ fbc
+Fun:S-Mu _ .↓ .f-el (fab × fbc) = fab ∘ fbc
 Fun:S-Mu _ .↓ .f-to ((fab × fbc) ~ (gab × gbc)) (fidab × fidbc) a =
   ≡.tran (≡.cong fbc (fidab a) × fidbc (gab a))
 

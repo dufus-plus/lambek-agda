@@ -9,12 +9,12 @@ module 1-Dim.PoSet.Def-Opers.Rep where
 
 -- representable and corepresentable modules
 Rep+ : Any.Rel-[Fun] _ ([Fun] > [Mod])
-Rep+ (A ~ B) f .It .M-ob (a ~ b) = B .To (f .f-ob a ~ b)
+Rep+ (A ~ B) f .It .M-ob (a ~ b) = B .To (f .f-el a ~ b)
 Rep+ (A ~ B) f .is .lact _ (ato12 × rab) = B .tran _ (f .f-to _ ato12 × rab)
 Rep+ (A ~ B) f .is .ract _ (rab × bto12) = B .tran _ (rab × bto12)
 
 Rep- : Any.Rel-[Fun] _ ([-] [Fun] > [Mod])
-Rep- (B ~ A) (f) .It .M-ob (b ~ a) = B .To (b ~ f .f-ob a)
+Rep- (B ~ A) (f) .It .M-ob (b ~ a) = B .To (b ~ f .f-el a)
 Rep- (B ~ A) (f) .is .lact _ (bto12 × rab) = B .tran _ (bto12 × rab)
 Rep- (B ~ A) (f) .is .ract _ (rab × ato12) = B .tran _ (rab × f .f-to _ ato12)
 
@@ -23,7 +23,7 @@ module _ (22A @((A11 ~ A12) ~ (A21 ~ A22)) : [22~] [Ob])
          (2vf @(v1 ~ v2) : Any.[Dup|R] (2~ [Fun]) 22A)
          (HM : [Mod] (A21 ~ A22)) where
   Rest : [Mod] (A11 ~ A12)
-  Rest .It .M-ob (a11 ~ a12) = HM .M-ob (v1 .f-ob a11 ~ v2 .f-ob a12)
+  Rest .It .M-ob (a11 ~ a12) = HM .M-ob (v1 .f-el a11 ~ v2 .f-el a12)
   Rest .is .lact _ (a11to × r) = HM .lact _ (v1 .f-to _ a11to × r)
   Rest .is .ract _ (r × a12to) = HM .ract _ (r × v2 .f-to _ a12to)
 

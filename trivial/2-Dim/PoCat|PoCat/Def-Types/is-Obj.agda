@@ -35,7 +35,7 @@ module :[is-Obj]
            (H-Mor (ob21 ~ ob22) .El [×] H-Mor (ob22 ~ ob23) .El)) →
     (2HV : H|V-Mor _ (V1 ~ V2) (H11 ~ H21) [×]
            H|V-Mor _ (V2 ~ V3) (H12 ~ H22)) →
-           H|V-Mor _ (V1 ~ V3) (HMu _ .f-ob (H11 × H12) ~ HMu _ .f-ob (H21 × H22))
+           H|V-Mor _ (V1 ~ V3) (HMu _ .f-el (H11 × H12) ~ HMu _ .f-el (H21 × H22))
 
   :H|V-Mu = (32ob @((ob11 ~ ob12) ~ (ob21 ~ ob22) ~ (ob31 ~ ob32)): [32~] $Ob) →
     (22V @((V11 × V21) ~ (V12 × V22)) :
@@ -45,7 +45,7 @@ module :[is-Obj]
         H-Mor (ob11 ~ ob12) .El [~] H-Mor (ob21 ~ ob22) .El [~] H-Mor (ob31 ~ ob32) .El)
     (2HV : H|V-Mor _ (V11 ~ V12) (H1 ~ H2) [×]
            H|V-Mor _ (V21 ~ V22) (H2 ~ H3)) →
-           H|V-Mor _ (VMu _ .f-ob (V11 × V21) ~ VMu _ .f-ob (V12 × V22)) (H1 ~ H3)
+           H|V-Mor _ (VMu _ .f-el (V11 × V21) ~ VMu _ .f-el (V12 × V22)) (H1 ~ H3)
 
   :I→H|V : [Any]
   :H→I|V : [Any]

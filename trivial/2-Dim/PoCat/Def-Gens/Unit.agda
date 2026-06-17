@@ -15,7 +15,7 @@ module Unit where
     open PoSet-Graph.[Fun]
 
     Term-nOb : [Fun] (A > Unit)
-    Term-nOb .↓ .F-Ob = Any.Unit.Term (A .Ob)
+    Term-nOb .↓ .f-el = Any.Unit.Term (A .Ob)
     Term-nOb .↓ .F-Hom 2ob = PoSet.Unit.Term-nOb (A .Hom 2ob)
     Term-nOb .is .F-Id-fw _ = !
     Term-nOb .is .F-Id-bw _ = !

@@ -10,7 +10,7 @@ module 1-Dim.Graph.Def-Types.Fun-To where
 module _ (AB @(A > B) : [2~] [Ob]) (2f @(f1 ~ f2) : [2~] [Fun] (A > B)) where
 
   :Fun-To : [Any]
-  :Fun-To = Any.[Rel|0Fun] _ (f1 .f-ob ~ f2 .f-ob) (! > B .To)
+  :Fun-To = Any.[Rel|0Fun] _ (f1 .f-el ~ f2 .f-el) (! > B .To)
 
   record Fun-[To] : [Any] where
     constructor ↑
