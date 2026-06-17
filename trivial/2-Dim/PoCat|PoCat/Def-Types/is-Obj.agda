@@ -18,34 +18,24 @@ module :[is-Obj]
        (H-oper @(‼ HId HMu): PoCat.[oper] (H-Graph DblQuiver))
     where
 
+  V-El : Any.[Rel] (2~ $Ob)
+  V-El 2ob = V-Mor 2ob .El
+  H-El : Any.[Rel] (2~ $Ob)
+  H-El 2ob = H-Mor 2ob .El
+  HMuEl : Any.Rel-[2-Fun] _ ((H-El × H-El) ~ H-El)
+  HMuEl 3o 2h = HMu 3o .f-el 2h
+  VMuEl : Any.Rel-[2-Fun] _ ((V-El × V-El) ~ V-El)
+  VMuEl 3o 2v = VMu 3o .f-el 2v
+
   :H-Id|V : [Any]
   :H|V-Id : [Any]
   :H-Mu|V : [Any]
   :H|V-Mu : [Any]
 
-  :H-Id|V = (2ob : [2~] $Ob) → (V : V-Mor 2ob .El) → H|V-Mor _ (V ~ V) (HId _ ~ HId _)
-
-  :H|V-Id = (2ob : [2~] $Ob) → (H : H-Mor 2ob .El) → H|V-Mor _ (VId _ ~ VId _) (H ~ H)
-
-  :H-Mu|V = (23ob @((ob11 ~ ob12 ~ ob13) ~ (ob21 ~ ob22 ~ ob23)): [23~] $Ob) →
-    (3V @(V1 ~ V2 ~ V3) :
-        V-Mor (ob11 ~ ob21) .El [~] V-Mor (ob12 ~ ob22) .El [~] V-Mor (ob13 ~ ob23) .El)
-    (22H @((H11 × H12) ~ (H21 × H22)) :
-           (H-Mor (ob11 ~ ob12) .El [×] H-Mor (ob12 ~ ob13) .El) [~]
-           (H-Mor (ob21 ~ ob22) .El [×] H-Mor (ob22 ~ ob23) .El)) →
-    (2HV : H|V-Mor _ (V1 ~ V2) (H11 ~ H21) [×]
-           H|V-Mor _ (V2 ~ V3) (H12 ~ H22)) →
-           H|V-Mor _ (V1 ~ V3) (HMu _ .f-el (H11 × H12) ~ HMu _ .f-el (H21 × H22))
-
-  :H|V-Mu = (32ob @((ob11 ~ ob12) ~ (ob21 ~ ob22) ~ (ob31 ~ ob32)): [32~] $Ob) →
-    (22V @((V11 × V21) ~ (V12 × V22)) :
-           (V-Mor (ob11 ~ ob21) .El [×] V-Mor (ob21 ~ ob31) .El) [~]
-           (V-Mor (ob12 ~ ob22) .El [×] V-Mor (ob22 ~ ob32) .El)) →
-    (3H @(H1 ~ H2 ~ H3) :
-        H-Mor (ob11 ~ ob12) .El [~] H-Mor (ob21 ~ ob22) .El [~] H-Mor (ob31 ~ ob32) .El)
-    (2HV : H|V-Mor _ (V11 ~ V12) (H1 ~ H2) [×]
-           H|V-Mor _ (V21 ~ V22) (H2 ~ H3)) →
-           H|V-Mor _ (VMu _ .f-el (V11 × V21) ~ VMu _ .f-el (V12 × V22)) (H1 ~ H3)
+  :H-Id|V = Any.Rel|Rel-[0₁-Fun] _ _ _ (! ~ H|V-Mor) (2~ HId)
+  :H|V-Id = Any.Rel|Rel-[0₂-Fun] _ _ _ (! ~ H|V-Mor) (2~ VId)
+  :H-Mu|V = Any.Rel|Rel-[2₁-Fun] _ _ _ ((H|V-Mor × H|V-Mor) ~ H|V-Mor) (2~ HMuEl)
+  :H|V-Mu = Any.Rel|Rel-[2₂-Fun] _ _ _ ((H|V-Mor × H|V-Mor) ~ H|V-Mor) (2~ VMuEl)
 
   :I→H|V : [Any]
   :H→I|V : [Any]

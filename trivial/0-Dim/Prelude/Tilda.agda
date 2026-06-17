@@ -51,6 +51,10 @@ pattern _>_ a b = _~_ a b
 
 [Dup2|Dup2] : [22~] [Any] → [Any]
 [Dup2|Dup2] (2A1 ~ 2A2) = [Dup2] 2A1 [~] [Dup2] 2A2
+[Dup2|Dup3] : [23~] [Any] → [Any]
+[Dup2|Dup3] (3A1 ~ 3A2) = [Dup3] 3A1 [~] [Dup3] 3A2
+[Dup3|Dup2] : [32~] [Any] → [Any]
+[Dup3|Dup2] (2A1 ~ 2A2 ~ 2A3) = [Dup2] 2A1 [~] [Dup2] 2A2 [~] [Dup2] 2A3
 
 [swap] : [2~] [Any] → [2~] [Any]
 [swap] (A ~ B) = B ~ A
