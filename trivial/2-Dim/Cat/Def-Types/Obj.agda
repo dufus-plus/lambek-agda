@@ -1,10 +1,10 @@
 open import 0-Dim.!quali
-import 2-Dim.Quiver.Def-Types.Ob as Quiver
+import 2-Dim.Quiver.Def-Types.Obj as Quiver
 
 --
 -- (Ob)jects of 2-equipment of 1-(Cat)egories
 --
-module 2-Dim.Cat.Def-Types.Ob where
+module 2-Dim.Cat.Def-Types.Obj where
 
 open import 2-Dim.Cat.Def-Types.is-Obj public
 

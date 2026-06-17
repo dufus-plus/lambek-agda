@@ -1,5 +1,5 @@
 open import 0-Dim.!quali
-open import 2-Dim.Cat.Def-Types.Ob
+open import 2-Dim.Cat.Def-Types.Obj
 open import 2-Dim.Cat.Def-Types.Fun
 open import 2-Dim.Cat.Def-Types.Fun-Hom
 open import 2-Dim.Cat.Def-Types-pub.Ob

@@ -1,7 +1,7 @@
 open import 0-Dim.!quali
 import 1-Dim.AnyPoSet.Def-Types as AnyPoSet
-open import 2-Dim.PoQuiver.Def-Types.Ob
-open import 2-Dim.PoQuiver.Def-Types-pub.Ob
+open import 2-Dim.PoQuiver.Def-Types.Obj
+open import 2-Dim.PoQuiver.Def-Types-pub.Obj
 
 --
 -- define (Fun)ctions on (Gra)phs

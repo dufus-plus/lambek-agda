@@ -1,8 +1,8 @@
-open import 2-Dim.DblCat.Def-Types.Ob
+open import 2-Dim.DblCat.Def-Types.Obj
 
-module 2-Dim.DblCat.Def-Types-pub.Ob where
+module 2-Dim.DblCat.Def-Types-pub.Obj where
 
 -- base module
-open import 2-Dim.DblCat.Def-Types-pub.is-Ob public
+open import 2-Dim.DblCat.Def-Types-pub.is-Obj public
 
-open [Ob] public
+open [Obj] public

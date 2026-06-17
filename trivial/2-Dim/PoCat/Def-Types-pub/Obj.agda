@@ -1,7 +1,7 @@
-open import 2-Dim.PoCat.Def-Types.Ob
+open import 2-Dim.PoCat.Def-Types.Obj
 
-module 2-Dim.PoCat.Def-Types-pub.Ob where
+module 2-Dim.PoCat.Def-Types-pub.Obj where
 
-open import 2-Dim.PoCat.Def-Types-pub.is-Ob public
+open import 2-Dim.PoCat.Def-Types-pub.is-Obj public
 
-open [Ob] public
+open [Obj] public

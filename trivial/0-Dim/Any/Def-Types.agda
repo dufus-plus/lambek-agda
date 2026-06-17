@@ -37,6 +37,11 @@ module _ (A : [Ob])
   Rel-[0-Fun] : [Any]
   Rel-[0-Fun] = (a : A) → R2 (2~ a)
 
+-- module _ (2X @(A1 ~ A2) : [Ob])
+--          (2HR @(R1 ~ R2) : [Rel] (2~ A1) [~] [Rel] (2~ A2)) where
+--   Rel-[0-Fun|Dup] : [Any]
+--   Rel-[0-Fun|Dup] = Rel-[0-Fun] A1 (! ~ R1) [~] Rel-[0-Fun] A2 (! ~ R2)
+
 module _ (2A @(A ~ B) : [2~] [Ob])
          (2R @(R1 > R2) : [-] [Rel] 2A [~] [Rel] 2A) where
   Rel-[S-Fun] : [Any]
@@ -62,12 +67,9 @@ module _ (3A @(A ~ B ~ C) : [3~] [Ob])
   Rel-[2-Rel] : [Any]
   Rel-[2-Rel] = (3a @(a ~ b ~ c): [Dup3] 3A) → [Rel] ((R11 (a ~ b) [×] R12 (b ~ c)) > R2 (a ~ c))
 
-[Dup|Dup] : [22~] [Ob] → [Any]
-[Dup|Dup] (2X1 ~ 2X2) = [Dup2] 2X1 [~] [Dup2] 2X2
-
 [DD-flip] : [22~] [Ob] → [22~] [Ob]
 [DD-flip] ((X11 ~ X12) ~ (X21 ~ X22)) = ((X11 ~ X21) ~ (X12 ~ X22))
-DD-flip : {22X : [22~] [Ob]} → [Dup|Dup] 22X → [Dup|Dup] ([DD-flip] 22X)
+DD-flip : {22X : [22~] [Ob]} → [Dup2|Dup2] 22X → [Dup2|Dup2] ([DD-flip] 22X)
 DD-flip ((x11 ~ x12) ~ (x21 ~ x22)) = ((x11 ~ x21) ~ (x12 ~ x22))
 
 [2|2~] : [2~] [Ob] → [22~] [Ob]
@@ -75,14 +77,14 @@ DD-flip ((x11 ~ x12) ~ (x21 ~ x22)) = ((x11 ~ x21) ~ (x12 ~ x22))
 [2~|2] : [2~] [Ob] → [22~] [Ob]
 [2~|2] (A1 ~ A2) = (A1 ~ A1) ~ (A2 ~ A2)
 
-2|2~ : {2A : [2~] [Ob]} → [Dup2] 2A → [Dup|Dup] ([2|2~] 2A)
+2|2~ : {2A : [2~] [Ob]} → [Dup2] 2A → [Dup2|Dup2] ([2|2~] 2A)
 2|2~ (a1 ~ a2) = (a1 ~ a2) ~ (a1 ~ a2)
-2~|2 : {2A : [2~] [Ob]} → [Dup2] 2A → [Dup|Dup] ([2~|2] 2A)
+2~|2 : {2A : [2~] [Ob]} → [Dup2] 2A → [Dup2|Dup2] ([2~|2] 2A)
 2~|2 (a1 ~ a2) = (a1 ~ a1) ~ (a2 ~ a2)
 
-[Dup|≡] : {2A : [2~] [Ob]} → [Dup|Dup] ([2|2~] 2A) → [Any]
+[Dup|≡] : {2A : [2~] [Ob]} → [Dup2|Dup2] ([2|2~] 2A) → [Any]
 [Dup|≡] ((x11 ~ x12) ~ (x21 ~ x22)) = [≡] _ (x11 ~ x21) [~] [≡] _ (x12 ~ x22)
-[≡|Dup] : {2A : [2~] [Ob]} → [Dup|Dup] ([2~|2] 2A) → [Any]
+[≡|Dup] : {2A : [2~] [Ob]} → [Dup2|Dup2] ([2~|2] 2A) → [Any]
 [≡|Dup] ((x11 ~ x12) ~ (x21 ~ x22)) = [≡] _ (x11 ~ x12) [~] [≡] _ (x21 ~ x22)
 
 [Dup|Fun] : [22~] [Ob] → [Any]
@@ -99,9 +101,9 @@ DD-flip ((x11 ~ x12) ~ (x21 ~ x22)) = ((x11 ~ x21) ~ (x12 ~ x22))
 [Rel|0Dup] : ([Ob] [~] ([2~] [Ob])) → [Any]
 [Rel|0Dup] ((X1) ~ (X21 ~ X22)) = [!] [~] [Rel] (X21 ~ X22)
 
-[Dup|R] : {22A : [22~] [Ob]} → (2VR : [Dup|Rel] 22A) → (22a : [Dup|Dup] 22A) → [Any]
+[Dup|R] : {22A : [22~] [Ob]} → (2VR : [Dup|Rel] 22A) → (22a : [Dup2|Dup2] 22A) → [Any]
 [Dup|R] (VR1 ~ VR2) ((a11 ~ a12) ~ (a21 ~ a22)) = VR1 (a11 ~ a21) [~] VR2 (a12 ~ a22)
-[R|Dup] : {22A : [22~] [Ob]} → (2HR : [Rel|Dup] 22A) → (22a : [Dup|Dup] 22A) → [Any]
+[R|Dup] : {22A : [22~] [Ob]} → (2HR : [Rel|Dup] 22A) → (22a : [Dup2|Dup2] 22A) → [Any]
 [R|Dup] (HR1 ~ HR2) ((a11 ~ a12) ~ (a21 ~ a22)) = HR1 (a11 ~ a12) [~] HR2 (a21 ~ a22)
 
 [Rel|Fun] : (22X : [22~] [Ob])
@@ -118,10 +120,10 @@ DD-flip ((x11 ~ x12) ~ (x21 ~ x22)) = ((x11 ~ x21) ~ (x12 ~ x22))
   (x1 : X1) →
   HR2 (VF1 x1 ~ VF2 x1)
 
-_2|2$_ : {22X : [22~] [Ob]} → (2VR : [Dup|Rel] 22X) → ([Dup|Dup] 22X → [Any])
+_2|2$_ : {22X : [22~] [Ob]} → (2VR : [Dup|Rel] 22X) → ([Dup2|Dup2] 22X → [Any])
 _2|2$_ (VR1 ~ VR2) ((x11 ~ x12) ~ (x21 ~ x22)) = VR1 (x11 ~ x21) [~] VR2 (x12 ~ x22)
 
-_2$|2_ : {22X : [22~] [Ob]} → (2HR : [Rel|Dup] 22X) → ([Dup|Dup] 22X → [Any])
+_2$|2_ : {22X : [22~] [Ob]} → (2HR : [Rel|Dup] 22X) → ([Dup2|Dup2] 22X → [Any])
 _2$|2_ (HR1 ~ HR2) ((x11 ~ x12) ~ (x21 ~ x22)) = HR1 (x11 ~ x12) [~] HR2 (x21 ~ x22)
 
 [Rel|Rel] :
@@ -129,6 +131,28 @@ _2$|2_ (HR1 ~ HR2) ((x11 ~ x12) ~ (x21 ~ x22)) = HR1 (x11 ~ x12) [~] HR2 (x21 ~ 
   (2VR : [Dup|Rel] 22X)
   (2HR : [Rel|Dup] 22X) → [Any]
 [Rel|Rel] 22X 2VR 2HR =
-  (22x : [Dup|Dup] 22X)
+  (22x : [Dup2|Dup2] 22X)
   (2vr : [Dup|R] 2VR 22x)
   (2hr : [R|Dup] 2HR 22x) → [Any]
+
+Rel|Rel-[Fun] :
+  (22X : [22~] [Ob])
+  (2VR : [Dup|Rel] 22X)
+  (2HR : [Rel|Dup] 22X)
+  (2HV @(HV1 ~ HV2) : [2~] [Rel|Rel] 22X 2VR 2HR) → [Any]
+Rel|Rel-[Fun] 22X 2VR 2HR (HV1 ~ HV2) =
+  (22x : [Dup2|Dup2] 22X)
+  (2vr : [Dup|R] 2VR 22x)
+  (2hr : [R|Dup] 2HR 22x) →
+  (hv1 : HV1 22x 2vr 2hr) → HV2 22x 2vr 2hr
+
+-- Rel|Rel-[0₁-Fun] :
+--   (2X : [2~] [Ob])
+--   (VR : [Rel] 2X)
+--   (2H-Id : Rel-[0-Fun] 2X)
+--   (2HV @(HV1 ~ HV2) : [2~] [Rel|Rel] 22X 2VR 2HR) → [Any]
+-- Rel|Rel-[0₁-Fun] 22X 2VR 2HR (HV1 ~ HV2) =
+--   (22x : [Dup2|Dup2] 22X)
+--   (2vr : [Dup|R] 2VR 22x)
+--   (2hr : [R|Dup] 2HR 22x) →
+--   (hv1 : HV1 22x 2vr 2hr) → HV2 22x 2vr 2hr

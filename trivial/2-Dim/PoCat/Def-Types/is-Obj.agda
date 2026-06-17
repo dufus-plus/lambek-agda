@@ -2,7 +2,7 @@ open import 0-Dim.!quali
 import 1-Dim.AnyPoSet.Def-Types as AnyPoSet
 import 1-Dim.PoSet.Def-Types as PoSet
 open import 1-Dim.PoSet.Def-Types-pub
-import 2-Dim.PoQuiver.Def-Types.Ob as PoQuiver
+import 2-Dim.PoQuiver.Def-Types.Obj as PoQuiver
 
 module 2-Dim.PoCat.Def-Types.is-Ob where
 

@@ -1,5 +1,5 @@
-open import 2-Dim.PoQuiver.Def-Types.Ob
+open import 2-Dim.PoQuiver.Def-Types.Obj
 
-module 2-Dim.PoQuiver.Def-Types-pub.Ob where
+module 2-Dim.PoQuiver.Def-Types-pub.Obj where
 
 open [Ob] public

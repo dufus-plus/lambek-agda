@@ -5,7 +5,7 @@ open import 1-Dim.Set.Def-Opers.Fun
 open import 1-Dim.Set.Def-Opers.Fun-To
 open import 1-Dim.Set.Def-Opers.Mod
 open import 1-Dim.Set.Def-Opers.Mod-Fun
-import 2-Dim.PoQuiver.Def-Types.Ob as PoQuiver
+import 2-Dim.PoQuiver.Def-Types.Obj as PoQuiver
 import 2-Dim.DblQuiver.Def-Types.Ob as DblQuiver
 import 2-Dim.PoCat.Def-Types.is-Ob as PoCat
 import 2-Dim.DblCat.Def-Types.is-Ob as DblCat

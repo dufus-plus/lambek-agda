@@ -114,7 +114,7 @@ private module Test-Rel-Rel (2A : [2~] [Ob]) (R : [Rel] 2A) where
 --     (2HR : [Rel|Dup] 22A)
 --     (2RR @(_∙_ {HR₀} RR₋₀ RR₀₊) :
 --       ([Rel|Rel] _ (VR₋₀1 ~ VR₋₀2) [∙] [Rel|Rel] _ (VR₀₊1 ~ VR₀₊2)) 2HR)
---     (22a : [Dup|Dup] 22A)
+--     (22a : [Dup2|Dup2] 22A)
 --     (2v∙vr @((_∙_ {a₀1} vr₋₀1 vr₀₊1) ~ (_∙_ {a₀2} vr₋₀2 vr₀₊2)) :
 --       [Dup|R] (Dup|Rel-Mu _ 2V∙VR) 22a)
 --     (2hr @(hr₋ ~ hr₊) : [R|Dup] 2HR 22a)
@@ -133,7 +133,7 @@ private module Test-Rel-Rel (2A : [2~] [Ob]) (R : [Rel] 2A) where
 --       [R|Dup] (2~ ([Rel] [∙] [Rel])) 22A)
 --     (2RR @(_∙_ {VR₀} RR₋₀ RR₀₊) :
 --       (RR-flip [Rel|Rel] _ (HR₋₀1 ~ HR₋₀2) [∙] RR-flip [Rel|Rel] _ (HR₀₊1 ~ HR₀₊2)) 2VR)
---     (22a : [Dup|Dup] 22A)
+--     (22a : [Dup2|Dup2] 22A)
 --     (2vr @(vr₋ ~ vr₊) : [Dup|R] 2VR 22a)
 --     (2h∙hr @((_∙_ {a₀1} hr₋₀1 hr₀₊1) ~ (_∙_ {a₀2} hr₋₀2 hr₀₊2)) :
 --       [R|Dup] (Rel-Mu|Dup _ 2H∙HR) 22a)

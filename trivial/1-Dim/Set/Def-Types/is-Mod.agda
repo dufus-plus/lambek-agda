@@ -15,8 +15,8 @@ module _ (AB @(A ~ B) : [2~] [Ob]) where
 
   module :is-Mod (M : :Mod) where
     -- (left/right) actions on relations
-    :lact = Any.Rel-[2Fun] _ ((A .To × M .M-ob) > M .M-ob)
-    :ract = Any.Rel-[2Fun] _ ((M .M-ob × B .To) > M .M-ob)
+    :lact = Any.Rel-[2-Fun] _ ((A .To × M .M-ob) > M .M-ob)
+    :ract = Any.Rel-[2-Fun] _ ((M .M-ob × B .To) > M .M-ob)
 
   record [is-Mod] (M : :Mod) : [Any] where
     constructor ‼

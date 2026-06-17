@@ -1,5 +1,5 @@
-open import 2-Dim.DblCat.Def-Types.is-Ob
+open import 2-Dim.DblCat.Def-Types.is-Obj
 
-module 2-Dim.DblCat.Def-Types-pub.is-Ob where
+module 2-Dim.DblCat.Def-Types-pub.is-Obj where
 
-open [is-Ob] public
+open [is-Obj] public

@@ -1,5 +1,5 @@
-open import 2-Dim.DblQuiver.Def-Types.Ob
+open import 2-Dim.DblQuiver.Def-Types.Obj
 
-module 2-Dim.DblQuiver.Def-Types-pub.Ob where
+module 2-Dim.DblQuiver.Def-Types-pub.Obj where
 
-open [Ob] public
+open [Obj] public

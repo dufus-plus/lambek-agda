@@ -11,7 +11,7 @@ module _ (AB @(A ~ B) : [2~] [Ob]) where
     open [Ob]
 
     -- relation on elements
-    :M-ob = Any.[Rel] (A .Ob ~ B .Ob)
+    :M-ob = Any.[Rel] (A .El ~ B .El)
 
   record [Mod] : [Any] where
     constructor ↑

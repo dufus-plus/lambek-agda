@@ -49,6 +49,9 @@ pattern _>_ a b = _~_ a b
 [Dup3] (A ~ B) = A [~] [Dup2] B
 [Dup4] (A ~ B) = A [~] [Dup3] B
 
+[Dup2|Dup2] : [22~] [Any] → [Any]
+[Dup2|Dup2] (2A1 ~ 2A2) = [Dup2] 2A1 [~] [Dup2] 2A2
+
 [swap] : [2~] [Any] → [2~] [Any]
 [swap] (A ~ B) = B ~ A
 

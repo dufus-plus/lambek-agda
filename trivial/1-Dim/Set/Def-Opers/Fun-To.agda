@@ -2,10 +2,10 @@ open import 0-Dim.!quali
 open import 1-Dim.Set.Def-Types
 open import 1-Dim.Set.Def-Types-pub
 open import 1-Dim.Set.Def-Opers.Fun
-import 2-Dim.Quiver.Def-Types.Ob as Quiver
-open import 2-Dim.Quiver.Def-Types-pub.Ob
-import 2-Dim.PoQuiver.Def-Types.Ob as PoQuiver
-open import 2-Dim.PoQuiver.Def-Types-pub.Ob
+import 2-Dim.Quiver.Def-Types.Obj as Quiver
+open import 2-Dim.Quiver.Def-Types-pub.Obj
+import 2-Dim.PoQuiver.Def-Types.Obj as PoQuiver
+open import 2-Dim.PoQuiver.Def-Types-pub.Obj
 import 2-Dim.Cat.Def-Types.is-Ob as Cat
 open import 2-Dim.Cat.Def-Types-pub.is-Ob
 import 2-Dim.PoCat.Def-Types.is-Ob as PoCat

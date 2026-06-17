@@ -5,7 +5,7 @@ open import 1-Dim.PoSet.Def-Opers.Fun
 open import 1-Dim.PoSet.Def-Opers.Fun-To
 open import 1-Dim.PoSet.Def-Opers.Mod
 open import 1-Dim.PoSet.Def-Opers.Mod-Fun
-import 2-Dim.PoQuiver.Def-Types.Ob as PoSet-Graph
+import 2-Dim.PoQuiver.Def-Types.Obj as PoSet-Graph
 import 2-Dim.PoCat.Def-Types.is-Ob as PoCat
 import 2-Dim.DblQuiver.Def-Types.Ob as DblQuiver
 import 2-Dim.DblCat.Def-Types.is-Ob as DblCat

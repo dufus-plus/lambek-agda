@@ -10,9 +10,9 @@ open Graph using (‼)
 
 module :[is-Ob] (Graph @(‼ Ob To) : Graph.[Ob]) where
   -- axioms of equivalence
-  :refl = Any.Rel-[0Fun] _ ( !        > To)
-  :symm = Any.Rel-[-Fun] _ ((- To)    > To)
-  :tran = Any.Rel-[2Fun] _ ((To × To) > To)
+  :refl = Any.Rel-[0-Fun] _ ( !        > To)
+  :symm = Any.Rel-[S-Fun] _ ((To)      > To)
+  :tran = Any.Rel-[2-Fun] _ ((To × To) > To)
 
 record [is-Ob] (Graph : Graph.[Ob]) : [Any] where
   constructor ‼

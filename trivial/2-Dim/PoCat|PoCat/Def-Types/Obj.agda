@@ -8,16 +8,16 @@ open import 2-Dim.DblQuiver.Def-Types-pub.Ob
 --
 -- (Ob)jects of 2-equipment of Double 1-Categories
 --
-module 2-Dim.DblCat.Def-Types.Ob where
+module 2-Dim.DblCat.Def-Types.Obj where
 
 -- base module
-open import 2-Dim.DblCat.Def-Types.is-Ob public
+open import 2-Dim.DblCat.Def-Types.is-Obj public
 
-record [Ob] : [Any] where
+record [Obj] : [Any] where
   constructor ‼
 
   -- underlying graph
-  field It : DblQuiver.[Ob]
+  field It : PoQuiver|PoQuiver.[Obj]
 
   -- cats' operations
   field V-oper : PoCat.[oper] (V-Graph It)
@@ -28,5 +28,5 @@ record [Ob] : [Any] where
   field H-prop : PoCat.[prop] _ H-oper
 
   -- square 2-morphisms operations
-  field is : [is-Ob] It V-oper H-oper
-  open [is-Ob] is
+  field is : [is-Obj] It V-oper H-oper
+  open [is-Obj] is

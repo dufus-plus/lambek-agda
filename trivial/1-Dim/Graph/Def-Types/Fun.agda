@@ -10,7 +10,7 @@ module _ (AB @(A > B) : [2~] [Ob]) where
   module :[Fun] where
     open [Ob]
     -- function on elements
-    :f-ob = Any.[Fun] (A .Ob > B .Ob)
+    :f-ob = Any.[Fun] (A .El > B .El)
     module _ (f-ob : :f-ob) where
       -- function on relations
       :f-to = Any.[Rel|Fun] _ (f-ob ~ f-ob) (A .To ~ B .To)

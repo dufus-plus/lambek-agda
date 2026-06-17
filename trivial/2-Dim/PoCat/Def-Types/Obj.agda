@@ -1,5 +1,5 @@
 open import 0-Dim.!quali
-import 2-Dim.PoQuiver.Def-Types.Ob as PoQuiver
+import 2-Dim.PoQuiver.Def-Types.Obj as PoQuiver
 
 --
 -- (Ob)jects of 2-equipment of 1-(Cat)egories

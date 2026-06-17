@@ -1,7 +1,7 @@
 open import 0-Dim.!quali
 import 1-Dim.AnyPoSet.Def-Types as AnyPoSet
 
-module 2-Dim.PoQuiver.Def-Types.Ob where
+module 2-Dim.PoQuiver.Def-Types.Obj where
 
 -- globular PoSet-enriched Quiver
 module :[Ob] where

@@ -1,7 +1,7 @@
 open import 0-Dim.!quali
 import 1-Dim.Set.Def-Types as Set
 open import 1-Dim.Set.Def-Types-pub
-open import 2-Dim.Cat.Def-Types.Ob
+open import 2-Dim.Cat.Def-Types.Obj
 open import 2-Dim.Cat.Def-Types-pub.Ob
 
 module 2-Dim.Cat.Def-Types.Hom where

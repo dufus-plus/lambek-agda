@@ -1,4 +1,4 @@
-open import 2-Dim.Cat.Def-Types.Ob
+open import 2-Dim.Cat.Def-Types.Obj
 
 module 2-Dim.Cat.Def-Types-pub.Obj where
 

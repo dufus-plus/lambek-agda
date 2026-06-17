@@ -3,12 +3,12 @@ open import 0-Dim.!quali
 module 2-Dim.AnyPoCat.Def-Types where
 
 private module PoCat where
-  open import 2-Dim.PoCat.Def-Types.Ob public
+  open import 2-Dim.PoCat.Def-Types.Obj public
   open import 2-Dim.PoCat.Def-Types.Fun public
   open import 2-Dim.PoCat.Def-Gens.Objs public
 open PoCat.[Ob]
 
-[Obj] = Any.[Ob]
+[Obj] = [Any]
 [Fun] = Any.[Fun]
 
 module _ (2A : [2~] [Obj]) where

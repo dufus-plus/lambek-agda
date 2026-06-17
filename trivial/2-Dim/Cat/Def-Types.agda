@@ -1,6 +1,6 @@
 module 2-Dim.Cat.Def-Types where
 
-open import 2-Dim.Cat.Def-Types.Ob public
+open import 2-Dim.Cat.Def-Types.Obj public
 open import 2-Dim.Cat.Def-Types.Hom public
 open import 2-Dim.Cat.Def-Types.Hom|Hom public
 open import 2-Dim.Cat.Def-Types.Fun public

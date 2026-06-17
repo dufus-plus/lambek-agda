@@ -1,5 +1,5 @@
 --
--- repackage basics
+-- re-package modules
 --
 module 0-Dim.!extra where
 

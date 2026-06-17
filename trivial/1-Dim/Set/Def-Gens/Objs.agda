@@ -25,15 +25,15 @@ Unit .is .tran _ _ = !
 module _ (A : [Ob]) where
   Opp : [Ob]
   Opp .It = Graph.Opp (A .It)
-  Opp .is .refl _ = - A .refl _
-  Opp .is .symm _ (- - ato12) = - A .symm _ (- ato12)
-  Opp .is .tran _ ((- ato21) × (- ato32)) = - A .tran _ (ato32 × ato21)
+  Opp .is .refl _ = A .refl _
+  Opp .is .symm _ (ato12) = A .symm _ (ato12)
+  Opp .is .tran _ ((ato21) × (ato32)) = A .tran _ (ato32 × ato21)
 
 module _ (AB @(A × B) : [Ob] [×] [Ob]) where
   Prod2 : [Ob]
   Prod2 .It = Graph.Prod2 (A .It × B .It)
   Prod2 .is .refl _ = A .refl _ × B .refl _
-  Prod2 .is .symm _ (- (ato12 × bto12)) = A .symm _ (- ato12) × B .symm _ (- bto12)
+  Prod2 .is .symm _ ((ato12 × bto12)) = A .symm _ (ato12) × B .symm _ (bto12)
   Prod2 .is .tran _ ((ato12 × bto12) × (ato23 × bto23)) =
     A .tran _ (ato12 × ato23) × B .tran _ (bto12 × bto23)
 
@@ -42,10 +42,10 @@ module _ (AB @(A + B) : [Ob] [×] [Ob]) where
   Summ2 .It = Graph.Summ2 (A .It + B .It)
   Summ2 .is .refl (↑₁ _) = A .refl _
   Summ2 .is .refl (↑₂ _) = B .refl _
-  Summ2 .is .symm (↑₁ _ ~ ↑₁ _) (- ato21) = A .symm _ (- ato21)
+  Summ2 .is .symm (↑₁ _ ~ ↑₁ _) (ato21) = A .symm _ (ato21)
   Summ2 .is .symm (↑₁ _ ~ ↑₂ _) ()
   Summ2 .is .symm (↑₂ _ ~ ↑₁ _) ()
-  Summ2 .is .symm (↑₂ _ ~ ↑₂ _) (- bto21) = B .symm _ (- bto21)
+  Summ2 .is .symm (↑₂ _ ~ ↑₂ _) (bto21) = B .symm _ (bto21)
   Summ2 .is .tran (↑₁ _ ~ ↑₁ _ ~ ↑₁ _) 2to = A .tran _ 2to
   Summ2 .is .tran (↑₁ _ ~ ↑₁ _ ~ ↑₂ _) ()
   Summ2 .is .tran (↑₁ _ ~ ↑₂ _ ~ ↑₁ _) ()

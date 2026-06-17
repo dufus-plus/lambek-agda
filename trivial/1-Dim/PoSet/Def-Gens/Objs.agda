@@ -9,7 +9,7 @@ module 1-Dim.PoSet.Def-Gens.Objs where
 Void : [Ob] -- PoSet
 Void .It = Graph.Void
 Void .is .refl ()
-Void .is .tran (() ~ () ~ ())
+Void .is .tran ()
 
 -- the terminal PoSetoid
 Unit : [Ob]
@@ -21,8 +21,8 @@ Unit .is .tran _ _ = !
 module _ (A : [Ob]) where
   Opp : [Ob]
   Opp .It = Graph.Opp (A .It)
-  Opp .is .refl _ = - A .refl _
-  Opp .is .tran _ ((- ato21) × (- ato32)) = - A .tran _ (ato32 × ato21)
+  Opp .is .refl _ = A .refl _
+  Opp .is .tran _ ((ato21) × (ato32)) = A .tran _ (ato32 × ato21)
 
 module _ (AB @(A × B) : [2×] [Ob]) where
   Prod2 : [Ob]

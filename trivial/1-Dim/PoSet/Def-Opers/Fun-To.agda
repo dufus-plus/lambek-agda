@@ -2,8 +2,8 @@ open import 0-Dim.!quali
 open import 1-Dim.PoSet.Def-Types
 open import 1-Dim.PoSet.Def-Types-pub
 open import 1-Dim.PoSet.Def-Opers.Fun
-import 2-Dim.PoQuiver.Def-Types.Ob as PoQuiver
-open import 2-Dim.PoQuiver.Def-Types-pub.Ob
+import 2-Dim.PoQuiver.Def-Types.Obj as PoQuiver
+open import 2-Dim.PoQuiver.Def-Types-pub.Obj
 import 2-Dim.PoCat.Def-Types.is-Ob as PoCat
 open import 2-Dim.PoCat.Def-Types-pub.is-Ob
 
