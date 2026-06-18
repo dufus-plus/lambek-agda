@@ -232,3 +232,51 @@ Rel|Rel-[2₂-Fun] 32X
   (2hv : HV1 _ (vr11 ~ vr12) (hr1 ~ hr2) [×]
          HV2 _ (vr21 ~ vr22) (hr2 ~ hr3)) →
          HVR _ (VMu1 _ (vr11 × vr21) ~ VMu2 _ (vr12 × vr22)) (hr1 ~ hr3)
+
+[22~]-swap₁ : [22~] [Any] → [22~] [Any]
+[22~]-swap₁ (2X1 ~ 2X2) = swap 2X1 ~ swap 2X2
+[22~]-swap₂ : [22~] [Any] → [22~] [Any]
+[22~]-swap₂ (2X1 ~ 2X2) = swap (2X1 ~ 2X2)
+
+Dup|Dup-swap₁ : ∀ {22X} → [Dup2|Dup2] 22X → [Dup2|Dup2] ([22~]-swap₁ 22X)
+Dup|Dup-swap₁ (2X1 ~ 2X2) = swap 2X1 ~ swap 2X2
+Dup|Dup-swap₂ : ∀ {22X} → [Dup2|Dup2] 22X → [Dup2|Dup2] ([22~]-swap₂ 22X)
+Dup|Dup-swap₂ (2X1 ~ 2X2) = swap (2X1 ~ 2X2)
+
+Dup|Rel-swap₁ : ∀ {22X} → [Dup|Rel] 22X → [Dup|Rel] (Dup|Dup-swap₁ 22X)
+Dup|Rel-swap₁ (VR1 ~ VR2) = swap (VR1 ~ VR2)
+Dup|Rel-swap₂ : ∀ {22X} → [Dup|Rel] 22X → [Dup|Rel] (Dup|Dup-swap₂ 22X)
+Dup|Rel-swap₂ (VR1 ~ VR2) = [-] VR1 ~ [-] VR2
+
+Rel|Dup-swap₁ : ∀ {22X} → [Rel|Dup] 22X → [Rel|Dup] (Dup|Dup-swap₁ 22X)
+Rel|Dup-swap₁ (HR1 ~ HR2) = [-] HR1 ~ [-] HR2
+Rel|Dup-swap₂ : ∀ {22X} → [Rel|Dup] 22X → [Rel|Dup] (Dup|Dup-swap₂ 22X)
+Rel|Dup-swap₂ (HR1 ~ HR2) = swap (HR1 ~ HR2)
+
+Rel|Dup-[S-Fun] :
+  (22X : [22~] [Ob])
+  (22HR : [Rel|Dup] ([22~]-swap₁ 22X) [~] [Rel|Dup] 22X)
+  → [Any]
+Rel|Dup-[S-Fun] _ ((HR11 ~ HR12) ~ (HR21 ~ HR22)) =
+  Rel-[S-Fun] _ (HR11 ~ HR21) [~] Rel-[S-Fun] _ (HR12 ~ HR22)
+Dup|Rel-[S-Fun] :
+  (22X : [22~] [Ob])
+  (22VR : [Dup|Rel] ([22~]-swap₂ 22X) [~] [Dup|Rel] 22X)
+  → [Any]
+Dup|Rel-[S-Fun] _ ((VR11 ~ VR12) ~ (VR21 ~ VR22)) =
+  Rel-[S-Fun] _ (VR11 ~ VR21) [~] Rel-[S-Fun] _ (VR12 ~ VR22)
+
+Rel|Rel-[S₁-Fun] :
+  (2X : [2~] [Ob])     (let 22X = 2~|2 2X)
+  (2VR : [Dup|Rel] 22X) (let 2VR' = Dup|Rel-swap₁ 2VR)
+  (2HR : [Rel|Dup] 22X) (let 2HR' = Rel|Dup-swap₁ 2HR)
+  (2HV : [Rel|Rel] 22X 2VR 2HR [~] [Rel|Rel] 22X 2VR' 2HR)
+  (2hsymm : Rel|Dup-[S-Fun] _ (2HR ~ 2HR))
+  → [Any]
+Rel|Rel-[S₁-Fun] 2X 2VR 2HR (HVA ~ HVB) (hsymm1 ~ hsymm2) =
+  (22x : [Dup2|Dup2] (2~|2 2X))
+  (2vr @(vr1 ~ vr2) : [Dup|R] 2VR 22x)
+  (2hr @(hr1 ~ hr2) : [R|Dup] 2HR 22x)
+  (let 2vr' = vr2 ~ vr1)
+  (let 2hr' = hsymm1 _ hr1 ~ hsymm2 _ hr2)
+  (hv : HVA _ 2vr 2hr) → HVB _ 2vr' 2hr'
