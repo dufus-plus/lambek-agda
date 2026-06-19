@@ -1,13 +1,13 @@
 open import 0-Dim.!quali
 import 1-Dim.AnyGraph.Def-Types as AnyGraph
 import 1-Dim.Graph.Def-Types as Graph
-open import 2-Dim.Quiver.Def-Types.Obj
-open import 2-Dim.Quiver.Def-Types-pub.Obj
+open import 2-Dim.Graph-Quiver.Def-Types.Obj
+open import 2-Dim.Graph-Quiver.Def-Types-pub.Obj
 
 --
 -- define (Fun)ctions on (Gra)phs
 --
-module 2-Dim.Quiver.Def-Types.Fun where
+module 2-Dim.Graph-Quiver.Def-Types.Fun where
 
 module _ (AB @(A > B) : [2~] [Obj]) where
   module :[Fun] where

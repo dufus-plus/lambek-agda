@@ -30,16 +30,20 @@ record [Obj] : [Any] where
   field H-Hom : :H-Hom Ob
   field H|V-Sqr : :H|V-Sqr Ob V-Hom H-Hom
 
-  V-El : Any.[Rel] (2~ Ob)
-  V-El = =V-El Ob V-Hom H-Hom
-  H-El : Any.[Rel] (2~ Ob)
-  H-El = =H-El Ob V-Hom H-Hom
+  -- helper:
+  private module V-Hom (2ob : [2~] Ob) = PoSet.[Ob] (Hom 2ob)
+  open Hom using () renaming
+    ( It to V-Hom-It;
+      El to V-Hom-El;
+      To to V-Hom-To;
+      refl
+       ) public
 
   -- vertical is tight, horizontal is loose
-  V:PQ : PoQuiver.[Obj]
-  V:PQ = ‼ Ob V-Hom
-  H:PQ : PoQuiver.[Obj]
-  H:PQ = ‼ Ob H-Hom
+  V-Ob : PoQuiver.[Obj]
+  V-Ob = ‼ Ob V-Hom
+  H-Ob : PoQuiver.[Obj]
+  H-Ob = ‼ Ob H-Hom
 
 open [Obj] public
-  using (V-El; H-El; V:PQ; H:PQ)
+  using (V-Ob; H-Ob)
