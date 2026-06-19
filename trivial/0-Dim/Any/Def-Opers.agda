@@ -14,14 +14,14 @@ Fun-Mu _ (f₁₂ × f₂₃) = f₁₂ ∘ f₂₃
 Rel-Id : Rel-[0-Fun] _ (!               > [Rel])
 Rel-Op : Rel-[S-Fun] _ ([Rel]           > [Rel])
 Rel-Mu : Rel-[2-Fun] _ (([Rel] × [Rel]) > [Rel])
-Rel-Comp : (N : [Nat]) →
+Rel-Path : (N : [Nat]) →
          Rel-[Fun] _ ([Path] _ [Rel] N > [Rel])
 
 Rel-Id A = [≡] A
 Rel-Op _ R = [-] R
 Rel-Mu _ (R₁₂ × R₂₃) = R₁₂ [∙] R₂₃
-Rel-Comp Zero! _ (≡ A) = [≡] A
-Rel-Comp (Succ! N) _ (R ∙ Path) = R [∙] Rel-Comp N _ Path
+Rel-Path 0! _ (≡ A) = [≡] A
+Rel-Path (1!+ n) _ (R ∙ Path) = R [∙] Rel-Path n _ Path
 
 module _ (2A : [2~] [Ob]) (let RF = Rel-[Fun] 2A) where
   Rel-Fun-Id : Rel-[0-Fun] _ (!         > RF)

@@ -6,7 +6,19 @@ open import Agda.Primitive public
 
 open import Agda.Builtin.Nat public
   using ()
-  renaming (Nat to [Nat]; zero to Zero!; suc to Succ!)
+  renaming
+    ( Nat to [Nat];
+      zero to 0!;
+      suc to 1!+ )
+
+module Nat where
+  open import Agda.Builtin.Nat public
+    using ()
+    renaming
+      ( _+_ to Summ2;
+        _*_ to Prod2 )
+  pattern 1! = 1!+ 0!
+open Nat using (1!) public
 
 private module Test-Any where
   -- ensure `type-in-type` option

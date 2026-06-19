@@ -10,3 +10,4 @@ module PoSet where
   open import 1-Dim.PoSet.Def-Types public
   open import 1-Dim.PoSet.Def-Opers public
   open import 1-Dim.PoSet.Def-Gens public
+  open import 1-Dim.PoSet.Conv public
