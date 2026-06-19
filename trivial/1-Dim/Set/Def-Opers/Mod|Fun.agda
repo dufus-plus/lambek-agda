@@ -9,30 +9,34 @@ import 2-Dim.PoQuiver.Def-Types.Obj as PoQuiver
 import 2-Dim.PoQuiver|PoQuiver.Def-Types.Obj as PoQuiver|PoQuiver
 import 2-Dim.PoCat.Def-Types.is-Obj as PoCat
 import 2-Dim.PoCat|PoCat.Def-Types.is-Obj as PoCat|PoCat
-open import 2-Dim.PoQuiver|PoQuiver.Def-Types-pub.Obj
 open import 2-Dim.PoCat|PoCat.Def-Types-pub.is-Obj
 
 -- operations in Po(Set)oid on square 2-(Mor)phisms
 module 1-Dim.Set.Def-Opers.Mod|Fun where
 
+module _ where
+  open import 2-Dim.PoQuiver|PoQuiver.Def-Types-pub.Obj
+
+  Mod|Fun:PQ|PQ : PoQuiver|PoQuiver.[Obj]
+  Mod|Fun:PQ|PQ .Ob = [Ob]
+  Mod|Fun:PQ|PQ .V-Hom = Fun:Q
+  Mod|Fun:PQ|PQ .H-Hom = Mod:PQ
+  Mod|Fun:PQ|PQ .H|V-Sqr = [Mod|Fun]
+
 module Mod|Fun where
-  DblGraph : PoQuiver|PoQuiver.[Obj]
-  DblGraph .Ob = [Ob]
-  DblGraph .V-Mor = Fun:PS
-  DblGraph .H-Mor = Mod
-  DblGraph .H|V-2Mor = [Mod|Fun]
+  open PoQuiver|PoQuiver.[Obj] Mod|Fun:PQ|PQ
 
-  V-oper : PoCat.[oper] (V-Graph DblGraph)
-  H-oper : PoCat.[oper] (H-Graph DblGraph)
-  V-oper = Fun:PS.oper
-  H-oper = Mod.oper
+  V-oper : PoCat.[oper] PQ|PQ-V:PQ
+  H-oper : PoCat.[oper] PQ|PQ-H:PQ
+  V-oper = Fun:C.oper
+  H-oper = Mod:PC.oper
 
-  V-prop : PoCat.[prop] (V-Graph DblGraph) V-oper
-  H-prop : PoCat.[prop] (H-Graph DblGraph) H-oper
-  V-prop = Fun:PS.prop
-  H-prop = Mod.prop
+  V-prop : PoCat.[prop] PQ|PQ-V:PQ V-oper
+  H-prop : PoCat.[prop] PQ|PQ-H:PQ H-oper
+  V-prop = Fun:C.prop
+  H-prop = Mod:PC.prop
 
-  open PoCat|PoCat.:[is-Obj] DblGraph V-oper H-oper
+  open PoCat|PoCat.:[is-Obj] Mod|Fun:PQ|PQ V-oper H-oper
 
   Mod-Id|Fun : :H-Id|V
   Mod|Fun-Id : :H|V-Id
@@ -66,19 +70,19 @@ module Mod|Fun where
   Mod|IFun-Mu 22A 2f 3M (mf12 × m|f23) .↓ _ = mf12 .↓ _ ∘ m|f23 .↓ _
   Mod|FunI-Mu 22A 2f 3M (m|f12 × mf23) .↓ _ = m|f12 .↓ _ ∘ mf23 .↓ _
 
-  is-DblCat : PoCat|PoCat.[is-Obj] DblGraph V-oper H-oper
-  is-DblCat .H-Id|V = Mod-Id|Fun
-  is-DblCat .H|V-Id = Mod|Fun-Id
-  is-DblCat .H-Mu|V = Mod-Mu|Fun
-  is-DblCat .H|V-Mu = Mod|Fun-Mu
-  is-DblCat .I→H|V = I→Mod|Fun
-  is-DblCat .H→I|V = Mod→I|Fun
-  is-DblCat .H|I→V = Mod|I→Fun
-  is-DblCat .H|V→I = Mod|Fun→I
-  is-DblCat .IH-Mu|V = IMod-Mu|Fun
-  is-DblCat .HI-Mu|V = ModI-Mu|Fun
-  is-DblCat .H|IV-Mu = Mod|IFun-Mu
-  is-DblCat .H|VI-Mu = Mod|FunI-Mu
+  is-PC|PC : PoCat|PoCat.[is-Obj] DblGraph V-oper H-oper
+  is-PC|PC .H-Id|V = Mod-Id|Fun
+  is-PC|PC .H|V-Id = Mod|Fun-Id
+  is-PC|PC .H-Mu|V = Mod-Mu|Fun
+  is-PC|PC .H|V-Mu = Mod|Fun-Mu
+  is-PC|PC .I→H|V = I→Mod|Fun
+  is-PC|PC .H→I|V = Mod→I|Fun
+  is-PC|PC .H|I→V = Mod|I→Fun
+  is-PC|PC .H|V→I = Mod|Fun→I
+  is-PC|PC .IH-Mu|V = IMod-Mu|Fun
+  is-PC|PC .HI-Mu|V = ModI-Mu|Fun
+  is-PC|PC .H|IV-Mu = Mod|IFun-Mu
+  is-PC|PC .H|VI-Mu = Mod|FunI-Mu
 
 open Mod|Fun using
   (

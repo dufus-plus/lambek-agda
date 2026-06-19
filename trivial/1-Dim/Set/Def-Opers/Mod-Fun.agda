@@ -16,7 +16,7 @@ Mod:PQ : PoQuiver.[Obj]
 Mod:PQ .Ob = [Ob] -- Set
 Mod:PQ .Hom = Mod
 
-module Mod where
+module Mod:PC where
   oper : PoCat.[oper] Mod:PQ
   oper .Id = Mod-Id
   oper .Mu = Mod-Mu

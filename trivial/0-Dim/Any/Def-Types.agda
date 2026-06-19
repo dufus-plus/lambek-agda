@@ -11,7 +11,7 @@ module 0-Dim.Any.Def-Types where
 [Ob] = [Any]
 
 [Fun] : [2~] [Ob] → [Any]
-[Fun] (A > B) = A → B
+[Fun] (A > B) = (a : A) → B
 
 [0-Fun] : [!] [~] [Ob] → [Any]
 [0-Fun] (_ > B) = B
@@ -20,7 +20,13 @@ module 0-Dim.Any.Def-Types where
 [2-Fun] ((A1 × A2) > B) = (2a : A1 [×] A2) → B
 
 [Rel] : [2~] [Ob] → [Any]
-[Rel] (A ~ B) = A [~] B → [Any]
+[Rel] (A ~ B) = (a~b : A [~] B) → [Any]
+
+[0-Rel] : [!] [~] [Ob] → [Any]
+[0-Rel] (_ > B) = (!~b : [!] [~] B) → [Any]
+
+[2-Rel] : ([2×] [Ob]) [~] [Ob] → [Any]
+[2-Rel] ((A1 × A2) > B) = (2a~b : (A1 [×] A2) [~] B) → [Any]
 
 module _ (AB @(A > B): [2~] [Ob])
          (2f @(f1 > f2) : [2~] [Fun] AB) where

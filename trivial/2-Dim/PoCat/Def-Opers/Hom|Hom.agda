@@ -15,13 +15,13 @@ module Hom|Hom (C : [Obj]) where
   DQu .H-Mor = C .Hom
   DQu .H|V-2Mor = [Hom|Hom] C
 
-  V-oper : [oper] (V-Graph DQu)
-  H-oper : [oper] (H-Graph DQu)
+  V-oper : [oper] (PQ|PQ-V:PQ DQu)
+  H-oper : [oper] (PQ|PQ-H:PQ DQu)
   V-oper = C .oper
   H-oper = C .oper
 
-  V-prop : [prop] (V-Graph DQu) V-oper
-  H-prop : [prop] (H-Graph DQu) H-oper
+  V-prop : [prop] (PQ|PQ-V:PQ DQu) V-oper
+  H-prop : [prop] (PQ|PQ-H:PQ DQu) H-oper
   V-prop = C .prop
   H-prop = C .prop
 

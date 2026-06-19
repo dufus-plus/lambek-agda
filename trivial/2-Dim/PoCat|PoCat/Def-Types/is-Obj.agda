@@ -13,15 +13,10 @@ open PoCat using (‼)
 open PoQuiver|PoQuiver using (‼)
 
 module :[is-Obj]
-       (DblQuiver @(‼ $Ob V-Mor H-Mor H|V-Mor) : PoQuiver|PoQuiver.[Obj])
-       (V-oper @(‼ VId VMu): PoCat.[oper] (V-Graph DblQuiver))
-       (H-oper @(‼ HId HMu): PoCat.[oper] (H-Graph DblQuiver))
-    where
+       (PQ|PQ : PoQuiver|PoQuiver.[Obj]) (open PoQuiver|PoQuiver.[Obj] PQ|PQ)
+       (V-oper @(‼ VId VMu): PoCat.[oper] V:PQ)
+       (H-oper @(‼ HId HMu): PoCat.[oper] H:PQ) where
 
-  V-El : Any.[Rel] (2~ $Ob)
-  V-El 2ob = V-Mor 2ob .El
-  H-El : Any.[Rel] (2~ $Ob)
-  H-El 2ob = H-Mor 2ob .El
   HMuEl : Any.Rel-[2-Fun] _ ((H-El × H-El) ~ H-El)
   HMuEl 3o 2h = HMu 3o .f-el 2h
   VMuEl : Any.Rel-[2-Fun] _ ((V-El × V-El) ~ V-El)
@@ -95,13 +90,12 @@ module :[is-Obj]
            H-Mor _ .To (H2 ~ H3)) →
            H|V-Mor _ (V1 ~ V2) (H1 ~ H3)
 
-module _ (DblGraph : PoQuiver|PoQuiver.[Obj])
-         (V-oper : PoCat.[oper] (V-Graph DblGraph))
-         (H-oper : PoCat.[oper] (H-Graph DblGraph))
-      where
+module _ (PQ|PQ : PoQuiver|PoQuiver.[Obj]) (open PoQuiver|PoQuiver.[Obj] PQ|PQ)
+         (V-oper : PoCat.[oper] V:PQ)
+         (H-oper : PoCat.[oper] H:PQ) where
   record [is-Obj] : [Any] where
     constructor ‼
-    open :[is-Obj] DblGraph V-oper H-oper
+    open :[is-Obj] PQ|PQ V-oper H-oper
 
     -- cube composites
     field H-Id|V : :H-Id|V
@@ -115,7 +109,7 @@ module _ (DblGraph : PoQuiver|PoQuiver.[Obj])
     field H|I→V : :H|I→V
     field H|V→I : :H|V→I
 
-    -- glob/cube action
+    -- glob/cube action (transport)
     field IH-Mu|V : :IH-Mu|V
     field HI-Mu|V : :HI-Mu|V
     field H|IV-Mu : :H|IV-Mu

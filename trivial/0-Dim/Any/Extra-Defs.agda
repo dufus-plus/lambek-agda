@@ -22,20 +22,18 @@ open import 2-Dim.PoCat.Def-Types-pub
 --
 module 0-Dim.Any.Extra-Defs where
 
--- poset of (relevant) propositions
+--
+-- define PoSet on [Any]
+--
 Any:PS : PoSet.[Ob]
-Any:PS .It .El   = Any.[Ob]
+Any:PS .It .El   = [Any]
 Any:PS .It .To   = Any.[Fun]
 Any:PS .is .refl = Any.Fun-Id
 Any:PS .is .tran = Any.Fun-Mu
 
-module _ (AB @ (A > B) : [2~] Any.[Ob]) where
-  Rel:PS : PoSet.[Ob]
-  Rel:PS .It .El   = Any.[Rel] AB
-  Rel:PS .It .To   = Any.Rel-[Fun] AB
-  Rel:PS .is .refl = Any.Rel-Fun-Id AB
-  Rel:PS .is .tran = Any.Rel-Fun-Mu AB
-
+--
+-- define Cat on Any.[Fun]
+--
 module _ (AB @ (A > B) : [2~] Any.[Ob]) where
   Fun:S : Set.[Ob]
   Fun:S .It .El = Any.[Fun] AB
@@ -45,10 +43,10 @@ module _ (AB @ (A > B) : [2~] Any.[Ob]) where
   Fun:S .is .tran _ (fto12 × fto23) a = ≡.tran (fto12 a × fto23 a)
 
 Fun:S-Id : AnySet.Rel-[0-Fun] _ (! > Fun:S)
-Fun:S-Id _ = ⑴
+Fun:S-Id _ = Any.Fun-Id _
 
 Fun:S-Mu : AnySet.Rel-[2-Fun] _ ((Fun:S × Fun:S) > Fun:S)
-Fun:S-Mu _ .↓ .f-el (fab × fbc) = fab ∘ fbc
+Fun:S-Mu _ .↓ .f-el = Any.Fun-Mu _
 Fun:S-Mu _ .↓ .f-to ((fab × fbc) ~ (gab × gbc)) (fidab × fidbc) a =
   ≡.tran (≡.cong fbc (fidab a) × fidbc (gab a))
 
@@ -75,5 +73,48 @@ Fun:C : Cat.[Obj]
 Fun:C .It   = Fun:Q
 Fun:C .oper = Fun:Q.is-oper
 Fun:C .prop = Fun:Q.is-prop
+-- yes, it's catoid
+
+--
+-- define PoCat on Any.[Rel]
+--
+module _ (AB @ (A > B) : [2~] Any.[Ob]) where
+  Rel:PS : PoSet.[Ob]
+  Rel:PS .It .El   = Any.[Rel] AB
+  Rel:PS .It .To   = Any.Rel-[Fun] AB
+  Rel:PS .is .refl = Any.Rel-Fun-Id AB
+  Rel:PS .is .tran = Any.Rel-Fun-Mu AB
+
+Rel:PS-Id : AnyPoSet.Rel-[0-Fun] _ (! > Rel:PS)
+Rel:PS-Id A = Any.Rel-Id A
+
+Rel:PS-Mu : AnyPoSet.Rel-[2-Fun] _ ((Rel:PS × Rel:PS) > Rel:PS)
+Rel:PS-Mu _ .↓ .f-el = Any.Rel-Mu _
+Rel:PS-Mu _ .↓ .f-to _ (fab × fbc) _ (mab ∙ mbc) = fab _ mab ∙ fbc _ mbc
+
+Rel:PQ : PoQuiver.[Obj]
+Rel:PQ .Ob = Any.[Ob]
+Rel:PQ .Hom = Rel:PS
+
+module Rel:PQ where
+  is-oper : PoCat.[oper] Rel:PQ
+  is-oper .Id = Rel:PS-Id
+  is-oper .Mu = Rel:PS-Mu
+
+  is-prop : PoCat.[prop] Rel:PQ is-oper
+  is-prop .Assoc-fw _ _ _ ((r12 ∙ r23) ∙ r34) = (r12 ∙ (r23 ∙ r34))
+  is-prop .Assoc-bw _ _ _ (r12 ∙ (r23 ∙ r34)) = ((r12 ∙ r23) ∙ r34)
+  is-prop .LUnit-fw _ _ _ r12 = (≡ _ ∙ r12)
+  is-prop .LUnit-bw _ _ _ (≡ _ ∙ r12) = r12
+  is-prop .RUnit-fw _ _ _ r12 = (r12 ∙ ≡ _)
+  is-prop .RUnit-bw _ _ _ (r12 ∙ ≡ _) = r12
+  is-prop .BUnit-fw _ _ (≡ _) = (≡ _ ∙ ≡ _)
+  is-prop .BUnit-bw _ _ (≡ _ ∙ ≡ _) = (≡ _)
+
+Rel:PC : Cat.[Obj]
+Rel:PC .It   = Fun:Q
+Rel:PC .oper = Fun:Q.is-oper
+Rel:PC .prop = Fun:Q.is-prop
+-- yes, it's pocatoid
 
 -- TODO: 3 DblCat: Fun|Fun Rel|Fun Rel|Rel

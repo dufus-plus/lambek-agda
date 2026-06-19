@@ -20,7 +20,7 @@ Fun:Q : Quiver.[Obj]
 Fun:Q .Ob = [Ob]
 Fun:Q .Hom = Fun
 
-module Fun where
+module Fun:C where
   oper : Cat.[oper] Fun:Q
   oper .Id = Fun-Id
   oper .Mu = Fun-Mu

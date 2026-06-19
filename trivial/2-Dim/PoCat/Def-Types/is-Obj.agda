@@ -8,7 +8,7 @@ module 2-Dim.PoCat.Def-Types.is-Obj where
 
 open PoQuiver using (‼)
 
-module _ (Quiver @(‼ $Ob Hom) : PoQuiver.[Obj]) where
+module _ (Qu : PoQuiver.[Obj]) (open PoQuiver.[Obj] Qu) where
   module :[oper]  where
     -- operations on Hom: (id)entity, (mu)ltiplication
     :Id = AnyPoSet.Rel-[0-Fun] _ (! > Hom)
@@ -19,6 +19,8 @@ module _ (Quiver @(‼ $Ob Hom) : PoQuiver.[Obj]) where
     open :[oper]
     field Id : :Id
     field Mu : :Mu
+    Mu-el : Any.Rel-[2-Fun] _ ((Hom × Hom) ~ Hom)
+    Mu-el 2h1 2h2 = Mu 2h1 .f-el 2h2
   open [oper]
 
   module :[prop] (oper @(‼ Id Mu): [oper]) where
@@ -67,3 +69,5 @@ module _ (Quiver : PoQuiver.[Obj]) (oper : [oper] Quiver) where
     field RUnit-bw : :RUnit-bw
     field BUnit-fw : :BUnit-fw
     field BUnit-bw : :BUnit-bw
+
+open [oper] public using (Mu-el)
