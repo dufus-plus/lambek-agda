@@ -1,7 +1,7 @@
 ## 1 - top folders/modules
 
 - 0-Dim : for bare types
-- 1-Dim : for setoids, posetoids, classoids, poclassoids;
+- 1-Dim : for setoids, posetoids (and classoids, poclassoids)
 - 2-Dim : for 1-catoids, 1-equipoid
 - 3-Dim : for 2-categories, 2-equipments (but hope not needed)
 - Code : define initial object as limit, with application to categories of algebras
@@ -82,183 +82,18 @@
   - maybe also coLimit, coExp, duals in *-autonomous cats
   - _"versatile double limits"_ in equipment (but hope not needed)
 
-## 5 - fields
+## 2-Dim
 
-### `Set` module
+- Graph-Quiver : enriched in Graph, use AnyGraph
+- PoSet-Quiver : enriched in PoSet, use AnyPoSet
+- Set-Quiver : enriched in Set, use AnySet
 
-- `[Set]` record with fields:
-  - Graph
-    - Ob
-    - To
-  - is-Set
-    - refl
-    - symm
-    - tran
-- `[Fun]` record
-  - f-el
-  - f-To
-- `[Mod]` record
-  - r-Ob
-  - r-Ob-LTran
-  - r-Ob-RTran
-- `[Mod|Fun]` record
-  - f-Rel
+- PoCat : structure over PoSet-Quiver
+- Cat : structure over Set-Quiver
 
-### `Class` module
+- Graph|Graph-Quiver : cubical 2-set
+- PoSet|PoSet-Quiver : both directions is PoSet
+- DaggPoSet|Set-Quiver : vertical is dagger PoSet, horizontal is Set
 
-- `[Class]` record with fields:
-  - Graph
-  - is-Class
-- `[Fun]`
-- and so on
-
-### `Kit` module
-
-- `[Kit]` record
-  - k-ob
-  - k-to
-- `F-Fun` : Class.Fun -> Set.Fun
-- `F-Mod` : Class.Mod -> Set.Mod
-- `CF-Fun-To` cat-functor
-- `CF-Rel-To`
-- `EF-Fun|Fun` eqp-functor
-- `EF-Rel|Fun`
-- `EF-Rel|Rel`
-
-### Cat
-
-- [Cat]
-  - `[Ob]`
-  - `Hom : AnySet.[Rel] ([Ob] ~ [Ob])`
-  - Hom-Id
-  - Hom-Mu
-  - Hom-Assoc
-  - Hom-LUnit
-  - Hom-RUnit
-- [Fun]
-- [Mod]
-- [Mod|Fun]
-- `AlgC F` construction
-- Adjunctions
-- isTerm
-- isProd
-- UnitCat
-- ProdCat
-- Unit as [Fun]
-- Prod as [Fun]
-- isExp
-- Exp as [Fun]
-- isLimit
-- hasLimits
-
-### Eqp
-
-- TODO refactor as _internal_ "poset in posets cat/eqp" => cubical 2-Mor
-  - see others authors implementations of models of directed type theories (the primary area of interest for equipments in CS)
-
-- `[Eqp]`
-  - (!) many-many fields, technically non-manageable
-  - (!) how to ensure we have all the fields enlisted
-  - (!) how to ensure we have all types tied well without typos
-  - we want basic `[Fun]` & `[Rel]` directions, but also derived `[Iso]` and `[Adj]` - so what?
-  - [Ob]
-  - Ob-Op
-  - [Fun]
-  - Fun[To]
-  - Fun[Eq]
-  - Fun-Op
-  - Fun-Id
-  - Fun-Mu
-  - FunTo-Refl
-  - FunTo-Tran
-  - FunEq-Refl
-  - FunEq-Symm
-  - FunEq-Tran
-  - FunTo-Op
-  - FunTo-Mu2
-  - FunTo-MuL
-  - FunTo-MuR
-  - FunEq-Mu2
-  - FunEq-MuL
-  - FunEq-MuR
-  - Fun-Assoc
-  - Fun-LUnit
-  - Fun-RUnit
-  - [Rel]
-  - Rel[Fun]
-  - Rel[Iso]
-  - Rel-Op
-  - Rel-Id
-  - Rel-Mu
-  - RelFun-Refl
-  - RelFun-Tran
-  - RelIso-Refl
-  - RelIso-Symm
-  - RelIso-Tran
-  - RelFun-Op
-  - RelFun-Mu2
-  - RelFun-MuL
-  - RelFun-MuR
-  - RelIso-Mu2
-  - RelIso-MuL
-  - RelIso-MuR
-  - Rel-Assoc
-  - Rel-LUnit
-  - Rel-RUnit
-  - [Rel|Fun]
-  - Rel-Op|Fun
-  - Rel-Id|Fun
-  - Rel-Mu|Fun
-  - Rel|Fun-Id
-  - Rel|Fun-Mu
-  - Rep+ : [Fun] -> [Rel] -- covariant representable, _'companion'_
-  - Rep- : [Fun] -> [Rel] -- contravariant representable, _'conjoint'_
-  - Rep+Corn(12) - corner 2-mor
-  - Rep-Corn(12) - corner 2-mor
-  - `[Fun|Fun]` helper for commutative squares
-  - FunTo <-> Rel|Fun conv
-  - RelTo <-> Rel|Fun conv
-  - FunTo <-> Rel|Fun conv
-  - RelTo <-> Rel|Fun conv
-  - `[Rel|Rel]` (do we need it for higher parametricity?)
-  - `[Iso]`, `[Adj]` helper
-- `Eqp.[Fun]` type for functor
-- eqp of `AlgE F` for eqp-functor `F`
-
-## Roadmap
-
-`TODO`: to coat everything (from **trivial** into **leveled**) with a thin layer of ugly levels of universe
-
-- hope level-indexed construction to make the leveled `Limit` an actual initial object in multi-level universe.
-- Q: when the encoding of covariant fixpoint `Barber = Barber -> Prop` breaks levels in the context of Lambek theorem? (Cantor-Russel-Girard-Hurkens paradox)
-
-
-```agda
-
-  record _[/]_ I J {constructor _/_; field $i : I; $j : J}
-  record [#Type] {field $I $J : [Level]}
-  [Type*] (! I J %) := (i/j : I [/] J) -> [Type:] (% i/j)
-
-- $[Ob] : [Any]; $[To] : [2~] $[Ob] -> [Any]
-
-- $[Ob] : [ωType]; $[To] : [2~] $[Ob] -> [ωType]
-- $[Ob] : [Type]: (% .$Ob); $[To] : [2~] $[Ob] -> [Type]: (% .$To)
-
-- $[Ob]: : [Type*] #.$Ob
-- $[To]: : [Rel*] ($[Ob]: ~ $[Ob]:) #.$To
-
-Functors:
-
-Typ.At i/j : [Typ*] #A -> [Typ:] (% i/j)
-Cls.At i/j : [Cls*] #A -> [Cls:] (% i/j)
-Set.At i/j : [Set*] #A -> [Set:] (% i/j)
-
-Typ.Kit X := Σ i , Π j , X: i/j
-
-Typ.Kit : [Typ*] #A -> [Typ:ω]
-Cls.Kit : [Cls*] #A -> [Set:ω]
-
-Cls:C %A : [Cat*] #Cls
-Cls*C #A : [Cat:ω]
-
-```
+- PoCat|PoCat : p.o. double catoid
+- DaggPoCat|Cat : vertical has dagger, horizontal has symmetry

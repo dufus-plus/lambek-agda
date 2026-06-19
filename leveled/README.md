@@ -45,3 +45,10 @@ Here we supply a kind of ind-pro-completion of the large category of types (and 
   * AdjFunTh for initial object via limit of identity functor
   * Lambek theorem (initial obj is a fixpoint of endofunctor)
   * try to implement (Cantor-Russel)-(Girard-Hurkens) paradox for power-set covariant functor at last.
+
+## Roadmap
+
+`TODO`: to coat everything (from **trivial** into **leveled**) with a thin layer of ugly levels of universe
+
+- hope level-indexed construction to make the leveled `Limit` an actual initial object in multi-level universe.
+- Q: when the encoding of covariant fixpoint `Barber = Barber -> Prop` breaks levels in the context of Lambek theorem? (Cantor-Russel-Girard-Hurkens paradox)
