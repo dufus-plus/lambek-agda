@@ -1,6 +1,6 @@
 open import 0-Dim.!quali
 import 1-Dim.PoSet.Def-Types.Ob as PoSet
-import 2-Dim-Pre.AnyPoSet.Def-Types as AnyPoSet
+import 2-Dim-Pre.Matr.Def-Types as AnyPoSet
 import 2-Dim-Pre.PoSet-Qu.Def-Types.Obj as PoSet-Qu
 
 module 2-Dim-Pre.PoSet|PoSet-Qu.Def-Types.Obj where
@@ -15,11 +15,11 @@ module :[Obj] where
   open PoSet.[Ob]
   module _ (Ob : [Any]) where
     -- type of 1-cells
-    :V-Hom = AnyPoSet.[Rel] (2~ Ob)
-    :H-Hom = AnyPoSet.[Rel] (2~ Ob)
+    :V-Hom = Matr.[PoSet] (2~ Ob)
+    :H-Hom = Matr.[PoSet] (2~ Ob)
     module _ (V-Hom : :V-Hom) (H-Hom : :H-Hom) where
       -- type of 2-cells as 2-module
-      :H|V = AnyPoSet.[Rel|Rel] _ (2~ V-Hom) (2~ H-Hom)
+      :H|V = Matr.[PoSet|PoSet] _ (2~ V-Hom) (2~ H-Hom)
 
 record [Obj] : [Any] where
   constructor ‼
@@ -54,7 +54,7 @@ record [Obj] : [Any] where
       refl to H-Hom-refl;
       tran to H-Hom-tran )
 
-  private module H|V = AnyPoSet.[Rel|Rel] H|V
+  private module H|V = Matr.[PoSet|PoSet] H|V
   open H|V public
     using ( Sqr; V-lact; V-ract; H-lact; H-ract )
 

@@ -7,7 +7,7 @@ open import 1-Dim.PoSet.Def-Types.Fun-To
 open import 1-Dim.PoSet.Def-Types-pub.Ob
 open import 1-Dim.PoSet.Def-Types-pub.Fun
 open import 1-Dim.PoSet.Def-Types-pub.Fun-To
-import 2-Dim-Pre.AnyPoSet.Def-Types as AnyPoSet
+import 2-Dim-Pre.Matr.Def-Types as AnyPoSet
 
 module 1-Dim.PoSet.Def-Opers.Fun where
 

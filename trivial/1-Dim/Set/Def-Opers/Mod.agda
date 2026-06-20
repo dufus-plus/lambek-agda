@@ -5,7 +5,7 @@ import 1-Dim.PoSet.Def-Types as PoSet
 open import 1-Dim.PoSet.Def-Types-pub
 open import 1-Dim.Set.Def-Types
 open import 1-Dim.Set.Def-Types-pub
-import 2-Dim-Pre.AnyPoSet.Def-Types as AnyPoSet
+import 2-Dim-Pre.Matr.Def-Types as AnyPoSet
 
 module 1-Dim.Set.Def-Opers.Mod where
 

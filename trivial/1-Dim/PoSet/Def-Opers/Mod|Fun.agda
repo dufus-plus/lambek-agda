@@ -5,8 +5,8 @@ open import 1-Dim.PoSet.Def-Opers.Fun
 open import 1-Dim.PoSet.Def-Opers.Fun-To
 open import 1-Dim.PoSet.Def-Opers.Mod
 open import 1-Dim.PoSet.Def-Opers.Mod-Fun
-import 2-Dim-Pre.AnyPoSet.Def-Types as AnyPoSet
-open import 2-Dim-Pre.AnyPoSet.Def-Types-pub
+import 2-Dim-Pre.Matr.Def-Types as AnyPoSet
+open import 2-Dim-Pre.Matr.Def-Types-pub
 import 2-Dim.PoCat.Def-Types.is-Obj as PoCat
 import 2-Dim.PoCat|PoCat.Def-Types.is-Obj as PoCat|PoCat
 open import 2-Dim.PoCat|PoCat.Def-Types-pub.is-Obj
@@ -14,7 +14,7 @@ open import 2-Dim.PoCat|PoCat.Def-Types-pub.is-Obj
 -- operations in Po(Set)oid on square 2-(Mor)phisms
 module 1-Dim.PoSet.Def-Opers.Mod|Fun where
 
-Mod|Fun:RR : AnyPoSet.[Rel|Rel] _ (2~ Fun) (2~ Mod)
+Mod|Fun:RR : Matr.[PoSet|PoSet] _ (2~ Fun) (2~ Mod)
 Mod|Fun:RR .Sqr = [Mod|Fun]
 Mod|Fun:RR .H-lact _ _ (M1 ~ M2) (fto12 × m|f23) .↓ _ m1 =
   M2 .lact _ (fto12 .↓ _ × m|f23 .↓ _ m1)

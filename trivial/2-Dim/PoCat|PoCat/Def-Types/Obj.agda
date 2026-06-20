@@ -1,5 +1,5 @@
 open import 0-Dim.!quali
-import 2-Dim-Pre.AnyPoSet.Def-Types as AnyPoSet
+import 2-Dim-Pre.Matr.Def-Types as AnyPoSet
 import 1-Dim.PoSet.Def-Types as PoSet
 import 2-Dim.PoCat.Def-Types.Obj as PoCat
 import 2-Dim-Pre.PoSet|PoSet-Qu.Def-Types.Obj as PoSet|PoSet-Qu
@@ -92,7 +92,7 @@ record [Obj] : [Any] where
       bunit-bw to H-bunit-bw;
       Qu       to H-Qu )
 
-  open AnyPoSet.[Rel|Rel] H|V public
+  open Matr.[PoSet|PoSet] H|V public
     using (H-lact; H-ract; V-lact; V-ract)
     renaming (Sqr to H|V-Sqr)
 

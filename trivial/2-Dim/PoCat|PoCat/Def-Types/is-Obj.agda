@@ -1,5 +1,5 @@
 open import 0-Dim.!quali
-import 2-Dim-Pre.AnyPoSet.Def-Types as AnyPoSet
+import 2-Dim-Pre.Matr.Def-Types as AnyPoSet
 import 1-Dim.PoSet.Def-Types as PoSet
 open import 1-Dim.PoSet.Def-Types-pub
 import 2-Dim-Pre.PoSet-Qu.Def-Types.Obj as PoSet-Qu
@@ -12,7 +12,7 @@ module 2-Dim.PoCat|PoCat.Def-Types.is-Obj
   (V : PoCat.[is-Obj] Ob) (let module V = PoCat.[is-Obj] V)
   (H : PoCat.[is-Obj] Ob) (let module H = PoCat.[is-Obj] H)
   (H|V : PoSet|PoSet-Qu.:[Obj].:H|V Ob V.Hom H.Hom)
-  (let module H|V = AnyPoSet.[Rel|Rel] H|V)
+  (let module H|V = Matr.[PoSet|PoSet] H|V)
   where
 
 open PoCat using (‼)
@@ -44,7 +44,7 @@ module :[is-Obj] where
   :H|I→V = ∀ 2ob 2H → H.Hom-To 2ob 2H → H|V.Sqr _ (V.Id _ ~ V.Id _) 2H
   :H|V→I = ∀ 2ob 2H → H|V.Sqr _ (V.Id _ ~ V.Id _) 2H → H.Hom-To 2ob 2H
 
-  -- 2-module's "side-on-square" actions: the code was moved to AnyPoSet.[Rel|Rel]
+  -- 2-module's "side-on-square" actions: the code was moved to Matr.[PoSet|PoSet]
 
 record [is-Obj] : [Any] where
   constructor ‼

@@ -1,5 +1,5 @@
 open import 0-Dim.!quali
-import 2-Dim-Pre.AnyPoSet.Def-Types as AnyPoSet
+import 2-Dim-Pre.Matr.Def-Types as AnyPoSet
 import 1-Dim.PoSet.Def-Types as PoSet
 
 module 2-Dim-Pre.PoSet-Qu.Def-Types.Obj where
@@ -9,7 +9,7 @@ module 2-Dim-Pre.PoSet-Qu.Def-Types.Obj where
 --
 module _ (Ob : [Any]) where
   -- type of 1-cells
-  [is-Obj] = AnyPoSet.[Rel] (2~ Ob)
+  [is-Obj] = Matr.[PoSet] (2~ Ob)
 
 record [Obj] : [Any] where
   constructor ‼

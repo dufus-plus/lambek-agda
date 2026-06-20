@@ -2,15 +2,15 @@ open import 0-Dim.!quali
 open import 1-Dim.PoSet.!publi
 open import 2-Dim.PoCat.Def-Types
 open import 2-Dim.PoCat.Def-Types-pub
-import 2-Dim-Pre.AnyPoSet.Def-Types as AnyPoSet
-open import 2-Dim-Pre.AnyPoSet.Def-Types-pub
+import 2-Dim-Pre.Matr.Def-Types as AnyPoSet
+open import 2-Dim-Pre.Matr.Def-Types-pub
 import 2-Dim.PoCat|PoCat.Def-Types.is-Obj as PoCat|PoCat
 
 module 2-Dim.PoCat.Def-Opers.Hom|Hom
   (C : [Obj]) (let module C = [Obj] C) where
 
 module Hom|Hom where
-  [Hom|Hom]:Mod : AnyPoSet.[Rel|Rel] _ (2~ C.Hom) (2~ C.Hom)
+  [Hom|Hom]:Mod : Matr.[PoSet|PoSet] _ (2~ C.Hom) (2~ C.Hom)
   [Hom|Hom]:Mod .Sqr = [Hom|Hom] C
   [Hom|Hom]:Mod .H-lact = _
   [Hom|Hom]:Mod .H-ract = _

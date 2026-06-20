@@ -1,5 +1,5 @@
 open import 0-Dim.!quali
-import 2-Dim-Pre.AnyGraph.Def-Types as AnyGraph
+import 2-Dim-Pre.Matr.Def-Types as AnyGraph
 import 1-Dim.Graph.Def-Types as Graph
 
 module 2-Dim-Pre.Graph-Qu.Def-Types.Obj where
@@ -10,7 +10,7 @@ module :[Obj] where
   :Ob = AnyGraph.[Ob]
   module _ (Ob : :Ob) where
     -- type of 1-cells
-    :Hom = AnyGraph.[Rel] (2~ Ob)
+    :Hom = Matr.[Graph] (2~ Ob)
 
 record [Obj] : [Any] where
   constructor ‼

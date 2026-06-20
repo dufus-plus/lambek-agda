@@ -1,5 +1,5 @@
 open import 0-Dim.!quali
-import 2-Dim-Pre.AnySet.Def-Types as AnySet
+import 2-Dim-Pre.Matr.Def-Types as AnySet
 import 1-Dim.Set.Def-Types as Set
 
 module 2-Dim-Pre.Set-Qu.Def-Types.Obj where
@@ -7,7 +7,7 @@ module 2-Dim-Pre.Set-Qu.Def-Types.Obj where
 -- Set-enriched 2-Graph aka Globular Set-Quiver
 module _ (Ob : [Any]) where
   -- type of 1-cells
-  [is-Obj] = AnySet.[Rel] (2~ Ob)
+  [is-Obj] = Matr.[Set] (2~ Ob)
 
 record [Obj] : [Any] where
   constructor ‼
