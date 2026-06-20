@@ -1,5 +1,5 @@
 open import 0-Dim.!quali
-import 1-Dim.AnyGraph.Def-Types as AnyGraph
+import 2-Dim-Pre.AnyGraph.Def-Types as AnyGraph
 import 1-Dim.Graph.Def-Types as Graph
 open import 2-Dim.Graph-Qu.Def-Types.Obj
 open import 2-Dim.Graph-Qu.Def-Types-pub.Obj

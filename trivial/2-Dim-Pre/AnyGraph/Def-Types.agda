@@ -3,7 +3,7 @@ open import 0-Dim.!quali
 --
 -- define Graph-enriched (Rel)ations between [Any]
 --
-module 1-Dim.AnyGraph.Def-Types where
+module 2-Dim-Pre.AnyGraph.Def-Types where
 
 private module Graph where
   open import 1-Dim.Graph.Def-Types public

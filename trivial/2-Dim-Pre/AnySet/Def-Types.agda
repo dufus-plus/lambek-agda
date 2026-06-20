@@ -2,7 +2,7 @@ open import 0-Dim.!quali
 import 1-Dim.Set.Def-Types as Set
 open import 1-Dim.Set.Def-Types-pub
 
-module 1-Dim.AnySet.Def-Types where
+module 2-Dim-Pre.AnySet.Def-Types where
 
 [Ob] = Any.[Ob]
 [Fun] = Any.[Fun]

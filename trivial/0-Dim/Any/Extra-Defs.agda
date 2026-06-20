@@ -1,8 +1,8 @@
 open import 0-Dim.Prelude.!all
 open import 0-Dim.Any.!quali
 
-import 1-Dim.AnySet.Def-Types as AnySet
-import 1-Dim.AnyPoSet.Def-Types as AnyPoSet
+import 2-Dim-Pre.AnySet.Def-Types as AnySet
+import 2-Dim-Pre.AnyPoSet.Def-Types as AnyPoSet
 import 1-Dim.PoSet.Def-Types as PoSet
 import 1-Dim.Set.Def-Types as Set
 import 2-Dim.Quiver.Def-Types as Quiver
