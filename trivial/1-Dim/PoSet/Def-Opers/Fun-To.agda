@@ -13,15 +13,11 @@ open import 2-Dim.PoCat.Def-Types-pub.is-Obj
 module 1-Dim.PoSet.Def-Opers.Fun-To where
 
 module Fun where
-  Qu : PoSet-Qu.[Obj]
-  Qu .Ob = [Ob] -- PoSet
-  Qu .Hom = Fun
-
-  has-oper : PoCat.[Obj-oper] Qu
+  has-oper : PoCat.[Obj-oper] [Ob] Fun
   has-oper .Id = Fun-Id
   has-oper .Mu = Fun-Mu
 
-  has-prop : PoCat.[Obj-prop] Qu has-oper
+  has-prop : PoCat.[Obj-prop] _ _ has-oper
   has-prop .assoc-fw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) .↓ _ = ob4 .refl _
   has-prop .assoc-bw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) .↓ _ = ob4 .refl _
   has-prop .lunit-fw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
@@ -30,3 +26,8 @@ module Fun where
   has-prop .runit-bw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
   has-prop .bunit-fw ob .↓ _ = ob .refl _
   has-prop .bunit-bw ob .↓ _ = ob .refl _
+
+  is-Cat : PoCat.[is-Obj] [Ob]
+  is-Cat .Hom = _
+  is-Cat .oper = has-oper
+  is-Cat .prop = has-prop

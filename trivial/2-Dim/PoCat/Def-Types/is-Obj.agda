@@ -8,8 +8,8 @@ module 2-Dim.PoCat.Def-Types.is-Obj where
 
 open PoSet-Qu using (‼)
 
-module _ (Qu : PoSet-Qu.[Obj]) where
-  open PoSet-Qu.[Obj] Qu
+module _ (Ob : [Any]) (Hom : PoSet-Qu.[is-Obj] Ob) where
+  private module Hom (2ob : _) = PoSet.[Ob] (Hom 2ob)
 
   module :[Obj-oper]  where
     -- operations on Hom: (id)entity, (mu)ltiplication
@@ -39,58 +39,58 @@ module _ (Qu : PoSet-Qu.[Obj]) where
     :assoc-fw =
       (4ob @(ob1 ~ ob2 ~ ob3 ~ ob4) : [4~] Ob)
       (3hom @(hom12 × hom23 × hom34):
-        Hom-El (ob1 > ob2) [×] Hom-El (ob2 > ob3) [×] Hom-El (ob3 > ob4)) →
-      Hom-To _ ( (Mu-el _ (Mu-el _ (hom12 × hom23) × hom34)) ~
+        Hom.El (ob1 > ob2) [×] Hom.El (ob2 > ob3) [×] Hom.El (ob3 > ob4)) →
+      Hom.To _ ( (Mu-el _ (Mu-el _ (hom12 × hom23) × hom34)) ~
                  (Mu-el _ (hom12 × Mu-el _ (hom23 × hom34))) )
     :assoc-bw =
       (4ob @(ob1 ~ ob2 ~ ob3 ~ ob4) : [4~] Ob)
       (3hom @(hom12 × hom23 × hom34):
-        Hom-El (ob1 > ob2) [×] Hom-El (ob2 > ob3) [×] Hom-El (ob3 > ob4)) →
-      Hom-To _ ( (Mu-el _ (hom12 × Mu-el _ (hom23 × hom34))) ~
+        Hom.El (ob1 > ob2) [×] Hom.El (ob2 > ob3) [×] Hom.El (ob3 > ob4)) →
+      Hom.To _ ( (Mu-el _ (hom12 × Mu-el _ (hom23 × hom34))) ~
                  (Mu-el _ (Mu-el _ (hom12 × hom23) × hom34)) )
 
     -- identity is (left,right) unit
     :lunit-fw =
-      (2ob @(ob1 ~ ob2) : [2~] Ob) (hom12 : Hom-El (ob1 > ob2)) →
-      Hom-To _ (hom12 ~ Mu-el _ (Id ob1 × hom12))
+      (2ob @(ob1 ~ ob2) : [2~] Ob) (hom12 : Hom.El (ob1 > ob2)) →
+      Hom.To _ (hom12 ~ Mu-el _ (Id ob1 × hom12))
     :lunit-bw =
-      (2ob @(ob1 ~ ob2) : [2~] Ob) (hom12 : Hom-El (ob1 > ob2)) →
-      Hom-To _ (Mu-el _ (Id ob1 × hom12) ~ hom12)
+      (2ob @(ob1 ~ ob2) : [2~] Ob) (hom12 : Hom.El (ob1 > ob2)) →
+      Hom.To _ (Mu-el _ (Id ob1 × hom12) ~ hom12)
     :runit-fw =
-      (2ob @(ob1 ~ ob2) : [2~] Ob) (hom12 : Hom-El (ob1 > ob2)) →
-      Hom-To _ (hom12 ~ Mu-el _ (hom12 × Id ob2))
+      (2ob @(ob1 ~ ob2) : [2~] Ob) (hom12 : Hom.El (ob1 > ob2)) →
+      Hom.To _ (hom12 ~ Mu-el _ (hom12 × Id ob2))
     :runit-bw =
-      (2ob @(ob1 ~ ob2) : [2~] Ob) (hom12 : Hom-El (ob1 > ob2)) →
-      Hom-To _ (Mu-el _ (hom12 × Id ob2) ~ hom12)
+      (2ob @(ob1 ~ ob2) : [2~] Ob) (hom12 : Hom.El (ob1 > ob2)) →
+      Hom.To _ (Mu-el _ (hom12 × Id ob2) ~ hom12)
     :bunit-fw =
       (ob : Ob) →
-      Hom-To _ (Id ob ~ Mu-el _ (Id ob × Id ob))
+      Hom.To _ (Id ob ~ Mu-el _ (Id ob × Id ob))
     :bunit-bw =
       (ob : Ob) →
-      Hom-To _ (Mu-el _ (Id ob × Id ob) ~ Id ob)
+      Hom.To _ (Mu-el _ (Id ob × Id ob) ~ Id ob)
 
-module _ (Qu : PoSet-Qu.[Obj]) (oper : [Obj-oper] Qu) where
-  record [Obj-prop] : [Any] where
-    constructor ‼
-    open :[Obj-prop] Qu oper
+  module _ (oper : [Obj-oper]) where
+    record [Obj-prop] : [Any] where
+      constructor ‼
+      open :[Obj-prop] oper
 
-    -- data:
-    field assoc-fw : :assoc-fw
-    field assoc-bw : :assoc-bw
-    field lunit-fw : :lunit-fw
-    field lunit-bw : :lunit-bw
-    field runit-fw : :runit-fw
-    field runit-bw : :runit-bw
-    field bunit-fw : :bunit-fw
-    field bunit-bw : :bunit-bw
+      -- data:
+      field assoc-fw : :assoc-fw
+      field assoc-bw : :assoc-bw
+      field lunit-fw : :lunit-fw
+      field lunit-bw : :lunit-bw
+      field runit-fw : :runit-fw
+      field runit-bw : :runit-bw
+      field bunit-fw : :bunit-fw
+      field bunit-bw : :bunit-bw
 
 record [is-Obj] (Ob : [Any]) : [Any] where
   constructor ‼
 
-  -- data
+  -- data:
   field Hom : PoSet-Qu.[is-Obj] Ob
-  field oper : [Obj-oper] (‼ Ob Hom)
-  field prop : [Obj-prop] (‼ Ob Hom) oper
+  field oper : [Obj-oper] Ob Hom
+  field prop : [Obj-prop] Ob Hom oper
 
   -- helpers:
   private module Hom (2ob : [2~] Ob) = PoSet.[Ob] (Hom 2ob)
