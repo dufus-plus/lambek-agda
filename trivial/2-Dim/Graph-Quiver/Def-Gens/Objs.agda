@@ -1,9 +1,9 @@
 open import 0-Dim.!quali
 import 1-Dim.Graph.Def-Gens.Objs as Graph
-open import 2-Dim.Quiver.Def-Types.Obj
-open import 2-Dim.Quiver.Def-Types-pub.Obj
+open import 2-Dim.Graph-Quiver.Def-Types.Obj
+open import 2-Dim.Graph-Quiver.Def-Types-pub.Obj
 
-module 2-Dim.Quiver.Def-Gens.Objs where
+module 2-Dim.Graph-Quiver.Def-Gens.Objs where
 
 Unit : [Obj]
 Unit .Ob = Any.Unit

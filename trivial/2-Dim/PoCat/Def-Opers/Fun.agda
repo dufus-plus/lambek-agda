@@ -57,12 +57,12 @@ Fun-Mu (A ~ B ~ C) .It .F-Hom ((Fab × Fbc) ~ (Gab × Gbc)) .↓ .f-to _ (to12 �
       to23 .↓ (Gab .f-el a) )
 Fun-Mu (A ~ B ~ C) .is .F-Id-fw (Fab × Fbc) .↓ a =
   C .Hom _ .tran _
-    ( C .RUnit-bw _ (Fbc .F-Hom _ .f-el (B .Id (Fab .f-el a))) ×
+    ( C .runit-bw _ (Fbc .F-Hom _ .f-el (B .Id (Fab .f-el a))) ×
       Fbc .F-Id-fw (Fab .f-el a) )
 Fun-Mu (A ~ B ~ C) .is .F-Id-bw (Fab × Fbc) .↓ a =
   C .Hom _ .tran _
     ( Fbc .F-Id-bw (Fab .f-el a) ×
-      C .RUnit-fw _ (Fbc .F-Hom _ .f-el (B .Id (Fab .f-el a))) )
+      C .runit-fw _ (Fbc .F-Hom _ .f-el (B .Id (Fab .f-el a))) )
 Fun-Mu (A ~ B ~ C) .is .F-Mu-fw
   ((Fab × Fbc) ~ (Gab × Gbc) ~ (Hab × Hbc))
   ((trFGab × trFGbc) × (trGHab × trGHbc)) .↓ a = all
@@ -72,14 +72,14 @@ Fun-Mu (A ~ B ~ C) .is .F-Mu-fw
       C .Hom _ .tran _
         (C .Mu _ .f-to _ (Fbc .F-Mu-fw _ (trFGab .n-ob _ × trGHab .n-ob _) × C .Hom _ .refl _) ×
       C .Hom _ .tran _
-        ( C .Assoc-fw _ (_ × _ × C .Mu _ .f-el _) ×
+        ( C .assoc-fw _ (_ × _ × C .Mu _ .f-el _) ×
       C .Hom _ .tran _
-        ( C .Mu _ .f-to _ (C .Hom _ .refl _ × C .Assoc-bw _ (_ × _ × _)) ×
+        ( C .Mu _ .f-to _ (C .Hom _ .refl _ × C .assoc-bw _ (_ × _ × _)) ×
       C .Hom _ .tran _
         ( C .Mu _ .f-to _ (C .Hom _ .refl _ × (C .Mu _ .f-to _ (eq × C .Hom _ .refl _))) ×
       C .Hom _ .tran _
-        ( C .Mu _ .f-to _ (C .Hom _ .refl _ × C .Assoc-fw _ (_ × _ × _)) ×
-        ( C .Assoc-bw _ (_ × _ × C .Mu _ .f-el _)
+        ( C .Mu _ .f-to _ (C .Hom _ .refl _ × C .assoc-fw _ (_ × _ × _)) ×
+        ( C .assoc-bw _ (_ × _ × C .Mu _ .f-el _)
       ) ) ) ) ) )
 Fun-Mu (A ~ B ~ C) .is .F-Mu-bw
   ((Fab × Fbc) ~ (Gab × Gbc) ~ (Hab × Hbc))
@@ -88,14 +88,14 @@ Fun-Mu (A ~ B ~ C) .is .F-Mu-bw
     eq = trFGbc .n-hom-fw _ (trGHab .n-ob a) .↓
     all =
       C .Hom _ .tran _
-        ( C .Assoc-fw _ (_ × _ × C .Mu _ .f-el _) ×
+        ( C .assoc-fw _ (_ × _ × C .Mu _ .f-el _) ×
       C .Hom _ .tran _
-        ( C .Mu _ .f-to _ (C .Hom _ .refl _ × C .Assoc-bw _ (_ × _ × _)) ×
+        ( C .Mu _ .f-to _ (C .Hom _ .refl _ × C .assoc-bw _ (_ × _ × _)) ×
       C .Hom _ .tran _
         ( C .Mu _ .f-to _ (C .Hom _ .refl _ × (C .Mu _ .f-to _ (eq × C .Hom _ .refl _))) ×
       C .Hom _ .tran _
-        ( C .Mu _ .f-to _ (C .Hom _ .refl _ × C .Assoc-fw _ (_ × _ × _)) ×
+        ( C .Mu _ .f-to _ (C .Hom _ .refl _ × C .assoc-fw _ (_ × _ × _)) ×
       C .Hom _ .tran _
-        ( C .Assoc-bw _ (_ × _ × C .Mu _ .f-el _) ×
+        ( C .assoc-bw _ (_ × _ × C .Mu _ .f-el _) ×
         (C .Mu _ .f-to _ (Fbc .F-Mu-bw _ (trFGab .n-ob _ × trGHab .n-ob _) × C .Hom _ .refl _)
       ) ) ) ) ) )

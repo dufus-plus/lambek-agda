@@ -10,12 +10,12 @@ module 1-Dim.Graph.Def-Gens.Fun where
 module _ (A : [Ob]) where
   module Void where
     Init : [Fun] (Void > A)
-    Init .f-el ()
-    Init .f-to (() ~ ())
+    Init .f-el = Any.Void.Init _
+    Init .f-to ()
 
   module Unit where
     Term : [Fun] (A > Unit)
-    Term .f-el _ = !
+    Term .f-el = Any.Unit.Term _
     Term .f-to _ _ = !
 --
 

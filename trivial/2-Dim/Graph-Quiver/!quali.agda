@@ -1,6 +1,6 @@
-module 2-Dim.Quiver.!quali where
+module 2-Dim.Graph-Quiver.!quali where
 
 -- re-export qualified
-module Quiver where
-  open import 2-Dim.Quiver.Def-Types public
-  open import 2-Dim.Quiver.Def-Gens public
+module Graph-Quiver where
+  open import 2-Dim.Graph-Quiver.Def-Types public
+  open import 2-Dim.Graph-Quiver.Def-Gens public

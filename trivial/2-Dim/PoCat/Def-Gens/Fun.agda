@@ -1,8 +1,8 @@
 open import 0-Dim.!quali
 open import 1-Dim.Graph.!publi
 open import 1-Dim.PoSet.!publi
-import 2-Dim.PoQuiver.Def-Types.Obj as PoQuiver
-open import 2-Dim.PoQuiver.Def-Types-pub.Obj
+import 2-Dim.PoSet-Quiver.Def-Types.Obj as PoSet-Quiver
+open import 2-Dim.PoSet-Quiver.Def-Types-pub.Obj
 open import 2-Dim.PoCat.Def-Types
 open import 2-Dim.PoCat.Def-Types-pub
 open import 2-Dim.PoCat.Def-Opers.Hom|Hom
@@ -32,13 +32,13 @@ module _ (2C @(A ~ B) : [2~] [Obj]) where
     Hom-Mu|Hom B _ _ _ (tr12 .n-hom-bw _ hom × tr23 .n-hom-bw _ hom )
   Fun .oper .Mu _ .↓ .f-to _ (to12 × to23) .↓ a =
     B .Mu _ .f-to _ (to12 .↓ a × to23 .↓ a)
-  Fun .prop .Assoc-fw _ (tr12 × tr23 × tr34) .↓ a =
-    B .Assoc-fw _ (tr12 .n-ob a × tr23 .n-ob a × tr34 .n-ob a)
-  Fun .prop .Assoc-bw _ (tr12 × tr23 × tr34) .↓ a =
-    B .Assoc-bw _ (tr12 .n-ob a × tr23 .n-ob a × tr34 .n-ob a)
-  Fun .prop .LUnit-fw _ tr12 .↓ a = B .LUnit-fw _ (tr12 .n-ob a)
-  Fun .prop .LUnit-bw _ tr12 .↓ a = B .LUnit-bw _ (tr12 .n-ob a)
-  Fun .prop .RUnit-fw _ tr12 .↓ a = B .RUnit-fw _ (tr12 .n-ob a)
-  Fun .prop .RUnit-bw _ tr12 .↓ a = B .RUnit-bw _ (tr12 .n-ob a)
-  Fun .prop .BUnit-fw _ .↓ a = B .BUnit-fw _
-  Fun .prop .BUnit-bw _ .↓ a = B .BUnit-bw _
+  Fun .prop .assoc-fw _ (tr12 × tr23 × tr34) .↓ a =
+    B .assoc-fw _ (tr12 .n-ob a × tr23 .n-ob a × tr34 .n-ob a)
+  Fun .prop .assoc-bw _ (tr12 × tr23 × tr34) .↓ a =
+    B .assoc-bw _ (tr12 .n-ob a × tr23 .n-ob a × tr34 .n-ob a)
+  Fun .prop .lunit-fw _ tr12 .↓ a = B .lunit-fw _ (tr12 .n-ob a)
+  Fun .prop .lunit-bw _ tr12 .↓ a = B .lunit-bw _ (tr12 .n-ob a)
+  Fun .prop .runit-fw _ tr12 .↓ a = B .runit-fw _ (tr12 .n-ob a)
+  Fun .prop .runit-bw _ tr12 .↓ a = B .runit-bw _ (tr12 .n-ob a)
+  Fun .prop .bunit-fw _ .↓ a = B .bunit-fw _
+  Fun .prop .bunit-bw _ .↓ a = B .bunit-bw _

@@ -26,11 +26,11 @@ module Fun:C where
   oper .Mu = Fun-Mu
 
   prop : Cat.[prop] Fun:Q oper
-  prop .Assoc-fw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) .↓ _ = ob4 .refl _
-  prop .Assoc-bw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) .↓ _ = ob4 .refl _
-  prop .LUnit-fw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
-  prop .LUnit-bw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
-  prop .RUnit-fw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
-  prop .RUnit-bw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
-  prop .BUnit-fw ob .↓ _ = ob .refl _
-  prop .BUnit-bw ob .↓ _ = ob .refl _
+  prop .assoc-fw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) .↓ _ = ob4 .refl _
+  prop .assoc-bw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) .↓ _ = ob4 .refl _
+  prop .lunit-fw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
+  prop .lunit-bw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
+  prop .runit-fw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
+  prop .runit-bw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
+  prop .bunit-fw ob .↓ _ = ob .refl _
+  prop .bunit-bw ob .↓ _ = ob .refl _

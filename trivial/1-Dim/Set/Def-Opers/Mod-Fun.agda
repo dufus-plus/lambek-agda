@@ -22,11 +22,11 @@ module Mod:PC where
   oper .Mu = Mod-Mu
 
   prop : PoCat.[prop] Mod:PQ oper
-  prop .Assoc-fw 4ob 3R .↓ _ ((r12 ∙ r23) ∙ r34) = (r12 ∙ (r23 ∙ r34))
-  prop .Assoc-bw 4ob 3R .↓ _ (r12 ∙ (r23 ∙ r34)) = ((r12 ∙ r23) ∙ r34)
-  prop .LUnit-fw (ob1 ~ ob2) R12 .↓ _ r12 = (ob1 .refl _ ∙ r12)
-  prop .LUnit-bw (ob1 ~ ob2) R12 .↓ _ (1to ∙ r12) = R12 .lact _ (1to × r12)
-  prop .RUnit-fw (ob1 ~ ob2) R12 .↓ _ r12 = (r12 ∙ ob2 .refl _)
-  prop .RUnit-bw (ob1 ~ ob2) R12 .↓ _ (r12 ∙ 2to) = R12 .ract _ (r12 × 2to)
-  prop .BUnit-fw ob .↓ _ to = (to ∙ ob .refl _)
-  prop .BUnit-bw ob .↓ _ (1to ∙ 2to) = ob .tran _ (1to × 2to)
+  prop .assoc-fw 4ob 3R .↓ _ ((r12 ∙ r23) ∙ r34) = (r12 ∙ (r23 ∙ r34))
+  prop .assoc-bw 4ob 3R .↓ _ (r12 ∙ (r23 ∙ r34)) = ((r12 ∙ r23) ∙ r34)
+  prop .lunit-fw (ob1 ~ ob2) R12 .↓ _ r12 = (ob1 .refl _ ∙ r12)
+  prop .lunit-bw (ob1 ~ ob2) R12 .↓ _ (1to ∙ r12) = R12 .lact _ (1to × r12)
+  prop .runit-fw (ob1 ~ ob2) R12 .↓ _ r12 = (r12 ∙ ob2 .refl _)
+  prop .runit-bw (ob1 ~ ob2) R12 .↓ _ (r12 ∙ 2to) = R12 .ract _ (r12 × 2to)
+  prop .bunit-fw ob .↓ _ to = (to ∙ ob .refl _)
+  prop .bunit-bw ob .↓ _ (1to ∙ 2to) = ob .tran _ (1to × 2to)

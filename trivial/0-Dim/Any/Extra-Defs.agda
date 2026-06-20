@@ -60,14 +60,14 @@ module Fun:Q where
   is-oper .Mu = Fun:S-Mu
 
   is-prop : Cat.[prop] Fun:Q is-oper
-  is-prop .Assoc-fw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) _ = ≡ _
-  is-prop .Assoc-bw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) _ = ≡ _
-  is-prop .LUnit-fw (ob1 ~ ob2) f12 _ = ≡ _
-  is-prop .LUnit-bw (ob1 ~ ob2) f12 _ = ≡ _
-  is-prop .RUnit-fw (ob1 ~ ob2) f12 _ = ≡ _
-  is-prop .RUnit-bw (ob1 ~ ob2) f12 _ = ≡ _
-  is-prop .BUnit-fw ob _ = ≡ _
-  is-prop .BUnit-bw ob _ = ≡ _
+  is-prop .assoc-fw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) _ = ≡ _
+  is-prop .assoc-bw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) _ = ≡ _
+  is-prop .lunit-fw (ob1 ~ ob2) f12 _ = ≡ _
+  is-prop .lunit-bw (ob1 ~ ob2) f12 _ = ≡ _
+  is-prop .runit-fw (ob1 ~ ob2) f12 _ = ≡ _
+  is-prop .runit-bw (ob1 ~ ob2) f12 _ = ≡ _
+  is-prop .bunit-fw ob _ = ≡ _
+  is-prop .bunit-bw ob _ = ≡ _
 
 Fun:C : Cat.[Obj]
 Fun:C .It   = Fun:Q
@@ -102,14 +102,14 @@ module Rel:PQ where
   is-oper .Mu = Rel:PS-Mu
 
   is-prop : PoCat.[prop] Rel:PQ is-oper
-  is-prop .Assoc-fw _ _ _ ((r12 ∙ r23) ∙ r34) = (r12 ∙ (r23 ∙ r34))
-  is-prop .Assoc-bw _ _ _ (r12 ∙ (r23 ∙ r34)) = ((r12 ∙ r23) ∙ r34)
-  is-prop .LUnit-fw _ _ _ r12 = (≡ _ ∙ r12)
-  is-prop .LUnit-bw _ _ _ (≡ _ ∙ r12) = r12
-  is-prop .RUnit-fw _ _ _ r12 = (r12 ∙ ≡ _)
-  is-prop .RUnit-bw _ _ _ (r12 ∙ ≡ _) = r12
-  is-prop .BUnit-fw _ _ (≡ _) = (≡ _ ∙ ≡ _)
-  is-prop .BUnit-bw _ _ (≡ _ ∙ ≡ _) = (≡ _)
+  is-prop .assoc-fw _ _ _ ((r12 ∙ r23) ∙ r34) = (r12 ∙ (r23 ∙ r34))
+  is-prop .assoc-bw _ _ _ (r12 ∙ (r23 ∙ r34)) = ((r12 ∙ r23) ∙ r34)
+  is-prop .lunit-fw _ _ _ r12 = (≡ _ ∙ r12)
+  is-prop .lunit-bw _ _ _ (≡ _ ∙ r12) = r12
+  is-prop .runit-fw _ _ _ r12 = (r12 ∙ ≡ _)
+  is-prop .runit-bw _ _ _ (r12 ∙ ≡ _) = r12
+  is-prop .bunit-fw _ _ (≡ _) = (≡ _ ∙ ≡ _)
+  is-prop .bunit-bw _ _ (≡ _ ∙ ≡ _) = (≡ _)
 
 Rel:PC : Cat.[Obj]
 Rel:PC .It   = Fun:Q

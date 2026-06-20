@@ -18,10 +18,12 @@ record [Obj] : [Any] where
 
   -- helper:
   private module Hom (2ob : [2~] Ob) = PoSet.[Ob] (Hom 2ob)
-  open Hom using () renaming
+  open Hom public
+    using ()
+    renaming
     ( It to Hom-It;
       El to Hom-El;
       To to Hom-To;
       is to Hom-is;
       refl to Hom-refl;
-      tran to Hom-tran ) public
+      tran to Hom-tran )

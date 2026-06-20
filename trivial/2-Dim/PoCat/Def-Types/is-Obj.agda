@@ -1,73 +1,108 @@
 open import 0-Dim.!quali
 import 1-Dim.AnyPoSet.Def-Types as AnyPoSet
 import 1-Dim.PoSet.Def-Types as PoSet
-open import 1-Dim.PoSet.Def-Types-pub
-import 2-Dim.PoQuiver.Def-Types.Obj as PoQuiver
+-- open import 1-Dim.PoSet.Def-Types-pub
+import 2-Dim.PoSet-Quiver.Def-Types.Obj as PoSet-Quiver
 
 module 2-Dim.PoCat.Def-Types.is-Obj where
 
-open PoQuiver using (‼)
+open PoSet-Quiver using (‼)
 
-module _ (Qu : PoQuiver.[Obj]) (open PoQuiver.[Obj] Qu) where
-  module :[oper]  where
+module _ (Qu : PoSet-Quiver.[Obj]) where
+  open PoSet-Quiver.[Obj] Qu
+
+  module :[Obj-oper]  where
     -- operations on Hom: (id)entity, (mu)ltiplication
     :Id = AnyPoSet.Rel-[0-Fun] _ (! > Hom)
     :Mu = AnyPoSet.Rel-[2-Fun] _ ((Hom × Hom) > Hom)
 
-  record [oper] : [Any] where
+  record [Obj-oper] : [Any] where
     constructor ‼
-    open :[oper]
+    open :[Obj-oper]
+
+    -- data:
     field Id : :Id
     field Mu : :Mu
-    Mu-el : Any.Rel-[2-Fun] _ ((Hom × Hom) ~ Hom)
-    Mu-el 2h1 2h2 = Mu 2h1 .f-el 2h2
-  open [oper]
 
-  module :[prop] (oper @(‼ Id Mu): [oper]) where
+    -- helpers:
+    private module Mu (3ob : _) = PoSet.[Fun] (Mu 3ob)
+    open Mu public
+      using ()
+      renaming
+      ( f-el to Mu-el;
+        f-to to Mu-to )
+
+  module :[Obj-prop] (oper : [Obj-oper]) where
+    open [Obj-oper] oper
+
     -- associativity of multiplication
-    :Assoc-fw =
-      (4ob @(ob1 ~ ob2 ~ ob3 ~ ob4) : [4~] $Ob)
+    :assoc-fw =
+      (4ob @(ob1 ~ ob2 ~ ob3 ~ ob4) : [4~] Ob)
       (3hom @(hom12 × hom23 × hom34):
-        Hom (ob1 > ob2) .El [×] Hom (ob2 > ob3) .El [×] Hom (ob3 > ob4) .El) →
-      Hom _ .To ((Mu _ .f-el (Mu _ .f-el (hom12 × hom23) × hom34)) ~
-                  (Mu _ .f-el (hom12 × Mu _ .f-el (hom23 × hom34))))
-    :Assoc-bw =
-      (4ob @(ob1 ~ ob2 ~ ob3 ~ ob4) : [4~] $Ob)
+        Hom-El (ob1 > ob2) [×] Hom-El (ob2 > ob3) [×] Hom-El (ob3 > ob4)) →
+      Hom-To _ ( (Mu-el _ (Mu-el _ (hom12 × hom23) × hom34)) ~
+                 (Mu-el _ (hom12 × Mu-el _ (hom23 × hom34))) )
+    :assoc-bw =
+      (4ob @(ob1 ~ ob2 ~ ob3 ~ ob4) : [4~] Ob)
       (3hom @(hom12 × hom23 × hom34):
-        Hom (ob1 > ob2) .El [×] Hom (ob2 > ob3) .El [×] Hom (ob3 > ob4) .El) →
-      Hom _ .To ((Mu _ .f-el (hom12 × Mu _ .f-el (hom23 × hom34))) ~
-                  (Mu _ .f-el (Mu _ .f-el (hom12 × hom23) × hom34)))
+        Hom-El (ob1 > ob2) [×] Hom-El (ob2 > ob3) [×] Hom-El (ob3 > ob4)) →
+      Hom-To _ ( (Mu-el _ (hom12 × Mu-el _ (hom23 × hom34))) ~
+                 (Mu-el _ (Mu-el _ (hom12 × hom23) × hom34)) )
+
     -- identity is (left,right) unit
-    :LUnit-fw =
-      (2ob @(ob1 ~ ob2) : [2~] $Ob) (hom12 : Hom (ob1 > ob2) .El) →
-      Hom _ .To (hom12 ~ Mu _ .f-el (Id ob1 × hom12))
-    :LUnit-bw =
-      (2ob @(ob1 ~ ob2) : [2~] $Ob) (hom12 : Hom (ob1 > ob2) .El) →
-      Hom _ .To (Mu _ .f-el (Id ob1 × hom12) ~ hom12)
-    :RUnit-fw =
-      (2ob @(ob1 ~ ob2) : [2~] $Ob) (hom12 : Hom (ob1 > ob2) .El) →
-      Hom _ .To (hom12 ~ Mu _ .f-el (hom12 × Id ob2))
-    :RUnit-bw =
-      (2ob @(ob1 ~ ob2) : [2~] $Ob) (hom12 : Hom (ob1 > ob2) .El) →
-      Hom _ .To (Mu _ .f-el (hom12 × Id ob2) ~ hom12)
-    :BUnit-fw =
-      (ob : $Ob) →
-      Hom _ .To (Id ob ~ Mu _ .f-el (Id ob × Id ob))
-    :BUnit-bw =
-      (ob : $Ob) →
-      Hom _ .To (Mu _ .f-el (Id ob × Id ob) ~ Id ob)
+    :lunit-fw =
+      (2ob @(ob1 ~ ob2) : [2~] Ob) (hom12 : Hom-El (ob1 > ob2)) →
+      Hom-To _ (hom12 ~ Mu-el _ (Id ob1 × hom12))
+    :lunit-bw =
+      (2ob @(ob1 ~ ob2) : [2~] Ob) (hom12 : Hom-El (ob1 > ob2)) →
+      Hom-To _ (Mu-el _ (Id ob1 × hom12) ~ hom12)
+    :runit-fw =
+      (2ob @(ob1 ~ ob2) : [2~] Ob) (hom12 : Hom-El (ob1 > ob2)) →
+      Hom-To _ (hom12 ~ Mu-el _ (hom12 × Id ob2))
+    :runit-bw =
+      (2ob @(ob1 ~ ob2) : [2~] Ob) (hom12 : Hom-El (ob1 > ob2)) →
+      Hom-To _ (Mu-el _ (hom12 × Id ob2) ~ hom12)
+    :bunit-fw =
+      (ob : Ob) →
+      Hom-To _ (Id ob ~ Mu-el _ (Id ob × Id ob))
+    :bunit-bw =
+      (ob : Ob) →
+      Hom-To _ (Mu-el _ (Id ob × Id ob) ~ Id ob)
 
-module _ (Quiver : PoQuiver.[Obj]) (oper : [oper] Quiver) where
-  record [prop] : [Any] where
+module _ (Qu : PoSet-Quiver.[Obj]) (oper : [Obj-oper] Qu) where
+  record [Obj-prop] : [Any] where
     constructor ‼
-    open :[prop] Quiver oper
-    field Assoc-fw : :Assoc-fw
-    field Assoc-bw : :Assoc-bw
-    field LUnit-fw : :LUnit-fw
-    field LUnit-bw : :LUnit-bw
-    field RUnit-fw : :RUnit-fw
-    field RUnit-bw : :RUnit-bw
-    field BUnit-fw : :BUnit-fw
-    field BUnit-bw : :BUnit-bw
+    open :[Obj-prop] Qu oper
 
-open [oper] public using (Mu-el)
+    -- data:
+    field assoc-fw : :assoc-fw
+    field assoc-bw : :assoc-bw
+    field lunit-fw : :lunit-fw
+    field lunit-bw : :lunit-bw
+    field runit-fw : :runit-fw
+    field runit-bw : :runit-bw
+    field bunit-fw : :bunit-fw
+    field bunit-bw : :bunit-bw
+
+module _ (Ob : [Any]) where
+  record [is-Obj] : [Any] where
+    constructor ‼
+
+    -- data
+    field Hom : PoSet-Quiver.[is-Obj] Ob
+    field oper : [Obj-oper] (‼ Ob Hom)
+    field prop : [Obj-prop] (‼ Ob Hom) oper
+
+    -- helpers:
+    private module Hom (2ob : [2~] Ob) = PoSet.[Ob] (Hom 2ob)
+    open Hom public
+      using ()
+      renaming
+      ( It to Hom-It;
+        El to Hom-El;
+        To to Hom-To;
+        is to Hom-is;
+        refl to Hom-refl;
+        tran to Hom-tran )
+    open [Obj-oper] oper public
+    open [Obj-prop] prop public

@@ -28,8 +28,8 @@ module _ (2C @(A > B) : [2~] [Ob]) where
   Const b .↓ .F-Hom _ = PoSet.Const _ (B .Id b)
   Const b .is .F-Id-fw _ = B .Hom _ .refl _
   Const b .is .F-Id-bw _ = B .Hom _ .refl _
-  Const b .is .F-Mu-fw _ (h12 × h23) = B .BUnit-fw _
-  Const x .is .F-Mu-bw _ (h12 × h23) = B .BUnit-bw _
+  Const b .is .F-Mu-fw _ (h12 × h23) = B .bunit-fw _
+  Const x .is .F-Mu-bw _ (h12 × h23) = B .bunit-bw _
 
   Const:F : [Fun] (B > Fun (A > B))
   Const:F .↓ .f-el = Const

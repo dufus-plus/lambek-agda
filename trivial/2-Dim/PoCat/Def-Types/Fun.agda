@@ -1,51 +1,76 @@
 open import 0-Dim.!quali
 import 1-Dim.PoSet.Def-Types as PoSet
-import 2-Dim.PoQuiver.Def-Types.Fun as PoQuiver
+import 2-Dim.PoSet-Quiver.Def-Types.Fun as PoSet-Quiver
 open import 2-Dim.PoCat.Def-Types.Obj
 
 module 2-Dim.PoCat.Def-Types.Fun where
 
-module _ (AB @(A > B) : [2~] [Obj]) where
+open PoSet-Quiver using (‼)
+
+module :[Fun] (AB @(A > B) : [2~] [Obj]) where
   open [Obj]
-  open PoSet.[Ob]
-  open PoSet.[Fun]
-  open PoQuiver using (‼)
+  :f-ob = Any.[Fun] (A .Ob > B .Ob)
+  Qu-AB = Obj→Qu A > Obj→Qu B
 
-  module :is-Fun (It @(‼ F-Ob F-Hom) : PoQuiver.[Fun] (A .It > B .It)) where
-    :F-Id-fw = (a : A .Ob) →
-      B .Hom _ .To (F-Hom _ .f-el (A .Id a) ~ B .Id (F-Ob a))
-    :F-Id-bw = (a : A .Ob) →
-      B .Hom _ .To (B .Id (F-Ob a) ~ F-Hom _ .f-el (A .Id a))
-    :F-Mu-fw = (3a @(a1 ~ a2 ~ a3) : [3~] A .Ob) →
-               (2hom @(a12 × a23) : A .Hom (a1 ~ a2) .El [×] A .Hom (a2 ~ a3) .El) →
-      B .Hom _ .To (F-Hom _ .f-el (A .Mu _ .f-el 2hom) ~
-                    B .Mu _ .f-el (F-Hom _ .f-el a12 × F-Hom _ .f-el a23))
-    :F-Mu-bw = (3a @(a1 ~ a2 ~ a3) : [3~] A .Ob) →
-               (2hom @(a12 × a23) : A .Hom (a1 ~ a2) .El [×] A .Hom (a2 ~ a3) .El) →
-      B .Hom _ .To (B .Mu _ .f-el (F-Hom _ .f-el a12 × F-Hom _ .f-el a23) ~
-                    F-Hom _ .f-el (A .Mu _ .f-el 2hom))
+  module :[is-Fun] (f-ob : :f-ob) where
+    :f-hom = PoSet-Quiver.:[Fun].:f-hom Qu-AB f-ob
 
-  record [is-Fun] (↓ : PoQuiver.[Fun] (A .It > B .It)) : [Any] where
+    module _ (f-hom : :f-hom) where
+      private module f-hom (2ob : _) = PoSet.[Fun] (f-hom 2ob)
+      open f-hom
+        using ()
+        renaming
+        ( f-el to f-hom-el;
+          f-to to f-hom-to )
+
+      :f-Id-fw =
+        (a : A .Ob) →
+        B .Hom-To _ (f-hom-el _ (A .Id a) ~ B .Id (f-ob a))
+      :f-Id-bw =
+        (a : A .Ob) →
+        B .Hom-To _ (B .Id (f-ob a) ~ f-hom-el _ (A .Id a))
+
+      :f-Mu-fw =
+        (3a @(a1 ~ a2 ~ a3) : [3~] A .Ob) →
+        (2hom @(a12 × a23) : A .Hom-El (a1 ~ a2) [×] A .Hom-El (a2 ~ a3)) →
+        B .Hom-To _ (f-hom-el _ (A .Mu-el _ 2hom) ~
+                    B .Mu-el _ (f-hom-el _ a12 × f-hom-el _ a23))
+      :f-Mu-bw =
+        (3a @(a1 ~ a2 ~ a3) : [3~] A .Ob) →
+        (2hom @(a12 × a23) : A .Hom-El (a1 ~ a2) [×] A .Hom-El (a2 ~ a3)) →
+        B .Hom-To _ (B .Mu-el _ (f-hom-el _ a12 × f-hom-el _ a23) ~
+                    f-hom-el _ (A .Mu-el _ 2hom))
+
+  record [is-Fun] (f-ob : :f-ob) : [Any] where
     constructor ‼
-    open :is-Fun ↓
-    field F-Id-fw : :F-Id-fw
-    field F-Id-bw : :F-Id-bw
-    field F-Mu-fw : :F-Mu-fw
-    field F-Mu-bw : :F-Mu-bw
+    open :[is-Fun] f-ob
+
+    --data
+    field f-hom   : :f-hom
+    field f-Id-fw : :f-Id-fw f-hom
+    field f-Id-bw : :f-Id-bw f-hom
+    field f-Mu-fw : :f-Mu-fw f-hom
+    field f-Mu-bw : :f-Mu-bw f-hom
+
+    -- helper:
+    private module f-hom (2ob : _) = PoSet.[Fun] (f-hom 2ob)
+    open f-hom public
+      using ()
+      renaming
+      ( f-el to f-hom-el;
+        f-to to f-hom-to )
 
 module _ (AB @(A > B) : [2~] [Obj]) where
-  module :[Fun] where
-    open [Obj]
-    :It = PoQuiver.[Fun] (A .It > B .It)
-    module _ (It : :It) where
-      :is = [is-Fun] AB It
-
   record [Fun] : [Any] where
     constructor ‼
-    open :[Fun]
+    open :[Fun] AB
 
-    field It : :It
-    open PoQuiver.[Fun] It public
+    -- data:
+    field f-ob  : :f-ob
+    field is : [is-Fun] f-ob
 
-    field is : [is-Fun] AB It
+    -- helper:
     open [is-Fun] is public
+
+open :[Fun] public
+  using ([is-Fun]; module :[is-Fun])

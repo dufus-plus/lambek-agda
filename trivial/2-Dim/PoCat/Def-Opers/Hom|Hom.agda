@@ -33,30 +33,30 @@ module Hom|Hom (C : [Obj]) where
   Hom-Mu|Hom : :H-Mu|V
   Hom|Hom-Mu : :H|V-Mu
 
-  Hom-Id|Hom _ V .↓ = C .Hom _ .tran _ (C .RUnit-bw _ V × C .LUnit-fw _ V)
-  Hom|Hom-Id _ H .↓ = C .Hom _ .tran _ (C .LUnit-bw _ H × C .RUnit-fw _ H)
+  Hom-Id|Hom _ V .↓ = C .Hom _ .tran _ (C .runit-bw _ V × C .lunit-fw _ V)
+  Hom|Hom-Id _ H .↓ = C .Hom _ .tran _ (C .lunit-bw _ H × C .runit-fw _ H)
 
   Hom-Mu|Hom _ (V1 ~ V2 ~ V3) ((H11 × H12) ~ (H21 × H22)) (hv1 × hv2) .↓ =
     C .Hom _ .tran _
-      (C .Assoc-bw _ (V1 × H21 × H22) ×
+      (C .assoc-bw _ (V1 × H21 × H22) ×
       C .Hom _ .tran _
         ((C .Mu _ .f-to _ (hv1 .↓ × C .Hom _ .refl H22)) ×
         C .Hom _ .tran _
-          ((C .Assoc-fw _ (H11 × V2 × H22)) ×
+          ((C .assoc-fw _ (H11 × V2 × H22)) ×
           C .Hom _ .tran _
             (C .Mu _ .f-to _ (C .Hom _ .refl H11 × hv2 .↓) ×
-            C .Assoc-bw _ (H11 × H12 × V3)))))
+            C .assoc-bw _ (H11 × H12 × V3)))))
 
   Hom|Hom-Mu _ ((V11 × V21) ~ (V12 × V22)) (H1 ~ H2 ~ H3) (hv1 × hv2) .↓ =
     C .Hom _ .tran _
-      (C .Assoc-fw _ (V11 × V21 × H3) ×
+      (C .assoc-fw _ (V11 × V21 × H3) ×
       C .Hom _ .tran _
         ((C .Mu _ .f-to _ (C .Hom _ .refl V11 × hv2 .↓)) ×
         C .Hom _ .tran _
-          ((C .Assoc-bw _ (V11 × H2 × V22)) ×
+          ((C .assoc-bw _ (V11 × H2 × V22)) ×
           C .Hom _ .tran _
             (C .Mu _ .f-to _ (hv1 .↓ × C .Hom _ .refl V22) ×
-            C .Assoc-fw _ (H1 × V12 × V22)))))
+            C .assoc-fw _ (H1 × V12 × V22)))))
 
 open Hom|Hom public
   using

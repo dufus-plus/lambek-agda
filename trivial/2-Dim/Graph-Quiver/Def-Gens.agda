@@ -1,3 +1,3 @@
-module 2-Dim.Quiver.Def-Gens where
+module 2-Dim.Graph-Quiver.Def-Gens where
 
-open import 2-Dim.Quiver.Def-Gens.Objs public
+open import 2-Dim.Graph-Quiver.Def-Gens.Objs public
