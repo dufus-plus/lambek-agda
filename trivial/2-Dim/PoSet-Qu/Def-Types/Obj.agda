@@ -4,7 +4,9 @@ import 1-Dim.PoSet.Def-Types as PoSet
 
 module 2-Dim.PoSet-Qu.Def-Types.Obj where
 
--- Graph-enriched Graph aka Globular Quiver
+--
+-- Graph-enriched 2-Graph aka Globular PoSet-Quiver
+--
 module _ (Ob : [Any]) where
   -- type of 1-cells
   [is-Obj] = AnyPoSet.[Rel] (2~ Ob)
