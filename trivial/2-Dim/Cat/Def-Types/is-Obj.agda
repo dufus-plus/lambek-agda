@@ -2,11 +2,11 @@ open import 0-Dim.!quali
 import 2-Dim-Pre.AnySet.Def-Types as AnySet
 import 1-Dim.Set.Def-Types as Set
 open import 1-Dim.Set.Def-Types-pub
-import 2-Dim.Quiver.Def-Types.Obj as Quiver
+import 2-Dim-Pre.Set-Qu.Def-Types.Obj as Set-Qu
 
 module 2-Dim.Cat.Def-Types.is-Obj where
 
-open Quiver using (‼)
+open Set-Qu using (‼)
 
 module _ (Quiver @(‼ $Ob Hom) : Quiver.[Obj]) where
   module :[oper]  where

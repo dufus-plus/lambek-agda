@@ -3,7 +3,7 @@ open import 1-Dim.Set.Def-Types
 open import 1-Dim.Set.Def-Opers.Fun
 open import 1-Dim.Set.Def-Opers.Fun-To
 open import 1-Dim.Set.Def-Opers.Mod-Fun
-open import 2-Dim.Quiver.Def-Types-pub
+open import 2-Dim-Pre.Set-Quiver.Def-Types-pub
 import 2-Dim.Cat.Def-Types.Obj as Cat
 import 2-Dim.PoCat.Def-Types.Obj as PoCat
 open import 2-Dim.Cat.Def-Types-pub.Obj

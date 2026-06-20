@@ -1,5 +1,5 @@
 open import 0-Dim.!quali
-import 2-Dim.Quiver.Def-Types.Obj as Quiver
+import 2-Dim.Set-Qu.Def-Types.Obj as Set-Qu
 
 --
 -- (Ob)jects of 2-equipment of 1-(Cat)egories

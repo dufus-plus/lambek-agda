@@ -1,6 +1,6 @@
 open import 0-Dim.!quali
 import 1-Dim.Set.Def-Types as Set
-import 2-Dim.Quiver.Def-Types.Fun as Quiver
+import 2-Dim-Pre.Set-Qu.Def-Types.Fun as Set-Qu
 open import 2-Dim.Cat.Def-Types.Obj
 
 module 2-Dim.Cat.Def-Types.Fun where
@@ -9,7 +9,7 @@ module _ (AB @(A > B) : [2~] [Obj]) where
   open [Obj]
   open Set.[Ob]
   open Set.[Fun]
-  open Quiver using (‼)
+  open Set-Qu using (‼)
 
   module :is-Fun (It @(‼ F-Ob F-Hom) : Quiver.[Fun] (A .It > B .It)) where
     :F-Id-fw = (a : A .Ob) →

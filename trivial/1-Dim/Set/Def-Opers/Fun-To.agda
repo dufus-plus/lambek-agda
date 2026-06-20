@@ -2,8 +2,8 @@ open import 0-Dim.!quali
 open import 1-Dim.Set.Def-Types
 open import 1-Dim.Set.Def-Types-pub
 open import 1-Dim.Set.Def-Opers.Fun
-import 2-Dim.Quiver.Def-Types.Obj as Quiver
-open import 2-Dim.Quiver.Def-Types-pub.Obj
+import 2-Dim-Pre.Set-Qu.Def-Types.Obj as Set-Qu
+open import 2-Dim-Pre.Set-Qu.Def-Types-pub.Obj
 import 2-Dim-Pre.PoSet-Qu.Def-Types.Obj as PoSet-Qu
 open import 2-Dim-Pre.PoSet-Qu.Def-Types-pub.Obj
 import 2-Dim.Cat.Def-Types.is-Obj as Cat
@@ -16,7 +16,7 @@ open import 2-Dim.PoCat.Def-Types-pub.is-Obj
 --
 module 1-Dim.Set.Def-Opers.Fun-To where
 
-Fun:Q : Quiver.[Obj]
+Fun:Q : Set-Qu.[Obj]
 Fun:Q .Ob = [Ob]
 Fun:Q .Hom = Fun
 
