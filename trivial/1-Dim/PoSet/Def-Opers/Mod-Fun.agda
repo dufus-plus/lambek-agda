@@ -4,8 +4,8 @@ open import 1-Dim.PoSet.Def-Types-pub
 open import 1-Dim.PoSet.Def-Opers.Mod
 import 2-Dim.PoCat.Def-Types.is-Obj as PoCat
 open import 2-Dim.PoCat.Def-Types-pub.is-Obj
-import 2-Dim.PoSet-Quiver.Def-Types.Obj as PoSet-Quiver
-open import 2-Dim.PoSet-Quiver.Def-Types-pub.Obj
+import 2-Dim.PoSet-Qu.Def-Types.Obj as PoSet-Qu
+open import 2-Dim.PoSet-Qu.Def-Types-pub.Obj
 
 --
 -- Mod-[Fun] satisfies axioms of [PoCat]
@@ -13,7 +13,7 @@ open import 2-Dim.PoSet-Quiver.Def-Types-pub.Obj
 module 1-Dim.PoSet.Def-Opers.Mod-Fun where
 
 module Mod where
-  Qu : PoSet-Quiver.[Obj]
+  Qu : PoSet-Qu.[Obj]
   Qu .Ob = [Ob]
   Qu .Hom = Mod
 

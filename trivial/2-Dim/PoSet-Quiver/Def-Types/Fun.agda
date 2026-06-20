@@ -1,13 +1,13 @@
 open import 0-Dim.!quali
 import 1-Dim.AnyPoSet.Def-Types as AnyPoSet
 import 1-Dim.PoSet.Def-Types as PoSet
-open import 2-Dim.PoSet-Quiver.Def-Types.Obj
-open import 2-Dim.PoSet-Quiver.Def-Types-pub.Obj
+open import 2-Dim.PoSet-Qu.Def-Types.Obj
+open import 2-Dim.PoSet-Qu.Def-Types-pub.Obj
 
 --
 -- define (Fun)ctions on (Gra)phs
 --
-module 2-Dim.PoSet-Quiver.Def-Types.Fun where
+module 2-Dim.PoSet-Qu.Def-Types.Fun where
 
 module _ (AB @(A > B) : [2~] [Obj]) where
   module :[Fun] where

@@ -2,14 +2,14 @@ open import 0-Dim.!quali
 import 1-Dim.AnyPoSet.Def-Types as AnyPoSet
 import 1-Dim.PoSet.Def-Types as PoSet
 -- open import 1-Dim.PoSet.Def-Types-pub
-import 2-Dim.PoSet-Quiver.Def-Types.Obj as PoSet-Quiver
+import 2-Dim.PoSet-Qu.Def-Types.Obj as PoSet-Qu
 
 module 2-Dim.PoCat.Def-Types.is-Obj where
 
-open PoSet-Quiver using (‼)
+open PoSet-Qu using (‼)
 
-module _ (Qu : PoSet-Quiver.[Obj]) where
-  open PoSet-Quiver.[Obj] Qu
+module _ (Qu : PoSet-Qu.[Obj]) where
+  open PoSet-Qu.[Obj] Qu
 
   module :[Obj-oper]  where
     -- operations on Hom: (id)entity, (mu)ltiplication
@@ -69,7 +69,7 @@ module _ (Qu : PoSet-Quiver.[Obj]) where
       (ob : Ob) →
       Hom-To _ (Mu-el _ (Id ob × Id ob) ~ Id ob)
 
-module _ (Qu : PoSet-Quiver.[Obj]) (oper : [Obj-oper] Qu) where
+module _ (Qu : PoSet-Qu.[Obj]) (oper : [Obj-oper] Qu) where
   record [Obj-prop] : [Any] where
     constructor ‼
     open :[Obj-prop] Qu oper
@@ -89,7 +89,7 @@ module _ (Ob : [Any]) where
     constructor ‼
 
     -- data
-    field Hom : PoSet-Quiver.[is-Obj] Ob
+    field Hom : PoSet-Qu.[is-Obj] Ob
     field oper : [Obj-oper] (‼ Ob Hom)
     field prop : [Obj-prop] (‼ Ob Hom) oper
 

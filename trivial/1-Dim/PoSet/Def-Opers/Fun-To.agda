@@ -2,8 +2,8 @@ open import 0-Dim.!quali
 open import 1-Dim.PoSet.Def-Types
 open import 1-Dim.PoSet.Def-Types-pub
 open import 1-Dim.PoSet.Def-Opers.Fun
-import 2-Dim.PoSet-Quiver.Def-Types.Obj as PoSet-Quiver
-open import 2-Dim.PoSet-Quiver.Def-Types-pub.Obj
+import 2-Dim.PoSet-Qu.Def-Types.Obj as PoSet-Qu
+open import 2-Dim.PoSet-Qu.Def-Types-pub.Obj
 import 2-Dim.PoCat.Def-Types.is-Obj as PoCat
 open import 2-Dim.PoCat.Def-Types-pub.is-Obj
 
@@ -13,7 +13,7 @@ open import 2-Dim.PoCat.Def-Types-pub.is-Obj
 module 1-Dim.PoSet.Def-Opers.Fun-To where
 
 module Fun where
-  Qu : PoSet-Quiver.[Obj]
+  Qu : PoSet-Qu.[Obj]
   Qu .Ob = [Ob] -- PoSet
   Qu .Hom = Fun
 

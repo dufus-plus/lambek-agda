@@ -5,8 +5,8 @@ open import 1-Dim.Set.Def-Opers.Fun
 open import 1-Dim.Set.Def-Opers.Fun-To
 open import 1-Dim.Set.Def-Opers.Mod
 open import 1-Dim.Set.Def-Opers.Mod-Fun
-import 2-Dim.PoQuiver.Def-Types.Obj as PoQuiver
-import 2-Dim.PoQuiver|PoQuiver.Def-Types.Obj as PoQuiver|PoQuiver
+import 2-Dim.PoSet-Qu.Def-Types.Obj as PoSet-Qu
+import 2-Dim.PoSet-Qu|PoSet-Qu.Def-Types.Obj as PoSet-Qu|PoSet-Qu
 import 2-Dim.PoCat.Def-Types.is-Obj as PoCat
 import 2-Dim.PoCat|PoCat.Def-Types.is-Obj as PoCat|PoCat
 open import 2-Dim.PoCat|PoCat.Def-Types-pub.is-Obj
@@ -15,16 +15,16 @@ open import 2-Dim.PoCat|PoCat.Def-Types-pub.is-Obj
 module 1-Dim.Set.Def-Opers.Mod|Fun where
 
 module _ where
-  open import 2-Dim.PoQuiver|PoQuiver.Def-Types-pub.Obj
+  open import 2-Dim.PoSet-Qu|PoSet-Qu.Def-Types-pub.Obj
 
-  Mod|Fun:PQ|PQ : PoQuiver|PoQuiver.[Obj]
+  Mod|Fun:PQ|PQ : PoSet-Qu|PoSet-Qu.[Obj]
   Mod|Fun:PQ|PQ .Ob = [Ob]
   Mod|Fun:PQ|PQ .V-Hom = Fun:Q
   Mod|Fun:PQ|PQ .H-Hom = Mod:PQ
   Mod|Fun:PQ|PQ .H|V-Sqr = [Mod|Fun]
 
 module Mod|Fun where
-  open PoQuiver|PoQuiver.[Obj] Mod|Fun:PQ|PQ
+  open PoSet-Qu|PoSet-Qu.[Obj] Mod|Fun:PQ|PQ
 
   V-oper : PoCat.[oper] PQ|PQ-V:PQ
   H-oper : PoCat.[oper] PQ|PQ-H:PQ

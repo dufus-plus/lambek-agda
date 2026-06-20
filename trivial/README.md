@@ -84,15 +84,15 @@
 
 ## 2-Dim
 
-- Graph-Quiver : enriched in Graph, use AnyGraph
-- PoSet-Quiver : enriched in PoSet, use AnyPoSet
+- Graph-Qu : enriched in Graph, use AnyGraph
+- PoSet-Qu : enriched in PoSet, use AnyPoSet
 - Set-Quiver : enriched in Set, use AnySet
 
-- PoCat : structure over PoSet-Quiver
+- PoCat : structure over PoSet-Qu
 - Cat : structure over Set-Quiver
 
-- Graph|Graph-Quiver : cubical 2-set
-- PoSet|PoSet-Quiver : both directions is PoSet
+- Graph|Graph-Qu : cubical 2-set
+- PoSet|PoSet-Qu : both directions is PoSet
 - DaggPoSet|Set-Quiver : vertical is dagger PoSet, horizontal is Set
 
 - PoCat|PoCat : p.o. double catoid

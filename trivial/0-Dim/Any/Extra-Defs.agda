@@ -6,14 +6,14 @@ import 1-Dim.AnyPoSet.Def-Types as AnyPoSet
 import 1-Dim.PoSet.Def-Types as PoSet
 import 1-Dim.Set.Def-Types as Set
 import 2-Dim.Quiver.Def-Types as Quiver
-import 2-Dim.PoQuiver.Def-Types as PoQuiver
+import 2-Dim.PoSet-Qu.Def-Types as PoSet-Qu
 import 2-Dim.Cat.Def-Types as Cat
 import 2-Dim.PoCat.Def-Types as PoCat
 open import 1-Dim.Graph.Def-Types-pub
 open import 1-Dim.PoSet.Def-Types-pub
 open import 1-Dim.Set.Def-Types-pub
 open import 2-Dim.Quiver.Def-Types-pub
-open import 2-Dim.PoQuiver.Def-Types-pub
+open import 2-Dim.PoSet-Qu.Def-Types-pub
 open import 2-Dim.Cat.Def-Types-pub
 open import 2-Dim.PoCat.Def-Types-pub
 
@@ -92,7 +92,7 @@ Rel:PS-Mu : AnyPoSet.Rel-[2-Fun] _ ((Rel:PS × Rel:PS) > Rel:PS)
 Rel:PS-Mu _ .↓ .f-el = Any.Rel-Mu _
 Rel:PS-Mu _ .↓ .f-to _ (fab × fbc) _ (mab ∙ mbc) = fab _ mab ∙ fbc _ mbc
 
-Rel:PQ : PoQuiver.[Obj]
+Rel:PQ : PoSet-Qu.[Obj]
 Rel:PQ .Ob = Any.[Ob]
 Rel:PQ .Hom = Rel:PS
 

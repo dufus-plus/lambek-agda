@@ -2,18 +2,18 @@ open import 0-Dim.!quali
 import 1-Dim.AnyPoSet.Def-Types as AnyPoSet
 import 1-Dim.PoSet.Def-Types as PoSet
 open import 1-Dim.PoSet.Def-Types-pub
-import 2-Dim.PoQuiver.Def-Types.Obj as PoQuiver
-import 2-Dim.PoQuiver|PoQuiver.Def-Types.Obj as PoQuiver|PoQuiver
-open import 2-Dim.PoQuiver|PoQuiver.Def-Types-pub.Obj
+import 2-Dim.PoSet-Qu.Def-Types.Obj as PoSet-Qu
+import 2-Dim.PoSet-Qu|PoSet-Qu.Def-Types.Obj as PoSet-Qu|PoSet-Qu
+open import 2-Dim.PoSet-Qu|PoSet-Qu.Def-Types-pub.Obj
 import 2-Dim.PoCat.Def-Types.is-Obj as PoCat
 
 module 2-Dim.PoCat|PoCat.Def-Types.is-Obj where
 
 open PoCat using (‼)
-open PoQuiver|PoQuiver using (‼)
+open PoSet-Qu|PoSet-Qu using (‼)
 
 module :[is-Obj]
-       (PQ|PQ : PoQuiver|PoQuiver.[Obj]) (open PoQuiver|PoQuiver.[Obj] PQ|PQ)
+       (PQ|PQ : PoSet-Qu|PoSet-Qu.[Obj]) (open PoSet-Qu|PoSet-Qu.[Obj] PQ|PQ)
        (V-oper @(‼ VId VMu): PoCat.[oper] V:PQ)
        (H-oper @(‼ HId HMu): PoCat.[oper] H:PQ) where
 
@@ -90,7 +90,7 @@ module :[is-Obj]
            H-Mor _ .To (H2 ~ H3)) →
            H|V-Mor _ (V1 ~ V2) (H1 ~ H3)
 
-module _ (PQ|PQ : PoQuiver|PoQuiver.[Obj]) (open PoQuiver|PoQuiver.[Obj] PQ|PQ)
+module _ (PQ|PQ : PoSet-Qu|PoSet-Qu.[Obj]) (open PoSet-Qu|PoSet-Qu.[Obj] PQ|PQ)
          (V-oper : PoCat.[oper] V:PQ)
          (H-oper : PoCat.[oper] H:PQ) where
   record [is-Obj] : [Any] where

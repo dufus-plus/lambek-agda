@@ -1,7 +1,7 @@
 open import 0-Dim.!quali
 open import 1-Dim.PoSet.!publi
-import 2-Dim.PoQuiver|PoQuiver.Def-Types.Obj as PoQuiver|PoQuiver
-open import 2-Dim.PoQuiver|PoQuiver.Def-Types-pub.Obj
+import 2-Dim.PoSet-Qu|PoSet-Qu.Def-Types.Obj as PoSet-Qu|PoSet-Qu
+open import 2-Dim.PoSet-Qu|PoSet-Qu.Def-Types-pub.Obj
 open import 2-Dim.PoCat.Def-Types
 open import 2-Dim.PoCat.Def-Types-pub
 import 2-Dim.PoCat|PoCat.Def-Types.is-Obj as PoCat|PoCat
@@ -9,7 +9,7 @@ import 2-Dim.PoCat|PoCat.Def-Types.is-Obj as PoCat|PoCat
 module 2-Dim.PoCat.Def-Opers.Hom|Hom where
 
 module Hom|Hom (C : [Obj]) where
-  DQu : PoQuiver|PoQuiver.[Obj]
+  DQu : PoSet-Qu|PoSet-Qu.[Obj]
   DQu .Ob = C .Ob
   DQu .V-Mor = C .Hom
   DQu .H-Mor = C .Hom

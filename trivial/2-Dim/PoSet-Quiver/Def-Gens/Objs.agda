@@ -1,9 +1,9 @@
 open import 0-Dim.!quali
 import 1-Dim.PoSet.Def-Gens.Objs as PoSet
-open import 2-Dim.PoSet-Quiver.Def-Types.Obj
-open import 2-Dim.PoSet-Quiver.Def-Types-pub.Obj
+open import 2-Dim.PoSet-Qu.Def-Types.Obj
+open import 2-Dim.PoSet-Qu.Def-Types-pub.Obj
 
-module 2-Dim.PoSet-Quiver.Def-Gens.Objs where
+module 2-Dim.PoSet-Qu.Def-Gens.Objs where
 
 Unit : [Obj]
 Unit .Ob = Any.Unit

@@ -2,7 +2,7 @@ open import 0-Dim.!quali
 import 1-Dim.AnyGraph.Def-Types as AnyGraph
 import 1-Dim.Graph.Def-Types as Graph
 
-module 2-Dim.Graph-Quiver.Def-Types.Obj where
+module 2-Dim.Graph-Qu.Def-Types.Obj where
 
 -- Graph-enriched Graph aka Globular Quiver
 module :[Obj] where

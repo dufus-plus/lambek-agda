@@ -1,11 +1,11 @@
 open import 0-Dim.!quali
 import 1-Dim.PoSet.Def-Types as PoSet
-import 2-Dim.PoSet-Quiver.Def-Types.Fun as PoSet-Quiver
+import 2-Dim.PoSet-Qu.Def-Types.Fun as PoSet-Qu
 open import 2-Dim.PoCat.Def-Types.Obj
 
 module 2-Dim.PoCat.Def-Types.Fun where
 
-open PoSet-Quiver using (‼)
+open PoSet-Qu using (‼)
 
 module :[Fun] (AB @(A > B) : [2~] [Obj]) where
   open [Obj]
@@ -13,7 +13,7 @@ module :[Fun] (AB @(A > B) : [2~] [Obj]) where
   Qu-AB = Obj→Qu A > Obj→Qu B
 
   module :[is-Fun] (f-ob : :f-ob) where
-    :f-hom = PoSet-Quiver.:[Fun].:f-hom Qu-AB f-ob
+    :f-hom = PoSet-Qu.:[Fun].:f-hom Qu-AB f-ob
 
     module _ (f-hom : :f-hom) where
       private module f-hom (2ob : _) = PoSet.[Fun] (f-hom 2ob)

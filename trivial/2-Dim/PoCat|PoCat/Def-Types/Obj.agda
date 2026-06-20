@@ -2,7 +2,7 @@ open import 0-Dim.!quali
 import 1-Dim.AnyPoSet.Def-Types as AnyPoSet
 import 1-Dim.PoSet.Def-Types as PoSet
 import 2-Dim.PoCat.Def-Types.Obj as PoCat
-import 2-Dim.PoQuiver|PoQuiver.Def-Types.Obj as PoQuiver|PoQuiver
+import 2-Dim.PoSet-Qu|PoSet-Qu.Def-Types.Obj as PoSet-Qu|PoSet-Qu
 
 --
 -- (Ob)jects of 2-equipment of Double 1-Categories
@@ -18,8 +18,8 @@ record [Obj] : [Any] where
   constructor ‼
 
   -- underlying graph
-  field It : PoQuiver|PoQuiver.[Obj]
-  open PoQuiver|PoQuiver.[Obj] It public
+  field It : PoSet-Qu|PoSet-Qu.[Obj]
+  open PoSet-Qu|PoSet-Qu.[Obj] It public
     renaming (
       PQ|PQ-V:PQ to PC|PC-V:PQ;
       PQ|PQ-H:PQ to PC|PC-H:PQ

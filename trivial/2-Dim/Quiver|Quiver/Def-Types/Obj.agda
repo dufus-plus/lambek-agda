@@ -1,11 +1,11 @@
 open import 0-Dim.!quali
 import 1-Dim.PoSet.Def-Types.Ob as PoSet
 import 1-Dim.AnyPoSet.Def-Types as AnyPoSet
-import 2-Dim.PoQuiver.Def-Types.Obj as PoQuiver
+import 2-Dim.PoSet-Qu.Def-Types.Obj as PoSet-Qu
 
-module 2-Dim.PoQuiver|PoQuiver.Def-Types.Obj where
+module 2-Dim.PoSet-Qu|PoSet-Qu.Def-Types.Obj where
 
-open PoQuiver using (‼)
+open PoSet-Qu using (‼)
 
 -- Double Quiver aka Cubical 2-Graph
 module :[Obj] where
@@ -40,9 +40,9 @@ record [Obj] : [Any] where
        ) public
 
   -- vertical is tight, horizontal is loose
-  V-Ob : PoQuiver.[Obj]
+  V-Ob : PoSet-Qu.[Obj]
   V-Ob = ‼ Ob V-Hom
-  H-Ob : PoQuiver.[Obj]
+  H-Ob : PoSet-Qu.[Obj]
   H-Ob = ‼ Ob H-Hom
 
 open [Obj] public

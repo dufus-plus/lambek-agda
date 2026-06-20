@@ -1,5 +1,5 @@
 open import 0-Dim.!quali
-import 2-Dim.PoSet-Quiver.Def-Types.Obj as PoSet-Quiver
+import 2-Dim.PoSet-Qu.Def-Types.Obj as PoSet-Qu
 --
 -- (Ob)jects of 2-equipment of 1-(Cat)egories
 --
@@ -7,7 +7,7 @@ module 2-Dim.PoCat.Def-Types.Obj where
 
 open import 2-Dim.PoCat.Def-Types.is-Obj public
 
-open PoSet-Quiver using (‼)
+open PoSet-Qu using (‼)
 
 record [Obj] : [Any] where
   constructor ‼
@@ -19,7 +19,7 @@ record [Obj] : [Any] where
   -- helpers:
   open [is-Obj] is public
 
-  Obj→Qu : PoSet-Quiver.[Obj]
+  Obj→Qu : PoSet-Qu.[Obj]
   Obj→Qu = ‼ Ob Hom
 
 open [Obj] public

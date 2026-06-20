@@ -2,7 +2,7 @@ open import 0-Dim.!quali
 import 1-Dim.AnyPoSet.Def-Types as AnyPoSet
 import 1-Dim.PoSet.Def-Types as PoSet
 
-module 2-Dim.PoSet-Quiver.Def-Types.Obj where
+module 2-Dim.PoSet-Qu.Def-Types.Obj where
 
 -- Graph-enriched Graph aka Globular Quiver
 module _ (Ob : [Any]) where

@@ -1,3 +1,3 @@
-module 2-Dim.PoQuiver|PoQuiver.Def-Types where
+module 2-Dim.PoSet-Qu|PoSet-Qu.Def-Types where
 
-open import 2-Dim.PoQuiver|PoQuiver.Def-Types.Obj public
+open import 2-Dim.PoSet-Qu|PoSet-Qu.Def-Types.Obj public

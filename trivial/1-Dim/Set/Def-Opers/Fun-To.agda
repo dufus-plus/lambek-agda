@@ -4,8 +4,8 @@ open import 1-Dim.Set.Def-Types-pub
 open import 1-Dim.Set.Def-Opers.Fun
 import 2-Dim.Quiver.Def-Types.Obj as Quiver
 open import 2-Dim.Quiver.Def-Types-pub.Obj
-import 2-Dim.PoQuiver.Def-Types.Obj as PoQuiver
-open import 2-Dim.PoQuiver.Def-Types-pub.Obj
+import 2-Dim.PoSet-Qu.Def-Types.Obj as PoSet-Qu
+open import 2-Dim.PoSet-Qu.Def-Types-pub.Obj
 import 2-Dim.Cat.Def-Types.is-Obj as Cat
 open import 2-Dim.Cat.Def-Types-pub.is-Obj
 import 2-Dim.PoCat.Def-Types.is-Obj as PoCat
