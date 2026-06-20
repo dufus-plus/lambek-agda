@@ -1,8 +1,8 @@
 open import 0-Dim.Prelude.!all
 open import 0-Dim.Any.!quali
 
-import 2-Dim-Pre.Matr.Def-Types as AnySet
-import 2-Dim-Pre.Matr.Def-Types as AnyPoSet
+import 2-Dim-Pre.Matr.Def-Types as Matr
+import 2-Dim-Pre.Matr.Def-Types as Matr
 import 1-Dim.PoSet.Def-Types as PoSet
 import 1-Dim.Set.Def-Types as Set
 import 2-Dim-Pre.PoSet-Qu.Def-Types as PoSet-Qu
@@ -40,10 +40,10 @@ module _ (AB @ (A > B) : [2~] Any.[Ob]) where
   Fun:S .is .symm _ (fto) a = ≡.symm (fto a)
   Fun:S .is .tran _ (fto12 × fto23) a = ≡.tran (fto12 a × fto23 a)
 
-Fun:S-Id : AnySet.Rel-[0-Fun] _ (! > Fun:S)
+Fun:S-Id : Matr.Set-[0-Fun] _ (! > Fun:S)
 Fun:S-Id _ = Any.Fun-Id _
 
-Fun:S-Mu : AnySet.Rel-[2-Fun] _ ((Fun:S × Fun:S) > Fun:S)
+Fun:S-Mu : Matr.Set-[2-Fun] _ ((Fun:S × Fun:S) > Fun:S)
 Fun:S-Mu _ .↓ .f-el = Any.Fun-Mu _
 Fun:S-Mu _ .↓ .f-to ((fab × fbc) ~ (gab × gbc)) (fidab × fidbc) a =
   ≡.tran (≡.cong fbc (fidab a) × fidbc (gab a))
@@ -83,10 +83,10 @@ module _ (AB @ (A > B) : [2~] Any.[Ob]) where
   Rel:PS .is .refl = Any.Rel-Fun-Id AB
   Rel:PS .is .tran = Any.Rel-Fun-Mu AB
 
-Rel:PS-Id : AnyPoSet.Rel-[0-Fun] _ (! > Rel:PS)
+Rel:PS-Id : Matr.PoSet-[0-Fun] _ (! > Rel:PS)
 Rel:PS-Id A = Any.Rel-Id A
 
-Rel:PS-Mu : AnyPoSet.Rel-[2-Fun] _ ((Rel:PS × Rel:PS) > Rel:PS)
+Rel:PS-Mu : Matr.PoSet-[2-Fun] _ ((Rel:PS × Rel:PS) > Rel:PS)
 Rel:PS-Mu _ .↓ .f-el = Any.Rel-Mu _
 Rel:PS-Mu _ .↓ .f-to _ (fab × fbc) _ (mab ∙ mbc) = fab _ mab ∙ fbc _ mbc
 

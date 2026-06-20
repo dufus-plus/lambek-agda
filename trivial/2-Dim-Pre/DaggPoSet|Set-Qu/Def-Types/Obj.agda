@@ -1,8 +1,8 @@
 open import 0-Dim.!quali
 import 1-Dim.Set.Def-Types.Ob as Set
 import 1-Dim.PoSet.Def-Types.Ob as PoSet
-import 2-Dim-Pre.Matr.Def-Types as AnySet
-import 2-Dim-Pre.Matr.Def-Types as AnyPoSet
+import 2-Dim-Pre.Matr.Def-Types as Matr
+import 2-Dim-Pre.Matr.Def-Types as Matr
 import 2-Dim-Pre.PoSet-Qu.Def-Types.Obj as PoSet-Qu
 
 module 2-Dim-Pre.DaggPoSet|Set-Qu.Def-Types.Obj where
@@ -20,7 +20,7 @@ module :[Obj] where
     :V-Hom = Matr.[Set] (2~ Ob)
     :H-Hom = Matr.[PoSet] (2~ Ob)
     module _ (H-Hom : :H-Hom) where
-      :H-Dagg = AnyPoSet.Rel-[S-Fun] _ (2~ H-Hom)
+      :H-Dagg = Matr.PoSet-[S-Fun] _ (2~ H-Hom)
     module _ (V-Hom : :V-Hom) (H-Hom : :H-Hom) where
       -- type of 2-cells as 2-module
       :H|V = Matr.[PoSet|Set] _ (2~ V-Hom) (2~ H-Hom)

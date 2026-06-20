@@ -2,7 +2,7 @@ open import 0-Dim.!quali
 open import 1-Dim.PoSet.!publi
 open import 2-Dim.PoCat.Def-Types
 open import 2-Dim.PoCat.Def-Types-pub
-import 2-Dim-Pre.Matr.Def-Types as AnyPoSet
+import 2-Dim-Pre.Matr.Def-Types as Matr
 open import 2-Dim-Pre.Matr.Def-Types-pub
 import 2-Dim.PoCat|PoCat.Def-Types.is-Obj as PoCat|PoCat
 

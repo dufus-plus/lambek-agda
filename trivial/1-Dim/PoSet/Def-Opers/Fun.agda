@@ -7,7 +7,7 @@ open import 1-Dim.PoSet.Def-Types.Fun-To
 open import 1-Dim.PoSet.Def-Types-pub.Ob
 open import 1-Dim.PoSet.Def-Types-pub.Fun
 open import 1-Dim.PoSet.Def-Types-pub.Fun-To
-import 2-Dim-Pre.Matr.Def-Types as AnyPoSet
+import 2-Dim-Pre.Matr.Def-Types as Matr
 
 module 1-Dim.PoSet.Def-Opers.Fun where
 
@@ -19,11 +19,11 @@ module _ (AB @ (A > B) : [2~] [Ob]) where
   Fun .is .tran (f1 ~ f2 ~ f3) (fto12 × fto23) .↓ a =
     B .tran _ (fto12 .↓ a × fto23 .↓ a)
 
-Fun-Id : AnyPoSet.Rel-[0-Fun] _ (! > Fun)
+Fun-Id : Matr.PoSet-[0-Fun] _ (! > Fun)
 Fun-Id _ .↓ .f-el = ⑴
 Fun-Id _ .↓ .f-to _ = ⑴
 
-Fun-Mu : AnyPoSet.Rel-[2-Fun] _ ((Fun × Fun) > Fun)
+Fun-Mu : Matr.PoSet-[2-Fun] _ ((Fun × Fun) > Fun)
 Fun-Mu _ .↓ .f-el (fab × fbc) .↓ .f-el   = fab .f-el   ∘ fbc .f-el
 Fun-Mu _ .↓ .f-el (fab × fbc) .↓ .f-to _ = fab .f-to _ ∘ fbc .f-to _
 Fun-Mu (A ~ B ~ C) .↓ .f-to ((fab × fbc) ~ (gab × gbc)) (toab × tobc) .↓ a =

@@ -16,21 +16,17 @@ open import 2-Dim.PoCat.Def-Types-pub.is-Obj
 --
 module 1-Dim.Set.Def-Opers.Fun-To where
 
-Fun:Q : Set-Qu.[Obj]
-Fun:Q .Ob = [Ob]
-Fun:Q .Hom = Fun
-
 module Fun:C where
-  oper : Cat.[oper] Fun:Q
-  oper .Id = Fun-Id
-  oper .Mu = Fun-Mu
+  has-oper : Cat.[Obj-oper] _ Fun
+  has-oper .Id = Fun-Id
+  has-oper .Mu = Fun-Mu
 
-  prop : Cat.[prop] Fun:Q oper
-  prop .assoc-fw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) .↓ _ = ob4 .refl _
-  prop .assoc-bw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) .↓ _ = ob4 .refl _
-  prop .lunit-fw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
-  prop .lunit-bw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
-  prop .runit-fw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
-  prop .runit-bw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
-  prop .bunit-fw ob .↓ _ = ob .refl _
-  prop .bunit-bw ob .↓ _ = ob .refl _
+  has-prop : Cat.[Obj-prop] _ _ has-oper
+  has-prop .assoc-fw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) .↓ _ = ob4 .refl _
+  has-prop .assoc-bw (ob1 ~ ob2 ~ ob3 ~ ob4) (f12 × f23 × f34) .↓ _ = ob4 .refl _
+  has-prop .lunit-fw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
+  has-prop .lunit-bw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
+  has-prop .runit-fw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
+  has-prop .runit-bw (ob1 ~ ob2) f12 .↓ _ = ob2 .refl _
+  has-prop .bunit-fw ob .↓ _ = ob .refl _
+  has-prop .bunit-bw ob .↓ _ = ob .refl _

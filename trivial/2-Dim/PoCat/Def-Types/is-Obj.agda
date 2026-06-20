@@ -1,7 +1,6 @@
 open import 0-Dim.!quali
-import 2-Dim-Pre.Matr.Def-Types as AnyPoSet
+import 2-Dim-Pre.Matr.Def-Types as Matr
 import 1-Dim.PoSet.Def-Types as PoSet
--- open import 1-Dim.PoSet.Def-Types-pub
 import 2-Dim-Pre.PoSet-Qu.Def-Types.Obj as PoSet-Qu
 
 module 2-Dim.PoCat.Def-Types.is-Obj where
@@ -13,8 +12,8 @@ module _ (Ob : [Any]) (Hom : PoSet-Qu.[is-Obj] Ob) where
 
   module :[Obj-oper]  where
     -- operations on Hom: (id)entity, (mu)ltiplication
-    :Id = AnyPoSet.Rel-[0-Fun] _ (! > Hom)
-    :Mu = AnyPoSet.Rel-[2-Fun] _ ((Hom × Hom) > Hom)
+    :Id = Matr.PoSet-[0-Fun] _ (! > Hom)
+    :Mu = Matr.PoSet-[2-Fun] _ ((Hom × Hom) > Hom)
 
   record [Obj-oper] : [Any] where
     constructor ‼

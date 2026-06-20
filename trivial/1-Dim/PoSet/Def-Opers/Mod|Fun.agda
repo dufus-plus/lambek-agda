@@ -5,7 +5,7 @@ open import 1-Dim.PoSet.Def-Opers.Fun
 open import 1-Dim.PoSet.Def-Opers.Fun-To
 open import 1-Dim.PoSet.Def-Opers.Mod
 open import 1-Dim.PoSet.Def-Opers.Mod-Fun
-import 2-Dim-Pre.Matr.Def-Types as AnyPoSet
+import 2-Dim-Pre.Matr.Def-Types as Matr
 open import 2-Dim-Pre.Matr.Def-Types-pub
 import 2-Dim.PoCat.Def-Types.is-Obj as PoCat
 import 2-Dim.PoCat|PoCat.Def-Types.is-Obj as PoCat|PoCat

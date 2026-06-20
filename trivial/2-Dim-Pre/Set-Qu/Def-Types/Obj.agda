@@ -1,5 +1,5 @@
 open import 0-Dim.!quali
-import 2-Dim-Pre.Matr.Def-Types as AnySet
+import 2-Dim-Pre.Matr.Def-Types as Matr
 import 1-Dim.Set.Def-Types as Set
 
 module 2-Dim-Pre.Set-Qu.Def-Types.Obj where

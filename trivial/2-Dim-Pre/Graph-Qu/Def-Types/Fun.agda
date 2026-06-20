@@ -1,5 +1,5 @@
 open import 0-Dim.!quali
-import 2-Dim-Pre.Matr.Def-Types as AnyGraph
+import 2-Dim-Pre.Matr.Def-Types as Matr
 import 1-Dim.Graph.Def-Types as Graph
 open import 2-Dim-Pre.Graph-Qu.Def-Types.Obj
 open import 2-Dim-Pre.Graph-Qu.Def-Types-pub.Obj
@@ -12,10 +12,10 @@ module 2-Dim-Pre.Graph-Qu.Def-Types.Fun where
 module _ (AB @(A > B) : [2~] [Obj]) where
   module :[Fun] where
     -- function on 0-cells
-    :f-ob = AnyGraph.[Fun] (A .Ob > B .Ob)
+    :f-ob = Any.[Fun] (A .Ob > B .Ob)
     module _ (f-ob : :f-ob) where
       -- function on 1-cells
-      :f-hom = AnyGraph.[Rel|Fun] _ (f-ob ~ f-ob) (A .Hom ~ B .Hom)
+      :f-hom = Matr.[Graph|Fun] _ (f-ob ~ f-ob) (A .Hom ~ B .Hom)
 
   record [Fun] : [Any] where
     constructor ‼

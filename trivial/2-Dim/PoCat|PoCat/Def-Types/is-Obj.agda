@@ -1,5 +1,5 @@
 open import 0-Dim.!quali
-import 2-Dim-Pre.Matr.Def-Types as AnyPoSet
+import 2-Dim-Pre.Matr.Def-Types as Matr
 import 1-Dim.PoSet.Def-Types as PoSet
 open import 1-Dim.PoSet.Def-Types-pub
 import 2-Dim-Pre.PoSet-Qu.Def-Types.Obj as PoSet-Qu

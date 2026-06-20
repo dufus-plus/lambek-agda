@@ -1,7 +1,7 @@
 open import 0-Dim.!quali
 open import 1-Dim.Graph.Def-Types
 open import 1-Dim.Graph.Def-Types-pub
-import 2-Dim-Pre.Matr.Def-Types as AnyPoSet
+import 2-Dim-Pre.Matr.Def-Types as Matr
 import 1-Dim.PoSet.Def-Types as PoSet
 open import 1-Dim.PoSet.Def-Types-pub
 

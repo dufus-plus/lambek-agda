@@ -3,7 +3,7 @@ import 1-Dim.Graph.Def-Types as Graph
 open import 1-Dim.Graph.Def-Types-pub
 open import 1-Dim.PoSet.Def-Types
 open import 1-Dim.PoSet.Def-Types-pub
-import 2-Dim-Pre.Matr.Def-Types as AnyPoSet
+import 2-Dim-Pre.Matr.Def-Types as Matr
 
 module 1-Dim.PoSet.Def-Opers.Rep where
 

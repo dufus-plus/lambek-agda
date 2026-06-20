@@ -2,7 +2,7 @@ open import 0-Dim.!quali
 open import 1-Dim.Graph.Def-Types-pub
 open import 1-Dim.PoSet.Def-Types
 open import 1-Dim.PoSet.Def-Types-pub
-import 2-Dim-Pre.Matr.Def-Types as AnyPoSet
+import 2-Dim-Pre.Matr.Def-Types as Matr
 
 module 1-Dim.PoSet.Def-Opers.Mod where
 
@@ -13,12 +13,12 @@ module _ (AB : [2~] [Ob]) where
   Mod .is .refl M .↓ _ = ⑴
   Mod .is .tran _ (rto12 × rto23) .↓ _ = rto12 .↓ _ ∘ rto23 .↓ _
 
-Mod-Id : AnyPoSet.Rel-[0-Fun] _ (! > Mod)
+Mod-Id : Matr.PoSet-[0-Fun] _ (! > Mod)
 Mod-Id A .It .M-ob = A .To
 Mod-Id A .is .lact = A .tran
 Mod-Id A .is .ract = A .tran
 
-Mod-Mu : AnyPoSet.Rel-[2-Fun] _ ((Mod × Mod) > Mod)
+Mod-Mu : Matr.PoSet-[2-Fun] _ ((Mod × Mod) > Mod)
 Mod-Mu _ .↓ .f-el (Rab × Rbc) .It .M-ob = (Rab .M-ob) [∙] (Rbc .M-ob)
 Mod-Mu _ .↓ .f-el (Rab × Rbc) .is .lact _ (aeq12 × (rab ∙ rbc)) = (Rab .lact _ (aeq12 × rab)) ∙ rbc
 Mod-Mu _ .↓ .f-el (Rab × Rbc) .is .ract _ ((rab ∙ rbc) × ceq12) = rab ∙ (Rbc .ract _ (rbc × ceq12))
