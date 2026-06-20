@@ -7,15 +7,15 @@ open import 1-Dim.PoSet.Def-Opers.Mod
 open import 1-Dim.PoSet.Def-Opers.Mod-Fun
 -- import 2-Dim.PoSet-Qu.Def-Types.Obj as PoSet-Graph
 -- import 2-Dim.PoCat.Def-Types.is-Obj as PoCat
--- import 2-Dim.PoSet-Qu|PoSet-Qu.Def-Types.Obj as PoSet-Qu|PoSet-Qu
+-- import 2-Dim.PoSet|PoSet-Qu.Def-Types.Obj as PoSet|PoSet-Qu
 -- import 2-Dim.PoCat|PoCat.Def-Types.is-Obj as PoCat|PoCat
--- open import 2-Dim.PoSet-Qu|PoSet-Qu.Def-Types-pub.Obj
+-- open import 2-Dim.PoSet|PoSet-Qu.Def-Types-pub.Obj
 -- open import 2-Dim.PoCat|PoCat.Def-Types-pub.is-Obj
 
 -- operations in Po(Set)oid on square 2-(Mor)phisms
 module 1-Dim.PoSet.Def-Opers.Mod|Fun where
 
--- Mod|Fun:PQ|PQ : PoSet-Qu|PoSet-Qu.[Obj]
+-- Mod|Fun:PQ|PQ : PoSet|PoSet-Qu.[Obj]
 -- Mod|Fun:PQ|PQ .Ob = [Ob] -- PoSet
 -- Mod|Fun:PQ|PQ .V-Mor = Fun
 -- Mod|Fun:PQ|PQ .H-Mor = Mod

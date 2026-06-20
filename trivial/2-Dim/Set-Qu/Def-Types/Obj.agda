@@ -21,9 +21,10 @@ record [Obj] : [Any] where
   open Hom public
     using ()
     renaming
-    ( It to Hom-It;
-      El to Hom-El;
-      To to Hom-To;
-      is to Hom-is;
+    ( It   to Hom-It;
+      El   to Hom-El;
+      To   to Hom-To;
+      is   to Hom-is;
       refl to Hom-refl;
+      symm to Hom-symm;
       tran to Hom-tran )

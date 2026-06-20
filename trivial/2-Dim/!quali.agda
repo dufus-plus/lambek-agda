@@ -4,7 +4,7 @@ open import 2-Dim.AnyPoCat.!quali public
 
 open import 2-Dim.PoSet-Qu.!quali public
 open import 2-Dim.Quiver.!quali public
-open import 2-Dim.PoSet-Qu|PoSet-Qu.!quali public
+open import 2-Dim.PoSet|PoSet-Qu.!quali public
 open import 2-Dim.DaggPoQuiver|Quiver.!quali public
 
 open import 2-Dim.PoCat.!quali public

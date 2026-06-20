@@ -4,7 +4,7 @@ module 2-Dim.!publi where
 
 open import 2-Dim.PoSet-Qu.!publi public
 open import 2-Dim.Quiver.!publi public
-open import 2-Dim.PoSet-Qu|PoSet-Qu.!publi public
+open import 2-Dim.PoSet|PoSet-Qu.!publi public
 open import 2-Dim.DaggPoQuiver|Quiver.!publi public
 
 open import 2-Dim.PoCat.!publi public
