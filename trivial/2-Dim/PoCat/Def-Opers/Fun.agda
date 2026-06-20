@@ -1,8 +1,8 @@
 open import 0-Dim.!quali
 open import 1-Dim.PoSet.!publi
 open import 1-Dim.Graph.!publi
-import 2-Dim.PoSet-Qu.Def-Types as PoSet-Qu
-open import 2-Dim.PoSet-Qu.Def-Types-pub
+import 2-Dim-Pre.PoSet-Qu.Def-Types as PoSet-Qu
+open import 2-Dim-Pre.PoSet-Qu.Def-Types-pub
 import 2-Dim.AnyPoCat.Def-Types as AnyPoCat
 open import 2-Dim.PoCat.Def-Types
 open import 2-Dim.PoCat.Def-Types-pub

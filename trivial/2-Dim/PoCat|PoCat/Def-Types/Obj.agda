@@ -2,7 +2,7 @@ open import 0-Dim.!quali
 import 2-Dim-Pre.AnyPoSet.Def-Types as AnyPoSet
 import 1-Dim.PoSet.Def-Types as PoSet
 import 2-Dim.PoCat.Def-Types.Obj as PoCat
-import 2-Dim.PoSet|PoSet-Qu.Def-Types.Obj as PoSet|PoSet-Qu
+import 2-Dim-Pre.PoSet|PoSet-Qu.Def-Types.Obj as PoSet|PoSet-Qu
 
 --
 -- (Ob)jects of 2-equipment of Double 1-Categories

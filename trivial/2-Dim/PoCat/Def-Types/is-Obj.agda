@@ -2,7 +2,7 @@ open import 0-Dim.!quali
 import 2-Dim-Pre.AnyPoSet.Def-Types as AnyPoSet
 import 1-Dim.PoSet.Def-Types as PoSet
 -- open import 1-Dim.PoSet.Def-Types-pub
-import 2-Dim.PoSet-Qu.Def-Types.Obj as PoSet-Qu
+import 2-Dim-Pre.PoSet-Qu.Def-Types.Obj as PoSet-Qu
 
 module 2-Dim.PoCat.Def-Types.is-Obj where
 
@@ -97,10 +97,10 @@ record [is-Obj] (Ob : [Any]) : [Any] where
   open Hom public
     using ()
     renaming
-    ( It to Hom-It;
-      El to Hom-El;
-      To to Hom-To;
-      is to Hom-is;
+    ( It   to Hom-It;
+      El   to Hom-El;
+      To   to Hom-To;
+      is   to Hom-is;
       refl to Hom-refl;
       tran to Hom-tran )
   open [Obj-oper] oper public

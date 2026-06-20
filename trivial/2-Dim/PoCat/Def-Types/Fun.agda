@@ -1,6 +1,6 @@
 open import 0-Dim.!quali
 import 1-Dim.PoSet.Def-Types as PoSet
-import 2-Dim.PoSet-Qu.Def-Types.Fun as PoSet-Qu
+import 2-Dim-Pre.PoSet-Qu.Def-Types.Fun as PoSet-Qu
 open import 2-Dim.PoCat.Def-Types.Obj
 
 module 2-Dim.PoCat.Def-Types.Fun where
@@ -10,7 +10,7 @@ open PoSet-Qu using (‼)
 module :[Fun] (AB @(A > B) : [2~] [Obj]) where
   open [Obj]
   :f-ob = Any.[Fun] (A .Ob > B .Ob)
-  Qu-AB = Obj→Qu A > Obj→Qu B
+  Qu-AB = [Obj].Qu A > [Obj].Qu B
 
   module :[is-Fun] (f-ob : :f-ob) where
     :f-hom = PoSet-Qu.:[Fun].:f-hom Qu-AB f-ob

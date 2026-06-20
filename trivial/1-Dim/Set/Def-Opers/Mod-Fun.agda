@@ -4,8 +4,8 @@ open import 1-Dim.Set.Def-Types-pub
 open import 1-Dim.Set.Def-Opers.Mod
 import 2-Dim.PoCat.Def-Types.is-Obj as PoCat
 open import 2-Dim.PoCat.Def-Types-pub.is-Obj
-import 2-Dim.PoSet-Qu.Def-Types as PoSet-Qu
-open import 2-Dim.PoSet-Qu.Def-Types-pub
+import 2-Dim-Pre.PoSet-Qu.Def-Types as PoSet-Qu
+open import 2-Dim-Pre.PoSet-Qu.Def-Types-pub
 
 --
 -- Mod-[Fun] satisfies axioms of [PoCat]

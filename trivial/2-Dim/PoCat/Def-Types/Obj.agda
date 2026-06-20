@@ -1,5 +1,5 @@
 open import 0-Dim.!quali
-import 2-Dim.PoSet-Qu.Def-Types.Obj as PoSet-Qu
+import 2-Dim-Pre.PoSet-Qu.Def-Types.Obj as PoSet-Qu
 --
 -- (Ob)jects of 2-equipment of 1-(Cat)egories
 --

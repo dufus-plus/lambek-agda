@@ -4,9 +4,9 @@ import 1-Dim.PoSet.Def-Gens as PoSet
 open import 1-Dim.PoSet.Def-Types-pub
 open import 2-Dim.PoCat.Def-Types.Obj
 open import 2-Dim.PoCat.Def-Types-pub.Obj
-import 2-Dim.PoSet-Qu.Def-Types.Obj as PoSet-Qu
-open import 2-Dim.PoSet-Qu.Def-Types-pub.Obj
-import 2-Dim.PoSet-Qu.Def-Gens.Objs as PoSet-Qu
+import 2-Dim-Pre.PoSet-Qu.Def-Types.Obj as PoSet-Qu
+open import 2-Dim-Pre.PoSet-Qu.Def-Types-pub.Obj
+import 2-Dim-Pre.PoSet-Qu.Def-Gens.Objs as PoSet-Qu
 
 module 2-Dim.PoCat.Def-Gens.Objs where
 

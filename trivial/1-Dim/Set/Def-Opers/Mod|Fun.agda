@@ -5,8 +5,8 @@ open import 1-Dim.Set.Def-Opers.Fun
 open import 1-Dim.Set.Def-Opers.Fun-To
 open import 1-Dim.Set.Def-Opers.Mod
 open import 1-Dim.Set.Def-Opers.Mod-Fun
-import 2-Dim.PoSet-Qu.Def-Types.Obj as PoSet-Qu
-import 2-Dim.PoSet|PoSet-Qu.Def-Types.Obj as PoSet|PoSet-Qu
+import 2-Dim-Pre.PoSet-Qu.Def-Types.Obj as PoSet-Qu
+import 2-Dim-Pre.PoSet|PoSet-Qu.Def-Types.Obj as PoSet|PoSet-Qu
 import 2-Dim.PoCat.Def-Types.is-Obj as PoCat
 import 2-Dim.PoCat|PoCat.Def-Types.is-Obj as PoCat|PoCat
 open import 2-Dim.PoCat|PoCat.Def-Types-pub.is-Obj
@@ -15,7 +15,7 @@ open import 2-Dim.PoCat|PoCat.Def-Types-pub.is-Obj
 module 1-Dim.Set.Def-Opers.Mod|Fun where
 
 module _ where
-  open import 2-Dim.PoSet|PoSet-Qu.Def-Types-pub.Obj
+  open import 2-Dim-Pre.PoSet|PoSet-Qu.Def-Types-pub.Obj
 
   Mod|Fun:PQ|PQ : PoSet|PoSet-Qu.[Obj]
   Mod|Fun:PQ|PQ .Ob = [Ob]

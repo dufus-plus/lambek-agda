@@ -1,85 +1,75 @@
 open import 0-Dim.!quali
 open import 1-Dim.PoSet.!publi
-import 2-Dim.PoSet|PoSet-Qu.Def-Types.Obj as PoSet|PoSet-Qu
-open import 2-Dim.PoSet|PoSet-Qu.Def-Types-pub.Obj
 open import 2-Dim.PoCat.Def-Types
 open import 2-Dim.PoCat.Def-Types-pub
+import 2-Dim-Pre.AnyPoSet.Def-Types as AnyPoSet
+open import 2-Dim-Pre.AnyPoSet.Def-Types-pub
 import 2-Dim.PoCat|PoCat.Def-Types.is-Obj as PoCat|PoCat
 
-module 2-Dim.PoCat.Def-Opers.Hom|Hom where
+module 2-Dim.PoCat.Def-Opers.Hom|Hom
+  (C : [Obj]) (let module C = [Obj] C) where
 
-module Hom|Hom (C : [Obj]) where
-  DQu : PoSet|PoSet-Qu.[Obj]
-  DQu .Ob = C .Ob
-  DQu .V-Mor = C .Hom
-  DQu .H-Mor = C .Hom
-  DQu .H|V-2Mor = [Hom|Hom] C
+module Hom|Hom where
+  [Hom|Hom]:Mod : AnyPoSet.[Rel|Rel] _ (2~ C.Hom) (2~ C.Hom)
+  [Hom|Hom]:Mod .Sqr = [Hom|Hom] C
+  [Hom|Hom]:Mod .H-lact = _
+  [Hom|Hom]:Mod .H-ract = _
+  [Hom|Hom]:Mod .V-lact = _
+  [Hom|Hom]:Mod .V-ract = _
+  -- TODO
 
-  V-oper : [oper] (PQ|PQ-V:PQ DQu)
-  H-oper : [oper] (PQ|PQ-H:PQ DQu)
-  V-oper = C .oper
-  H-oper = C .oper
-
-  V-prop : [prop] (PQ|PQ-V:PQ DQu) V-oper
-  H-prop : [prop] (PQ|PQ-H:PQ DQu) H-oper
-  V-prop = C .prop
-  H-prop = C .prop
-
-  open PoCat|PoCat.:[is-Obj] DQu V-oper H-oper
--- Hom-[To] C _ (Hom-Mu C _ (VF1 × HF2) ~ Hom-Mu C _ (HF1 × VF2))
+  open PoCat|PoCat.:[is-Obj] C.Ob C.is C.is [Hom|Hom]:Mod
+  -- C .Hom-To _ (C .Mu-el _ (VF1 × HF2) ~ C .Mu-el _ (HF1 × VF2))
 
   Hom-Id|Hom : :H-Id|V
   Hom|Hom-Id : :H|V-Id
   Hom-Mu|Hom : :H-Mu|V
   Hom|Hom-Mu : :H|V-Mu
 
-  Hom-Id|Hom _ V .↓ = C .Hom _ .tran _ (C .runit-bw _ V × C .lunit-fw _ V)
-  Hom|Hom-Id _ H .↓ = C .Hom _ .tran _ (C .lunit-bw _ H × C .runit-fw _ H)
+  Hom-Id|Hom _ V .↓ = C.Hom-tran _ _ (C.runit-bw _ V × C.lunit-fw _ V)
+  Hom|Hom-Id _ H .↓ = C.Hom-tran _ _ (C.lunit-bw _ H × C.runit-fw _ H)
 
   Hom-Mu|Hom _ (V1 ~ V2 ~ V3) ((H11 × H12) ~ (H21 × H22)) (hv1 × hv2) .↓ =
-    C .Hom _ .tran _
-      (C .assoc-bw _ (V1 × H21 × H22) ×
-      C .Hom _ .tran _
-        ((C .Mu _ .f-to _ (hv1 .↓ × C .Hom _ .refl H22)) ×
-        C .Hom _ .tran _
-          ((C .assoc-fw _ (H11 × V2 × H22)) ×
-          C .Hom _ .tran _
-            (C .Mu _ .f-to _ (C .Hom _ .refl H11 × hv2 .↓) ×
-            C .assoc-bw _ (H11 × H12 × V3)))))
+    C.Hom _ .tran _
+      (C.assoc-bw _ (V1 × H21 × H22) ×
+      C.Hom _ .tran _
+        ((C.Mu _ .f-to _ (hv1 .↓ × C.Hom _ .refl H22)) ×
+        C.Hom _ .tran _
+          ((C.assoc-fw _ (H11 × V2 × H22)) ×
+          C.Hom _ .tran _
+            (C.Mu _ .f-to _ (C.Hom _ .refl H11 × hv2 .↓) ×
+            C.assoc-bw _ (H11 × H12 × V3)))))
 
   Hom|Hom-Mu _ ((V11 × V21) ~ (V12 × V22)) (H1 ~ H2 ~ H3) (hv1 × hv2) .↓ =
-    C .Hom _ .tran _
-      (C .assoc-fw _ (V11 × V21 × H3) ×
-      C .Hom _ .tran _
-        ((C .Mu _ .f-to _ (C .Hom _ .refl V11 × hv2 .↓)) ×
-        C .Hom _ .tran _
-          ((C .assoc-bw _ (V11 × H2 × V22)) ×
-          C .Hom _ .tran _
-            (C .Mu _ .f-to _ (hv1 .↓ × C .Hom _ .refl V22) ×
-            C .assoc-fw _ (H1 × V12 × V22)))))
+    C.Hom _ .tran _
+      (C.assoc-fw _ (V11 × V21 × H3) ×
+      C.Hom _ .tran _
+        ((C.Mu _ .f-to _ (C.Hom _ .refl V11 × hv2 .↓)) ×
+        C.Hom _ .tran _
+          ((C.assoc-bw _ (V11 × H2 × V22)) ×
+          C.Hom _ .tran _
+            (C.Mu _ .f-to _ (hv1 .↓ × C.Hom _ .refl V22) ×
+            C.assoc-fw _ (H1 × V12 × V22)))))
 
 open Hom|Hom public
   using
-  (
-    Hom-Id|Hom;
+  ( Hom-Id|Hom;
     Hom|Hom-Id;
     Hom-Mu|Hom;
-    Hom|Hom-Mu
-  )
+    Hom|Hom-Mu )
 
-F-Hom|Hom :
+Fun-Hom|Hom :
   (2C@(A ~ B) : [2~] [Obj])
   (F : [Fun] 2C) →
   (22ob : [22~] A. Ob)
   (2VF @(VF1 > VF2) : [Dup|Hom] A 22ob)
   (2HF @(HF1 ~ HF2) : [Hom|Dup] A 22ob)
   (HH : [Hom|Hom] A _ 2VF 2HF) →
-  [Hom|Hom] B _
-    (F .F-Hom _ .f-el VF1 ~ F .F-Hom _ .f-el VF2)
-    (F .F-Hom _ .f-el HF1 ~ F .F-Hom _ .f-el HF2)
-F-Hom|Hom (A ~ B) F _ (VF1 ~ VF2) (HF1 ~ HF2) HH .↓ =
+  [Hom|Hom] B _ (F .f-hom-el _ VF1 ~ F .f-hom-el _ VF2)
+                (F .f-hom-el _ HF1 ~ F .f-hom-el _ HF2)
+Fun-Hom|Hom (A ~ B) F _ (VF1 ~ VF2) (HF1 ~ HF2) HH .↓ =
   B .Hom _ .tran _
-  ( (F .F-Mu-bw _ (VF1 × HF2)) ×
+  ( (F .f-Mu-bw _ (VF1 × HF2)) ×
     B .Hom _ .tran _
-    ( (F .F-Hom _ .f-to _ (HH .↓)) ×
-      (F .F-Mu-fw _ (HF1 × VF2)) ) )
+    ( F .f-hom-to _ _ (HH .↓) ×
+      F .f-Mu-fw _ (HF1 × VF2) ) )
