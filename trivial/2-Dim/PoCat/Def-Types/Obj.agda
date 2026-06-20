@@ -18,9 +18,3 @@ record [Obj] : [Any] where
 
   -- helpers:
   open [is-Obj] is public
-
-  Obj→Qu : PoSet-Qu.[Obj]
-  Obj→Qu = ‼ Ob Hom
-
-open [Obj] public
-  using (Obj→Qu)

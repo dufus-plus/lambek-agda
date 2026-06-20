@@ -7,7 +7,10 @@ module 2-Dim.PoSet|PoSet-Qu.Def-Types.Obj where
 
 open PoSet-Qu using (‼)
 
--- Double Quiver aka Cubical 2-Graph
+--
+-- Double Quiver aka Cubical 2-Graph:
+-- the Carrier for Double 1-Categories
+--
 module :[Obj] where
   open PoSet.[Ob]
   module _ (Ob : [Any]) where
@@ -15,10 +18,8 @@ module :[Obj] where
     :V-Hom = AnyPoSet.[Rel] (2~ Ob)
     :H-Hom = AnyPoSet.[Rel] (2~ Ob)
     module _ (V-Hom : :V-Hom) (H-Hom : :H-Hom) where
-      module V (2ob : _) = PoSet.[Ob] (V-Hom 2ob)
-      module H (2ob : _) = PoSet.[Ob] (H-Hom 2ob)
-      -- type of 2-cells
-      :H|V-Sqr = Any.[Rel|Rel] _ (2~ V.El) (2~ H.El)
+      -- type of 2-cells as 2-module
+      :H|V = AnyPoSet.[Rel|Rel] _ (2~ V-Hom) (2~ H-Hom)
 
 record [Obj] : [Any] where
   constructor ‼
@@ -28,7 +29,7 @@ record [Obj] : [Any] where
   field Ob : [Any]
   field V-Hom : :V-Hom Ob
   field H-Hom : :H-Hom Ob
-  field H|V-Sqr : :H|V-Sqr Ob V-Hom H-Hom
+  field H|V : :H|V Ob V-Hom H-Hom
 
   -- helpers:
   private module V-Hom (2ob : _) = PoSet.[Ob] (V-Hom 2ob)
@@ -52,6 +53,10 @@ record [Obj] : [Any] where
       is   to H-Hom-is;
       refl to H-Hom-refl;
       tran to H-Hom-tran )
+
+  private module H|V = AnyPoSet.[Rel|Rel] H|V
+  open H|V public
+    using ( Sqr; V-lact; V-ract; H-lact; H-ract )
 
   -- vertical is tight, horizontal is loose
   V-Ob : PoSet-Qu.[Obj]

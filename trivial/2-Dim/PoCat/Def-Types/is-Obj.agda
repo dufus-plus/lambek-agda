@@ -84,25 +84,27 @@ module _ (Qu : PoSet-Qu.[Obj]) (oper : [Obj-oper] Qu) where
     field bunit-fw : :bunit-fw
     field bunit-bw : :bunit-bw
 
-module _ (Ob : [Any]) where
-  record [is-Obj] : [Any] where
-    constructor ‼
+record [is-Obj] (Ob : [Any]) : [Any] where
+  constructor ‼
 
-    -- data
-    field Hom : PoSet-Qu.[is-Obj] Ob
-    field oper : [Obj-oper] (‼ Ob Hom)
-    field prop : [Obj-prop] (‼ Ob Hom) oper
+  -- data
+  field Hom : PoSet-Qu.[is-Obj] Ob
+  field oper : [Obj-oper] (‼ Ob Hom)
+  field prop : [Obj-prop] (‼ Ob Hom) oper
 
-    -- helpers:
-    private module Hom (2ob : [2~] Ob) = PoSet.[Ob] (Hom 2ob)
-    open Hom public
-      using ()
-      renaming
-      ( It to Hom-It;
-        El to Hom-El;
-        To to Hom-To;
-        is to Hom-is;
-        refl to Hom-refl;
-        tran to Hom-tran )
-    open [Obj-oper] oper public
-    open [Obj-prop] prop public
+  -- helpers:
+  private module Hom (2ob : [2~] Ob) = PoSet.[Ob] (Hom 2ob)
+  open Hom public
+    using ()
+    renaming
+    ( It to Hom-It;
+      El to Hom-El;
+      To to Hom-To;
+      is to Hom-is;
+      refl to Hom-refl;
+      tran to Hom-tran )
+  open [Obj-oper] oper public
+  open [Obj-prop] prop public
+
+  Qu : PoSet-Qu.[Obj]
+  Qu = ‼ Ob Hom

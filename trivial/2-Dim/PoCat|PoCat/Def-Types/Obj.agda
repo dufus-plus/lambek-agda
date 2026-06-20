@@ -10,34 +10,98 @@ import 2-Dim.PoSet|PoSet-Qu.Def-Types.Obj as PoSet|PoSet-Qu
 module 2-Dim.PoCat|PoCat.Def-Types.Obj where
 
 open PoCat using (‼)
+open PoSet|PoSet-Qu using (‼)
 
 -- base module
 open import 2-Dim.PoCat|PoCat.Def-Types.is-Obj public
 
+-- TODO: :[Obj]
+
+module :[Obj] (Ob : [Any]) where
+  :V-is = PoCat.[is-Obj] Ob
+  :H-is = PoCat.[is-Obj] Ob
+
+  module _ (V-is : :V-is) (let module V = PoCat.[is-Obj] V-is)
+           (H-is : :H-is) (let module H = PoCat.[is-Obj] H-is) where
+    :H|V = PoSet|PoSet-Qu.:[Obj].:H|V Ob V.Hom H.Hom
+
 record [Obj] : [Any] where
   constructor ‼
+  open :[Obj]
 
-  -- underlying graph
-  field It : PoSet|PoSet-Qu.[Obj]
-  open PoSet|PoSet-Qu.[Obj] It public
-    renaming (
-      PQ|PQ-V:PQ to PC|PC-V:PQ;
-      PQ|PQ-H:PQ to PC|PC-H:PQ
-    )
+  -- data:
+  -- underlying graph:
+  field Ob   : [Any]
+  field V-is : :V-is Ob
+  field H-is : :H-is Ob
+  field H|V  : :H|V Ob V-is H-is
 
-  -- cats' operations
-  field V-oper : PoCat.[oper] (PC|PC-V:PQ)
-  field H-oper : PoCat.[oper] (PC|PC-H:PQ)
+  -- 2-dim operations:
+  field is : [is-Obj] Ob V-is H-is H|V
 
-  -- cats' properties
-  field V-prop : PoCat.[prop] _ V-oper
-  field H-prop : PoCat.[prop] _ H-oper
+  -- helpers:
+  open PoCat.[is-Obj] V-is public
+    using ()
+    renaming
+    ( Hom      to V-Hom;
+      Hom-It   to V-Hom-It;
+      Hom-El   to V-Hom-El;
+      Hom-To   to V-Hom-To;
+      Hom-is   to V-Hom-is;
+      Hom-refl to V-Hom-refl;
+      Hom-tran to V-Hom-tran;
+      oper     to V-oper;
+      Id       to V-Id;
+      Mu       to V-Mu;
+      Mu-el    to V-Mu-el;
+      Mu-to    to V-Mu-to;
+      prop     to V-prop;
+      assoc-fw to V-assoc-fw;
+      assoc-bw to V-assoc-bw;
+      lunit-fw to V-lunit-fw;
+      lunit-bw to V-lunit-bw;
+      runit-fw to V-runit-fw;
+      runit-bw to V-runit-bw;
+      bunit-fw to V-bunit-fw;
+      bunit-bw to V-bunit-bw;
+      Qu       to V-Qu )
 
-  PC|PC-V:PC : PoCat.[Obj]
-  PC|PC-V:PC = ‼ PC|PC-V:PQ V-oper V-prop
-  PC|PC-H:PC : PoCat.[Obj]
-  PC|PC-H:PC = ‼ PC|PC-H:PQ H-oper H-prop
+  open PoCat.[is-Obj] H-is public
+    using ()
+    renaming
+    ( Hom      to H-Hom;
+      Hom-It   to H-Hom-It;
+      Hom-El   to H-Hom-El;
+      Hom-To   to H-Hom-To;
+      Hom-is   to H-Hom-is;
+      Hom-refl to H-Hom-refl;
+      Hom-tran to H-Hom-tran;
+      oper     to H-oper;
+      Id       to H-Id;
+      Mu       to H-Mu;
+      Mu-el    to H-Mu-el;
+      Mu-to    to H-Mu-to;
+      prop     to H-prop;
+      assoc-fw to H-assoc-fw;
+      assoc-bw to H-assoc-bw;
+      lunit-fw to H-lunit-fw;
+      lunit-bw to H-lunit-bw;
+      runit-fw to H-runit-fw;
+      runit-bw to H-runit-bw;
+      bunit-fw to H-bunit-fw;
+      bunit-bw to H-bunit-bw;
+      Qu       to H-Qu )
 
-  -- square 2-morphisms operations
-  field is : [is-Obj] It V-oper H-oper
+  open AnyPoSet.[Rel|Rel] H|V public
+    using (H-lact; H-ract; V-lact; V-ract)
+    renaming (Sqr to H|V-Sqr)
+
   open [is-Obj] is public
+
+  V-Ob : PoCat.[Obj]
+  V-Ob = ‼ Ob V-is
+  H-Ob : PoCat.[Obj]
+  H-Ob = ‼ Ob H-is
+
+  Qu : PoSet|PoSet-Qu.[Obj]
+  Qu = ‼ Ob V-Hom H-Hom H|V
