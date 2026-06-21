@@ -12,22 +12,12 @@ Void .is .refl ()
 Void .is .symm ()
 Void .is .tran ()
 
-
 -- the terminal Setoid
 Unit : [Ob]
 Unit .It = Graph.Unit
 Unit .is .refl _ = !
 Unit .is .symm _ _ = !
 Unit .is .tran _ _ = !
-
-
--- the (Opp)osite Setoid
-module _ (A : [Ob]) where
-  Opp : [Ob]
-  Opp .It = Graph.Opp (A .It)
-  Opp .is .refl _ = A .refl _
-  Opp .is .symm _ (ato12) = A .symm _ (ato12)
-  Opp .is .tran _ ((ato21) × (ato32)) = A .tran _ (ato32 × ato21)
 
 module _ (AB @(A × B) : [Ob] [×] [Ob]) where
   Prod2 : [Ob]

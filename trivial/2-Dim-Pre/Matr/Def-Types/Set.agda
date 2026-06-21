@@ -15,6 +15,12 @@ module _ (2A : [2~] [Ob]) where
 [Dup|Set] = Any.[Dup|R] (2~ [Set])
 [Set|Dup] = Any.[R|Dup] (2~ [Set])
 
+module _ (2O : [2~] [Ob]) (R : [Set] 2O) where
+  Set-Hom-Opp : [Set] (swap 2O)
+  Set-Hom-Opp 2o = R (swap 2o)
+  Set-To-Opp : [Set] 2O
+  Set-To-Opp 2o = Set.To-Opp (R 2o)
+
 module _ {2O : [2~] [Ob]} (R : [Set] 2O) where
   private module ^Set (2ob : _) = Set.[Ob] (R 2ob)
   open ^Set public

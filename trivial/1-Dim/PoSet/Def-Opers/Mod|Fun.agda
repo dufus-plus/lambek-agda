@@ -23,7 +23,7 @@ Mod|Fun:RR .H-ract _ _ (M1 ~ M2) (m|f12 × fto23) .↓ _ m1 =
 Mod|Fun:RR .V-lact _ _ 3M (mf12 × m|f23) .↓ _ = mf12 .↓ _ ∘ m|f23 .↓ _
 Mod|Fun:RR .V-ract _ _ 3M (m|f12 × mf23) .↓ _ = m|f12 .↓ _ ∘ mf23 .↓ _
 
-open PoCat|PoCat.:[is-Obj] _ Fun.is-Cat Mod.is-Cat Mod|Fun:RR
+open PoCat|PoCat.:[is-Obj] _ Mod.is-Cat Fun.is-Cat Mod|Fun:RR
 
 Mod-Id|Fun : :H-Id|V
 Mod|Fun-Id : :H|V-Id
@@ -46,7 +46,7 @@ Mod|I→Fun (A ~ B) (M ~ M') mf .↓ = mf .↓
 Mod|Fun→I (A ~ B) (M ~ M') m|f .↓ = m|f .↓
 
 module Mod|Fun where
-  is-Cat : PoCat|PoCat.[is-Obj] _ Fun.is-Cat Mod.is-Cat Mod|Fun:RR
+  is-Cat : PoCat|PoCat.[is-Obj] _ Mod.is-Cat Fun.is-Cat Mod|Fun:RR
   is-Cat .H-Id|V = Mod-Id|Fun
   is-Cat .H|V-Id = Mod|Fun-Id
   is-Cat .H-Mu|V = Mod-Mu|Fun

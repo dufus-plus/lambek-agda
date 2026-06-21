@@ -2,8 +2,8 @@ open import 0-Dim.!quali
 import 1-Dim.Set.Def-Types.Ob as Set
 import 1-Dim.PoSet.Def-Types.Ob as PoSet
 import 2-Dim-Pre.Matr.Def-Types as Matr
-import 2-Dim-Pre.Matr.Def-Types as Matr
-import 2-Dim-Pre.PoSet-Qu.Def-Types.Obj as PoSet-Qu
+import 2-Dim-Pre.DaggPoSet-Qu.Def-Types.Obj as DaggPoSet-Qu
+import 2-Dim-Pre.Set-Qu.Def-Types.Obj as Set-Qu
 
 module 2-Dim-Pre.DaggPoSet|Set-Qu.Def-Types.Obj where
 
@@ -17,13 +17,14 @@ module :[Obj] where
   open PoSet.[Ob]
   module _ (Ob : [Any]) where
     -- type of 1-cells
-    :V-Hom = Matr.[Set] (2~ Ob)
     :H-Hom = Matr.[PoSet] (2~ Ob)
+    :V-Hom = Matr.[Set] (2~ Ob)
     module _ (H-Hom : :H-Hom) where
       :H-Dagg = Matr.PoSet-[S-Fun] _ (2~ H-Hom)
-    module _ (V-Hom : :V-Hom) (H-Hom : :H-Hom) where
+    module _ (H-Hom : :H-Hom) (V-Hom : :V-Hom) where
       -- type of 2-cells as 2-module
       :H|V = Matr.[PoSet|Set] _ (2~ V-Hom) (2~ H-Hom)
+      -- TODO
 
 record [Obj] : [Any] where
   constructor ‼
@@ -31,23 +32,12 @@ record [Obj] : [Any] where
 
   -- data:
   field Ob : [Any]
-  field V-Hom : :V-Hom Ob
   field H-Hom : :H-Hom Ob
-  field H|V : :H|V Ob V-Hom H-Hom
+  field V-Hom : :V-Hom Ob
+  field H|V : :H|V Ob H-Hom V-Hom
 
   -- helpers:
-  private module V-Hom (2ob : _) = PoSet.[Ob] (V-Hom 2ob)
-  open V-Hom public
-    using ()
-    renaming
-    ( It   to V-Hom-It;
-      El   to V-Hom-El;
-      To   to V-Hom-To;
-      is   to V-Hom-is;
-      refl to V-Hom-refl;
-      tran to V-Hom-tran )
-
-  private module H-Hom (2ob : _) = PoSet.[Ob] (H-Hom 2ob)
+  private module H-Hom (2ob : _) = DaggPoSet.[Ob] (H-Hom 2ob)
   open H-Hom public
     using ()
     renaming
@@ -58,15 +48,26 @@ record [Obj] : [Any] where
       refl to H-Hom-refl;
       tran to H-Hom-tran )
 
-  private module H|V = Matr.[PoSet|PoSet] H|V
+  private module V-Hom (2ob : _) = Set.[Ob] (V-Hom 2ob)
+  open V-Hom public
+    using ()
+    renaming
+    ( It   to V-Hom-It;
+      El   to V-Hom-El;
+      To   to V-Hom-To;
+      is   to V-Hom-is;
+      refl to V-Hom-refl;
+      tran to V-Hom-tran )
+
+  private module H|V = Matr.[PoSet|Set] H|V
   open H|V public
-    using ( Sqr; V-lact; V-ract; H-lact; H-ract )
+    using ( Sqr; H-lact; H-ract; V-lact; V-ract )
 
   -- vertical is tight, horizontal is loose
-  V-Ob : PoSet-Qu.[Obj]
-  V-Ob = ‼ Ob V-Hom
-  H-Ob : PoSet-Qu.[Obj]
+  H-Ob : DaggPoSet-Qu.[Obj]
   H-Ob = ‼ Ob H-Hom
+  V-Ob : Set-Qu.[Obj]
+  V-Ob = ‼ Ob V-Hom
 
 open [Obj] public
-  using (V-Ob; H-Ob)
+  using (H-Ob; V-Ob)

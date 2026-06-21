@@ -9,9 +9,9 @@ import 2-Dim.PoCat.Def-Types.is-Obj as PoCat
 
 module 2-Dim.PoCat|PoCat.Def-Types.is-Obj
   (Ob : [Any])
-  (V : PoCat.[is-Obj] Ob) (let module V = PoCat.[is-Obj] V)
   (H : PoCat.[is-Obj] Ob) (let module H = PoCat.[is-Obj] H)
-  (H|V : PoSet|PoSet-Qu.:[Obj].:H|V Ob V.Hom H.Hom)
+  (V : PoCat.[is-Obj] Ob) (let module V = PoCat.[is-Obj] V)
+  (H|V : PoSet|PoSet-Qu.:[Obj].:H|V Ob H.Hom V.Hom)
   (let module H|V = Matr.[PoSet|PoSet] H|V)
   where
 

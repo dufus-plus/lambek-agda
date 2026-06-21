@@ -14,12 +14,6 @@ Unit : [Ob]
 Unit .El = Any.Unit
 Unit .To _ = [!]
 
--- the (Opp)osite Graph
-module _ (A : [Ob]) where
-  Opp : [Ob]
-  Opp .El = A .El
-  Opp .To = Any.Rel-Op _ (A .To)
-
 module _ (AB @(A × B) : [Ob] [×] [Ob]) where
   -- direct product
   Prod2 : [Ob]

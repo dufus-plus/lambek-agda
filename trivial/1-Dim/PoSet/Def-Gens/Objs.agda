@@ -17,13 +17,6 @@ Unit .It = Graph.Unit
 Unit .is .refl _ = !
 Unit .is .tran _ _ = !
 
--- the (Opp)osite PoSetoid
-module _ (A : [Ob]) where
-  Opp : [Ob]
-  Opp .It = Graph.Opp (A .It)
-  Opp .is .refl _ = A .refl _
-  Opp .is .tran _ ((ato21) × (ato32)) = A .tran _ (ato32 × ato21)
-
 module _ (AB @(A × B) : [2×] [Ob]) where
   Prod2 : [Ob]
   Prod2 .It = Graph.Prod2 (A .It × B .It)

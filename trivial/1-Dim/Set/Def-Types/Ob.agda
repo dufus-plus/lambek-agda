@@ -18,3 +18,14 @@ record [Ob] : [Any] where
   -- axioms
   field is : [is-Ob] It
   open [is-Ob] is public
+
+open [Ob]
+open [is-Ob]
+
+-- the (Opp)osite Setoid
+module _ (A : [Ob]) where
+  To-Opp : [Ob]
+  To-Opp .It = Graph.To-Opp (A .It)
+  To-Opp .is .refl _ = A .refl _
+  To-Opp .is .symm _ (ato12) = A .symm _ (ato12)
+  To-Opp .is .tran _ ((ato21) × (ato32)) = A .tran _ (ato32 × ato21)

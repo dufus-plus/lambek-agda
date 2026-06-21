@@ -26,6 +26,12 @@ module _ {2O : [2~] [Ob]} (R : [PoSet] 2O) where
         refl to PS^refl;
         tran to PS^tran )
 
+module _ (2O : [2~] [Ob]) (R : [PoSet] 2O) where
+  PoSet-Hom-Opp : [PoSet] (swap 2O)
+  PoSet-Hom-Opp 2o = R (swap 2o)
+  PoSet-To-Opp : [PoSet] 2O
+  PoSet-To-Opp 2o = PoSet.To-Opp (R 2o)
+
 module _ (2A : [2~] [Ob]) (2R @(R1 > R2) : [2~] [PoSet] 2A) where
   PoSet-[Fun] : [Any]
   PoSet-[Fun] = (2a : [Dup2] 2A) → PoSet.[Fun] (R1 2a > R2 2a)

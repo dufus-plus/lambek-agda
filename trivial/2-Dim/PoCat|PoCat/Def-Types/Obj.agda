@@ -18,12 +18,12 @@ open import 2-Dim.PoCat|PoCat.Def-Types.is-Obj public
 -- TODO: :[Obj]
 
 module :[Obj] (Ob : [Any]) where
-  :V-is = PoCat.[is-Obj] Ob
   :H-is = PoCat.[is-Obj] Ob
+  :V-is = PoCat.[is-Obj] Ob
 
-  module _ (V-is : :V-is) (let module V = PoCat.[is-Obj] V-is)
-           (H-is : :H-is) (let module H = PoCat.[is-Obj] H-is) where
-    :H|V = PoSet|PoSet-Qu.:[Obj].:H|V Ob V.Hom H.Hom
+  module _ (H-is : :H-is) (let module H = PoCat.[is-Obj] H-is)
+           (V-is : :V-is) (let module V = PoCat.[is-Obj] V-is) where
+    :H|V = PoSet|PoSet-Qu.:[Obj].:H|V Ob H.Hom V.Hom
 
 record [Obj] : [Any] where
   constructor ‼
@@ -32,40 +32,14 @@ record [Obj] : [Any] where
   -- data:
   -- underlying graph:
   field Ob   : [Any]
-  field V-is : :V-is Ob
   field H-is : :H-is Ob
-  field H|V  : :H|V Ob V-is H-is
+  field V-is : :V-is Ob
+  field H|V  : :H|V Ob H-is V-is
 
   -- 2-dim operations:
-  field is : [is-Obj] Ob V-is H-is H|V
+  field is : [is-Obj] Ob H-is V-is H|V
 
   -- helpers:
-  open PoCat.[is-Obj] V-is public
-    using ()
-    renaming
-    ( Hom      to V-Hom;
-      Hom-It   to V-Hom-It;
-      Hom-El   to V-Hom-El;
-      Hom-To   to V-Hom-To;
-      Hom-is   to V-Hom-is;
-      Hom-refl to V-Hom-refl;
-      Hom-tran to V-Hom-tran;
-      oper     to V-oper;
-      Id       to V-Id;
-      Mu       to V-Mu;
-      Mu-el    to V-Mu-el;
-      Mu-to    to V-Mu-to;
-      prop     to V-prop;
-      assoc-fw to V-assoc-fw;
-      assoc-bw to V-assoc-bw;
-      lunit-fw to V-lunit-fw;
-      lunit-bw to V-lunit-bw;
-      runit-fw to V-runit-fw;
-      runit-bw to V-runit-bw;
-      bunit-fw to V-bunit-fw;
-      bunit-bw to V-bunit-bw;
-      Qu       to V-Qu )
-
   open PoCat.[is-Obj] H-is public
     using ()
     renaming
@@ -92,16 +66,42 @@ record [Obj] : [Any] where
       bunit-bw to H-bunit-bw;
       Qu       to H-Qu )
 
+  open PoCat.[is-Obj] V-is public
+    using ()
+    renaming
+    ( Hom      to V-Hom;
+      Hom-It   to V-Hom-It;
+      Hom-El   to V-Hom-El;
+      Hom-To   to V-Hom-To;
+      Hom-is   to V-Hom-is;
+      Hom-refl to V-Hom-refl;
+      Hom-tran to V-Hom-tran;
+      oper     to V-oper;
+      Id       to V-Id;
+      Mu       to V-Mu;
+      Mu-el    to V-Mu-el;
+      Mu-to    to V-Mu-to;
+      prop     to V-prop;
+      assoc-fw to V-assoc-fw;
+      assoc-bw to V-assoc-bw;
+      lunit-fw to V-lunit-fw;
+      lunit-bw to V-lunit-bw;
+      runit-fw to V-runit-fw;
+      runit-bw to V-runit-bw;
+      bunit-fw to V-bunit-fw;
+      bunit-bw to V-bunit-bw;
+      Qu       to V-Qu )
+
   open Matr.[PoSet|PoSet] H|V public
     using (H-lact; H-ract; V-lact; V-ract)
     renaming (Sqr to H|V-Sqr)
 
   open [is-Obj] is public
 
-  V-Ob : PoCat.[Obj]
-  V-Ob = ‼ Ob V-is
   H-Ob : PoCat.[Obj]
   H-Ob = ‼ Ob H-is
+  V-Ob : PoCat.[Obj]
+  V-Ob = ‼ Ob V-is
 
   Qu : PoSet|PoSet-Qu.[Obj]
-  Qu = ‼ Ob V-Hom H-Hom H|V
+  Qu = ‼ Ob H-Hom V-Hom H|V

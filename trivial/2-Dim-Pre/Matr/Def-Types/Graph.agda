@@ -23,6 +23,12 @@ module _ {2O : [2~] [Ob]} (R : [Graph] 2O) where
 [Dup|Graph] = Any.[Dup|R] (2~ [Graph])
 [Graph|Dup] = Any.[R|Dup] (2~ [Graph])
 
+module _ (2O : [2~] [Ob]) (R : [Graph] 2O) where
+  Graph-Hom-Opp : [Graph] (swap 2O)
+  Graph-Hom-Opp 2o = R (swap 2o)
+  Graph-To-Opp : [Graph] 2O
+  Graph-To-Opp 2o = Graph.To-Opp (R 2o)
+
 module _ (2A : [2~] [Ob]) (2R @(R1 > R2) : [2~] [Graph] 2A) where
   Graph-[Fun] : [Any]
   Graph-[Fun] = (2a : [Dup2] 2A) → Graph.[Fun] (R1 2a > R2 2a)

@@ -16,3 +16,11 @@ record [Ob] : [Any] where
   open :[Ob]
   field El : [Any]
   field To : :To El
+
+open [Ob]
+
+-- the (Opp)osite Graph
+module _ (A : [Ob]) where
+  To-Opp : [Ob]
+  To-Opp .El = A .El
+  To-Opp .To = Any.Rel-Op _ (A .To)

@@ -9,14 +9,14 @@ module 2-Dim-Pre.PoSet-Qu.Def-Types.Obj where
 --
 module _ (Ob : [Any]) where
   -- type of 1-cells
-  [is-Obj] = Matr.[PoSet] (2~ Ob)
+  :Hom = Matr.[PoSet] (2~ Ob)
 
 record [Obj] : [Any] where
   constructor ‼
 
   -- cell types:
   field Ob  : [Any]
-  field Hom : [is-Obj] Ob
+  field Hom : :Hom Ob
 
   -- helper:
   private module Hom (2ob : [2~] Ob) = PoSet.[Ob] (Hom 2ob)
@@ -29,3 +29,21 @@ record [Obj] : [Any] where
       is   to Hom-is;
       refl to Hom-refl;
       tran to Hom-tran )
+
+module _ (O : [Any]) where
+  Hom-Opp-Hom : :Hom O → :Hom O
+  Hom-Opp-Hom Hom = Matr.PoSet-Hom-Opp _ Hom
+
+  To-Opp-Hom : :Hom O → :Hom O
+  To-Opp-Hom Hom = Matr.PoSet-To-Opp _ Hom
+
+module _ where
+  open [Obj]
+
+  Hom-Opp : [Obj] → [Obj]
+  Hom-Opp Qu .Ob  = Qu .Ob
+  Hom-Opp Qu .Hom = Hom-Opp-Hom _ (Qu .Hom)
+
+  To-Opp : [Obj] → [Obj]
+  To-Opp Qu .Ob  = Qu .Ob
+  To-Opp Qu .Hom = To-Opp-Hom _ (Qu .Hom)
