@@ -7,8 +7,6 @@ import 2-Dim-Pre.PoSet-Qu.Def-Types.Obj as PoSet-Qu
 
 module 2-Dim.PoCat.Def-Types.is-Obj where
 
-open PoSet-Qu using (‼)
-
 :Hom = PoSet-Qu.:Hom
 
 module _ (Ob : [Any]) (Hom : :Hom Ob) where
@@ -108,9 +106,6 @@ record [is-Obj] (Ob : [Any]) : [Any] where
       tran to Hom-tran )
   open [Obj-oper] oper public
   open [Obj-prop] prop public
-
-  Qu : PoSet-Qu.[Obj]
-  Qu = ‼ Ob Hom
 
 Hom-Opp-Hom = PoSet-Qu.Hom-Opp-Hom
 To-Opp-Hom  = PoSet-Qu.To-Opp-Hom

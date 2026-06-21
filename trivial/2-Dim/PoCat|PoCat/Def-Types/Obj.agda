@@ -63,8 +63,7 @@ record [Obj] : [Any] where
       runit-fw to H-runit-fw;
       runit-bw to H-runit-bw;
       bunit-fw to H-bunit-fw;
-      bunit-bw to H-bunit-bw;
-      Qu       to H-Qu )
+      bunit-bw to H-bunit-bw )
 
   open PoCat.[is-Obj] V-is public
     using ()
@@ -89,8 +88,7 @@ record [Obj] : [Any] where
       runit-fw to V-runit-fw;
       runit-bw to V-runit-bw;
       bunit-fw to V-bunit-fw;
-      bunit-bw to V-bunit-bw;
-      Qu       to V-Qu )
+      bunit-bw to V-bunit-bw )
 
   open Matr.[PoSet|PoSet] H|V public
     using (H-lact; H-ract; V-lact; V-ract)

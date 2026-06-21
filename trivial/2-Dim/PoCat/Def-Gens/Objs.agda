@@ -40,8 +40,8 @@ Void .is .prop .bunit-bw ()
 
 module _ (AB @(A × B) : [2×] [Obj]) where
   Prod2 : [Obj]
-  Prod2     .Ob  = PoSet-Qu.Prod2 (Obj→Qu A × Obj→Qu B) .Ob
-  Prod2 .is .Hom = PoSet-Qu.Prod2 (Obj→Qu A × Obj→Qu B) .Hom
+  Prod2     .Ob  = PoSet-Qu.Prod2 (Qu A × Qu B) .Ob
+  Prod2 .is .Hom = PoSet-Qu.Prod2 (Qu A × Qu B) .Hom
   Prod2 .is .oper .Id _ = A .Id _ × B .Id _
   Prod2 .is .oper .Mu _ .↓ .f-el ((ahom12 × bhom12) × (ahom23 × bhom23)) =
     A .Mu _ .f-el (ahom12 × ahom23) × B .Mu _ .f-el (bhom12 × bhom23)
@@ -60,8 +60,8 @@ module _ (AB @(A × B) : [2×] [Obj]) where
 
 module _ (AB @(A + B) : [2×] [Obj]) where
   Summ2 : [Obj]
-  Summ2     .Ob  = PoSet-Qu.Summ2 (Obj→Qu A + Obj→Qu B) .Ob
-  Summ2 .is .Hom = PoSet-Qu.Summ2 (Obj→Qu A + Obj→Qu B) .Hom
+  Summ2     .Ob  = PoSet-Qu.Summ2 (Qu A + Qu B) .Ob
+  Summ2 .is .Hom = PoSet-Qu.Summ2 (Qu A + Qu B) .Hom
   Summ2 .is .oper .Id (↑₁ _) = A .Id _
   Summ2 .is .oper .Id (↑₂ _) = B .Id _
 
