@@ -37,14 +37,20 @@ module _ (A : [Ob]) ((! > R) : [!] [~] [Graph] (2~ A)) where
   Graph-[0-Fun] : [Any]
   Graph-[0-Fun] = (a : A) → R (2~ a) .El
 
+module _ (2A @(A ~ B) : [2~] [Ob])
+    (2R @(R1 ~ R2) : [Graph] (B ~ A) [~] [Graph] (A ~ B)) where
+  Graph-[S-Fun] : [Any]
+  Graph-[S-Fun] = (2a @(a ~ b) : [Dup2] 2A) →
+      Graph.[Fun] (R1 (b ~ a) > R2 (a ~ b))
+
 module _ (3A @(A ~ B ~ C) : [3~] [Ob])
-    (((Rab × Rbc) ~ Rac) : ([Graph] (A ~ B) [×] [Graph] (B ~ C)) [~] [Graph] (A ~ C)) where
+    (3R @((Rab × Rbc) ~ Rac) : ([Graph] (A ~ B) [×] [Graph] (B ~ C)) [~] [Graph] (A ~ C)) where
   Graph-[2P-Fun] : [Any]
   Graph-[2P-Fun] = (3a @(a ~ b ~ c) : [Dup3] 3A) →
       Graph.[2P-Fun] ((Rab (a ~ b) × Rbc (b ~ c)) > Rac (a ~ c))
 
 module _ (3A @(A ~ B ~ C) : [3~] [Ob])
-    (((Rab × Rbc) ~ Rac) : ([Graph] (A ~ B) [×] [Graph] (B ~ C)) [~] [Graph] (A ~ C)) where
+    (3R @((Rab × Rbc) ~ Rac) : ([Graph] (A ~ B) [×] [Graph] (B ~ C)) [~] [Graph] (A ~ C)) where
   Graph-[2T-Fun] : [Any]
   Graph-[2T-Fun] = (3a @(a ~ b ~ c) : [Dup3] 3A) →
       Graph.[2T-Fun] ((Rab (a ~ b) × Rbc (b ~ c)) > Rac (a ~ c))

@@ -1,0 +1,7 @@
+open import 2-Dim.DaggPoCat.Def-Types.is-Obj
+
+module 2-Dim.DaggPoCat.Def-Types-pub.is-Obj where
+
+open [Obj-oper] public
+open [Obj-prop] public
+open [is-Obj] public
