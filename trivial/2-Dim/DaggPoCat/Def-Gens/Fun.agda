@@ -32,6 +32,8 @@ module _ (2C @(A ~ B) : [2~] [Obj]) where
     Hom-Mu|Hom B _ _ _ (tr12 .n-hom-bw _ hom × tr23 .n-hom-bw _ hom )
   Fun .is .oper .Mu _ .↓ .f-to _ (to12 × to23) .↓ a =
     B .Mu _ .f-to _ (to12 .↓ a × to23 .↓ a)
+  Fun .is .oper .Dagg _ .↓ .f-el tr12 .n-ob a = B .Dagg _ .f-el (tr12 .n-ob a)
+  Fun .is .oper .Dagg _ .↓ .f-el tr12 .n-hom-fw _ hom .↓ = tr12 .n-hom-bw _ (B .Dagg _ .f-to _ hom) .↓
   Fun .is .prop .assoc-fw _ (tr12 × tr23 × tr34) .↓ a =
     B .assoc-fw _ (tr12 .n-ob a × tr23 .n-ob a × tr34 .n-ob a)
   Fun .is .prop .assoc-bw _ (tr12 × tr23 × tr34) .↓ a =
@@ -42,3 +44,7 @@ module _ (2C @(A ~ B) : [2~] [Obj]) where
   Fun .is .prop .runit-bw _ tr12 .↓ a = B .runit-bw _ (tr12 .n-ob a)
   Fun .is .prop .bunit-fw _ .↓ a = B .bunit-fw _
   Fun .is .prop .bunit-bw _ .↓ a = B .bunit-bw _
+  -- Fun .is .prop .id-dagg-fw ob
+  -- Fun .is .prop .id-dagg-bw ob
+  -- Fun .is .prop .mu-dagg-fw 3ob 2hom
+  -- Fun .is .prop .mu-dagg-bw 3ob 2hom

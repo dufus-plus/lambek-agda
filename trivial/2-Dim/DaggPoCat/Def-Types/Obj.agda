@@ -24,7 +24,7 @@ record [Obj] : [Any] where
   Qu = ‼ Ob Hom
 
 open [Obj] public
-  using (Qu)
+  using (Qu; is-PoCat)
 
 -- define opposites here
 

@@ -4,6 +4,7 @@ import 1-Dim.PoSet.Def-Types as PoSet
 open import 1-Dim.PoSet.Def-Types-pub.Fun
 open import 1-Dim.Graph.Def-Types-pub.Fun
 import 2-Dim-Pre.PoSet-Qu.Def-Types.Obj as PoSet-Qu
+import 2-Dim.PoCat.Def-Types.is-Obj as PoCat
 
 module 2-Dim.DaggPoCat.Def-Types.is-Obj where
 
@@ -132,6 +133,23 @@ record [is-Obj] (Ob : [Any]) : [Any] where
       tran to Hom-tran )
   open [Obj-oper] oper public
   open [Obj-prop] prop public
+
+  is-PoCat : PoCat.[is-Obj] Ob
+  is-PoCat = record where
+    Hom = Hom
+    oper = record where
+      Id = Id
+      Mu = Mu
+    prop = record where
+      assoc-fw = assoc-fw
+      assoc-bw = assoc-bw
+      lunit-fw = lunit-fw
+      lunit-bw = lunit-bw
+      runit-fw = runit-fw
+      runit-bw = runit-bw
+      bunit-fw = bunit-fw
+      bunit-bw = bunit-bw
+     
 
 Hom-Opp-Hom = PoSet-Qu.Hom-Opp-Hom
 To-Opp-Hom  = PoSet-Qu.To-Opp-Hom

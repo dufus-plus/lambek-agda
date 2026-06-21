@@ -4,8 +4,8 @@ open import 2-Dim.DaggPoCat.Def-Types
 open import 2-Dim.DaggPoCat.Def-Types-pub
 import 2-Dim-Pre.Matr.Def-Types as Matr
 open import 2-Dim-Pre.Matr.Def-Types-pub
-import 2-Dim.DaggPoCat|DaggPoCat.Def-Types.is-Obj as DaggPoCat|DaggPoCat
-open import 2-Dim.DaggPoCat|DaggPoCat.Def-Types-pub.is-Obj
+import 2-Dim.PoCat|PoCat.Def-Types.is-Obj as PoCat|PoCat
+open import 2-Dim.PoCat|PoCat.Def-Types-pub.is-Obj
 
 module 2-Dim.DaggPoCat.Def-Opers.Hom|Hom where
 
@@ -28,7 +28,7 @@ module _
     R|R .V-ract _ (v1 ~ v2) _ (h|v1 × hto2) .↓ =
       C.Hom-tran _ _ (C.Mu-to _ _ (C.Hom-refl _ v1 × hto2) × h|v1 .↓)
 
-  open DaggPoCat|DaggPoCat.:[is-Obj] C.Ob C'.is C.is Hom|Hom.R|R
+  open PoCat|PoCat.:[is-Obj] C.Ob C'.is-PoCat C.is-PoCat Hom|Hom.R|R
 
   Hom-Id|Hom : :H-Id|V
   Hom|Hom-Id : :H|V-Id
@@ -83,7 +83,7 @@ module _
       ( hv .↓ ×
         C.runit-bw _ h1 ) )
 
-  Hom|Hom-is-PC|PC : DaggPoCat|DaggPoCat.[is-Obj] C.Ob C'.is C.is Hom|Hom.R|R
+  Hom|Hom-is-PC|PC : PoCat|PoCat.[is-Obj] C.Ob C'.is-PoCat C.is-PoCat Hom|Hom.R|R
 
   Hom|Hom-is-PC|PC .H-Id|V = Hom-Id|Hom
   Hom|Hom-is-PC|PC .H|V-Id = Hom|Hom-Id
