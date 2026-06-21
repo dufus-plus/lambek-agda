@@ -18,3 +18,21 @@ record [Obj] : [Any] where
 
   -- helpers:
   open [is-Obj] is public
+
+  Qu : Set-Qu.[Obj]
+  Qu = ‼ Ob Hom
+
+open [Obj] public
+  using (Qu)
+
+-- define opposites here
+
+open [Obj]
+
+Hom-Opp : [Obj] → [Obj]
+Hom-Opp C .Ob = C .Ob
+Hom-Opp C .is = Hom-Opp-is _ (C .is)
+
+To-Opp : [Obj] → [Obj]
+To-Opp C .Ob = C .Ob
+To-Opp C .is = To-Opp-is _ (C .is)
