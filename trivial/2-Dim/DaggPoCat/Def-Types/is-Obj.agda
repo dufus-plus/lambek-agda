@@ -92,6 +92,14 @@ module _ (Ob : [Any]) (Hom : :Hom Ob) where
       (3ob @(ob1 ~ ob2 ~ ob3) : [3~] Ob)
       (2hom @ (hom12 × hom23) : Hom.El (ob1 ~ ob2) [×] Hom.El (ob2 ~ ob3)) →
       Hom.To _ (Dagg-el _ (Mu-el _ 2hom) ~ Mu-el _ (Dagg-el _ hom23 × Dagg-el _ hom12))
+    :dagg2-id-fw =
+      (2ob @(ob1 ~ ob2) : [2~] Ob)
+      (hom : Hom.El (ob1 ~ ob2)) →
+      Hom.To _ (Dagg-el _ (Dagg-el _ hom) ~ hom)
+    :dagg2-id-bw =
+      (2ob @(ob1 ~ ob2) : [2~] Ob)
+      (hom : Hom.El (ob1 ~ ob2)) →
+      Hom.To _ (hom ~ Dagg-el _ (Dagg-el _ hom))
 
   module _ (oper : [Obj-oper]) where
     record [Obj-prop] : [Any] where
@@ -111,6 +119,8 @@ module _ (Ob : [Any]) (Hom : :Hom Ob) where
       field id-dagg-bw : :id-dagg-bw
       field mu-dagg-fw : :mu-dagg-fw
       field mu-dagg-bw : :mu-dagg-bw
+      field dagg2-id-fw : :dagg2-id-fw
+      field dagg2-id-bw : :dagg2-id-bw
 
 record [is-Obj] (Ob : [Any]) : [Any] where
   constructor ‼
@@ -149,7 +159,6 @@ record [is-Obj] (Ob : [Any]) : [Any] where
       runit-bw = runit-bw
       bunit-fw = bunit-fw
       bunit-bw = bunit-bw
-     
 
 Hom-Opp-Hom = PoSet-Qu.Hom-Opp-Hom
 To-Opp-Hom  = PoSet-Qu.To-Opp-Hom
@@ -187,6 +196,8 @@ module _ (Ob : [Any]) (Hom : :Hom Ob) (oper : [Obj-oper] Ob Hom) where
   Hom-Opp-prop prop .id-dagg-bw _ = prop .id-dagg-bw _
   Hom-Opp-prop prop .mu-dagg-fw _ (h12 × h23) = prop .mu-dagg-fw _ (h23 × h12)
   Hom-Opp-prop prop .mu-dagg-bw _ (h12 × h23) = prop .mu-dagg-bw _ (h23 × h12)
+  Hom-Opp-prop prop .dagg2-id-fw _ h12 = prop .dagg2-id-fw _ h12
+  Hom-Opp-prop prop .dagg2-id-bw _ h12 = prop .dagg2-id-bw _ h12
 
   To-Opp-prop : [Obj-prop] _ _ oper → [Obj-prop] _ _ (To-Opp-oper _ _ oper)
   To-Opp-prop prop .assoc-fw   = prop .assoc-bw
@@ -201,6 +212,8 @@ module _ (Ob : [Any]) (Hom : :Hom Ob) (oper : [Obj-oper] Ob Hom) where
   To-Opp-prop prop .id-dagg-bw = prop .id-dagg-fw
   To-Opp-prop prop .mu-dagg-fw = prop .mu-dagg-bw
   To-Opp-prop prop .mu-dagg-bw = prop .mu-dagg-fw
+  To-Opp-prop prop .dagg2-id-fw = prop .dagg2-id-bw
+  To-Opp-prop prop .dagg2-id-bw = prop .dagg2-id-fw
 
 module _ (Ob : [Any]) where
   open [is-Obj]
